@@ -1,0 +1,6 @@
+{
+  "engine": "eraJS",
+  "commit": "fb487bceacd899a033db017ff0dff5bb3878d4a5",
+  "note": "Rebundled upstream release JavaScript, not a TypeScript source rebuild; not an iPhone certification.",
+  "sha256": "d5cd783f6e68d8a7f94d5dbd674fef42688c379d3062b11d6f11223d9e3c8752"
+}

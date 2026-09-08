@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko" data-pwa="true">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; worker-src 'self'; style-src 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'none'">
+<title>eraTHYMKR — 로컬 웹 실행 시험</title>
+<meta name="theme-color" content="#151821">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="era 시험">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<style>
+*{box-sizing:border-box}html{background:#151821;color:#eee;scroll-padding-bottom:calc(var(--composer-height,150px) + var(--keyboard,0px) + 16px)}body{max-width:65rem;margin:0 auto;padding:env(safe-area-inset-top) max(.6rem,env(safe-area-inset-right)) calc(var(--composer-height,150px) + var(--keyboard,0px) + 16px) max(.6rem,env(safe-area-inset-left));font:16px/1.6 system-ui}h1{font-size:1.1rem;margin:.5rem 0}h2{font-size:1rem}button,input{font:inherit;padding:.55rem;margin:.15rem;min-height:44px}button{cursor:pointer;color:#eee;background:#252c3a;border:1px solid #657082;border-radius:.3rem}button:disabled{cursor:default;opacity:.55}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #76baff}summary{cursor:pointer;padding:.55rem 0;min-height:44px}details{border-bottom:1px solid #353d4c}details p{margin:.4rem 0}#game-start{background:#bce3ff;color:#111;border:2px solid #76baff}#output{white-space:pre-wrap;overflow-wrap:anywhere;min-height:12rem;padding:.5rem 0;font-family:monospace}#output button{background:transparent;border:1px solid #555;text-align:inherit;white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;min-width:44px;line-height:1.4}#composer{position:fixed;bottom:var(--keyboard,0px);left:0;right:0;z-index:2;max-width:65rem;margin:auto;padding:.25rem max(.6rem,env(safe-area-inset-right)) max(.25rem,env(safe-area-inset-bottom)) max(.6rem,env(safe-area-inset-left));background:#151821;border-top:1px solid #657082}#composer-tools{display:flex;align-items:center;gap:.25rem;flex-wrap:wrap}#status{flex:1;margin:0;font-size:.85rem;color:#b9c5d4}#latest{font-size:.85rem}form{display:flex;align-items:center;margin:0}form input{min-width:0;width:0;flex:1}form label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}#error{white-space:pre-wrap;overflow-wrap:anywhere;color:#ffb5b5}#notice{color:#ffe09a;overflow-wrap:anywhere}#notice:empty,#error:empty{display:none}#pwa-status{overflow-wrap:anywhere}.muted{color:#b9c5d4}a{color:#bce3ff}
+</style>
+<header>
+<h1>eraTHYMKR · 웹 실행 시험</h1>
+<button id="game-start">실제 게임 시작 / 타이틀로</button>
+<details id="pwa-help"><summary>iPhone 설치 · 오프라인 안내</summary><p>HTTPS 주소를 Safari로 열고 공유 → 홈 화면에 추가하세요. 홈 화면 앱을 연 뒤 아래 준비 버튼을 누르고 완료를 기다리세요. Safari 탭과 홈 화면 앱의 저장소가 같다고 가정하지 마세요.</p><button id="offline-prepare" disabled>오프라인 준비 / 업데이트 확인</button><p id="pwa-status" role="status">PWA 확인 중</p><p class="muted">iOS가 캐시·저장을 삭제할 수 있습니다. 준비 완료는 영구 보존을 보장하지 않습니다. 업데이트는 모든 실행기 탭/홈 화면 앱을 닫은 후 적용됩니다. 저장 후 닫으세요.</p></details>
+<details id="backup-help"><summary>세이브 백업 · 복원</summary>
+<p>게임 안에서 저장 완료를 확인한 뒤 실행 정보 → 실행 중지를 누르세요. 저장한 슬롯과 공통 데이터를 한 파일로 보관합니다. 저장하지 않은 진행은 포함되지 않습니다.</p>
+<button id="backup-export">백업 파일 만들기</button>
+<a id="backup-download" hidden>백업 파일 다운로드</a><button id="backup-share" hidden>공유 · 파일에 저장</button>
+<p><label for="backup-file">복원할 웹판 백업 .json.gz (최대 64 MiB)</label><br><input id="backup-file" type="file" accept=".gz,.json,application/gzip,application/json" style="max-width:100%"></p>
+<button id="backup-restore">선택한 백업으로 전체 복원</button>
+<p id="backup-status" role="status">백업 파일은 기기 안에서 처리하며 서버에 업로드하지 않습니다.</p>
+<p class="muted">압축 백업은 iOS 16.4 이상이 필요합니다. 압축 전 256 MiB까지 지원하며 큰 백업은 잠시 시간이 걸릴 수 있습니다. 복원은 현재 게임의 모든 저장을 교체합니다. 먼저 현재 저장을 파일로 보관하세요. 이 웹판 전용이며 PC .sav 호환은 지원하지 않습니다. 다른 탭/홈 화면 앱은 저장 후 닫으세요. 특히 이전 버전 탭은 동시 실행 보호 대상이 아닙니다.</p>
+</details>
+<details id="runtime-help"><summary>실행 정보 · 저장 주의사항</summary>
+<h2 id="session">실제 게임 시작을 눌러주세요</h2>
+<p id="saved" class="muted">이번 세션 저장 완료 기록 없음</p>
+<button id="stop">실행 중지</button>
+<p>후보 엔진 eraJS를 사용한 iPhone 시험용이며 완전 호환은 보장하지 않습니다. 원본 파일은 수정하지 않습니다.</p>
+<p class="muted">저장은 이 주소의 IndexedDB에 보관됩니다. 백업 메뉴에서 주기적으로 파일에 보관하세요. 최신 실행기는 같은 주소에서 게임과 복원이 겹치지 않게 보호합니다. 저장 중 새로고침/중지는 피하세요. 설정 파일과 일부 KR 확장은 아직 검증하지 않았습니다.</p>
+<a href="eraJS-LICENSE.txt">eraJS MIT 라이선스</a>
+<p class="muted">게임 텍스트·시스템 © 참치넷(파라디클로로벤젠) 외. 라이선스 CC BY-NC-ND (비상업 · 무단 2차 가공 금지). 출처: 참치넷 / GitHub eraTHYMKR. 이 웹 실행판은 개인 시험용이며 상업적 이용·무단 재배포를 하지 마세요.</p>
+</details>
+<details id="fixture-help"><summary>독립 엔진 시험</summary><button id="start">시험 시작 / 새 세션</button><p>0 → 정수 → 한국어 문자열로 저장. 새로고침 후 시험 시작 → 1로 복원합니다. 게임 저장과 분리됩니다.</p></details>
+</header>
+<main>
+<div id="output" aria-label="게임 출력"></div>
+<p id="notice" role="alert"></p>
+<pre id="error" role="alert"></pre>
+</main>
+<div id="composer" aria-label="게임 입력">
+<div id="composer-tools"><p id="status" role="status">대기</p><button id="continue" type="button" hidden disabled>계속 ▶</button><button id="latest" type="button">최신 출력으로</button></div>
+<form><label for="input">입력</label><input id="input" autocomplete="off" disabled><button id="submit" disabled>전송</button></form>
+</div>
+<script type="module" src="browser.js"></script>
+</html>

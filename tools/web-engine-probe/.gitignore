@@ -1,0 +1,3 @@
+node_modules/
+dist/
+# pwa-dist/ is the deploy artifact published to GitHub Pages; keep it tracked.

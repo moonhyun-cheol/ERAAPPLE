@@ -1,0 +1,20 @@
+{
+  "release": "8d8ec5bf54ee9f0ab1f0",
+  "bytes": 11689307,
+  "assets": {
+    "index.html": "ff69a1092e9727e2761a486ee23dc454e3df93a0268123f1c0058805f7eefc3a",
+    "browser.js": "d5cd783f6e68d8a7f94d5dbd674fef42688c379d3062b11d6f11223d9e3c8752",
+    "engine-worker.js": "86a2dbb9926c334605fe1eff8f62d3aa1676f8d9ac1f5662814d5c8369a95bef",
+    "eraJS-LICENSE.txt": "acbd9f2b463cd3431927837baf8abfc42f9b848e7d8732a5cebfd6cbeaf4c79f",
+    "build.json": "48016419a512cef197d91016acc6a7017cada5b7b84c55c1a0524222fde54d10",
+    "local-game.bin": "752a58540d14111461c555f71755e274f81616b4a08472ef68ebbce44200458a",
+    "manifest.webmanifest": "559c19ff906d1e855a0b1e6a963709b338931c5c2a880618903bafe9df7b1cb8",
+    "icon-180.png": "653bd2e4ba3b5b8e2468df9a11d2d168c8f38f5296ff794dce5d594aa2175dbb",
+    "icon-192.png": "beda65ebe09ef25ed5a8ff5f8fa5a7843577973e6a1291f904be1819a50cf292",
+    "icon-512.png": "70b388b895bfe355fdf5b4fa3522344d7abb91883d0b48fcb98b35a8c6315570"
+  },
+  "originalCount": 1151,
+  "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+  "iPhoneTested": false,
+  "note": "Private static test artifact; check game and bundled dependency rights before distribution."
+}
