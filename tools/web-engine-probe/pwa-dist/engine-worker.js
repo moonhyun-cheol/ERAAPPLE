@@ -9610,8 +9610,33 @@ self.onmessage = async ({ data }) => {
       if (game) {
         const response = await fetch("./local-game.bin");
         if (!response.ok) throw new Error("Local game endpoint: HTTP " + response.status);
-        const stream = response.body.pipeThrough(new DecompressionStream("gzip"));
-        source = new Map((await new Response(stream).json()).files);
+        const reader = response.body.pipeThrough(new DecompressionStream("gzip")).pipeThrough(new TextDecoderStream()).getReader();
+        source = /* @__PURE__ */ new Map();
+        let buffer = "", header = null;
+        for (; ; ) {
+          const { value, done } = await reader.read();
+          if (value) buffer += value;
+          let nl;
+          while ((nl = buffer.indexOf("\n")) >= 0) {
+            const line = buffer.slice(0, nl);
+            buffer = buffer.slice(nl + 1);
+            if (!line) continue;
+            if (!header) {
+              header = JSON.parse(line);
+              continue;
+            }
+            const entry = JSON.parse(line);
+            source.set(entry[0], entry[1]);
+          }
+          if (done) break;
+        }
+        const tail = buffer.trim();
+        if (tail) {
+          const entry = JSON.parse(tail);
+          source.set(entry[0], entry[1]);
+        }
+        if (!header || source.size !== header.count)
+          throw new Error("Local game bundle incomplete: " + source.size + "/" + (header?.count ?? "?"));
       }
       const store = createStore(game ? "era-game-eraTHYMKR-erajs-v1" : "era-engine-probe-v1");
       vm = compile(source);
