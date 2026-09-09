@@ -1,0 +1,220 @@
+{
+  "passed": true,
+  "generatedAt": "2026-09-09T07:30:06.734Z",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "representation": "Assign omits the eager undefined inner own-property; first execution creates the same typed inner statement as upstream.",
+  "memory": {
+    "baselineBytes": 277923024,
+    "compactBytes": 277043696,
+    "savedBytes": 879328,
+    "savedMiB": 0.839
+  },
+  "payloadCounts": {
+    "count": 109513,
+    "ownInner": 0,
+    "absentInner": 109513,
+    "compiledInner": 0
+  },
+  "baseline": {
+    "engine": "engine-compact-ir-labels-lazy-slice-paged-statements-printform-static.mjs",
+    "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+    "before": {
+      "label": "before-compile",
+      "natural": {
+        "label": "before-compile",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 98527960,
+          "heapTotal": 217661440,
+          "rss": 267563008,
+          "external": 13653785,
+          "arrayBuffers": 1877642
+        },
+        "mib": {
+          "heapUsed": 93.964,
+          "heapTotal": 207.578,
+          "rss": 255.168,
+          "external": 13.021,
+          "arrayBuffers": 1.791
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "before-compile",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 87614272,
+          "heapTotal": 224215040,
+          "rss": 269869056,
+          "external": 13653825,
+          "arrayBuffers": 1393365
+        },
+        "mib": {
+          "heapUsed": 83.555,
+          "heapTotal": 213.828,
+          "rss": 257.367,
+          "external": 13.021,
+          "arrayBuffers": 1.329
+        },
+        "details": {}
+      }
+    },
+    "compiled": {
+      "label": "compiled-source-released",
+      "natural": {
+        "label": "compiled-source-released",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 445846984,
+          "heapTotal": 557707264,
+          "rss": 634126336,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 425.193,
+          "heapTotal": 531.871,
+          "rss": 604.75,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "compiled-source-released",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 277923024,
+          "heapTotal": 421625856,
+          "rss": 497975296,
+          "external": 11803688,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 265.048,
+          "heapTotal": 402.094,
+          "rss": 474.906,
+          "external": 11.257,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      }
+    },
+    "payloads": {
+      "count": 109513,
+      "ownInner": 109513,
+      "absentInner": 0,
+      "compiledInner": 0
+    }
+  },
+  "compact": {
+    "engine": "engine-compact-ir-labels-lazy-slice-paged-statements-printform-static-assign.mjs",
+    "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+    "before": {
+      "label": "before-compile",
+      "natural": {
+        "label": "before-compile",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 98265584,
+          "heapTotal": 217661440,
+          "rss": 267415552,
+          "external": 13617441,
+          "arrayBuffers": 1841298
+        },
+        "mib": {
+          "heapUsed": 93.713,
+          "heapTotal": 207.578,
+          "rss": 255.027,
+          "external": 12.987,
+          "arrayBuffers": 1.756
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "before-compile",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 87614440,
+          "heapTotal": 224215040,
+          "rss": 268001280,
+          "external": 13617481,
+          "arrayBuffers": 966054
+        },
+        "mib": {
+          "heapUsed": 83.556,
+          "heapTotal": 213.828,
+          "rss": 255.586,
+          "external": 12.987,
+          "arrayBuffers": 0.921
+        },
+        "details": {}
+      }
+    },
+    "compiled": {
+      "label": "compiled-source-released",
+      "natural": {
+        "label": "compiled-source-released",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 434081008,
+          "heapTotal": 557182976,
+          "rss": 634912768,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 413.972,
+          "heapTotal": 531.371,
+          "rss": 605.5,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "compiled-source-released",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 277043696,
+          "heapTotal": 421101568,
+          "rss": 498671616,
+          "external": 11803688,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 264.209,
+          "heapTotal": 401.594,
+          "rss": 475.57,
+          "external": 11.257,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      }
+    },
+    "payloads": {
+      "count": 109513,
+      "ownInner": 0,
+      "absentInner": 109513,
+      "compiledInner": 0
+    }
+  },
+  "limitations": [
+    "Compile-only forced-GC Node samples are not browser/iPhone memory peaks.",
+    "Executed Assign objects transition to the original raw+inner shape; lifecycle impact is measured separately.",
+    "Inner assignment statements and expression trees are unchanged."
+  ],
+  "originalUnchanged": true
+}

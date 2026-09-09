@@ -1,0 +1,755 @@
+{
+  "passed": true,
+  "generatedAt": "2026-09-09T05:35:40.267Z",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "parameters": {
+    "shapes": {
+      "linear1d": [
+        120000
+      ],
+      "grid2d": [
+        1200,
+        500
+      ],
+      "cube3d": [
+        120,
+        120,
+        40
+      ]
+    },
+    "pageSizes": [
+      64,
+      128,
+      256,
+      512
+    ],
+    "densities": {
+      "sparse": 0.001,
+      "medium": 0.02,
+      "dense": 0.3
+    },
+    "defaultPage": 256,
+    "denseThreshold": 0.75,
+    "benchBudgetMs": 60,
+    "heapSampling": "median-of-3 forced-GC deltas"
+  },
+  "matrix": {
+    "linear1d": {
+      "page-64": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 120,
+          "memory": {
+            "baseBytes": 960064,
+            "pagedBytes": 964352,
+            "savedBytes": -4288,
+            "savedMiB": -0.004,
+            "ratio": 1.004,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 120
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 2400,
+          "memory": {
+            "baseBytes": 963184,
+            "pagedBytes": 963736,
+            "savedBytes": -552,
+            "savedMiB": -0.001,
+            "ratio": 1.001,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 2400
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 36000,
+          "memory": {
+            "baseBytes": 957008,
+            "pagedBytes": 972008,
+            "savedBytes": -15000,
+            "savedMiB": -0.014,
+            "ratio": 1.016,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 36000
+          }
+        }
+      },
+      "page-128": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 120,
+          "memory": {
+            "baseBytes": 960064,
+            "pagedBytes": 962136,
+            "savedBytes": -2072,
+            "savedMiB": -0.002,
+            "ratio": 1.002,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 120
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 2400,
+          "memory": {
+            "baseBytes": 960064,
+            "pagedBytes": 962136,
+            "savedBytes": -2072,
+            "savedMiB": -0.002,
+            "ratio": 1.002,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 2400
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 36000,
+          "memory": {
+            "baseBytes": 960064,
+            "pagedBytes": 968920,
+            "savedBytes": -8856,
+            "savedMiB": -0.008,
+            "ratio": 1.009,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 36000
+          }
+        }
+      },
+      "page-256": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 120,
+          "memory": {
+            "baseBytes": 960064,
+            "pagedBytes": 962136,
+            "savedBytes": -2072,
+            "savedMiB": -0.002,
+            "ratio": 1.002,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 120
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 2400,
+          "memory": {
+            "baseBytes": 960064,
+            "pagedBytes": 962136,
+            "savedBytes": -2072,
+            "savedMiB": -0.002,
+            "ratio": 1.002,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 2400
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 36000,
+          "memory": {
+            "baseBytes": 960064,
+            "pagedBytes": 968920,
+            "savedBytes": -8856,
+            "savedMiB": -0.008,
+            "ratio": 1.009,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 36000
+          }
+        }
+      },
+      "page-512": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 120,
+          "memory": {
+            "baseBytes": 960064,
+            "pagedBytes": 962136,
+            "savedBytes": -2072,
+            "savedMiB": -0.002,
+            "ratio": 1.002,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 120
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 2400,
+          "memory": {
+            "baseBytes": 960064,
+            "pagedBytes": 962136,
+            "savedBytes": -2072,
+            "savedMiB": -0.002,
+            "ratio": 1.002,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 2400
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 36000,
+          "memory": {
+            "baseBytes": 960064,
+            "pagedBytes": 968920,
+            "savedBytes": -8856,
+            "savedMiB": -0.008,
+            "ratio": 1.009,
+            "pages": 0,
+            "allocatedSlots": 120000,
+            "nonDefault": 36000
+          }
+        }
+      }
+    },
+    "grid2d": {
+      "page-64": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 600,
+          "memory": {
+            "baseBytes": 4867264,
+            "pagedBytes": 524984,
+            "savedBytes": 4342280,
+            "savedMiB": 4.141,
+            "ratio": 0.108,
+            "pages": 600,
+            "allocatedSlots": 38400,
+            "nonDefault": 600
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 12000,
+          "memory": {
+            "baseBytes": 4867264,
+            "pagedBytes": 5649808,
+            "savedBytes": -782544,
+            "savedMiB": -0.746,
+            "ratio": 1.161,
+            "pages": 0,
+            "allocatedSlots": 600000,
+            "nonDefault": 12000
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 180000,
+          "memory": {
+            "baseBytes": 4867264,
+            "pagedBytes": 5662104,
+            "savedBytes": -794840,
+            "savedMiB": -0.758,
+            "ratio": 1.163,
+            "pages": 0,
+            "allocatedSlots": 600000,
+            "nonDefault": 180000
+          }
+        }
+      },
+      "page-128": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 600,
+          "memory": {
+            "baseBytes": 4869016,
+            "pagedBytes": 834752,
+            "savedBytes": 4034264,
+            "savedMiB": 3.847,
+            "ratio": 0.171,
+            "pages": 600,
+            "allocatedSlots": 76800,
+            "nonDefault": 600
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 12000,
+          "memory": {
+            "baseBytes": 4867264,
+            "pagedBytes": 5658096,
+            "savedBytes": -790832,
+            "savedMiB": -0.754,
+            "ratio": 1.162,
+            "pages": 0,
+            "allocatedSlots": 600000,
+            "nonDefault": 12000
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 180000,
+          "memory": {
+            "baseBytes": 4867264,
+            "pagedBytes": 5662848,
+            "savedBytes": -795584,
+            "savedMiB": -0.759,
+            "ratio": 1.163,
+            "pages": 0,
+            "allocatedSlots": 600000,
+            "nonDefault": 180000
+          }
+        }
+      },
+      "page-256": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 600,
+          "memory": {
+            "baseBytes": 4867264,
+            "pagedBytes": 1449152,
+            "savedBytes": 3418112,
+            "savedMiB": 3.26,
+            "ratio": 0.298,
+            "pages": 600,
+            "allocatedSlots": 153600,
+            "nonDefault": 600
+          },
+          "timings": {
+            "write": {
+              "baseMs": 1.31675,
+              "pagedMs": 1.78158,
+              "ratio": 1.35
+            },
+            "readIndex": {
+              "baseMs": 2.15117,
+              "pagedMs": 153.5005,
+              "ratio": 71.36
+            },
+            "readIterate": {
+              "baseMs": 2.32054,
+              "pagedMs": 18.60237,
+              "ratio": 8.02
+            },
+            "serialize": {
+              "baseMs": 72.4551,
+              "pagedMs": 218.9994,
+              "ratio": 3.02
+            }
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 12000,
+          "memory": {
+            "baseBytes": 4867264,
+            "pagedBytes": 5649296,
+            "savedBytes": -782032,
+            "savedMiB": -0.746,
+            "ratio": 1.161,
+            "pages": 0,
+            "allocatedSlots": 600000,
+            "nonDefault": 12000
+          },
+          "timings": {
+            "write": {
+              "baseMs": 2.15015,
+              "pagedMs": 20.62403,
+              "ratio": 9.59
+            },
+            "readIndex": {
+              "baseMs": 5.76995,
+              "pagedMs": 126.9664,
+              "ratio": 22
+            },
+            "readIterate": {
+              "baseMs": 8.74343,
+              "pagedMs": 16.01478,
+              "ratio": 1.83
+            },
+            "serialize": {
+              "baseMs": 75.518,
+              "pagedMs": 212.031,
+              "ratio": 2.81
+            }
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 180000,
+          "memory": {
+            "baseBytes": 4867264,
+            "pagedBytes": 5670632,
+            "savedBytes": -803368,
+            "savedMiB": -0.766,
+            "ratio": 1.165,
+            "pages": 0,
+            "allocatedSlots": 600000,
+            "nonDefault": 180000
+          },
+          "timings": {
+            "write": {
+              "baseMs": 5.11008,
+              "pagedMs": 222.1552,
+              "ratio": 43.47
+            },
+            "readIndex": {
+              "baseMs": 7.50408,
+              "pagedMs": 141.62,
+              "ratio": 18.87
+            },
+            "readIterate": {
+              "baseMs": 10.1127,
+              "pagedMs": 18.82385,
+              "ratio": 1.86
+            },
+            "serialize": {
+              "baseMs": 107.7941,
+              "pagedMs": 212.738,
+              "ratio": 1.97
+            }
+          }
+        }
+      },
+      "page-512": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 600,
+          "memory": {
+            "baseBytes": 4867264,
+            "pagedBytes": 2824408,
+            "savedBytes": 2042856,
+            "savedMiB": 1.948,
+            "ratio": 0.58,
+            "pages": 0,
+            "allocatedSlots": 300000,
+            "nonDefault": 600
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 12000,
+          "memory": {
+            "baseBytes": 4867264,
+            "pagedBytes": 5631496,
+            "savedBytes": -764232,
+            "savedMiB": -0.729,
+            "ratio": 1.157,
+            "pages": 0,
+            "allocatedSlots": 600000,
+            "nonDefault": 12000
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 180000,
+          "memory": {
+            "baseBytes": 4867264,
+            "pagedBytes": 5662816,
+            "savedBytes": -795552,
+            "savedMiB": -0.759,
+            "ratio": 1.163,
+            "pages": 0,
+            "allocatedSlots": 600000,
+            "nonDefault": 180000
+          }
+        }
+      }
+    },
+    "cube3d": {
+      "page-64": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 576,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 604800,
+            "savedBytes": 4816384,
+            "savedMiB": 4.593,
+            "ratio": 0.112,
+            "pages": 0,
+            "allocatedSlots": 23040,
+            "nonDefault": 576
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 11520,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 11672120,
+            "savedBytes": -6250936,
+            "savedMiB": -5.961,
+            "ratio": 2.153,
+            "pages": 0,
+            "allocatedSlots": 460800,
+            "nonDefault": 11520
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 172800,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 14349512,
+            "savedBytes": -8928328,
+            "savedMiB": -8.515,
+            "ratio": 2.647,
+            "pages": 0,
+            "allocatedSlots": 576000,
+            "nonDefault": 172800
+          }
+        }
+      },
+      "page-128": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 576,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 620296,
+            "savedBytes": 4800888,
+            "savedMiB": 4.578,
+            "ratio": 0.114,
+            "pages": 0,
+            "allocatedSlots": 23040,
+            "nonDefault": 576
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 11520,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 11672120,
+            "savedBytes": -6250936,
+            "savedMiB": -5.961,
+            "ratio": 2.153,
+            "pages": 0,
+            "allocatedSlots": 460800,
+            "nonDefault": 11520
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 172800,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 14349512,
+            "savedBytes": -8928328,
+            "savedMiB": -8.515,
+            "ratio": 2.647,
+            "pages": 0,
+            "allocatedSlots": 576000,
+            "nonDefault": 172800
+          }
+        }
+      },
+      "page-256": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 576,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 620296,
+            "savedBytes": 4800888,
+            "savedMiB": 4.578,
+            "ratio": 0.114,
+            "pages": 0,
+            "allocatedSlots": 23040,
+            "nonDefault": 576
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 11520,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 11672120,
+            "savedBytes": -6250936,
+            "savedMiB": -5.961,
+            "ratio": 2.153,
+            "pages": 0,
+            "allocatedSlots": 460800,
+            "nonDefault": 11520
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 172800,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 14351112,
+            "savedBytes": -8929928,
+            "savedMiB": -8.516,
+            "ratio": 2.647,
+            "pages": 0,
+            "allocatedSlots": 576000,
+            "nonDefault": 172800
+          }
+        }
+      },
+      "page-512": {
+        "sparse": {
+          "fraction": 0.001,
+          "nonDefault": 576,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 620296,
+            "savedBytes": 4800888,
+            "savedMiB": 4.578,
+            "ratio": 0.114,
+            "pages": 0,
+            "allocatedSlots": 23040,
+            "nonDefault": 576
+          }
+        },
+        "medium": {
+          "fraction": 0.02,
+          "nonDefault": 11520,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 11672120,
+            "savedBytes": -6250936,
+            "savedMiB": -5.961,
+            "ratio": 2.153,
+            "pages": 0,
+            "allocatedSlots": 460800,
+            "nonDefault": 11520
+          }
+        },
+        "dense": {
+          "fraction": 0.3,
+          "nonDefault": 172800,
+          "memory": {
+            "baseBytes": 5421184,
+            "pagedBytes": 14351112,
+            "savedBytes": -8929928,
+            "savedMiB": -8.516,
+            "ratio": 2.647,
+            "pages": 0,
+            "allocatedSlots": 576000,
+            "nonDefault": 172800
+          }
+        }
+      }
+    }
+  },
+  "densification": [
+    {
+      "fraction": 0,
+      "nonDefault": 0,
+      "baseBytes": 4867264,
+      "pagedBytes": 11744,
+      "ratio": 0.002,
+      "savedMiB": 4.631,
+      "pages": 0,
+      "writeMs": 0
+    },
+    {
+      "fraction": 0.005,
+      "nonDefault": 3000,
+      "baseBytes": 4868296,
+      "pagedBytes": 5630848,
+      "ratio": 1.157,
+      "savedMiB": -0.727,
+      "pages": 0,
+      "writeMs": 10.87467
+    },
+    {
+      "fraction": 0.02,
+      "nonDefault": 12000,
+      "baseBytes": 4867264,
+      "pagedBytes": 5652224,
+      "ratio": 1.161,
+      "savedMiB": -0.749,
+      "pages": 0,
+      "writeMs": 24.56527
+    },
+    {
+      "fraction": 0.05,
+      "nonDefault": 30000,
+      "baseBytes": 4867264,
+      "pagedBytes": 5669048,
+      "ratio": 1.165,
+      "savedMiB": -0.765,
+      "pages": 0,
+      "writeMs": 41.6069
+    },
+    {
+      "fraction": 0.1,
+      "nonDefault": 60000,
+      "baseBytes": 4867264,
+      "pagedBytes": 5675088,
+      "ratio": 1.166,
+      "savedMiB": -0.77,
+      "pages": 0,
+      "writeMs": 83.1416
+    },
+    {
+      "fraction": 0.2,
+      "nonDefault": 120000,
+      "baseBytes": 4867264,
+      "pagedBytes": 5675088,
+      "ratio": 1.166,
+      "savedMiB": -0.77,
+      "pages": 0,
+      "writeMs": 161.3346
+    },
+    {
+      "fraction": 0.5,
+      "nonDefault": 300000,
+      "baseBytes": 4867264,
+      "pagedBytes": 5675088,
+      "ratio": 1.166,
+      "savedMiB": -0.77,
+      "pages": 0,
+      "writeMs": 322.8596
+    }
+  ],
+  "breakEven": {
+    "fraction": 0.005,
+    "nonDefault": 3000,
+    "baseBytes": 4868296,
+    "pagedBytes": 5630848,
+    "ratio": 1.157,
+    "savedMiB": -0.727,
+    "pages": 0,
+    "writeMs": 10.87467
+  },
+  "judgment": {
+    "thresholds": {
+      "readIterateRatioMax": 10,
+      "writeRatioMax": 40,
+      "serializeRatioMax": 10
+    },
+    "observed": {
+      "readIndexRatioDense": 18.87,
+      "readIterateRatioDense": 1.86,
+      "readIterateRatioSparse": 8.02,
+      "writeRatioDense": 43.47,
+      "serializeRatioDense": 1.97
+    },
+    "within": {
+      "readIterate": true,
+      "write": false,
+      "serialize": true
+    },
+    "cpuWithinBand": false,
+    "nestedSparseSavesMemory": true,
+    "linearDenseFallbackNearBase": true,
+    "breakEvenDensity": 0.005,
+    "recommendation": "The shape-aware hybrid retains heap savings on sparse/default-heavy nested arrays. Its dense 1-D fallback stays near plain-array memory instead of paying page overhead. Nested pages are capped to the innermost dimension and saturated leaves promote to cached dense backing. Iterator/write CPU regression still exceeded the documented band — profile hot operations before promotion. Do NOT promote to the release/PWA engine before full engine replay/save verification plus Chromium/WebKit and real-iPhone measurement."
+  },
+  "limitations": [
+    "Node forced-GC heap deltas and single-thread hrtime, not browser layout, WebKit object sizes, or iPhone RSS.",
+    "Only BigInt numeric leaves with an evenly-spread value pattern are exercised; string arrays and clustered access differ.",
+    "Serialization is measured with a BigInt->string replacer applied equally to both sides, not the engine save pipeline.",
+    "Timing includes both direct index traversal and the Symbol.iterator fast path; engine loops must use iteration to receive the fast-path benefit.",
+    "Densification is sampled on a single 2-D shape; promotion occurs per leaf allocation, so the reported global break-even is descriptive rather than the configured trigger."
+  ]
+}

@@ -1,0 +1,2282 @@
+{
+  "integrity": "ok",
+  "foreign_key_violations": [],
+  "dungeons": [
+    {
+      "Id": 1,
+      "BeginFloor": 1,
+      "BossEnemyGroupId": null,
+      "DisplayOrder": 0,
+      "EndFloor": 5,
+      "LevelBase": 5,
+      "LevelIncrement": 5,
+      "Name": "第1層",
+      "NeedClear": null,
+      "DungeonEnemyGroups": [
+        3,
+        20,
+        19,
+        36,
+        37,
+        46,
+        47
+      ],
+      "DungeonTraps": [
+        2,
+        27,
+        40,
+        8,
+        17
+      ]
+    },
+    {
+      "Id": 3,
+      "BeginFloor": 1,
+      "BossEnemyGroupId": null,
+      "DisplayOrder": 1,
+      "EndFloor": 7,
+      "LevelBase": 10,
+      "LevelIncrement": 6,
+      "Name": "第2層",
+      "NeedClear": "第1層",
+      "DungeonEnemyGroups": [
+        33,
+        50,
+        45,
+        53,
+        57,
+        56,
+        58
+      ],
+      "DungeonTraps": [
+        2,
+        27,
+        40,
+        8,
+        17,
+        28,
+        3,
+        30
+      ]
+    },
+    {
+      "Id": 4,
+      "BeginFloor": 1,
+      "BossEnemyGroupId": null,
+      "DisplayOrder": 2,
+      "EndFloor": 7,
+      "LevelBase": 16,
+      "LevelIncrement": 8,
+      "Name": "第3層",
+      "NeedClear": "第2層",
+      "DungeonEnemyGroups": [
+        60,
+        61,
+        63,
+        65,
+        64,
+        66,
+        67
+      ],
+      "DungeonTraps": [
+        2,
+        27,
+        40,
+        8,
+        3,
+        30,
+        39,
+        37,
+        33,
+        4,
+        59,
+        62
+      ]
+    },
+    {
+      "Id": 2,
+      "BeginFloor": 1,
+      "BossEnemyGroupId": null,
+      "DisplayOrder": 3,
+      "EndFloor": 7,
+      "LevelBase": 23,
+      "LevelIncrement": 10,
+      "Name": "第4層",
+      "NeedClear": "第3層",
+      "DungeonEnemyGroups": [
+        11,
+        13,
+        14,
+        74,
+        75,
+        76,
+        77
+      ],
+      "DungeonTraps": [
+        6,
+        2,
+        8,
+        7,
+        32,
+        31,
+        67,
+        68,
+        66,
+        58,
+        71
+      ]
+    },
+    {
+      "Id": 7,
+      "BeginFloor": 1,
+      "BossEnemyGroupId": null,
+      "DisplayOrder": 4,
+      "EndFloor": 8,
+      "LevelBase": 31,
+      "LevelIncrement": 10,
+      "Name": "第5層",
+      "NeedClear": "第4層",
+      "DungeonEnemyGroups": [
+        78,
+        79,
+        80,
+        82,
+        83,
+        84,
+        85
+      ],
+      "DungeonTraps": [
+        58,
+        59,
+        72,
+        73,
+        4,
+        7,
+        67,
+        52,
+        35,
+        31
+      ]
+    },
+    {
+      "Id": 9,
+      "BeginFloor": 1,
+      "BossEnemyGroupId": null,
+      "DisplayOrder": 5,
+      "EndFloor": 1,
+      "LevelBase": 45,
+      "LevelIncrement": 5,
+      "Name": "深層",
+      "NeedClear": "第5層",
+      "DungeonEnemyGroups": [
+        86
+      ],
+      "DungeonTraps": []
+    }
+  ],
+  "xml_counts": {
+    "EnemyClasses": 50,
+    "TrapClasses": 72,
+    "BattleActions": 250
+  },
+  "calls": [
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 3,
+      "target_table": "BattleActions",
+      "target_id": 47
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 5,
+      "target_table": "BattleActions",
+      "target_id": 17
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 13,
+      "target_table": "BattleActions",
+      "target_id": 181
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 14,
+      "target_table": "BattleActions",
+      "target_id": 164
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 17,
+      "target_table": "BattleActions",
+      "target_id": 184
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 17,
+      "target_table": "BattleActions",
+      "target_id": 168
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 17,
+      "target_table": "BattleActions",
+      "target_id": 169
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 17,
+      "target_table": "BattleActions",
+      "target_id": 170
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 17,
+      "target_table": "BattleActions",
+      "target_id": 17
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 17,
+      "target_table": "BattleActions",
+      "target_id": 162
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 17,
+      "target_table": "BattleActions",
+      "target_id": 173
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 17,
+      "target_table": "BattleActions",
+      "target_id": 38
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 17,
+      "target_table": "BattleActions",
+      "target_id": 172
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 17,
+      "target_table": "BattleActions",
+      "target_id": 17
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 17,
+      "target_table": "BattleActions",
+      "target_id": 38
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 242
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 228
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 239
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 238
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 237
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 240
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 19,
+      "target_table": "BattleActions",
+      "target_id": 155
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 19,
+      "target_table": "BattleActions",
+      "target_id": 155
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 19,
+      "target_table": "BattleActions",
+      "target_id": 155
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 19,
+      "target_table": "BattleActions",
+      "target_id": 61
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 19,
+      "target_table": "BattleActions",
+      "target_id": 129
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 20,
+      "target_table": "BattleActions",
+      "target_id": 71
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 20,
+      "target_table": "BattleActions",
+      "target_id": 70
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 20,
+      "target_table": "BattleActions",
+      "target_id": 39
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 20,
+      "target_table": "BattleActions",
+      "target_id": 40
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 20,
+      "target_table": "BattleActions",
+      "target_id": 27
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 23,
+      "target_table": "BattleActions",
+      "target_id": 42
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 31,
+      "target_table": "BattleActions",
+      "target_id": 66
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 31,
+      "target_table": "BattleActions",
+      "target_id": 63
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 31,
+      "target_table": "BattleActions",
+      "target_id": 64
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 31,
+      "target_table": "BattleActions",
+      "target_id": 67
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 199
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 200
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 180
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 181
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 164
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 209
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 208
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 186
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 203
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 204
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 205
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 202
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 187
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 188
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 193
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 194
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 197
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 198
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 185
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 46,
+      "target_table": "BattleActions",
+      "target_id": 255
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 46,
+      "target_table": "BattleActions",
+      "target_id": 261
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 46,
+      "target_table": "BattleActions",
+      "target_id": 260
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 46,
+      "target_table": "BattleActions",
+      "target_id": 259
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 46,
+      "target_table": "BattleActions",
+      "target_id": 254
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 46,
+      "target_table": "BattleActions",
+      "target_id": 253
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 46,
+      "target_table": "BattleActions",
+      "target_id": 207
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 46,
+      "target_table": "BattleActions",
+      "target_id": 262
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 46,
+      "target_table": "BattleActions",
+      "target_id": 263
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 51,
+      "target_table": "BattleActions",
+      "target_id": 236
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 51,
+      "target_table": "BattleActions",
+      "target_id": 234
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 51,
+      "target_table": "BattleActions",
+      "target_id": 229
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 51,
+      "target_table": "BattleActions",
+      "target_id": 231
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 55,
+      "target_table": "BattleActions",
+      "target_id": 121
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 55,
+      "target_table": "BattleActions",
+      "target_id": 156
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 55,
+      "target_table": "BattleActions",
+      "target_id": 11
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 55,
+      "target_table": "BattleActions",
+      "target_id": 10
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 55,
+      "target_table": "BattleActions",
+      "target_id": 43
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 55,
+      "target_table": "BattleActions",
+      "target_id": 157
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 55,
+      "target_table": "BattleActions",
+      "target_id": 27
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 67,
+      "target_table": "BattleActions",
+      "target_id": 62
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 67,
+      "target_table": "BattleActions",
+      "target_id": 61
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 73,
+      "target_table": "BattleActions",
+      "target_id": 17
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 74,
+      "target_table": "BattleActions",
+      "target_id": 145
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 74,
+      "target_table": "BattleActions",
+      "target_id": 146
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 74,
+      "target_table": "BattleActions",
+      "target_id": 147
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 74,
+      "target_table": "BattleActions",
+      "target_id": 150
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 74,
+      "target_table": "BattleActions",
+      "target_id": 148
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 74,
+      "target_table": "BattleActions",
+      "target_id": 149
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 74,
+      "target_table": "BattleActions",
+      "target_id": 137
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 75,
+      "target_table": "BattleActions",
+      "target_id": 69
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 75,
+      "target_table": "BattleActions",
+      "target_id": 88
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 75,
+      "target_table": "BattleActions",
+      "target_id": 68
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 75,
+      "target_table": "BattleActions",
+      "target_id": 128
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 55
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 133
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 140
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 52
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 53
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 54
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 151
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 78,
+      "target_table": "BattleActions",
+      "target_id": 141
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 78,
+      "target_table": "BattleActions",
+      "target_id": 50
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 81,
+      "target_table": "BattleActions",
+      "target_id": 134
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 81,
+      "target_table": "BattleActions",
+      "target_id": 135
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 81,
+      "target_table": "BattleActions",
+      "target_id": 134
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 81,
+      "target_table": "BattleActions",
+      "target_id": 135
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 81,
+      "target_table": "BattleActions",
+      "target_id": 132
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 83,
+      "target_table": "BattleActions",
+      "target_id": 191
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 83,
+      "target_table": "BattleActions",
+      "target_id": 192
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 83,
+      "target_table": "BattleActions",
+      "target_id": 165
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 83,
+      "target_table": "BattleActions",
+      "target_id": 24
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 83,
+      "target_table": "BattleActions",
+      "target_id": 166
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 83,
+      "target_table": "BattleActions",
+      "target_id": 161
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 84,
+      "target_table": "BattleActions",
+      "target_id": 145
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 84,
+      "target_table": "BattleActions",
+      "target_id": 146
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 84,
+      "target_table": "BattleActions",
+      "target_id": 147
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 84,
+      "target_table": "BattleActions",
+      "target_id": 150
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 84,
+      "target_table": "BattleActions",
+      "target_id": 148
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 84,
+      "target_table": "BattleActions",
+      "target_id": 149
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 84,
+      "target_table": "BattleActions",
+      "target_id": 137
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 85,
+      "target_table": "BattleActions",
+      "target_id": 235
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 85,
+      "target_table": "BattleActions",
+      "target_id": 227
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 85,
+      "target_table": "BattleActions",
+      "target_id": 226
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 86,
+      "target_table": "BattleActions",
+      "target_id": 160
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 86,
+      "target_table": "BattleActions",
+      "target_id": 159
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 87,
+      "target_table": "BattleActions",
+      "target_id": 176
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 88,
+      "target_table": "BattleActions",
+      "target_id": 73
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 88,
+      "target_table": "BattleActions",
+      "target_id": 72
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 88,
+      "target_table": "BattleActions",
+      "target_id": 233
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 88,
+      "target_table": "BattleActions",
+      "target_id": 232
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 89,
+      "target_table": "BattleActions",
+      "target_id": 171
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 92,
+      "target_table": "BattleActions",
+      "target_id": 171
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 92,
+      "target_table": "BattleActions",
+      "target_id": 177
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 92,
+      "target_table": "BattleActions",
+      "target_id": 179
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 92,
+      "target_table": "BattleActions",
+      "target_id": 178
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 93,
+      "target_table": "BattleActions",
+      "target_id": 147
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 93,
+      "target_table": "BattleActions",
+      "target_id": 150
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 93,
+      "target_table": "BattleActions",
+      "target_id": 148
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 93,
+      "target_table": "BattleActions",
+      "target_id": 149
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 93,
+      "target_table": "BattleActions",
+      "target_id": 216
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 93,
+      "target_table": "BattleActions",
+      "target_id": 217
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 93,
+      "target_table": "BattleActions",
+      "target_id": 218
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 95,
+      "target_table": "BattleActions",
+      "target_id": 214
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 95,
+      "target_table": "BattleActions",
+      "target_id": 221
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 95,
+      "target_table": "BattleActions",
+      "target_id": 219
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 95,
+      "target_table": "BattleActions",
+      "target_id": 222
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 95,
+      "target_table": "BattleActions",
+      "target_id": 220
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 95,
+      "target_table": "BattleActions",
+      "target_id": 225
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 95,
+      "target_table": "BattleActions",
+      "target_id": 223
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 95,
+      "target_table": "BattleActions",
+      "target_id": 224
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 95,
+      "target_table": "BattleActions",
+      "target_id": 27
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 96,
+      "target_table": "BattleActions",
+      "target_id": 250
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 98,
+      "target_table": "BattleActions",
+      "target_id": 251
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 98,
+      "target_table": "BattleActions",
+      "target_id": 245
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 98,
+      "target_table": "BattleActions",
+      "target_id": 247
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 98,
+      "target_table": "BattleActions",
+      "target_id": 246
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 98,
+      "target_table": "BattleActions",
+      "target_id": 248
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 98,
+      "target_table": "BattleActions",
+      "target_id": 252
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 2,
+      "target_table": "BattleActions",
+      "target_id": 30
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 5,
+      "target_table": "BattleActions",
+      "target_id": 26
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 8,
+      "target_table": "BattleActions",
+      "target_id": 83
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 8,
+      "target_table": "BattleActions",
+      "target_id": 158
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 8,
+      "target_table": "BattleActions",
+      "target_id": 32
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 8,
+      "target_table": "BattleActions",
+      "target_id": 33
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 8,
+      "target_table": "BattleActions",
+      "target_id": 34
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 8,
+      "target_table": "BattleActions",
+      "target_id": 84
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 8,
+      "target_table": "BattleActions",
+      "target_id": 85
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 8,
+      "target_table": "BattleActions",
+      "target_id": 35
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 8,
+      "target_table": "BattleActions",
+      "target_id": 81
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 8,
+      "target_table": "BattleActions",
+      "target_id": 82
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 192
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 19
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 18
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 163
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 20
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 21
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 18,
+      "target_table": "BattleActions",
+      "target_id": 22
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 27,
+      "target_table": "BattleActions",
+      "target_id": 31
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 39,
+      "target_table": "BattleActions",
+      "target_id": 28
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 40,
+      "target_table": "BattleActions",
+      "target_id": 44
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 49
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 41,
+      "target_table": "BattleActions",
+      "target_id": 124
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 43,
+      "target_table": "BattleActions",
+      "target_id": 142
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 58,
+      "target_table": "BattleActions",
+      "target_id": 87
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 58,
+      "target_table": "BattleActions",
+      "target_id": 86
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 58,
+      "target_table": "BattleActions",
+      "target_id": 206
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 59,
+      "target_table": "BattleActions",
+      "target_id": 122
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 61,
+      "target_table": "BattleActions",
+      "target_id": 126
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 61,
+      "target_table": "BattleActions",
+      "target_id": 48
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 61,
+      "target_table": "BattleActions",
+      "target_id": 125
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 61,
+      "target_table": "BattleActions",
+      "target_id": 127
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 63,
+      "target_table": "BattleActions",
+      "target_id": 26
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 72,
+      "target_table": "BattleActions",
+      "target_id": 211
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 73,
+      "target_table": "BattleActions",
+      "target_id": 210
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 73,
+      "target_table": "BattleActions",
+      "target_id": 212
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 75,
+      "target_table": "BattleActions",
+      "target_id": 234
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 75,
+      "target_table": "BattleActions",
+      "target_id": 229
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 75,
+      "target_table": "BattleActions",
+      "target_id": 231
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 211
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 210
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 212
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 243
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 76,
+      "target_table": "BattleActions",
+      "target_id": 122
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 78,
+      "target_table": "BattleActions",
+      "target_id": 264
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 78,
+      "target_table": "BattleActions",
+      "target_id": 265
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 78,
+      "target_table": "BattleActions",
+      "target_id": 266
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 80,
+      "target_table": "BattleActions",
+      "target_id": 245
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 80,
+      "target_table": "BattleActions",
+      "target_id": 247
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 80,
+      "target_table": "BattleActions",
+      "target_id": 246
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 80,
+      "target_table": "BattleActions",
+      "target_id": 248
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 82,
+      "target_table": "BattleActions",
+      "target_id": 264
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 82,
+      "target_table": "BattleActions",
+      "target_id": 265
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 82,
+      "target_table": "BattleActions",
+      "target_id": 266
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 83,
+      "target_table": "BattleActions",
+      "target_id": 256
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 83,
+      "target_table": "BattleActions",
+      "target_id": 257
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 83,
+      "target_table": "BattleActions",
+      "target_id": 258
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 85,
+      "target_table": "BattleActions",
+      "target_id": 268
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 85,
+      "target_table": "BattleActions",
+      "target_id": 269
+    }
+  ],
+  "summons": [
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 18,
+      "target_table": "EnemyClasses",
+      "target_id": 81
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 31,
+      "target_table": "EnemyClasses",
+      "target_id": 31
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 81,
+      "target_table": "EnemyClasses",
+      "target_id": 81
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 87,
+      "target_table": "EnemyClasses",
+      "target_id": 87
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 96,
+      "target_table": "EnemyClasses",
+      "target_id": 96
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 96,
+      "target_table": "EnemyClasses",
+      "target_id": 98
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 98,
+      "target_table": "EnemyClasses",
+      "target_id": 96
+    },
+    {
+      "source_table": "EnemyClasses",
+      "source_id": 98,
+      "target_table": "EnemyClasses",
+      "target_id": 98
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 83,
+      "target_table": "EnemyClasses",
+      "target_id": 55
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 83,
+      "target_table": "EnemyClasses",
+      "target_id": 41
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 83,
+      "target_table": "EnemyClasses",
+      "target_id": 95
+    },
+    {
+      "source_table": "TrapClasses",
+      "source_id": 83,
+      "target_table": "EnemyClasses",
+      "target_id": 88
+    }
+  ],
+  "missing": [],
+  "action_patterns": 392,
+  "call_occurrences": 214,
+  "summon_occurrences": 12,
+  "condition_types": {
+    "EnemyStateCondition": 302,
+    "PercentageCondition": 143,
+    "EnemyCanNotAvoidCondition": 24,
+    "EnemyBodyPartCondition": 54,
+    "EnemyStatePercentageCondition": 23,
+    "EnemyCanActionCondition": 3,
+    "EnemyCanNotActionCondition": 3,
+    "HoldOnEnemyCondition": 13,
+    "EnemyHEquipmentCountCondition": 1,
+    "SelfStateCondition": 2,
+    "EnemySanityCondition": 1,
+    "EnemyCanAvoidCondition": 2,
+    "TurnCondition": 1,
+    "SelfStatePercentageCondition": 1
+  },
+  "direct_trap_ids": [
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    17,
+    27,
+    28,
+    30,
+    31,
+    32,
+    33,
+    35,
+    37,
+    39,
+    40,
+    52,
+    58,
+    59,
+    62,
+    66,
+    67,
+    68,
+    71,
+    72,
+    73
+  ],
+  "other_trap_ids": [
+    1,
+    5,
+    10,
+    14,
+    15,
+    16,
+    18,
+    23,
+    26,
+    36,
+    38,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    53,
+    54,
+    55,
+    56,
+    57,
+    61,
+    63,
+    64,
+    65,
+    69,
+    70,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85
+  ],
+  "null_links": {
+    "DungeonTraps": [
+      {
+        "Id": 1,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 1
+      },
+      {
+        "Id": 3,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": null
+      },
+      {
+        "Id": 8,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 10
+      },
+      {
+        "Id": 9,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 17
+      },
+      {
+        "Id": 12,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 28
+      },
+      {
+        "Id": 13,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 27
+      },
+      {
+        "Id": 14,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 2
+      },
+      {
+        "Id": 15,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 3
+      },
+      {
+        "Id": 16,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 30
+      },
+      {
+        "Id": 17,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 4
+      },
+      {
+        "Id": 18,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 33
+      },
+      {
+        "Id": 19,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 35
+      },
+      {
+        "Id": 20,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": null
+      },
+      {
+        "Id": 21,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 37
+      },
+      {
+        "Id": 22,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 18
+      },
+      {
+        "Id": 23,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 39
+      },
+      {
+        "Id": 39,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 41
+      },
+      {
+        "Id": 47,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 52
+      },
+      {
+        "Id": 50,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 8
+      },
+      {
+        "Id": 51,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 59
+      },
+      {
+        "Id": 52,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 66
+      },
+      {
+        "Id": 53,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 67
+      },
+      {
+        "Id": 54,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 68
+      },
+      {
+        "Id": 58,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 58
+      },
+      {
+        "Id": 61,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 71
+      },
+      {
+        "Id": 62,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 72
+      },
+      {
+        "Id": 63,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 43
+      },
+      {
+        "Id": 64,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 59
+      },
+      {
+        "Id": 74,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 37
+      },
+      {
+        "Id": 76,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "TrapClassId": 75
+      }
+    ],
+    "DungeonEnemyGroups": [
+      {
+        "Id": 1,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 3
+      },
+      {
+        "Id": 2,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 3,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 4,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 5,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 11
+      },
+      {
+        "Id": 6,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 7,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 13
+      },
+      {
+        "Id": 8,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 14
+      },
+      {
+        "Id": 9,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 10,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 3
+      },
+      {
+        "Id": 11,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 20
+      },
+      {
+        "Id": 12,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 13,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 14,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 15,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 16,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 17,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 18,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 19,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 19
+      },
+      {
+        "Id": 20,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 21,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 22,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 23,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 30
+      },
+      {
+        "Id": 24,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 25,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 26,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 20
+      },
+      {
+        "Id": 27,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 33
+      },
+      {
+        "Id": 28,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 36
+      },
+      {
+        "Id": 29,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 30,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 37
+      },
+      {
+        "Id": 31,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 19
+      },
+      {
+        "Id": 32,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 3
+      },
+      {
+        "Id": 33,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 34,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 35,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 3
+      },
+      {
+        "Id": 36,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 20
+      },
+      {
+        "Id": 37,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 19
+      },
+      {
+        "Id": 38,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 33
+      },
+      {
+        "Id": 39,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 36
+      },
+      {
+        "Id": 40,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 37
+      },
+      {
+        "Id": 41,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 42,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 50,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 33
+      },
+      {
+        "Id": 51,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 45
+      },
+      {
+        "Id": 52,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 53,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 54,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 55,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 33
+      },
+      {
+        "Id": 56,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 50
+      },
+      {
+        "Id": 57,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 58,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 62,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 63,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 65,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 56
+      },
+      {
+        "Id": 68,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 72,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 75,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 78,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 67
+      },
+      {
+        "Id": 80,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 67
+      },
+      {
+        "Id": 81,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 11
+      },
+      {
+        "Id": 82,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 13
+      },
+      {
+        "Id": 83,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 14
+      },
+      {
+        "Id": 84,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 85,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 14
+      },
+      {
+        "Id": 86,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 13
+      },
+      {
+        "Id": 87,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 11
+      },
+      {
+        "Id": 88,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 73
+      },
+      {
+        "Id": 96,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 63
+      },
+      {
+        "Id": 97,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 73
+      },
+      {
+        "Id": 98,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 14
+      },
+      {
+        "Id": 99,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 3
+      },
+      {
+        "Id": 100,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 30
+      },
+      {
+        "Id": 104,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": null
+      },
+      {
+        "Id": 105,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 78
+      },
+      {
+        "Id": 107,
+        "DisplayOrder": 0,
+        "DungeonId": null,
+        "EnemyGroupId": 82
+      }
+    ]
+  },
+  "counts": {
+    "Dungeons": 6,
+    "EnemyClasses": 50,
+    "TrapClasses": 72,
+    "BattleActions": 250,
+    "HMotionSets": 119,
+    "HMotions": 614
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "passed": true,
+  "generatedAt": "2026-09-09T06:46:01.120Z",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "representation": "PrintForm stores null before first parse and the parsed Form afterward, removing one direct Lazy wrapper per statement.",
+  "memory": {
+    "baselineBytes": 295756128,
+    "compactBytes": 283476784,
+    "savedBytes": 12279344,
+    "savedMiB": 11.71
+  },
+  "payloadCounts": {
+    "count": 306841,
+    "lazy": 0,
+    "empty": 306841,
+    "parsed": 0
+  },
+  "baseline": {
+    "engine": "engine-compact-ir-labels-lazy-slice-paged-statements.mjs",
+    "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+    "before": {
+      "label": "before-compile",
+      "natural": {
+        "label": "before-compile",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 98525576,
+          "heapTotal": 216612864,
+          "rss": 266924032,
+          "external": 13652221,
+          "arrayBuffers": 1876078
+        },
+        "mib": {
+          "heapUsed": 93.961,
+          "heapTotal": 206.578,
+          "rss": 254.559,
+          "external": 13.02,
+          "arrayBuffers": 1.789
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "before-compile",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 87612496,
+          "heapTotal": 223690752,
+          "rss": 269139968,
+          "external": 13652261,
+          "arrayBuffers": 1521602
+        },
+        "mib": {
+          "heapUsed": 83.554,
+          "heapTotal": 213.328,
+          "rss": 256.672,
+          "external": 13.02,
+          "arrayBuffers": 1.451
+        },
+        "details": {}
+      }
+    },
+    "compiled": {
+      "label": "compiled-source-released",
+      "natural": {
+        "label": "compiled-source-released",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 342948528,
+          "heapTotal": 430399488,
+          "rss": 504012800,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 327.061,
+          "heapTotal": 410.461,
+          "rss": 480.664,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "compiled-source-released",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 295756128,
+          "heapTotal": 432898048,
+          "rss": 501792768,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 282.055,
+          "heapTotal": 412.844,
+          "rss": 478.547,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      }
+    },
+    "payloads": {
+      "count": 306841,
+      "lazy": 306841,
+      "empty": 0,
+      "parsed": 0
+    }
+  },
+  "compact": {
+    "engine": "engine-compact-ir-labels-lazy-slice-paged-statements-printform.mjs",
+    "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+    "before": {
+      "label": "before-compile",
+      "natural": {
+        "label": "before-compile",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 98526360,
+          "heapTotal": 217661440,
+          "rss": 266981376,
+          "external": 13652261,
+          "arrayBuffers": 1876118
+        },
+        "mib": {
+          "heapUsed": 93.962,
+          "heapTotal": 207.578,
+          "rss": 254.613,
+          "external": 13.02,
+          "arrayBuffers": 1.789
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "before-compile",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 87612840,
+          "heapTotal": 224215040,
+          "rss": 269201408,
+          "external": 13652301,
+          "arrayBuffers": 1296427
+        },
+        "mib": {
+          "heapUsed": 83.554,
+          "heapTotal": 213.828,
+          "rss": 256.73,
+          "external": 13.02,
+          "arrayBuffers": 1.236
+        },
+        "details": {}
+      }
+    },
+    "compiled": {
+      "label": "compiled-source-released",
+      "natural": {
+        "label": "compiled-source-released",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 309495792,
+          "heapTotal": 419287040,
+          "rss": 492163072,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 295.158,
+          "heapTotal": 399.863,
+          "rss": 469.363,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "compiled-source-released",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 283476784,
+          "heapTotal": 421888000,
+          "rss": 490151936,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 270.345,
+          "heapTotal": 402.344,
+          "rss": 467.445,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      }
+    },
+    "payloads": {
+      "count": 306841,
+      "lazy": 0,
+      "empty": 306841,
+      "parsed": 0
+    }
+  },
+  "limitations": [
+    "Compile-only forced-GC Node samples are not browser/iPhone memory peaks.",
+    "Only PrintForm is changed; other statement and expression payloads remain object-based.",
+    "Runtime semantic equivalence is established by separate fixture and M1 replay tests."
+  ],
+  "originalUnchanged": true
+}

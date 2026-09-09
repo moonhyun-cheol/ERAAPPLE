@@ -1,0 +1,33 @@
+{
+  "accepted": true,
+  "at": "2026-09-09T01:26:48.312Z",
+  "release": "5356ae826c56bb47a372",
+  "reportSha256": "81d94e9950094c4ce65b0cc8ac251810024bc67176e22f4becd6040a550e7e8a",
+  "steps": 19,
+  "tests": 42,
+  "allLogsAndResultHashesVerified": true,
+  "currentArtifactsAndSourcesUnchanged": true,
+  "originalCount": 1151,
+  "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+  "upstreamCommit": "fb487bceacd899a033db017ff0dff5bb3878d4a5",
+  "upstreamTrackedClean": true,
+  "syntaxCheckedFiles": 38,
+  "documentLinksChecked": 65,
+  "documentHashes": {
+    "./docs/web-runtime/architecture.md": "e2cd3e51db88e0866d8bb8560311b21268ec4b5586df65325fa644f972a60fa7",
+    "./docs/web-runtime/contracts.md": "f944555cc8848bd428f1f51729c09f243d6a49da973d31ba5965cb96a6e3c9c4",
+    "./docs/web-runtime/engine-evaluation.md": "27cdc54b7b0e337f818b522679e8e86085e1d533089f6598a40b9207027725ea",
+    "./docs/web-runtime/github-pages-deploy.md": "260892cea0c37f1187356f6c42caa48841c36284ae5965c7100bfaab9df60c6e",
+    "./docs/web-runtime/handoff-launcher-and-game-completion.md": "2df07d4bc7a5ee159b715a0bafd97b5f9e380256a56fface5bd136fd310c4db4",
+    "./docs/web-runtime/iphone-testing.md": "6af0aa0545e650f66f51e425b9465fd5c32211d557aa0d54ca82706e20b98652",
+    "./docs/web-runtime/README.md": "ee4ca25f9a2f9417d4a637d55497d195f89f8f5020777bcc78e2860b7b1f5ae4",
+    "./docs/web-runtime/render-optimization.md": "dae09439dd5224d48b149b2dc19aa3d4cb0efde6cebd5826833b2f26a2ee6260",
+    "./docs/web-runtime/runtime-stability.md": "d2d11c2c899792fafd9bf3ce8a876dd39852f084d52bbab857f37eccd5184aad",
+    "./docs/web-runtime/save-backup.md": "1718f2eb0625a609a401a37e96f595c422f8849a914470fe8d044fabb05e955a",
+    "./docs/web-runtime/save-memory-optimization.md": "5f2ff9ef64c2e322f5a346677e15fb7fd9e119f8e5a36116e6d76d626b7daa0f",
+    "./docs/web-runtime/validation-plan.md": "d0fddbd977b830cea7991a1a72d8022559075fac64eb82af58f014d7348b9e4c",
+    "./tools/web-engine-probe/README.md": "07267605e60176e1322f6477871c5f6078cf5d2403d52ec27481bf85be8e5b23"
+  },
+  "publicDeploymentPerformed": false,
+  "actualIPhoneTested": false
+}

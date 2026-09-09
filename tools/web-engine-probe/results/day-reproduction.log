@@ -1,0 +1,182 @@
+{"type":"input","day":0,"time":0,"rests":0,"value":"0","stack":["@DUMMY","SYSTEM_TITLE"],"tail":"eraTHYMKR 2019 국내 갱신판 · 191028\nv3.21\n통합자: ㅇㄹ\n( 2019년 10월 28일 최종갱신)\n\n※본 게임은 조교 SLG 제작 툴 erakanon을 수정·재배포한 것입니다.\n「노예를 괴롭혀주세요…… 노예를 아껴주세요」\n[0] 힘세고 강한 시작\n[1] 불러오기"}
+{"type":"input","day":1,"time":0,"rests":0,"value":"0","stack":["@DUMMY","EVENTFIRST","SELECT_GAMEMODE"],"tail":"0\n★★ 모드를 선택해 주세요 ★★\n\n[0] eratohoYM\n[1] ABNORMAL\n[6] PROSTITUTE\n[9] EXTRA\n[100] HELP   (각 게임 모드의 간단한 설명)"}
+{"type":"wait","day":1,"time":0,"rests":0,"value":"","stack":["@DUMMY","EVENTFIRST","SELECT_GAMEMODE"],"tail":"0\n“eratohoYM” 모드를 선택했습니다."}
+{"type":"input","day":1,"time":0,"rests":0,"value":"1","stack":["@DUMMY","EVENTFIRST","SELECT_DIFFICULTY"],"tail":"★★ 난이도를 선택하세요 ★★\n\n[1] EASY    (120일 기한, 목표 금액 100만원)\n[2] NORMAL   (90일 기한, 목표 금액 100만원)\n[3] HARD     (99일 기한, 목표 금액 100만원)\n[4] LUNATIC  (90일 기한, 목표 금액 100만원)\n[5] PHANTASM (60일 기한, 목표 금액 100만원)\n[100] HELP   (각 난이도의 설명)"}
+{"type":"wait","day":1,"time":0,"rests":0,"value":"","stack":["@DUMMY","EVENTFIRST","SELECT_DIFFICULTY"],"tail":"1\n난이도 : “EASY”를 선택했습니다."}
+{"type":"input","day":1,"time":0,"rests":0,"value":"11","stack":["@DUMMY","EVENTFIRST","START_CONFIGURATION"],"tail":"향\n[4] 자학 세트　　　　：비참한 결말을 맞이하고 싶은 분 지향\n[5] 비주차 세트　　　：주차 플레이를 고려하지 않는 분 지향\n[6] YM 권장 세트 　　：어쨌든 우선 eratohoYM을 즐겨보고 싶으신 분 지향\n[8] 개별 설정　　　　：컨피그를 일일이 설정합니다.\n[10] 토리코 기본 세트：YM 권장 세트+토리코 모드 편의기능. eratohoYM 초심자 혹은 즐겜유저 지향.\n[11] 토리코 EX 세트  ：웬만큼 eratohoYM을 꿰고 있는 분들을 위한 하드코어 기능 세트. 숙련자 지향.\n[12] 경비원 세트 　　：토리코 모드 패치의 신 게임 모드인 경비 시스템 추가. 숙련자 지향.\n※설정은 나중에도 변경 가능합니다"}
+{"type":"wait","day":1,"time":0,"rests":0,"value":"","stack":["@DUMMY","EVENTFIRST","START_CONFIGURATION"],"tail":"11\n\n※주의! 본 모드는 게임의 여러 부분을 추가/수정했기에 난이도가 오를 수 있습니다."}
+{"type":"wait","day":1,"time":0,"rests":0,"value":"","stack":["@DUMMY","EVENTFIRST","START_CONFIGURATION"],"tail":"※eratohoYM 자체의 기능도 상당히 복잡하고 숨겨진 부분이 많기에,"}
+{"type":"wait","day":1,"time":0,"rests":0,"value":"","stack":["@DUMMY","EVENTFIRST","START_CONFIGURATION"],"tail":"※가능하면 eratohoYM의 일반 모드에 익숙해진 후 플레이하는 것을 추천합니다."}
+{"type":"input","day":1,"time":0,"rests":0,"value":"1","stack":["@DUMMY","EVENTFIRST","START_CONFIGURATION"],"tail":"\n토리코 모드로 시작하시겠습니까?\n[0] 아직은 아냐.\n[1] 시작한다!"}
+{"type":"wait","day":1,"time":0,"rests":0,"value":"","stack":["@DUMMY","EVENTFIRST","START_CONFIGURATION"],"tail":"1\n토리코 모드의 추가 기능을 사용하도록 설정했습니다."}
+{"type":"input","day":1,"time":0,"rests":0,"value":"0","stack":["@DUMMY","EVENTFIRST","SELECT_MODE_NOMOREGLAZE_TORIKOMODE"],"tail":"\"노 모어 글레이즈\" 모드를 선택할 수 있습니다. 어떻게 하시겠습니까?\n[0] 선택하지 않는다.\n[1] 선택한다.\n[2] …그게 뭐야?\n"}
+{"type":"wait","day":1,"time":0,"rests":0,"value":"","stack":["@DUMMY","EVENTFIRST","SELECT_MODE_NOMOREGLAZE_TORIKOMODE"],"tail":"0\n일반 모드로 플레이합니다."}
+{"type":"input","day":1,"time":0,"rests":0,"value":"0","stack":["@DUMMY","EVENTFIRST","PROLOGUE_SELECT_YM"],"tail":"적절한 eratohoYM의 프롤로그입니다. 보시겠습니까?\n[0] 필요 없어!\n[1] 예"}
+{"type":"input","day":1,"time":0,"rests":0,"value":"웹시험","stack":["@DUMMY","EVENTFIRST","CHANGE_NAME_ANATA_TORIKOMODE"],"tail":"0\n\n당신의 이름을 알려주세요. (5자까지)"}
+{"type":"input","day":1,"time":0,"rests":0,"value":"0","stack":["@DUMMY","EVENTFIRST","CHANGE_NAME_ANATA_TORIKOMODE"],"tail":"웹시험\n「웹시험」으로 좋습니까?\n[0] 멋진 이름이다.\n[1] 한 번 더 생각해보자….\n[2] 귀찮아."}
+{"type":"wait","day":1,"time":0,"rests":0,"value":"","stack":["@DUMMY","EVENTFIRST","CHANGE_NAME_ANATA_TORIKOMODE"],"tail":"0\n「웹시험」으로 정해졌습니다."}
+{"type":"wait","day":1,"time":0,"rests":0,"value":"","stack":["@DUMMY","EVENTFIRST","CHANGE_NAME_ANATA_TORIKOMODE"],"tail":"(이름은 언제든 CONFIG에서 변경할 수 있습니다)"}
+{"type":"input","day":1,"time":0,"rests":0,"value":"111","stack":["@DUMMY"],"tail":"1일째1년 1월 1일 일요일(낮)잔여 139일 \n거주지:보통 집 (최대 10명 노예구입가능) \n웹시험(주인)체력(건강/2500)\n\n소지금:5000원(목표금액까지 995000원) \n보유아이템:비디오카메라 비디오테이프×1  \n[101] - 능력 보기[102] - 일상생활(휴식) [110] - 아이템 구입[111] - 노예 구입[121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"input","day":1,"time":0,"rests":0,"value":"104","stack":["@DUMMY","USERSHOP","CHARA_BUY_MAIN"],"tail":"루나사(1200 원)[119] 요우무(5000 원)[120] 유유코(1만 5000 원)[121] 란(1만 원)[122] 유카리(2만 원)[123] 스이카(8000 원)[124] 리글(300 원)[125] 미스티아(800 원)[126] 케이네(1500 원)[127] 테위(1000 원)[128] 레이센(2500 원)[129] 에이린(1만 8000 원)[130] 카구야(1만 5000 원)[95] 액봉투(랜덤)[96] 아무거나(매번 다름)[97] 오늘의 추천(200원)[98] 무명 캐릭터 랜덤(500원)[99] 무명 캐릭터 대량 구매 설정(현재:무효 )\n                 [1000] 돌아가기[1009] 다음페이지로"}
+{"type":"input","day":1,"time":0,"rests":0,"value":"0","stack":["@DUMMY","USERSHOP","CHARA_BUY_MAIN","CHARA_MANUAL"],"tail":"\n주변 요정들보다 힘이 강하기 때문에, 대요정이라고 불리고 있다.\n꽤나 겁이 많고 남성공포증이지만 굉장히 헌신적이다.\n성지식은 거의 없는 축이지만, 순종적으로 하나씩 가르치면 될 것이다.\n치르노를 굉장히 의식하고 있는 모양이다.\n종족：요정　난이도：Ｄ　성장도：Ｄ　공헌도：Ｅ　매각치：Ｂ\n가슴크기：[미유]　추가정보：초기자금으로 구입가능\n소질 정보 :[숫처녀][겁쟁이][솔직함][얌전함][호기심][부끄럼쟁이][남성혐오][작은체형][요정]\n□ 상성 \n                   치르노×300％\n\n참고：-고- ★ＳＳＳＳＳＳ＞ＳＳＳＳＳ＞ＳＳＳＳ＞ＳＳＳ＞ＳＳ＞Ｓ＞Ａ＞Ｂ＞Ｃ＞Ｄ＞Ｅ＞Ｆ -저-\n구입하시겠습니까?\n[0] 예\n[1] 아니오"}
+{"type":"wait","day":1,"time":0,"rests":0,"value":"","stack":["@DUMMY","USERSHOP","CHARA_BUY_MAIN","CHARA_INIT"],"tail":"0\n＜대요정을 구입했다.＞\n"}
+{"type":"input","day":1,"time":0,"rests":0,"value":"1000","stack":["@DUMMY","USERSHOP","CHARA_BUY_MAIN"],"tail":"(5000 원)[120] 유유코(1만 5000 원)[121] 란(1만 원)[122] 유카리(2만 원)[123] 스이카(8000 원)[124] 리글(300 원)[125] 미스티아(800 원)[126] 케이네(1500 원)[127] 테위(1000 원)[128] 레이센(2500 원)[129] 에이린(1만 8000 원)[130] 카구야(1만 5000 원)[131] 모코우(1만 5000 원)[95] 액봉투(랜덤)[96] 아무거나(매번 다름)[97] 오늘의 추천(200원)[98] 무명 캐릭터 랜덤(500원)[99] 무명 캐릭터 대량 구매 설정(현재:무효 )\n                 [1000] 돌아가기[1009] 다음페이지로"}
+{"type":"input","day":1,"time":0,"rests":1,"value":"102","stack":["@DUMMY"],"tail":"800원(목표금액까지 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n........................."}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"............"}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"....."}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"#쾅쾅쾅#"}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"...늦은 시간에 무슨 일이지."}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"밖에 나가보니 웬 젊은 텐구가 하나 서 있었다."}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\"엣헴! 주인 되심까?\""}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"차림새를 보아하니 그리 높은 수준의 텐구는 아닌 것 같다."}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"들기름이라도 바른건지, 옆으로 납작하게 빗어넘긴 머리스타일을 보니 괜히 웃음이 나왔다."}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\"이 마을에 새로운 조교사가 들어왔다는 소식을 듣고 왔습죠!\""}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"…소문이 빠르군."}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\"돈이 필요하면 마을로 찾아오라는 대텐구님의 전언을 알려드리려 왔슴다!\""}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"…대텐구?"}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\"그럼 전 이만 가보겠슴다!\""}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"#휘익#"}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"누구냐고 물어보기도 전에 젊은 텐구는 휭하니 가버렸다."}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"역시 텐구들은 제 할말만 하는군…."}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"[ <의뢰소> 에 갈 수 있게 되었습니다. ]"}
+{"type":"wait","day":1,"time":0,"rests":1,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n밤이 되었다……."}
+{"type":"input","day":1,"time":1,"rests":2,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":1,"time":1,"rests":2,"value":"","stack":["@DUMMY","EVENTTURNEND","INIT_HUNGERSYSTEM_TORIKOMODE"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n시스템 체크중........."}
+{"type":"wait","day":1,"time":1,"rests":2,"value":"","stack":["@DUMMY","EVENTTURNEND","INIT_HUNGERSYSTEM_TORIKOMODE"],"tail":"...."}
+{"type":"wait","day":1,"time":1,"rests":2,"value":"","stack":["@DUMMY","EVENTTURNEND","INIT_HUNGERSYSTEM_TORIKOMODE"],"tail":"웹시험 의 만복도 정보를 찾지 못했습니다."}
+{"type":"wait","day":1,"time":1,"rests":2,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"웹시험의 만복도 정보를 세팅합니다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":1,"time":1,"rests":2,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":1,"time":1,"rests":2,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":1,"time":1,"rests":2,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은곤약을먹었습니다.\n체력(건강/1900)기력(안정/1000)만복(폭식/1500)영양(보통/3000)\n방침:싸구려0원/日...맛있게 먹고 있는 듯 하다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":1,"time":1,"rests":2,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":1,"time":1,"rests":2,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":2,"time":0,"rests":3,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":2,"time":0,"rests":3,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":2,"time":1,"rests":4,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":2,"time":1,"rests":4,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":2,"time":1,"rests":4,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":2,"time":1,"rests":4,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":2,"time":1,"rests":4,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은… 밥 먹기를 거부했다….\n체력(건강/1900)기력(안정/1000)만복(보통/1500)영양(보통/3000)\n방침:싸구려0원/日...1끼 굶었다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":2,"time":1,"rests":4,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":2,"time":1,"rests":4,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":3,"time":0,"rests":5,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":3,"time":0,"rests":5,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":3,"time":1,"rests":6,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":3,"time":1,"rests":6,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":3,"time":1,"rests":6,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":3,"time":1,"rests":6,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":3,"time":1,"rests":6,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은미역국을먹었습니다.\n체력(건강/1900)기력(안정/1000)만복(폭식/1500)영양(보통/3000)\n방침:싸구려0원/日...맛있게 먹고 있는 듯 하다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":3,"time":1,"rests":6,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":3,"time":1,"rests":6,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":4,"time":0,"rests":7,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":4,"time":0,"rests":7,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":4,"time":1,"rests":8,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":4,"time":1,"rests":8,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":4,"time":1,"rests":8,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":4,"time":1,"rests":8,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":4,"time":1,"rests":8,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은… 밥 먹기를 거부했다….\n체력(건강/1900)기력(안정/1000)만복(과식/1500)영양(보통/3000)\n방침:싸구려0원/日...1끼 굶었다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":4,"time":1,"rests":8,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":4,"time":1,"rests":8,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":5,"time":0,"rests":9,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":5,"time":0,"rests":9,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":5,"time":1,"rests":10,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":5,"time":1,"rests":10,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":5,"time":1,"rests":10,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":5,"time":1,"rests":10,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":5,"time":1,"rests":10,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은오뎅1개...을먹었습니다.\n체력(건강/1900)기력(안정/1000)만복(폭식/1500)영양(보통/3000)\n방침:싸구려0원/日...맛있게 먹고 있는 듯 하다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":5,"time":1,"rests":10,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":5,"time":1,"rests":10,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":6,"time":0,"rests":11,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":6,"time":0,"rests":11,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":6,"time":1,"rests":12,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":6,"time":1,"rests":12,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":6,"time":1,"rests":12,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":6,"time":1,"rests":12,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":6,"time":1,"rests":12,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은… 밥 먹기를 거부했다….\n체력(건강/1900)기력(안정/1000)만복(과식/1500)영양(보통/3000)\n방침:싸구려0원/日...1끼 굶었다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":6,"time":1,"rests":12,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":6,"time":1,"rests":12,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":7,"time":0,"rests":13,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":7,"time":0,"rests":13,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":7,"time":1,"rests":14,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":7,"time":1,"rests":14,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":7,"time":1,"rests":14,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":7,"time":1,"rests":14,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":7,"time":1,"rests":14,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은야채샐러드을먹었습니다.\n체력(건강/1900)기력(안정/1000)만복(폭식/1500)영양(보통/3000)\n방침:싸구려0원/日...맛있게 먹고 있는 듯 하다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":7,"time":1,"rests":14,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":7,"time":1,"rests":14,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":8,"time":0,"rests":15,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":8,"time":0,"rests":15,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":8,"time":1,"rests":16,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":8,"time":1,"rests":16,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":8,"time":1,"rests":16,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":8,"time":1,"rests":16,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":8,"time":1,"rests":16,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은… 밥 먹기를 거부했다….\n체력(건강/1900)기력(안정/1000)만복(과식/1500)영양(보통/3000)\n방침:싸구려0원/日...1끼 굶었다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":8,"time":1,"rests":16,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":8,"time":1,"rests":16,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":9,"time":0,"rests":17,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":9,"time":0,"rests":17,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":9,"time":1,"rests":18,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":9,"time":1,"rests":18,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":9,"time":1,"rests":18,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":9,"time":1,"rests":18,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":9,"time":1,"rests":18,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은… 밥 먹기를 거부했다….\n체력(건강/1900)기력(안정/1000)만복(보통/1500)영양(보통/3000)\n방침:싸구려0원/日...하룻동안 아무것도 먹지 못했다...\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":9,"time":1,"rests":18,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":9,"time":1,"rests":18,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":10,"time":0,"rests":19,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":10,"time":0,"rests":19,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":10,"time":1,"rests":20,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":10,"time":1,"rests":20,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":10,"time":1,"rests":20,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":10,"time":1,"rests":20,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":10,"time":1,"rests":20,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은… 밥 먹기를 거부했다….\n체력(건강/1900)기력(안정/1000)만복(보통/1500)영양(기아/3000)\n방침:싸구려0원/日...3끼 연속 아무것도 먹지 못했다...\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":10,"time":1,"rests":20,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":10,"time":1,"rests":20,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":11,"time":0,"rests":21,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":11,"time":0,"rests":21,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":11,"time":1,"rests":22,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":11,"time":1,"rests":22,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":11,"time":1,"rests":22,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":11,"time":1,"rests":22,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":11,"time":1,"rests":22,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은삼각김밥을먹었습니다.\n체력(건강/1900)기력(안정/1000)만복(과식/1500)영양(기아/3000)\n방침:싸구려0원/日...맛있게 먹고 있는 듯 하다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":11,"time":1,"rests":22,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":11,"time":1,"rests":22,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":12,"time":0,"rests":23,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":12,"time":0,"rests":23,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":12,"time":1,"rests":24,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":12,"time":1,"rests":24,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":12,"time":1,"rests":24,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":12,"time":1,"rests":24,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":12,"time":1,"rests":24,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은야채샐러드을먹었습니다.\n체력(건강/1900)기력(안정/1000)만복(폭식/1500)영양(보통/3000)\n방침:싸구려0원/日...맛있게 먹고 있는 듯 하다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":12,"time":1,"rests":24,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":12,"time":1,"rests":24,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":13,"time":0,"rests":25,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":13,"time":0,"rests":25,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":13,"time":1,"rests":26,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":13,"time":1,"rests":26,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":13,"time":1,"rests":26,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":13,"time":1,"rests":26,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":13,"time":1,"rests":26,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은삼각김밥을먹었습니다.\n체력(건강/1900)기력(안정/1000)만복(폭식/1500)영양(보통/3000)\n방침:싸구려0원/日...맛있게 먹고 있는 듯 하다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":13,"time":1,"rests":26,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":13,"time":1,"rests":26,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":14,"time":0,"rests":27,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":14,"time":0,"rests":27,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":14,"time":1,"rests":28,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":14,"time":1,"rests":28,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":14,"time":1,"rests":28,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":14,"time":1,"rests":28,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":14,"time":1,"rests":28,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은… 밥 먹기를 거부했다….\n체력(건강/1900)기력(안정/1000)만복(과식/1500)영양(보통/3000)\n방침:싸구려0원/日...1끼 굶었다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":14,"time":1,"rests":28,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":14,"time":1,"rests":28,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":15,"time":0,"rests":29,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":15,"time":0,"rests":29,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n밤까지  쉬기로 했다.\n\n밤이 되었다……."}
+{"type":"input","day":15,"time":1,"rests":30,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}
+{"type":"wait","day":15,"time":1,"rests":30,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"102\n날이 밝을 때까지 쉬기로 했다.\n……시간이 지나, 다들 배가 고파졌습니다."}
+{"type":"wait","day":15,"time":1,"rests":30,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"<식사시간!!>"}
+{"type":"wait","day":15,"time":1,"rests":30,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":15,"time":1,"rests":30,"value":"","stack":["@DUMMY","EVENTTURNEND","SHOW_LIST_EATEN_TORIKOMODE"],"tail":"대요정은컵라면을먹었습니다.\n체력(건강/1900)기력(안정/1000)만복(폭식/1500)영양(보통/3000)\n방침:싸구려0원/日...맛있게 먹고 있는 듯 하다.\n1명의 식비로 총 0원이 지출되었습니다. 현재 잔고 4800원."}
+{"type":"wait","day":15,"time":1,"rests":30,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":""}
+{"type":"wait","day":15,"time":1,"rests":30,"value":"","stack":["@DUMMY","EVENTTURNEND"],"tail":"\n하루가 지났다……."}
+{"type":"input","day":16,"time":0,"rests":31,"value":"102","stack":["@DUMMY"],"tail":" 995200원) \n보유아이템:비디오카메라 비디오테이프×1  \n[100] - 조교한다[101] - 능력 보기[102] - 일상생활(휴식) [103] - 능력 상승[106] - 노예 칭호 변경[109] - 조교 대상 변경[110] - 아이템 구입[111] - 노예 구입[112] - 노예 판매·해방 [121] - 기능훈련사[122] - 약방[161] - 목욕탕 개장 [167] - 식단을 설정한다[168] - 의뢰소[169] - 매각조사[181] - 스케쥴 설정[190] - 환상향연기[191] - 특수능력 취득[200] - 저장하기[300] - 불러오기[400] - 캐릭터 검색[777] - 컨피그 설정[998] - 동방조교전"}

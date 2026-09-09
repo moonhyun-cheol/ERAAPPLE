@@ -1,0 +1,1097 @@
+{
+  "passed": true,
+  "generatedAt": "2026-09-09T03:27:08.550Z",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "method": "Each target is released from an independently compiled and reset VM; forced-GC heap delta against the baseline process is reachability attribution, not exact allocator accounting.",
+  "caveats": [
+    "A target delta can overlap another target when objects are cross-referenced; individual deltas must not be summed.",
+    "V8 heapUsed is process-level and includes engine/module/tool overhead.",
+    "The structural census counts references and logical Array slots, not shallow or retained bytes.",
+    "This is Node evidence, not browser or iPhone memory telemetry."
+  ],
+  "originalUnchanged": true,
+  "attribution": {
+    "functions": {
+      "bytes": 444640064,
+      "mib": 424.042
+    },
+    "static": {
+      "bytes": 26814360,
+      "mib": 25.572
+    },
+    "runtime": {
+      "bytes": 121895048,
+      "mib": 116.248
+    },
+    "csv": {
+      "bytes": 906768,
+      "mib": 0.865
+    },
+    "header": {
+      "bytes": 238600,
+      "mib": 0.228
+    },
+    "all": {
+      "bytes": 573113768,
+      "mib": 546.564
+    }
+  },
+  "runs": {
+    "baseline": {
+      "mode": "baseline",
+      "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+      "compiled": {
+        "label": "compiled-source-released",
+        "natural": {
+          "label": "compiled-source-released",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 505978080,
+            "heapTotal": 605556736,
+            "rss": 682475520,
+            "external": 11805050,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 482.538,
+            "heapTotal": 577.504,
+            "rss": 650.859,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "compiled-source-released",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 459852208,
+            "heapTotal": 609042432,
+            "rss": 678969344,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 438.549,
+            "heapTotal": 580.828,
+            "rss": 647.516,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "postReset": {
+        "label": "post-reset",
+        "natural": {
+          "label": "post-reset",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 592729544,
+            "heapTotal": 668241920,
+            "rss": 749043712,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 565.271,
+            "heapTotal": 637.285,
+            "rss": 714.344,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "post-reset",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 581659576,
+            "heapTotal": 726487040,
+            "rss": 748544000,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.714,
+            "heapTotal": 692.832,
+            "rss": 713.867,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "afterRelease": {
+        "label": "after-release-baseline",
+        "natural": {
+          "label": "after-release-baseline",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 867152496,
+            "heapTotal": 992911360,
+            "rss": 1076948992,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 826.981,
+            "heapTotal": 946.914,
+            "rss": 1027.059,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "after-release-baseline",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 581848264,
+            "heapTotal": 726749184,
+            "rss": 809279488,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.894,
+            "heapTotal": 693.082,
+            "rss": 771.789,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "structure": {
+        "objects": 3860738,
+        "arrays": 793988,
+        "arraySlots": 12913735,
+        "maps": 349648,
+        "mapEntries": 94678,
+        "strings": 2053083,
+        "stringCodeUnits": 47070447,
+        "bigints": 11251871,
+        "topConstructors": [
+          {
+            "name": "Array",
+            "count": 793988
+          },
+          {
+            "name": "_Slice",
+            "count": 734057
+          },
+          {
+            "name": "Lazy",
+            "count": 615854
+          },
+          {
+            "name": "Map",
+            "count": 349648
+          },
+          {
+            "name": "Set",
+            "count": 339763
+          },
+          {
+            "name": "Thunk",
+            "count": 330665
+          },
+          {
+            "name": "PrintForm",
+            "count": 306841
+          },
+          {
+            "name": "Assign",
+            "count": 109513
+          },
+          {
+            "name": "_If",
+            "count": 109098
+          },
+          {
+            "name": "Print",
+            "count": 31664
+          },
+          {
+            "name": "Return",
+            "count": 30252
+          },
+          {
+            "name": "Times",
+            "count": 19969
+          },
+          {
+            "name": "_Fn",
+            "count": 16859
+          },
+          {
+            "name": "_Int1DValue",
+            "count": 16527
+          },
+          {
+            "name": "_Str1DValue",
+            "count": 16495
+          },
+          {
+            "name": "_Call",
+            "count": 12878
+          },
+          {
+            "name": "DrawLine",
+            "count": 5150
+          },
+          {
+            "name": "Variable",
+            "count": 2654
+          },
+          {
+            "name": "ReturnF",
+            "count": 1896
+          },
+          {
+            "name": "_Goto",
+            "count": 1402
+          }
+        ]
+      },
+      "storage": {
+        "global": {
+          "maps": 1,
+          "cells": 783,
+          "deferredCells": 0,
+          "allocatedCells": 117,
+          "arrays": 94857,
+          "slots": 11426198,
+          "nonDefaultSlots": 2313
+        },
+        "static": {
+          "maps": 16463,
+          "cells": 32936,
+          "deferredCells": 32924,
+          "allocatedCells": 2,
+          "arrays": 2,
+          "slots": 22,
+          "nonDefaultSlots": 0
+        },
+        "characters": {
+          "maps": 0,
+          "cells": 0,
+          "deferredCells": 0,
+          "allocatedCells": 0,
+          "arrays": 0,
+          "slots": 0,
+          "nonDefaultSlots": 0
+        }
+      }
+    },
+    "functions": {
+      "mode": "functions",
+      "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+      "compiled": {
+        "label": "compiled-source-released",
+        "natural": {
+          "label": "compiled-source-released",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 485935088,
+            "heapTotal": 601362432,
+            "rss": 678559744,
+            "external": 11805050,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 463.424,
+            "heapTotal": 573.504,
+            "rss": 647.125,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "compiled-source-released",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 459851544,
+            "heapTotal": 605634560,
+            "rss": 675446784,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 438.549,
+            "heapTotal": 577.578,
+            "rss": 644.156,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "postReset": {
+        "label": "post-reset",
+        "natural": {
+          "label": "post-reset",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 592767848,
+            "heapTotal": 667193344,
+            "rss": 747782144,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 565.307,
+            "heapTotal": 636.285,
+            "rss": 713.141,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "post-reset",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 581659408,
+            "heapTotal": 726224896,
+            "rss": 748474368,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.714,
+            "heapTotal": 692.582,
+            "rss": 713.801,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "afterRelease": {
+        "label": "after-release-functions",
+        "natural": {
+          "label": "after-release-functions",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 581859080,
+            "heapTotal": 726224896,
+            "rss": 748474368,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.904,
+            "heapTotal": 692.582,
+            "rss": 713.801,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "after-release-functions",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 137208200,
+            "heapTotal": 456183808,
+            "rss": 675160064,
+            "external": 2311890,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 130.852,
+            "heapTotal": 435.051,
+            "rss": 643.883,
+            "external": 2.205,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      }
+    },
+    "static": {
+      "mode": "static",
+      "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+      "compiled": {
+        "label": "compiled-source-released",
+        "natural": {
+          "label": "compiled-source-released",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 479927016,
+            "heapTotal": 593166336,
+            "rss": 670060544,
+            "external": 11805050,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 457.694,
+            "heapTotal": 565.688,
+            "rss": 639.02,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "compiled-source-released",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 458901088,
+            "heapTotal": 598818816,
+            "rss": 667783168,
+            "external": 11803688,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 437.642,
+            "heapTotal": 571.078,
+            "rss": 636.848,
+            "external": 11.257,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "postReset": {
+        "label": "post-reset",
+        "natural": {
+          "label": "post-reset",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 591860672,
+            "heapTotal": 665620480,
+            "rss": 745074688,
+            "external": 11803688,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 564.442,
+            "heapTotal": 634.785,
+            "rss": 710.559,
+            "external": 11.257,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "post-reset",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 580710848,
+            "heapTotal": 725700608,
+            "rss": 745889792,
+            "external": 11803688,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 553.809,
+            "heapTotal": 692.082,
+            "rss": 711.336,
+            "external": 11.257,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "afterRelease": {
+        "label": "after-release-static",
+        "natural": {
+          "label": "after-release-static",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 580716608,
+            "heapTotal": 725700608,
+            "rss": 745889792,
+            "external": 11803688,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 553.815,
+            "heapTotal": 692.082,
+            "rss": 711.336,
+            "external": 11.257,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "after-release-static",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 555033904,
+            "heapTotal": 694894592,
+            "rss": 744607744,
+            "external": 11803688,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 529.322,
+            "heapTotal": 662.703,
+            "rss": 710.113,
+            "external": 11.257,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      }
+    },
+    "runtime": {
+      "mode": "runtime",
+      "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+      "compiled": {
+        "label": "compiled-source-released",
+        "natural": {
+          "label": "compiled-source-released",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 486285552,
+            "heapTotal": 601030656,
+            "rss": 678858752,
+            "external": 11805050,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 463.758,
+            "heapTotal": 573.188,
+            "rss": 647.41,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "compiled-source-released",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 459851856,
+            "heapTotal": 606683136,
+            "rss": 675594240,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 438.549,
+            "heapTotal": 578.578,
+            "rss": 644.297,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "postReset": {
+        "label": "post-reset",
+        "natural": {
+          "label": "post-reset",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 592772120,
+            "heapTotal": 667193344,
+            "rss": 747249664,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 565.312,
+            "heapTotal": 636.285,
+            "rss": 712.633,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "post-reset",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 581658384,
+            "heapTotal": 726487040,
+            "rss": 747319296,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.713,
+            "heapTotal": 692.832,
+            "rss": 712.699,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "afterRelease": {
+        "label": "after-release-runtime",
+        "natural": {
+          "label": "after-release-runtime",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 581664296,
+            "heapTotal": 726487040,
+            "rss": 747331584,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.718,
+            "heapTotal": 692.832,
+            "rss": 712.711,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "after-release-runtime",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 459953216,
+            "heapTotal": 610615296,
+            "rss": 744513536,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 438.646,
+            "heapTotal": 582.328,
+            "rss": 710.023,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      }
+    },
+    "csv": {
+      "mode": "csv",
+      "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+      "compiled": {
+        "label": "compiled-source-released",
+        "natural": {
+          "label": "compiled-source-released",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 485722392,
+            "heapTotal": 600768512,
+            "rss": 678395904,
+            "external": 11805050,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 463.221,
+            "heapTotal": 572.938,
+            "rss": 646.969,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "compiled-source-released",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 459848608,
+            "heapTotal": 606420992,
+            "rss": 675205120,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 438.546,
+            "heapTotal": 578.328,
+            "rss": 643.926,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "postReset": {
+        "label": "post-reset",
+        "natural": {
+          "label": "post-reset",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 592802888,
+            "heapTotal": 666931200,
+            "rss": 748240896,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 565.341,
+            "heapTotal": 636.035,
+            "rss": 713.578,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "post-reset",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 581658048,
+            "heapTotal": 726224896,
+            "rss": 747495424,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.712,
+            "heapTotal": 692.582,
+            "rss": 712.867,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "afterRelease": {
+        "label": "after-release-csv",
+        "natural": {
+          "label": "after-release-csv",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 581663808,
+            "heapTotal": 726224896,
+            "rss": 747495424,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.718,
+            "heapTotal": 692.582,
+            "rss": 712.867,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "after-release-csv",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 580941496,
+            "heapTotal": 726224896,
+            "rss": 747110400,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.029,
+            "heapTotal": 692.582,
+            "rss": 712.5,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      }
+    },
+    "header": {
+      "mode": "header",
+      "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+      "compiled": {
+        "label": "compiled-source-released",
+        "natural": {
+          "label": "compiled-source-released",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 485594040,
+            "heapTotal": 600576000,
+            "rss": 678391808,
+            "external": 11805050,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 463.099,
+            "heapTotal": 572.754,
+            "rss": 646.965,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "compiled-source-released",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 459849864,
+            "heapTotal": 606420992,
+            "rss": 675454976,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 438.547,
+            "heapTotal": 578.328,
+            "rss": 644.164,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "postReset": {
+        "label": "post-reset",
+        "natural": {
+          "label": "post-reset",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 592873992,
+            "heapTotal": 666931200,
+            "rss": 746246144,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 565.409,
+            "heapTotal": 636.035,
+            "rss": 711.676,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "post-reset",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 581659584,
+            "heapTotal": 725962752,
+            "rss": 746508288,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.714,
+            "heapTotal": 692.332,
+            "rss": 711.926,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "afterRelease": {
+        "label": "after-release-header",
+        "natural": {
+          "label": "after-release-header",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 581665344,
+            "heapTotal": 725962752,
+            "rss": 746508288,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.719,
+            "heapTotal": 692.332,
+            "rss": 711.926,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "after-release-header",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 581609664,
+            "heapTotal": 726224896,
+            "rss": 746536960,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.666,
+            "heapTotal": 692.582,
+            "rss": 711.953,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      }
+    },
+    "all": {
+      "mode": "all",
+      "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+      "compiled": {
+        "label": "compiled-source-released",
+        "natural": {
+          "label": "compiled-source-released",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 486892288,
+            "heapTotal": 602140672,
+            "rss": 678223872,
+            "external": 11805050,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 464.337,
+            "heapTotal": 574.246,
+            "rss": 646.805,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "compiled-source-released",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 459853296,
+            "heapTotal": 607469568,
+            "rss": 675258368,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 438.55,
+            "heapTotal": 579.328,
+            "rss": 643.977,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "postReset": {
+        "label": "post-reset",
+        "natural": {
+          "label": "post-reset",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 592806624,
+            "heapTotal": 666931200,
+            "rss": 747470848,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 565.344,
+            "heapTotal": 636.035,
+            "rss": 712.844,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "post-reset",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 581660680,
+            "heapTotal": 726487040,
+            "rss": 747442176,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.715,
+            "heapTotal": 692.832,
+            "rss": 712.816,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      },
+      "afterRelease": {
+        "label": "after-release-all",
+        "natural": {
+          "label": "after-release-all",
+          "gcRequested": false,
+          "gcPerformed": false,
+          "bytes": {
+            "heapUsed": 581667200,
+            "heapTotal": 726487040,
+            "rss": 747446272,
+            "external": 11805090,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 554.721,
+            "heapTotal": 692.832,
+            "rss": 712.82,
+            "external": 11.258,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        },
+        "forcedGc": {
+          "label": "after-release-all",
+          "gcRequested": true,
+          "gcPerformed": true,
+          "bytes": {
+            "heapUsed": 8734496,
+            "heapTotal": 239910912,
+            "rss": 672051200,
+            "external": 2311890,
+            "arrayBuffers": 28907
+          },
+          "mib": {
+            "heapUsed": 8.33,
+            "heapTotal": 228.797,
+            "rss": 640.918,
+            "external": 2.205,
+            "arrayBuffers": 0.028
+          },
+          "details": {}
+        }
+      }
+    }
+  }
+}

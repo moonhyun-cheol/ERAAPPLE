@@ -1,0 +1,33 @@
+{
+  "manifestVersion": 1,
+  "gameId": "local.erathymkr",
+  "title": "eraTHYMKR (설계 예시)",
+  "gameVersion": "3210",
+  "engine": {
+    "id": "emuera",
+    "runtimeApi": 1,
+    "compatibilityProfile": "emuera-1818-kr3-candidate"
+  },
+  "requiredCapabilities": [
+    "render.text.v1",
+    "input.choice.v1",
+    "input.integer.v1",
+    "input.text.v1",
+    "input.continue.v1",
+    "storage.slots.v1",
+    "storage.global.v1"
+  ],
+  "content": {
+    "roots": ["CSV", "ERB"],
+    "configFiles": ["emuera.config"],
+    "encoding": {
+      "default": null,
+      "overrides": {},
+      "requireConfirmation": true
+    }
+  },
+  "permissions": {
+    "network": false,
+    "nativeExecution": false
+  }
+}

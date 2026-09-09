@@ -1,0 +1,14 @@
+{
+  "engine": "webkit",
+  "passed": true,
+  "actualIPhone": false,
+  "elapsedMs": 5578,
+  "metrics": {
+    "outstanding": 0,
+    "peak": 1,
+    "batches": 23,
+    "layoutReads": 26,
+    "fits": true
+  },
+  "errors": []
+}

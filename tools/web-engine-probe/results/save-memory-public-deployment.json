@@ -1,0 +1,107 @@
+{
+  "accepted": true,
+  "at": "2026-09-09T01:32:09.537Z",
+  "release": "5356ae826c56bb47a372",
+  "commit": "1aaa282af3641b41d6f71af6a31cabbbfa0bbe1c",
+  "actionsUrl": "https://github.com/moonhyun-cheol/ERAAPPLE/actions/runs/34299527211",
+  "actionsConclusion": "success",
+  "publicUrl": "https://moonhyun-cheol.github.io/ERAAPPLE/",
+  "all12PublicAssetsMatchDiskAndCommit": true,
+  "rootIndexMatches": true,
+  "assets": [
+    {
+      "name": "browser.js",
+      "bytes": 32979,
+      "sha256": "b3dcfbb3863aa1f0d121d3a732a478b626989e42bb8b251ae1479198d101e6f6",
+      "mime": "application/javascript; charset=utf-8",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/browser.js"
+    },
+    {
+      "name": "build.json",
+      "bytes": 371,
+      "sha256": "b22a720be2de486aa858c7a75738e258f2f74b2d24cb58a6e008763078a4d8cf",
+      "mime": "application/json; charset=utf-8",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/build.json"
+    },
+    {
+      "name": "engine-worker.js",
+      "bytes": 348243,
+      "sha256": "78d6d3ef24b3d324535ac8bfbad6d880f2ba2fa61253cb231a38230ec04b8dc9",
+      "mime": "application/javascript; charset=utf-8",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/engine-worker.js"
+    },
+    {
+      "name": "eraJS-LICENSE.txt",
+      "bytes": 1061,
+      "sha256": "acbd9f2b463cd3431927837baf8abfc42f9b848e7d8732a5cebfd6cbeaf4c79f",
+      "mime": "text/plain; charset=utf-8",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/eraJS-LICENSE.txt"
+    },
+    {
+      "name": "icon-180.png",
+      "bytes": 642,
+      "sha256": "653bd2e4ba3b5b8e2468df9a11d2d168c8f38f5296ff794dce5d594aa2175dbb",
+      "mime": "image/png",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/icon-180.png"
+    },
+    {
+      "name": "icon-192.png",
+      "bytes": 691,
+      "sha256": "beda65ebe09ef25ed5a8ff5f8fa5a7843577973e6a1291f904be1819a50cf292",
+      "mime": "image/png",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/icon-192.png"
+    },
+    {
+      "name": "icon-512.png",
+      "bytes": 3239,
+      "sha256": "70b388b895bfe355fdf5b4fa3522344d7abb91883d0b48fcb98b35a8c6315570",
+      "mime": "image/png",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/icon-512.png"
+    },
+    {
+      "name": "index.html",
+      "bytes": 7457,
+      "sha256": "b972688517e100b25806daed4d7a9f1cfee1ae724425de463b7801d3173811a5",
+      "mime": "text/html; charset=utf-8",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/index.html"
+    },
+    {
+      "name": "local-game.bin",
+      "bytes": 11301763,
+      "sha256": "dda7fa32ce4805c144444febe9834166035166efb385855420140c348e1471b5",
+      "mime": "application/octet-stream",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/local-game.bin"
+    },
+    {
+      "name": "manifest.webmanifest",
+      "bytes": 500,
+      "sha256": "559c19ff906d1e855a0b1e6a963709b338931c5c2a880618903bafe9df7b1cb8",
+      "mime": "application/manifest+json; charset=utf-8",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/manifest.webmanifest"
+    },
+    {
+      "name": "pwa-build.json",
+      "bytes": 1215,
+      "sha256": "42c739970f194e24adb63328214af3f82fea6be27d82277b0aec2f51e75376f3",
+      "mime": "application/json; charset=utf-8",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/pwa-build.json"
+    },
+    {
+      "name": "sw.js",
+      "bytes": 3876,
+      "sha256": "b316ec7bd9d709c91ef79ca5be6a24fcbc10b80f09972a6d5dcb85e72fa618ec",
+      "mime": "application/javascript; charset=utf-8",
+      "url": "https://moonhyun-cheol.github.io/ERAAPPLE/sw.js"
+    }
+  ],
+  "actualIPhoneTested": false,
+  "saveStorageCleared": false,
+  "publicBrowserSmoke": {
+    "browser": "Chromium (Edge), isolated desktop context",
+    "online": "오프라인 준비됨 · 5356ae826c56bb47a372 · 10개 자산 (영구 보존 아님)",
+    "offlineReload": "오프라인 준비됨 · 5356ae826c56bb47a372 · 10개 자산 (영구 보존 아님)",
+    "cachedAssets": 10,
+    "pageErrors": [],
+    "testHarnessNote": "Use ASCII release ID for PowerShell stdin assertions; initial Korean-text matching timed out while readiness was observed in diagnostic context."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "accepted": true,
+  "at": "2026-09-09T02:27:29.878Z",
+  "release": "788a65fe4ef13e28da14",
+  "reportSha256": "475b92ec3face1d33c88b81b4013d2acb7f323c26b86d5d516c7d55c2aa09b41",
+  "steps": 21,
+  "tests": 45,
+  "resultHashesVerified": 22,
+  "allLogsVerified": true,
+  "currentSourcesAndArtifactsUnchanged": true,
+  "syntaxCheckedFiles": 40,
+  "originalCount": 1151,
+  "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+  "upstreamCommit": "fb487bceacd899a033db017ff0dff5bb3878d4a5",
+  "upstreamTrackedClean": true,
+  "documentHashes": {
+    "docs/web-runtime/save-memory-optimization.md": "e6cf93eab57cbd8041490eb87af319e54ad81368abeb0b1a323dad563615efaa",
+    "docs/web-runtime/iphone-testing.md": "3327ae7fe13ebf3f9e99fd6748f4e8c7ef398cc36f5399c04600cb58068fd3ea"
+  },
+  "publicDeploymentPerformed": false,
+  "actualIPhoneTested": false,
+  "userObservation": "After previous deployment instructions, user reports home-screen exit around day four. Installed release ID and previous-run trace not yet supplied.",
+  "limitation": "Node retained-heap reduction and desktop Chromium/WebKit regressions do not certify iPhone home-screen stability."
+}

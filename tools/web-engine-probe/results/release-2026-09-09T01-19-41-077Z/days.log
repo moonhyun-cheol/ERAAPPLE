@@ -1,0 +1,59 @@
+TAP version 13
+# {
+#   passed: true,
+#   engine: 'chromium',
+#   actualIPhone: false,
+#   originalUnchanged: true,
+#   days: [
+#      1, 1,  2,  2,  3,  3,  4,  4,
+#      5, 5,  6,  6,  7,  7,  8,  8,
+#      9, 9, 10, 10, 11, 11, 12, 12,
+#     13
+#   ],
+#   finalDayAfterReload: 14,
+#   autosaveWrites: 48,
+#   lastSave: 'save94.sav',
+#   refusal: [ '2', 'timeout-default-100' ],
+#   elapsedMs: 27471,
+#   pageErrors: []
+# }
+# Subtest: chromium: real game day rollover, rotating autosaves and reload
+ok 1 - chromium: real game day rollover, rotating autosaves and reload
+  ---
+  duration_ms: 28114.3589
+  type: 'test'
+  ...
+# {
+#   passed: true,
+#   engine: 'webkit',
+#   actualIPhone: false,
+#   originalUnchanged: true,
+#   days: [
+#      1, 1,  2,  2,  3,  3,  4,  4,
+#      5, 5,  6,  6,  7,  7,  8,  8,
+#      9, 9, 10, 10, 11, 11, 12, 12,
+#     13
+#   ],
+#   finalDayAfterReload: 14,
+#   autosaveWrites: 48,
+#   lastSave: 'save94.sav',
+#   refusal: [ '2', 'timeout-default-100' ],
+#   elapsedMs: 30503,
+#   pageErrors: []
+# }
+# Subtest: webkit: real game day rollover, rotating autosaves and reload
+ok 2 - webkit: real game day rollover, rotating autosaves and reload
+  ---
+  duration_ms: 30947.6349
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 59421.9654
+

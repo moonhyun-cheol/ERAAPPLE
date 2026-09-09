@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "reports": [
+    {
+      "writer": "legacy",
+      "bytes": 8573761,
+      "bothReaders": true,
+      "gzipBackup": true
+    },
+    {
+      "writer": "compact",
+      "bytes": 2917,
+      "bothReaders": true,
+      "gzipBackup": true
+    },
+    {
+      "writer": "paged",
+      "bytes": 2917,
+      "bothReaders": true,
+      "gzipBackup": true
+    }
+  ]
+}

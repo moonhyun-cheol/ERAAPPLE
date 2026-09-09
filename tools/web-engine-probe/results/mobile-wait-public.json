@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "url": "https://train-pens-raised-parade.trycloudflare.com/iphone-test/",
+  "engine": "webkit",
+  "actualIPhone": false,
+  "offlineStatus": "오프라인 준비됨 · ce20ef70aeb80d16fbd9 · 10개 자산 (영구 보존 아님)",
+  "modeContinueToDifficulty": true,
+  "difficultyContinueToSettings": true,
+  "settingsContinueAndScroll": true,
+  "documentOnlyScroll": true,
+  "fixedComposer": true,
+  "rotationAndReducedViewport": true,
+  "errors": [],
+  "failedResponses": []
+}

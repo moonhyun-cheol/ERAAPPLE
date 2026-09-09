@@ -1,0 +1,96 @@
+{
+  "checkedAt": "2026-09-08T05:17:01.949Z",
+  "base": "https://train-pens-raised-parade.trycloudflare.com/iphone-test/",
+  "release": "f771a86b4ce95bb71926",
+  "tunnelPid": 41344,
+  "localPort": 4175,
+  "results": [
+    {
+      "name": "index.html",
+      "status": 200,
+      "bytes": 4524,
+      "sha256": "d1be6c2aa25252e5ed23fa7d78b7e4409efbf435713f0212a67bc146e9e2773e",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "name": "browser.js",
+      "status": 200,
+      "bytes": 12272,
+      "sha256": "93cba03d316c9a64f8aac5cba5547de674da384fafc998e6572ac6d70ced177a",
+      "contentType": "text/javascript; charset=utf-8"
+    },
+    {
+      "name": "engine-worker.js",
+      "status": 200,
+      "bytes": 342403,
+      "sha256": "8c253f1609dc14b757a6740d3d17ff4b62e360ba45ca854fc8429617534c68f2",
+      "contentType": "text/javascript; charset=utf-8"
+    },
+    {
+      "name": "eraJS-LICENSE.txt",
+      "status": 200,
+      "bytes": 1061,
+      "sha256": "acbd9f2b463cd3431927837baf8abfc42f9b848e7d8732a5cebfd6cbeaf4c79f",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "name": "build.json",
+      "status": 200,
+      "bytes": 274,
+      "sha256": "f1adfc23258685a5f00160042fe2368a5e7133ca7f019f334c8ef34018b38a49",
+      "contentType": "application/json"
+    },
+    {
+      "name": "local-game.json",
+      "status": 200,
+      "bytes": 63760333,
+      "sha256": "32424703d38a0f162f6285cf144382e139ca9885e1a1361845d5f2d561ae3df7",
+      "contentType": "application/json"
+    },
+    {
+      "name": "manifest.webmanifest",
+      "status": 200,
+      "bytes": 500,
+      "sha256": "559c19ff906d1e855a0b1e6a963709b338931c5c2a880618903bafe9df7b1cb8",
+      "contentType": "application/manifest+json"
+    },
+    {
+      "name": "icon-180.png",
+      "status": 200,
+      "bytes": 642,
+      "sha256": "653bd2e4ba3b5b8e2468df9a11d2d168c8f38f5296ff794dce5d594aa2175dbb",
+      "contentType": "image/png"
+    },
+    {
+      "name": "icon-192.png",
+      "status": 200,
+      "bytes": 691,
+      "sha256": "beda65ebe09ef25ed5a8ff5f8fa5a7843577973e6a1291f904be1819a50cf292",
+      "contentType": "image/png"
+    },
+    {
+      "name": "icon-512.png",
+      "status": 200,
+      "bytes": 3239,
+      "sha256": "70b388b895bfe355fdf5b4fa3522344d7abb91883d0b48fcb98b35a8c6315570",
+      "contentType": "image/png"
+    },
+    {
+      "name": "sw.js",
+      "status": 200,
+      "bytes": 3877,
+      "sha256": "b35dede26b667ce8f567f20e47e1393e4be096df27373f4b21f2270fc62143f5",
+      "contentType": "text/javascript; charset=utf-8"
+    },
+    {
+      "name": "pwa-build.json",
+      "status": 200,
+      "bytes": 1216,
+      "sha256": "b039f7e4e13ccd3d18d9003004bb90dcc693306ed33005874ec50722233d72dc",
+      "contentType": "application/json"
+    }
+  ],
+  "rootStatus": 200,
+  "iPhoneTested": false,
+  "note": "Temporary public tunnel. PC and tunnel must remain running for online access. Do not use important saves."
+}

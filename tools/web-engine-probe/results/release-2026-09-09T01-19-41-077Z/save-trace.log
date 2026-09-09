@@ -1,0 +1,65 @@
+TAP version 13
+# Subtest: zero prefixes preserve every integer, dense/empty arrays and extended leaf length
+ok 1 - zero prefixes preserve every integer, dense/empty arrays and extended leaf length
+  ---
+  duration_ms: 70.232
+  type: 'test'
+  ...
+# Subtest: pinned overlay fails closed on upstream change; CRLF/LF equivalent
+ok 2 - pinned overlay fails closed on upstream change; CRLF/LF equivalent
+  ---
+  duration_ms: 3.8301
+  type: 'test'
+  ...
+# Subtest: legacy writer -> legacy + compact loaders and unchanged backup codec
+ok 3 - legacy writer -> legacy + compact loaders and unchanged backup codec
+  ---
+  duration_ms: 1243.008
+  type: 'test'
+  ...
+# Subtest: compact writer -> legacy + compact loaders and unchanged backup codec
+ok 4 - compact writer -> legacy + compact loaders and unchanged backup codec
+  ---
+  duration_ms: 84.5712
+  type: 'test'
+  ...
+# Subtest: serialization milestone is awaited before reading arrays, rejected writes never succeed
+ok 5 - serialization milestone is awaited before reading arrays, rejected writes never succeed
+  ---
+  duration_ms: 22.2095
+  type: 'test'
+  ...
+# Subtest: tiny journal survives restart; unavailable/corrupt storage fails open; modes isolated
+ok 6 - tiny journal survives restart; unavailable/corrupt storage fails open; modes isolated
+  ---
+  duration_ms: 18.4595
+  type: 'test'
+  ...
+# Subtest: progress ACK ordering, wrong ACK, timeout and failed send do not hang
+ok 7 - progress ACK ordering, wrong ACK, timeout and failed send do not hang
+  ---
+  duration_ms: 36.3429
+  type: 'test'
+  ...
+# Subtest: chromium: actual worker diagnostic ordering, interrupted save breadcrumb, restore and unavailable journal
+ok 8 - chromium: actual worker diagnostic ordering, interrupted save breadcrumb, restore and unavailable journal
+  ---
+  duration_ms: 2326.9677
+  type: 'test'
+  ...
+# Subtest: webkit: actual worker diagnostic ordering, interrupted save breadcrumb, restore and unavailable journal
+ok 9 - webkit: actual worker diagnostic ordering, interrupted save breadcrumb, restore and unavailable journal
+  ---
+  duration_ms: 4452.7639
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8824.3781
+

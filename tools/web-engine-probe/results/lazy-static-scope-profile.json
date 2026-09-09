@@ -1,0 +1,260 @@
+{
+  "passed": true,
+  "generatedAt": "2026-09-09T07:21:49.240Z",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "representation": "Function static maps, LOCAL/LOCALS cells and non-dynamic #DIM cells are created on first function entry; scopes targeted by explicit VAR@FUNCTION references are prepared during reset.",
+  "memory": {
+    "baselineBytes": 310981864,
+    "compactBytes": 280799880,
+    "savedBytes": 30181984,
+    "savedMiB": 28.784
+  },
+  "scopes": {
+    "baseline": {
+      "allocated": 16463,
+      "totalFunctions": 16844,
+      "explicitTargets": null,
+      "storage": {
+        "maps": 16463,
+        "cells": 32936,
+        "deferredCells": 32924,
+        "allocatedCells": 2,
+        "arrays": 2,
+        "slots": 22,
+        "nonDefaultSlots": 0
+      }
+    },
+    "compact": {
+      "allocated": 69,
+      "totalFunctions": 16844,
+      "explicitTargets": 69,
+      "storage": {
+        "maps": 69,
+        "cells": 136,
+        "deferredCells": 136,
+        "allocatedCells": 0,
+        "arrays": 0,
+        "slots": 0,
+        "nonDefaultSlots": 0
+      }
+    }
+  },
+  "baseline": {
+    "engine": "engine-compact-ir-labels-lazy-slice-paged-statements-printform.mjs",
+    "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+    "compiled": {
+      "label": "compiled-source-released",
+      "natural": {
+        "label": "compiled-source-released",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 326719472,
+          "heapTotal": 418865152,
+          "rss": 491704320,
+          "external": 11805050,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 311.584,
+          "heapTotal": 399.461,
+          "rss": 468.926,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "compiled-source-released",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 283545304,
+          "heapTotal": 421625856,
+          "rss": 489320448,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 270.41,
+          "heapTotal": 402.094,
+          "rss": 466.652,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      }
+    },
+    "reset": {
+      "label": "reset",
+      "natural": {
+        "label": "reset",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 329693352,
+          "heapTotal": 426430464,
+          "rss": 494936064,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 314.42,
+          "heapTotal": 406.676,
+          "rss": 472.008,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "reset",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 310981864,
+          "heapTotal": 454135808,
+          "rss": 493273088,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 296.575,
+          "heapTotal": 433.098,
+          "rss": 470.422,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      }
+    },
+    "scopes": {
+      "allocated": 16463,
+      "totalFunctions": 16844,
+      "explicitTargets": null,
+      "storage": {
+        "maps": 16463,
+        "cells": 32936,
+        "deferredCells": 32924,
+        "allocatedCells": 2,
+        "arrays": 2,
+        "slots": 22,
+        "nonDefaultSlots": 0
+      }
+    }
+  },
+  "compact": {
+    "engine": "engine-compact-ir-labels-lazy-slice-paged-statements-printform-static.mjs",
+    "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+    "compiled": {
+      "label": "compiled-source-released",
+      "natural": {
+        "label": "compiled-source-released",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 611730144,
+          "heapTotal": 696696832,
+          "rss": 769282048,
+          "external": 11805050,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 583.391,
+          "heapTotal": 664.422,
+          "rss": 733.645,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "compiled-source-released",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 278957160,
+          "heapTotal": 425558016,
+          "rss": 499036160,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 266.034,
+          "heapTotal": 405.844,
+          "rss": 475.918,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      }
+    },
+    "reset": {
+      "label": "reset",
+      "natural": {
+        "label": "reset",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 289213736,
+          "heapTotal": 426868736,
+          "rss": 500805632,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 275.816,
+          "heapTotal": 407.094,
+          "rss": 477.605,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "reset",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 280799880,
+          "heapTotal": 422281216,
+          "rss": 499953664,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 267.792,
+          "heapTotal": 402.719,
+          "rss": 476.793,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      }
+    },
+    "scopes": {
+      "allocated": 69,
+      "totalFunctions": 16844,
+      "explicitTargets": 69,
+      "storage": {
+        "maps": 69,
+        "cells": 136,
+        "deferredCells": 136,
+        "allocatedCells": 0,
+        "arrays": 0,
+        "slots": 0,
+        "nonDefaultSlots": 0
+      }
+    }
+  },
+  "originalUnchanged": true,
+  "limitations": [
+    "Reset-only forced-GC Node samples are not browser/iPhone peaks.",
+    "Runtime scope growth and semantic equivalence are measured by the separate 1/4/16-day acceptance run.",
+    "Alternate ERA corpora remain untested."
+  ]
+}

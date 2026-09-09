@@ -1,0 +1,73 @@
+{
+  "engine": "chromium",
+  "browserVersion": "152.0.4191.66",
+  "label": "baseline",
+  "passed": true,
+  "actualIPhone": false,
+  "workload": "10240 rows / 80 batches; 1 warmup + 3 samples; UI-only mock Worker; 390x844",
+  "bundleSha256": "3a6aa75afc4e40298c418b3991f3404e7098c2ef6eed86b63f3def41a8c25dae",
+  "median": {
+    "elapsedMs": 432.2000000178814,
+    "handlerTotalMs": 237.7999999821186,
+    "handlerP95Ms": 4.5,
+    "mainReads": 80,
+    "composerReads": 104,
+    "createdElements": 23360,
+    "buttonQueries": 8240,
+    "scrolls": 24,
+    "elements": 4562
+  },
+  "samples": [
+    {
+      "mainReads": 80,
+      "composerReads": 104,
+      "createdElements": 23360,
+      "buttonQueries": 8240,
+      "scrolls": 24,
+      "batches": 80,
+      "acks": 80,
+      "elapsedMs": 432.2000000178814,
+      "handlerTotalMs": 237.7999999821186,
+      "handlerP95Ms": 4.5,
+      "rows": 2000,
+      "elements": 4562,
+      "first": "ROW:8240 한글 출력 강조 끝",
+      "last": "ROW:10239 한글 출력 ",
+      "activeButtons": 62
+    },
+    {
+      "mainReads": 80,
+      "composerReads": 106,
+      "createdElements": 23360,
+      "buttonQueries": 8240,
+      "scrolls": 26,
+      "batches": 80,
+      "acks": 80,
+      "elapsedMs": 449,
+      "handlerTotalMs": 244.10000005364418,
+      "handlerP95Ms": 4.699999988079071,
+      "rows": 2000,
+      "elements": 4562,
+      "first": "ROW:8240 한글 출력 강조 끝",
+      "last": "ROW:10239 한글 출력 ",
+      "activeButtons": 62
+    },
+    {
+      "mainReads": 80,
+      "composerReads": 104,
+      "createdElements": 23360,
+      "buttonQueries": 8240,
+      "scrolls": 24,
+      "batches": 80,
+      "acks": 80,
+      "elapsedMs": 415.69999998807907,
+      "handlerTotalMs": 234.80000004172325,
+      "handlerP95Ms": 4.4000000059604645,
+      "rows": 2000,
+      "elements": 4562,
+      "first": "ROW:8240 한글 출력 강조 끝",
+      "last": "ROW:10239 한글 출력 ",
+      "activeButtons": 62
+    }
+  ]
+}

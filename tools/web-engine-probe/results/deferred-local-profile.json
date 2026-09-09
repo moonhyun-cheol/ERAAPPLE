@@ -1,0 +1,138 @@
+{
+  "passed": true,
+  "at": "2026-09-09T02:22:05.557Z",
+  "runtime": "v24.15.0",
+  "actualIPhone": false,
+  "actualBrowser": false,
+  "limitation": "Fixed-seed new game, two characters, rest-only day 1/4/16 checkpoints after forced GC; not peak RSS, IndexedDB or user save reproduction.",
+  "results": {
+    "eager": {
+      "variant": "eager",
+      "engineSha256": "6458848a60c201bd9f9c5cb3ff9705004878ce953353c2f290ffcf47fe85b464",
+      "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+      "checkpoints": [
+        {
+          "day": 1,
+          "characters": 2,
+          "heapMiB": 677.9538497924805,
+          "rssMiB": 1078.921875,
+          "totalLocalCells": 32924,
+          "allocatedLocalCells": 32924,
+          "allocatedLocalElements": 18054810,
+          "stackDepth": 1,
+          "saves": {
+            "save90.sav": "3cb5fdb97a74d806587e6820e08f6b548cd98e217a0287d64f30403e7ac02ccd",
+            "global.sav": "1fd85f438f48c3bc5ee1e606374671e0202497d712f66a37782e2d751681bff9"
+          }
+        },
+        {
+          "day": 4,
+          "characters": 2,
+          "heapMiB": 679.2307815551758,
+          "rssMiB": 1079.07421875,
+          "totalLocalCells": 32924,
+          "allocatedLocalCells": 32924,
+          "allocatedLocalElements": 18054810,
+          "stackDepth": 1,
+          "saves": {
+            "save90.sav": "3cb5fdb97a74d806587e6820e08f6b548cd98e217a0287d64f30403e7ac02ccd",
+            "global.sav": "8e155055a3e5e8981ebf50775f9872c6390729d85ff59adaaffb9a1a6ae90023",
+            "save91.sav": "b3fab40ac8df735cc825dfb7c4a0bb9b849de394891f09ca1fe4fb103a5e1dd0",
+            "save92.sav": "5e9a78b69498af70efde833c6f2b2d28f4842bd58902755c6af52d4e1955221e",
+            "save93.sav": "8294cd3c8d58426d223c676b89f3ebf35df55814cf2fe57c7fa77f6d459f8559",
+            "save94.sav": "302f1a724d90cd54d794171e6bf8b28c75b61c379df3253fef6fd98f903ade16",
+            "save95.sav": "789cca430c28a0e12f0c707651e5b8af11bb12525861e5b4410cc59a2c407382",
+            "save96.sav": "6ef8d26b42ee9ceaeab5ffcc3842209950ec3a5613c2d198585a4e861203cb77"
+          }
+        },
+        {
+          "day": 16,
+          "characters": 2,
+          "heapMiB": 680.1709823608398,
+          "rssMiB": 1080.78125,
+          "totalLocalCells": 32924,
+          "allocatedLocalCells": 32924,
+          "allocatedLocalElements": 18054810,
+          "stackDepth": 1,
+          "saves": {
+            "save90.sav": "ba311a53788ea767d1105084151af91070f19fba1f875113ee7496a51e4a8cd4",
+            "global.sav": "1fd85f438f48c3bc5ee1e606374671e0202497d712f66a37782e2d751681bff9",
+            "save91.sav": "7c16818092132c277631287d818454c4395631e70ee13dd400801b6049b4ca01",
+            "save92.sav": "0e10b522c864b0b167b8a8d88a3593b1817e80670a7a7b3d48ba6487340d5cc2",
+            "save93.sav": "a6248da88ddc5fd545ab8de071f216652016fc7448a77f3473e494a0686b9d20",
+            "save94.sav": "89ebf72f13c60cef773129d1c65c6018385bbeb64853115edf52fb7464865629",
+            "save95.sav": "b633f6e277acb355243b7cf201d452ce37296f8274cb05adb73016bf5478ee56",
+            "save96.sav": "88e3a2edb6b468d038273005d9227d04b563def381a9d0eae14a734979ae8ad1",
+            "save97.sav": "a8b19607c33fdcba5d628cad8a28b02c82e252e2fe38c55a5186a503187406dd",
+            "save98.sav": "d65495475afdb62735540e31fc9915a2dc863e8db2d6f93253c31ed66a1f9d96",
+            "save99.sav": "84be4e800b0dbe347d28c9d3e2a99405f004314c53259fdbefc61ab959abbc03"
+          }
+        }
+      ]
+    },
+    "deferred": {
+      "variant": "deferred",
+      "engineSha256": "7227aa53349ed891e95db1284891e2fd15c6365128047a71f78b6d360682b374",
+      "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+      "checkpoints": [
+        {
+          "day": 1,
+          "characters": 2,
+          "heapMiB": 557.1096725463867,
+          "rssMiB": 904.796875,
+          "totalLocalCells": 32924,
+          "allocatedLocalCells": 34,
+          "allocatedLocalElements": 23012,
+          "stackDepth": 1,
+          "saves": {
+            "save90.sav": "3cb5fdb97a74d806587e6820e08f6b548cd98e217a0287d64f30403e7ac02ccd",
+            "global.sav": "1fd85f438f48c3bc5ee1e606374671e0202497d712f66a37782e2d751681bff9"
+          }
+        },
+        {
+          "day": 4,
+          "characters": 2,
+          "heapMiB": 558.6138534545898,
+          "rssMiB": 907.22265625,
+          "totalLocalCells": 32924,
+          "allocatedLocalCells": 66,
+          "allocatedLocalElements": 54112,
+          "stackDepth": 1,
+          "saves": {
+            "save90.sav": "3cb5fdb97a74d806587e6820e08f6b548cd98e217a0287d64f30403e7ac02ccd",
+            "global.sav": "8e155055a3e5e8981ebf50775f9872c6390729d85ff59adaaffb9a1a6ae90023",
+            "save91.sav": "b3fab40ac8df735cc825dfb7c4a0bb9b849de394891f09ca1fe4fb103a5e1dd0",
+            "save92.sav": "5e9a78b69498af70efde833c6f2b2d28f4842bd58902755c6af52d4e1955221e",
+            "save93.sav": "8294cd3c8d58426d223c676b89f3ebf35df55814cf2fe57c7fa77f6d459f8559",
+            "save94.sav": "302f1a724d90cd54d794171e6bf8b28c75b61c379df3253fef6fd98f903ade16",
+            "save95.sav": "789cca430c28a0e12f0c707651e5b8af11bb12525861e5b4410cc59a2c407382",
+            "save96.sav": "6ef8d26b42ee9ceaeab5ffcc3842209950ec3a5613c2d198585a4e861203cb77"
+          }
+        },
+        {
+          "day": 16,
+          "characters": 2,
+          "heapMiB": 559.5404815673828,
+          "rssMiB": 907.1875,
+          "totalLocalCells": 32924,
+          "allocatedLocalCells": 66,
+          "allocatedLocalElements": 54112,
+          "stackDepth": 1,
+          "saves": {
+            "save90.sav": "ba311a53788ea767d1105084151af91070f19fba1f875113ee7496a51e4a8cd4",
+            "global.sav": "1fd85f438f48c3bc5ee1e606374671e0202497d712f66a37782e2d751681bff9",
+            "save91.sav": "7c16818092132c277631287d818454c4395631e70ee13dd400801b6049b4ca01",
+            "save92.sav": "0e10b522c864b0b167b8a8d88a3593b1817e80670a7a7b3d48ba6487340d5cc2",
+            "save93.sav": "a6248da88ddc5fd545ab8de071f216652016fc7448a77f3473e494a0686b9d20",
+            "save94.sav": "89ebf72f13c60cef773129d1c65c6018385bbeb64853115edf52fb7464865629",
+            "save95.sav": "b633f6e277acb355243b7cf201d452ce37296f8274cb05adb73016bf5478ee56",
+            "save96.sav": "88e3a2edb6b468d038273005d9227d04b563def381a9d0eae14a734979ae8ad1",
+            "save97.sav": "a8b19607c33fdcba5d628cad8a28b02c82e252e2fe38c55a5186a503187406dd",
+            "save98.sav": "d65495475afdb62735540e31fc9915a2dc863e8db2d6f93253c31ed66a1f9d96",
+            "save99.sav": "84be4e800b0dbe347d28c9d3e2a99405f004314c53259fdbefc61ab959abbc03"
+          }
+        }
+      ]
+    }
+  }
+}

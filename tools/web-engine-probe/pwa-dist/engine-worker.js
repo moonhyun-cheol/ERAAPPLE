@@ -3293,6 +3293,32 @@ var Int0DValue = class _Int0DValue {
   }
 };
 
+// deferred-local.mjs
+function deferLocalArray(cell, size, zero) {
+  if (!Number.isInteger(size) || size < 0 || size > 4294967295) {
+    cell.value = new Array(size).fill(zero);
+    return;
+  }
+  const assign = (value) => Object.defineProperty(cell, "value", {
+    value,
+    writable: true,
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(cell, "value", {
+    enumerable: true,
+    configurable: true,
+    get() {
+      const value = new Array(size).fill(zero);
+      assign(value);
+      return value;
+    },
+    set(value) {
+      assign(value);
+    }
+  });
+}
+
 // ../../.my_agent_remote/undercrow__eraJS/build/value/int-1d.js
 var Int1DValue = class _Int1DValue {
   type = "number";
@@ -3314,7 +3340,8 @@ var Int1DValue = class _Int1DValue {
     cond(realSize.length === 1, `${name} is not a ${realSize.length}D variable`);
     this.name = name;
     this.saveShape = [...realSize];
-    this.value = new Array(realSize[0]).fill(0n);
+    if (name === "LOCAL") deferLocalArray(this, realSize[0], 0n);
+    else this.value = new Array(realSize[0]).fill(0n);
   }
   reset(value) {
     for (let i = 0; i < this.value.length; ++i) {
@@ -3547,7 +3574,8 @@ var Str1DValue = class _Str1DValue {
     const realSize = size ?? [100];
     cond(realSize.length === 1, `${name} is not a ${realSize.length}D variable`);
     this.name = name;
-    this.value = new Array(realSize[0]).fill("");
+    if (name === "LOCALS") deferLocalArray(this, realSize[0], "");
+    else this.value = new Array(realSize[0]).fill("");
   }
   reset(value) {
     for (let i = 0; i < this.value.length; ++i) {

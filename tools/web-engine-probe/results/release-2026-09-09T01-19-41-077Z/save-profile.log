@@ -1,0 +1,166 @@
+{
+  "passed": true,
+  "runtime": "v24.15.0",
+  "actualIPhone": false,
+  "actualBrowser": false,
+  "limitation": "3 warmed serializations at the first real-game shop. Heap sampled before command / at setSavedata; not true peak, not IndexedDB, not a long-running save.",
+  "results": {
+    "legacy": {
+      "variant": "legacy",
+      "samples": [
+        {
+          "bytes": 41175595,
+          "elapsedMs": 391.9304000000002,
+          "heapBeforeMiB": 676.0704345703125,
+          "heapAtStorageMiB": 838.3301086425781,
+          "heapDeltaMiB": 162.25991821289062
+        },
+        {
+          "bytes": 41175595,
+          "elapsedMs": 394.1391999999996,
+          "heapBeforeMiB": 676.0694274902344,
+          "heapAtStorageMiB": 838.3146591186523,
+          "heapDeltaMiB": 162.24547576904297
+        },
+        {
+          "bytes": 41175595,
+          "elapsedMs": 399.53840000000037,
+          "heapBeforeMiB": 676.0447769165039,
+          "heapAtStorageMiB": 838.2959213256836,
+          "heapDeltaMiB": 162.2534942626953
+        }
+      ],
+      "largest": [
+        {
+          "name": "TA",
+          "bytes": 4020201
+        },
+        {
+          "name": "TB",
+          "bytes": 4020201
+        },
+        {
+          "name": "FILED_MAP",
+          "bytes": 4020201
+        },
+        {
+          "name": "FOW_MAP",
+          "bytes": 4020201
+        },
+        {
+          "name": "ROOM_MAP",
+          "bytes": 4020201
+        },
+        {
+          "name": "OBJECT_MAP",
+          "bytes": 4020201
+        },
+        {
+          "name": "ITEM_MAP",
+          "bytes": 4020201
+        },
+        {
+          "name": "MONSTER_MAP",
+          "bytes": 4020201
+        },
+        {
+          "name": "DITEMTYPE",
+          "bytes": 4002001
+        },
+        {
+          "name": "MONSTER_DATA",
+          "bytes": 4002001
+        },
+        {
+          "name": "ITEM_DATA_RPG",
+          "bytes": 402001
+        },
+        {
+          "name": "FLAG",
+          "bytes": 80021
+        }
+      ],
+      "characters": 1,
+      "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d"
+    },
+    "compact": {
+      "variant": "compact",
+      "samples": [
+        {
+          "bytes": 43852,
+          "elapsedMs": 19.38050000000021,
+          "heapBeforeMiB": 676.9573516845703,
+          "heapAtStorageMiB": 680.3907928466797,
+          "heapDeltaMiB": 3.433685302734375
+        },
+        {
+          "bytes": 43852,
+          "elapsedMs": 16.84990000000016,
+          "heapBeforeMiB": 676.9561538696289,
+          "heapAtStorageMiB": 680.3895950317383,
+          "heapDeltaMiB": 3.433685302734375
+        },
+        {
+          "bytes": 43852,
+          "elapsedMs": 17.13670000000002,
+          "heapBeforeMiB": 676.9314346313477,
+          "heapAtStorageMiB": 680.3626861572266,
+          "heapDeltaMiB": 3.4336013793945312
+        }
+      ],
+      "largest": [
+        {
+          "name": "FLAG",
+          "bytes": 20065
+        },
+        {
+          "name": "ITEM_NAME_RPG",
+          "bytes": 3001
+        },
+        {
+          "name": "ITEM_DISCRIPT_RPG",
+          "bytes": 3001
+        },
+        {
+          "name": "TSTR",
+          "bytes": 1201
+        },
+        {
+          "name": "MONEY",
+          "bytes": 414
+        },
+        {
+          "name": "ITEM",
+          "bytes": 405
+        },
+        {
+          "name": "SAVESTR",
+          "bytes": 301
+        },
+        {
+          "name": "NAME_MAP",
+          "bytes": 301
+        },
+        {
+          "name": "PALAMLV",
+          "bytes": 75
+        },
+        {
+          "name": "DAY",
+          "bytes": 33
+        },
+        {
+          "name": "EXPLV",
+          "bytes": 29
+        },
+        {
+          "name": "RANDDATA",
+          "bytes": 14
+        }
+      ],
+      "characters": 1,
+      "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d"
+    }
+  }
+}
+

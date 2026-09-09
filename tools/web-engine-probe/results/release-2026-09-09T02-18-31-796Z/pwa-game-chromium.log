@@ -1,0 +1,17 @@
+TAP version 13
+# Subtest: actual game PWA offline: title, setup and compatibility boundary
+ok 1 - actual game PWA offline: title, setup and compatibility boundary
+  ---
+  duration_ms: 8662.136
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9043.4232
+

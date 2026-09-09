@@ -1,0 +1,4837 @@
+{
+  "engine": {
+    "id": "erajs",
+    "version": "0.7.0",
+    "commit": "fb487bceacd899a033db017ff0dff5bb3878d4a5"
+  },
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "p0Passed": false,
+  "iPhoneTested": false,
+  "original": {
+    "count": 1151,
+    "digest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+    "unchanged": true
+  },
+  "counts": {
+    ".CSV": 251,
+    ".CONFIG": 3,
+    ".ERB": 857,
+    ".ERH": 7
+  },
+  "encodings": [
+    {
+      "path": "CSV/Abl.csv",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Base.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara000.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara001.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara002.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara003.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara004.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara005.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara006.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara007.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara008.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara009.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara010.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara011.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara012.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara013.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara014.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara015.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara016.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara017.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara018.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara019.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara020.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara021.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara022.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara023.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara024.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara025.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara026.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara027.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara028.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara029.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara030.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara031.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara032.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara033.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara034.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara035.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara036.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara037.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara038.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara039.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara040.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara041.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara042.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara043.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara044.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara045.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara046.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara047.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara048.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara049.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara050.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara051.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara052.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara053.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara054.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara055.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara056.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara057.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara058.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara059.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara060.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara061.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara062.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara063.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara064.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara065.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara066.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara067.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara068.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara069.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara070.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara071.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara072.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara073.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara074.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara075.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara076.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara077.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara078.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara079.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara080.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara081.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara082.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara083.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara084.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara085.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara086.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara087.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara088.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara089.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara096.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara097.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara098.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara099.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara100.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara101.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara102.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara103.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara104.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara105.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara106.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara107.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara108.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara109.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara110.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara111.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara112.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara113.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara114.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara115.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara116.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara117.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara118.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara119.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara120.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara121.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara122.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara123.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara124.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara125.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara126.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara127.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara128.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara129.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara130.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara134.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara136.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara139.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara140.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara141.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara142.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara146.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara147.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara148.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara149.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara150.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara151.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara152.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara153.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara154.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara155.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara156.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara160.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara161.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara162.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara163.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara164.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara165.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara166.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara170.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara171.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara172.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara173.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara174.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara175.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara176.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara177.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara178.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara179.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara180.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara181.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara182.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara183.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara184.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara185.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara186.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara187.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara188.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara189.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara190.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara200.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara201.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara202.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara203.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara204.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara205.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara206.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara207.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara208.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara209.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara210.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara211.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara212.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara213.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara214.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara215.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara216.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara217.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara218.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara220.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara221.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara222.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara223.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara224.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara225.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara226.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara227.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara230.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara240.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara241.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara242.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara243.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara244.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara245.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara246.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara247.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara248.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara249.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara250.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara251.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara252.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara253.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara254.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara255.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara256.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara257.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara258.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara259.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara260.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara261.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara262.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara263.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara497.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara498.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara500.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/CHARA/Chara501.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Cflag.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Cstr.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Equip.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Ex.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Exp.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Flag.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/GameBase.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Item.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Juel.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Mark.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Nowex.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Palam.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Source.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Stain.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Str.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Talent.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Tcvar.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Tequip.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Tflag.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/Train.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/VariableSize.CSV",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/_Rename.csv",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/_Replace.csv",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "CSV/_default.config",
+      "encoding": "unresolved",
+      "candidates": [
+        "shift_jis"
+      ]
+    },
+    {
+      "path": "CSV/_fixed.config",
+      "encoding": "unresolved",
+      "candidates": [
+        "shift_jis"
+      ]
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP000.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP001.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP002.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP003.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP010.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP011.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP012.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP013.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP014.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP020.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP021.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP022.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP023.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP030.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP031.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP032.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP033.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP034.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP035.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP036.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP037.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP070.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP071.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP072.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP073.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP078.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP093.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP098.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP099.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABLUP198.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/ABL_MENU.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/AUTO_ABLUP.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ABLUP/SHOW_STATUS_SPOILER.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/001 레이무/EVENT_K01.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/002 마리사/EVENT_K02.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/002 마리사/EVENT_K02_YM.ERH",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/002 마리사/EVENT_K02_YM.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/003 루미아/EVENT_K03 YM.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/003 루미아/EX루미아/EVENT_ASSI_K03.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/003 루미아/EX루미아/EVENT_K03.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/003 루미아/EX루미아/EVENT_K0_M03.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/004 대요정/EVENT_K04.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/005 치르노/EVENT_K05.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/006 메이링/EVENT_K06.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/007 소악마/EVENT_K07.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/007 소악마/EVENT_K07_LIB.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/008 파츄리/EVENT_K08.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/009 사쿠야/EVENT_K09.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/010 레밀리아/EVENT_K10.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/010 레밀리아/EVENT_K10_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/010 레밀리아/EVENT_K10_Y.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/011 플랑드르/EVENT_K11.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/012 레티/EVENT_K12.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/013 첸/EVENT_K13.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/013 첸/EVENT_K13_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/013 첸/EVENT_K13_C1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/013 첸/EVENT_K13_C2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/013 첸/EVENT_K13_C6.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/013 첸/EVENT_K13_E0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/013 첸/EVENT_K13_E1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/013 첸/EVENT_K13_T.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/013 첸/RR판/EVENT_K13_RR.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/014 앨리스/EVENT_K14.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/015 릴리 화이트/EVENT_K15.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/015 릴리 화이트/EVENT_K15_C0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/015 릴리 화이트/EVENT_K15_C1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/015 릴리 화이트/EVENT_K15_C2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/015 릴리 화이트/EVENT_K15_C3.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/015 릴리 화이트/EVENT_K15_C5.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/015 릴리 화이트/EVENT_K15_C6.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/015 릴리 화이트/EVENT_K15_E0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/016 리리카/EVENT_K16.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/017 메를랑/EVENT_K17.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/018 루나사/EVENT_K18.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/019 요우무/EVENT_K19.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/020 유유코/EVENT_K20.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/020 유유코/EVENT_K20_EX.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/021 란/EVENT_K21.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/022 유카리/EVENT_K22.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/023 스이카/EVENT_K23.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/024 리글/EVENT_K24.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/024 리글/EVENT_K24_M34.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/025 미스티아/EVENT_K25.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/026 케이네/EVENT_K26.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/027 테위/EVENT_K27.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/028 우동게/EVENT_K28.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/028 우동게/EVENT_K28_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/028 우동게/EVENT_K28_C0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/028 우동게/EVENT_K28_C1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/028 우동게/EVENT_K28_C2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/028 우동게/EVENT_K28_C4.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/028 우동게/EVENT_K28_C6.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/028 우동게/EVENT_K28_E0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/028 우동게/EVENT_K28_E1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/029 에이린/EVENT_K29.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/030 카구야/EVENT_K30.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/031 모코우/EVENT_K31.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/031 모코우/EVENT_K31_A_EXT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/032 아야/EVENT_K0_M32.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/032 아야/EVENT_K32.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/033 메디슨/EVENT_K33.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/034 유카/EVENT_K34.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/035 코마치/EVENT_K35.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/035 코마치/EVENT_K35_YM.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/036 에이키/EVENT_K36.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/037 시즈하/EVENT_K37.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/038 미노리코/EVENT_K38.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/EVENT_K39_OBEY.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39_A_EXT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39_C0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39_C1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39_C2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39_C3.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39_C4.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39_C5.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39_C6.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39_E0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/039 히나/액신님 히나/EVENT_K39_E1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/040 니토리/EVENT_K40.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/041 모미지/EVENT_K41.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/042 사나에/EVENT_K42.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/043 카나코/EVENT_K43.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/043 카나코/EVENT_K43_ON.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/044 스와코/EVENT_K44.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/044 스와코/EVENT_K44_YM.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/045 서니/EVENT_K45.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/045 서니/EVENT_K45_M47.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/046 루나/EVENT_K46.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/047 스타/EVENT_K47.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/048 아큐/EVENT_K48.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/049 렌코/EVENT_K49.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/050 마에리베리/EVENT_K50.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/EVENT_K51.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/YM/EVENT_K51.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/YM/EVENT_K51_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/YM/EVENT_K51_C0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/YM/EVENT_K51_C1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/YM/EVENT_K51_C2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/YM/EVENT_K51_C3.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/YM/EVENT_K51_C4.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/YM/EVENT_K51_C5.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/YM/EVENT_K51_C6.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/YM/EVENT_K51_E0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/051 이쿠/YM/EVENT_K51_E1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/052 텐시/EVENT_K52.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/052 텐시/YM/EVENT_K52.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/052 텐시/YM/EVENT_K52A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/052 텐시/YM/EVENT_K52B.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/053 토요히메/EVENT_K53.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/054 요리히메/EVENT_K54.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/055 레이센mk2/EVENT_K55.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/056 릴리 블랙/EVENT_K56.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/057 키스메/EVENT_K57.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/058 야마메/EVENT_K58.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/059 파르시/EVENT_ASSI_K59.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/059 파르시/EVENT_K59.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/060 유기/EVENT_K60.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/061 사토리/EVENT_ASSI_K61.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/061 사토리/EVENT_K61.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/062 오린/EVENT_K62.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/063 오쿠/EVENT_K63.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/064 코이시/EVENT_K64.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/065 반령(요우무)/EVENT_K65.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/066 상하이인형/EVENT_K66.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/068 토키코/EVENT_K68.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/069 린노스케/EVENT_K69.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/070 요우키/EVENT_K70.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/071 나즈린/EVENT_K71.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/072 코가사/EVENT_K171.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/072 코가사/EVENT_K171_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/072 코가사/EVENT_K72.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/072 코가사/EVENT_K72_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/072 코가사/EVENT_K72_B.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/072 코가사/EVENT_K72_C.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/072 코가사/EVENT_K72_D.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/072 코가사/EVENT_K72_E.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/072 코가사/EVENT_K72_X.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/073 이치린/EVENT_K73.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/074 운잔/EVENT_K74.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/075 무라사/EVENT_K75.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/076 쇼우/EVENT_K76.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/077 뱌쿠렌/EVENT_K77.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/078 누에/EVENT_K78.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/078 누에/EVENT_K78_RR.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/079 하타테/EVENT_K79.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/080 카센/EVENT_K80.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81_A_EXT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81_C0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81_C1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81_C2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81_C3.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81_C4.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81_C5.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81_C6.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81_E0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/081 쿄코/EVENT_K81_E_EXT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82_A_EXT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82_C0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82_C1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82_C2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82_C3.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82_C4.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82_C5.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82_C6.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82_E0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/082 요시카/EVENT_K82_E1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/083 청아/EVENT_K83.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/085 후토/EVENT_K85.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/087 마미조/EVENT_K87.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/100 미마/EVENT_K100.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/100 미마/EVENT_K100_M1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/102 메이라/EVENT_K102.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/105 카나/EVENT_K105.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/107 치유리/EVENT_K107.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/108 유메미/EVENT_K108.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/113 겐게츠/EVENT_K113.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/116 유키/EVENT_K116.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/118 유메코/EVENT_K118.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/119 신키/EVENT_K119.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/150 해바라기 요정/EVENT_K150.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/208 사샤/EVENT_K208.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/222 카게로/EVENT_K222.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/225 세이자/EVENT_K225.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/225 세이자/EVENT_K225_C0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/225 세이자/EVENT_K225_E0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/226 신묘마루/EVENT_K226.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227_A_EXT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227_C0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227_C1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227_C2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227_C3.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227_C4.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227_C5.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227_C6.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227_E0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/227 라이코/EVENT_K227_E_EXT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243_A_EXT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243_C0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243_C1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243_C2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243_C3.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243_C4.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243_C5.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243_C6.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243_E0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/243 사구메/EVENT_K243_E_EXT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_A.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_A_EXT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_C0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_C1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_C2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_C3.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_C4.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_C5.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_C6.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_E0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_E1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_E2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_W0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/248 조온/EVENT_K248_W1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA/249 시온/EVENT_K249.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/CHARA_LIST.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF000.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF001.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF002.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF003.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF004.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF005.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF006.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF007.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF009.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF010.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF011.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF012.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF013.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF014.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF015.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF016.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF017.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF020.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF021.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF022.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF023.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF024.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF025.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF026.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF027.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF028.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF030.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF031.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF032.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF033.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF034.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF035.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF036.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF037.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF038.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF040.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF041.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF042.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF043.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF044.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF045.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF046.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF047.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF048.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF049.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF050.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF051.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF052.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF053.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF054.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF055.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF060.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF061.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF062.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF063.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF064.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF066.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF067.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF068.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF069.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF071.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF080.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF081.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF082.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF083.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF084.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF085.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF087.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF088.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF089.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF090.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF091.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF092.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF093.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF0's/COMF094.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF100.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF101.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF102.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF103.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF104.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF105.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF106.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF107.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF108.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF110.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF111.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF112.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF113.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF114.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF115.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF116.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF117.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF118.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF120.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF121.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF122.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF123.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF124.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF125.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF126.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF128.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF130.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF131.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF132.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF133.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF135.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF137.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF140.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF141.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF142.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF143.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF144.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF145.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF146.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF147.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF148.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF150.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF151.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF152.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF153.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF155.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF156.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF157.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF160.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF161.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF170.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF171.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF172.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF173.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF174.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF175.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF179.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF180.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF181.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF182.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF183.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF184.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF186.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF187.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF188.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF190.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF191.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF192.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF193.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF194.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF1's/COMF195.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF200.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF201.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF202.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF203.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF204.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF205.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF206.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF207.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF208.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF209.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF210.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF211.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF220.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF221.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF222.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF223.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF224.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF225.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF226.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF227.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF228.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF229.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF230.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF231.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF232.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF233.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF234.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF235.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF236.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF237.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF238.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF240.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF241.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF242.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF243.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF244.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF245.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF250.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF251.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF252.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF270.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF271.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF272.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF273.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF290.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF291.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF292.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF2's/COMF293.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF300.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF301.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF302.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF303.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF304.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF305.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF306.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF307.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF308.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF309.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF310.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF311.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF312.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF313.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF319.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF320.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF321.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF322.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF323.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF324.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF325.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF326.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF327.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF328.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF329.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF330.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF331.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF332.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF333.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF334.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF335.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF336.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF337.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF338.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF339.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF340.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF341.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF342.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF343.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF344.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF345.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF346.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF347.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF348.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF349.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF350.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF351.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF352.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF353.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF354.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF355.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF356.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF357.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF358.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF359.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF360.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF361.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF362.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF363.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF364.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF365.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF366.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF367.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF368.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF369.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF370.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF371.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF372.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF373.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF374.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF380.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF381.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF382.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF383.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF384.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF385.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF386.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF387.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF3's/COMF388.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF400.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF401.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF402.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF403.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF404.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF405.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF406.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF407.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF408.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF409.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF410.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF411.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF412.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF413.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF414.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF415.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF416.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF417.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF418.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF419.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF420.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF422.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF423.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF424.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF425.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF427.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF430.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF431.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF432.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF433.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF434.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF435.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF436.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF437.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF438.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF439.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF440.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF441.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF442.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF443.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF444.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF445.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF446.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF447.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF448.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF449.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF450.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF451.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF452.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF453.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF4's/COMF454.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF500.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF501.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF502.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF503.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF504.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF505.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF506.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF507.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF508.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF509.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF510.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF511.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF512.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF513.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF514.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF515.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF520.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF521.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF522.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF523.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF524.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF525.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF526.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF527.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF528.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF529.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF530.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF531.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF532.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF533.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF534.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF535.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF540.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF541.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF542.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF543.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF544.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF545.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF546.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF550.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF551.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF552.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF553.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF554.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF555.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF556.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF560.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF561.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF562.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF563.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF564.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF580.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF581.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF582.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF583.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF584.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF585.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF586.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF587.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF588.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF589.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF590.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF591.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF592.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF593.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF594.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF5's/COMF595.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF600.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF601.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF602.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF603.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF604.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF605.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF610.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF611.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF612.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF613.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF614.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF615.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF616.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF617.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF618.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF619.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF620.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF621.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF622.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF623.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF624.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF625.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF626.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF627.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF628.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF629.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF630.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF631.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF649.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF650.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF651.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF652.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF653.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF654.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF655.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF656.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF657.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF658.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF659.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF660.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF661.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF662.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF663.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF664.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF669.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF670.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF671.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF672.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF673.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COMF6's/COMF690.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COM_EVENT_TEQUIP.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COM_FUNCTION.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COM_ORDER.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COM_REGISTER.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COM/COM_VARIABLES.ERH",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "ERB/COMMON_CHARA/COMF346_rev5.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COMMON_CHARA/EVENT_KX_ENDING.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COMMON_CHARA/EVENT_KX_EVENT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COMMON_CHARA/EVENT_KX_LOVELY.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COMMON_CHARA/EVENT_KX_MAIN.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/COMMON_CHARA/K149_FUNCTION.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/FEATURES/DESCRIPTION_ENABLE.ERH",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/FEATURES/MESSAGE_ENABLE.ERH",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/MESSAGE/EVENT_K0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/MESSAGE/MESSAGE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/MESSAGE/MESSAGE_KX_IMPRESSION.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/MESSAGE/MESSAGE_RX.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SPRING/SHOP_SPRING.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SPRING/SPRING.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SPRING/SPRING1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SPRING/SPRING2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SPRING/SPRING3.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SPRING/SPRING4.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SPRING/SPRING5.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SPRING/SPRING6.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SPRING/SPRING7.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SPRING/SPRING8.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/CHARA_SORT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/COLOR_BAR.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/CONFIG/CONFIG0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/CONFIG/CONFIG1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/CONFIG/CONFIG2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/CONFIG/CONFIG_CUSTOMTOOL.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/CONFIG/CUSTOMTOOL.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/CONFIG/CUSTOMTOOL_INFO.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/DAILY/DAILY_EVENT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/DAILY/DAILY_LIFE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/DAILY/DAILY_LIFE_CALL.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/DAILY/DAILY_LIFE_GET.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/DAILY/DAILY_LIFE_PICKCHARA.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/DAILY/DAILY_LIFE_SCRIPT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/ENDING/ENDING0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/ENDING/ENDING1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/ENDING/ENDING2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/ENDING/ENDING_JUDGE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_COMMAND.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_GROWTH.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_MORNING0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_MORNING1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_NIGHT0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_NIGHT1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_NIGHT2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_NINSHIN.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_SELF.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_SHOOT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_SUB.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_TEXT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_TOHO.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_TRAINMESSAGE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/EVENT/EVENT_TURNEND.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_BATH.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_CALENDAR.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_CHILD.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_COLLECTION.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_DEBUG.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_EXCHARA.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_GENERAL.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_HARB.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_NEWTERM.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_SHOOT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_SIZE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_SUPPORT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_TENTACLE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/FUNCTIONS/SYSTEM_VARIABLES.ERH",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "ERB/SYS/INFO/HELP0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/INFO/HELP1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/INFO/HELP2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/INFO/HELP3.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/INFO/HELP4.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/INFO/HELP5.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/INFO/INFO0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/INFO/INFO1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/INFO/INFO2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/ITEMCHECKER.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/PANCTION.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/PANCTION_YM.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/PRINT_PALAM.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/PRINT_STATE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/PRINT_TRAIN.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/PROLOGUE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/RANDOM_NAME.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/RANDOM_STATE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/RINKAN.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SAVELOAD.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SELLITEMS.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SELLVIDEO.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SELLVIDEO_BONUS.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_BASEMENT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_CHARABUY.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_CHARALIST.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_CHARASALE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_CONCERT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_DRUGSTORE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_DRUGUSE1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_DRUGUSE2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_EXTRASHOP.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_IRC.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_ITEM.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_LABORATORY.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_LUNCH0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_LUNCH1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_WORKSHOP.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_WORKSHOP_JUDGE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_WORKSHOP_PROMISCUITY.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_WORKSHOP_RESULT.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_WORKSHOP_SELF.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_WORKSHOP_STATE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_WORKSHOP_TEACH.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SHOP/SHOP_WORKSHOP_VALUE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SOURCE0.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SOURCE1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/SOURCE2.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/TITLE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/TRAIN_AFTER.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/TRAIN_BEFORE.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/TRAIN_CHECK.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/TRAIN_USERCOM.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/TROPHY.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/SYS/VIRGIN_ROAD.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE1.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE2.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE3.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE4.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE5.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE6.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE6_1.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE7_BATTLECRY.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE7_DATA_GUARDSMAN.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE7_ESCAPE.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE7_GUARDSMAN.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE7_MAIN.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE7_RESCUE.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE7_RESCUE_EVENT.erb",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE_FUNCTIONS.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/TORIKO_MODE/TORIKOMODE_VARIABLES.ERH",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ZNAME.ERB",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "ERB/ZNAME.ERH",
+      "encoding": "utf-8-bom"
+    },
+    {
+      "path": "emuera.config",
+      "encoding": "utf-8-bom"
+    }
+  ],
+  "lexicalTokenNote": "Approximate line-start inventory, includes variables/comments in blocks; NOT a supported-command list.",
+  "lexicalTokens": {
+    "DRAWLINE": 5524,
+    "SIF": 23197,
+    "JUMP": 183,
+    "PRINTFORM": 7663,
+    "PRINT": 5123,
+    "CALL": 13135,
+    "PRINTL": 20103,
+    "INPUT": 961,
+    "IF": 108274,
+    "RETURN": 42742,
+    "ELSEIF": 100728,
+    "RESTART": 156,
+    "JUEL": 563,
+    "ELSE": 63759,
+    "GOTO": 1404,
+    "ENDIF": 108276,
+    "ABL": 622,
+    "PRINTFORMW": 275739,
+    "#LOCALSIZE": 49,
+    "#LOCALSSIZE": 45,
+    "CALLF": 744,
+    "#FUNCTION": 459,
+    "RETURNF": 1956,
+    "VARSET": 419,
+    "LOCAL": 23221,
+    "TIMES": 19969,
+    "PRINTFORML": 32296,
+    "REPEAT": 456,
+    "REND": 456,
+    "PRINTW": 6473,
+    "MARK": 263,
+    "CFLAG": 65468,
+    "TALENT": 3200,
+    "BASE": 754,
+    "MONEY": 213,
+    "CALLFORM": 33,
+    "BEGIN": 31,
+    "REUSELASTLINE": 24,
+    "SELECTCASE": 859,
+    "CASE": 7396,
+    "ENDSELECT": 859,
+    "RESULT": 440,
+    "LOCALS": 1265,
+    "CONTINUE": 733,
+    "PRINTFORMLC": 262,
+    "CUSTOMDRAWLINE": 18,
+    "TFLAG": 3830,
+    "BREAK": 58,
+    "PRINTLC": 656,
+    "TARGET": 235,
+    "TRYCALLFORM": 247,
+    "#DIM": 32,
+    "ABL_NUM": 1,
+    "FIRST_LV": 1,
+    "WHILE": 20,
+    "WEND": 20,
+    "SETCOLOR": 882,
+    "#PRI": 98,
+    "FLAG": 2006,
+    "INPUTS": 27,
+    "STRLENS": 50,
+    "MASTERNAME": 22,
+    "CSTR": 435,
+    "SWAP": 27,
+    "EXP": 781,
+    "[SKIPSTART": 5739,
+    "[SKIPEND": 5755,
+    "SOURCE": 11958,
+    "PALAM": 355,
+    "STAIN": 752,
+    "TCVAR": 1418,
+    "FOR": 402,
+    "NEXT": 402,
+    "TSTR": 316,
+    "PRINTSINGLEFORM": 3337,
+    "#LATER": 62,
+    "P": 467,
+    "QUIT": 38,
+    "RELATION": 221,
+    "A": 325,
+    "WAIT": 970,
+    "Q": 20,
+    "SAVESTR": 19,
+    "NO": 23,
+    "NAME": 55,
+    "CALLNAME": 152,
+    "MAXBASE": 248,
+    "#FUNCTIONS": 60,
+    "TEQUIP": 481,
+    "B": 84,
+    "PRINTS": 66,
+    "ASSI": 58,
+    "C": 49,
+    "V": 8,
+    "D": 77,
+    "Z": 15,
+    "T": 53,
+    "F": 10,
+    "ISASSI": 11,
+    "NICKNAME": 112,
+    "SELECTCOM": 69,
+    "ITEM": 168,
+    "PRINTC": 92,
+    "TRYCALL": 619,
+    "[IF": 20,
+    "[ENDIF": 20,
+    "CASEELSE": 107,
+    "E": 61,
+    "SETBIT": 36,
+    "NOWEX": 42,
+    "EX": 90,
+    "UP": 141,
+    "ARG": 777,
+    "RESETCOLOR": 1294,
+    "DOWNBASE": 1596,
+    "Y": 7,
+    "LOSEBASE": 4,
+    "S": 4,
+    "EJAC": 7,
+    "FINDCHARA": 31,
+    "TRYCCALLFORM": 55,
+    "CATCH": 79,
+    "ENDCATCH": 79,
+    "DOWN": 13,
+    "PRINTDATAW": 33,
+    "DATA": 337,
+    "DATAFORM": 71,
+    "ENDDATA": 73,
+    "ALIGNMENT": 4,
+    "PRINTDATA": 34,
+    "COUNT": 99,
+    "CVARSET": 3,
+    "GETCHARA": 25,
+    "GETTIME": 2,
+    "SPLIT": 64,
+    "DATALIST": 28,
+    "ENDLIST": 28,
+    "PALAMLV": 14,
+    "ADDCHARA": 23,
+    "SWAPCHARA": 4,
+    "DELCHARA": 26,
+    "R": 25,
+    "M": 5,
+    "U": 1,
+    "H": 29,
+    "L": 1,
+    "SELECTABLE_BOOK_COUNT": 1,
+    "SELECTABLE_BOOK_LIST": 1,
+    "SELECTED_BOOK_COUNT": 2,
+    "RESETDATA": 3,
+    "TRYJUMP": 5,
+    "TRYCCALL": 24,
+    "J": 11,
+    "ASSIPLAY": 22,
+    "PLAYER": 17,
+    "NEXTCOM": 318,
+    "LOADGLOBAL": 14,
+    "GLOBAL": 115,
+    "SAVEGLOBAL": 10,
+    "COM_NAME": 2576,
+    "RESULTS": 3653,
+    "GETPALAMLV": 85,
+    "COM_TOOL_NAME": 165,
+    "JUMPFORM": 1,
+    "COM_TOOL_CALLNAME": 68,
+    "STR": 147,
+    "SUBSTRING": 1,
+    "POWER": 18,
+    "RESET_STAIN": 16,
+    "PRINTDATAL": 6,
+    "PRINTSL": 5,
+    "PREVCOM": 8,
+    "CALLTRAIN": 1,
+    "#DIMS": 7,
+    "IS_YUKARI_MOM": 1,
+    "DAUGHTER_YUKARI_CALLNAME": 1,
+    "PRINTV": 39,
+    "DAY": 37,
+    "TIME": 6,
+    "FONTBOLD": 98,
+    "FONTREGULAR": 100,
+    "PRINTVL": 3,
+    "PRINTFORMSW": 15,
+    "CLEARLINE": 24,
+    "SORTCHARA": 14,
+    "LV": 11,
+    "DITEMTYPE": 42,
+    "CALLFORMF": 1,
+    "UNICODE": 7,
+    "ARRAYSHIFT": 1,
+    "EQUIP": 17,
+    "PBAND": 4,
+    "FONTITALIC": 1,
+    "MASTER": 6,
+    "ITEMSALES": 201,
+    "CSVNICKNAME": 2,
+    "PRINTSW": 4,
+    "PICKUPCHARA": 1,
+    "THROW": 3,
+    "BAR": 17,
+    "#DEFINE": 71,
+    "PUTFORM": 12,
+    "TINPUT": 15,
+    "ARGS": 9,
+    "SETFONT": 10,
+    "CLEARBIT": 13,
+    "INVERTBIT": 10,
+    "FONTSTYLE": 4,
+    "CHKDATA": 4,
+    "SAVEDATA": 4,
+    "LOADDATA": 1,
+    "GETEXPLV": 4,
+    "STRLENFORM": 1,
+    "UPCHECK": 1,
+    "ADDDEFCHARA": 1,
+    "GOTJUEL": 9,
+    "#SINGLE": 1,
+    "PRINTFORMC": 4,
+    "GETBIT": 2,
+    "G": 2,
+    "EATEN_SUM": 2,
+    "DO": 28,
+    "LOOP": 28,
+    "GETFONT": 3,
+    "CHKFONT": 3,
+    "ITEM_NUM": 1,
+    "IS_FULL": 1,
+    "SETBGCOLOR": 2,
+    "RESETBGCOLOR": 1,
+    "ITEM_NAME_RPG": 21,
+    "ITEM_DISCRIPT_RPG": 21,
+    "ITEM_DATA_RPG": 42,
+    "SHUFFLE": 3,
+    "TONEINPUT": 1,
+    "REDRAW": 1,
+    "INVENTORY_ITEM": 4,
+    "INVENTORY_FLAG": 6,
+    "STRLENSU": 1,
+    "SUBSTRINGU": 2
+  },
+  "fixture": {
+    "saveOutput": "엔진 시험\n[0] 새 시험 [1] 저장 불러오기\n0\n정수를 입력하세요\n42\n문자를 입력하세요\n한글 시험\nSAVED",
+    "loadOutput": "엔진 시험\n[0] 새 시험 [1] 저장 불러오기\n1\nRESTORED:42:한글 시험:77",
+    "largeInteger": {
+      "expected": "9007199254740993",
+      "output": "엔진 시험\n[0] 새 시험 [1] 저장 불러오기\n1\nRESTORED:9007199254740992:integer-probe:77",
+      "compatible": false
+    }
+  },
+  "actualGame": {
+    "initial": {
+      "status": "first-input-only",
+      "choice": null,
+      "inputs": 1,
+      "events": 12,
+      "customTitleRegistered": true,
+      "titleChoicesSeen": true,
+      "inputPoints": [
+        {
+          "type": "input",
+          "stack": [
+            "@DUMMY",
+            "SYSTEM_TITLE"
+          ]
+        }
+      ],
+      "elapsedMs": 2356.5884
+    },
+    "newGame": {
+      "status": "next-input-after-choice",
+      "choice": "0",
+      "inputs": 2,
+      "events": 23,
+      "customTitleRegistered": true,
+      "titleChoicesSeen": true,
+      "inputPoints": [
+        {
+          "type": "input",
+          "stack": [
+            "@DUMMY",
+            "SYSTEM_TITLE"
+          ]
+        },
+        {
+          "type": "input",
+          "stack": [
+            "@DUMMY",
+            "EVENTFIRST",
+            "SELECT_GAMEMODE"
+          ]
+        }
+      ],
+      "elapsedMs": 2490.701
+    },
+    "loadEmptyStore": {
+      "status": "next-input-after-choice",
+      "choice": "1",
+      "inputs": 2,
+      "events": 26,
+      "customTitleRegistered": true,
+      "titleChoicesSeen": true,
+      "inputPoints": [
+        {
+          "type": "input",
+          "stack": [
+            "@DUMMY",
+            "SYSTEM_TITLE"
+          ]
+        },
+        {
+          "type": "input",
+          "stack": [
+            "@DUMMY",
+            "SYSTEM_TITLE",
+            "LOADGAME_EX"
+          ]
+        }
+      ],
+      "elapsedMs": 2258.9585
+    }
+  },
+  "configuration": "emuera.config and CSV/*.config inventoried but NOT applied by eraJS; Rename/Replace/KR behavior not certified",
+  "actualGameMilestones": {
+    "title": true,
+    "newGameModeMenu": true,
+    "newGameSetupCompleted": false,
+    "firstInput": true,
+    "save": false,
+    "reload": false
+  }
+}

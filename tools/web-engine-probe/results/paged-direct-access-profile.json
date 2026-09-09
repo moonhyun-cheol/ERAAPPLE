@@ -1,0 +1,119 @@
+{
+  "passed": true,
+  "generatedAt": "2026-09-09T05:57:09.066Z",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "parameters": {
+    "cases": {
+      "grid2d": [
+        1200,
+        500
+      ],
+      "cube3d": [
+        120,
+        120,
+        40
+      ]
+    },
+    "densities": {
+      "sparse": 0.001,
+      "dense": 0.3
+    },
+    "sampleMax": 20000,
+    "budgetMs": 80
+  },
+  "results": {
+    "grid2d": {
+      "sparse": {
+        "density": 0.001,
+        "populated": 600,
+        "sampled": 600,
+        "read": {
+          "baseMs": 0.00652,
+          "proxyMs": 1.41695,
+          "backingMs": 0.21926,
+          "proxyOverBase": 217.34,
+          "backingOverBase": 33.63,
+          "backingVsProxy": 0.15
+        },
+        "write": {
+          "baseMs": 0.01735,
+          "proxyMs": 2.05,
+          "backingMs": 0.20286,
+          "proxyOverBase": 118.15,
+          "backingOverBase": 11.69,
+          "backingVsProxy": 0.1
+        }
+      },
+      "dense": {
+        "density": 0.3,
+        "populated": 180000,
+        "sampled": 20000,
+        "read": {
+          "baseMs": 2.50338,
+          "proxyMs": 13.7808,
+          "backingMs": 5.88474,
+          "proxyOverBase": 5.5,
+          "backingOverBase": 2.35,
+          "backingVsProxy": 0.43
+        },
+        "write": {
+          "baseMs": 0.55128,
+          "proxyMs": 14.18008,
+          "backingMs": 5.89547,
+          "proxyOverBase": 25.72,
+          "backingOverBase": 10.69,
+          "backingVsProxy": 0.42
+        }
+      }
+    },
+    "cube3d": {
+      "sparse": {
+        "density": 0.001,
+        "populated": 576,
+        "sampled": 576,
+        "read": {
+          "baseMs": 0.02535,
+          "proxyMs": 1.40779,
+          "backingMs": 0.33636,
+          "proxyOverBase": 55.53,
+          "backingOverBase": 13.27,
+          "backingVsProxy": 0.24
+        },
+        "write": {
+          "baseMs": 0.01973,
+          "proxyMs": 1.00589,
+          "backingMs": 0.32555,
+          "proxyOverBase": 50.98,
+          "backingOverBase": 16.5,
+          "backingVsProxy": 0.32
+        }
+      },
+      "dense": {
+        "density": 0.3,
+        "populated": 172800,
+        "sampled": 20000,
+        "read": {
+          "baseMs": 3.35741,
+          "proxyMs": 57.8967,
+          "backingMs": 12.5848,
+          "proxyOverBase": 17.24,
+          "backingOverBase": 3.75,
+          "backingVsProxy": 0.22
+        },
+        "write": {
+          "baseMs": 2.38032,
+          "proxyMs": 49.9311,
+          "backingMs": 13.7056,
+          "proxyOverBase": 20.98,
+          "backingOverBase": 5.76,
+          "backingVsProxy": 0.27
+        }
+      }
+    }
+  },
+  "scope": "Pre-normalized Int2DValue/Int3DValue Cell.get/set access only; reset/rangeSet, browser layout, and iPhone telemetry are excluded."
+}

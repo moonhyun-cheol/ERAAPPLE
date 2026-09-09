@@ -1,0 +1,18 @@
+TAP version 13
+# {"passed":true,"url":"http://127.0.0.1:61378/iphone-test/","engine":"chromium","actualIPhone":false,"offlineStatus":"오프라인 준비됨 · 788a65fe4ef13e28da14 · 10개 자산 (영구 보존 아님)","modeContinueToDifficulty":true,"difficultyContinueToSettings":true,"settingsContinueAndScroll":true,"documentOnlyScroll":true,"fixedComposer":true,"rotationAndReducedViewport":true,"errors":[],"failedResponses":[]}
+# Subtest: mobile: offline preparation and explicit continue after mode selection
+ok 1 - mobile: offline preparation and explicit continue after mode selection
+  ---
+  duration_ms: 3560.4437
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3952.8323
+

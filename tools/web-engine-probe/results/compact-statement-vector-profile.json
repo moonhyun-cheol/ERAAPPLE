@@ -1,0 +1,223 @@
+{
+  "passed": true,
+  "generatedAt": "2026-09-09T06:06:10.924Z",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "representation": "Thunk statement cardinality vector: zero=null, one=direct statement object, many=Array",
+  "memory": {
+    "baselineBytes": 319561848,
+    "compactBytes": 295754488,
+    "savedBytes": 23807360,
+    "savedMiB": 22.704
+  },
+  "vectorCounts": {
+    "thunks": 330665,
+    "empty": 71241,
+    "singleton": 122104,
+    "multi": 137320,
+    "arraySlots": 517850
+  },
+  "baseline": {
+    "engine": "engine-compact-ir-labels-lazy-slice-paged.mjs",
+    "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+    "before": {
+      "label": "before-compile",
+      "natural": {
+        "label": "before-compile",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 112159560,
+          "heapTotal": 220807168,
+          "rss": 262008832,
+          "external": 15324162,
+          "arrayBuffers": 3548019
+        },
+        "mib": {
+          "heapUsed": 106.964,
+          "heapTotal": 210.578,
+          "rss": 249.871,
+          "external": 14.614,
+          "arrayBuffers": 3.384
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "before-compile",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 87611176,
+          "heapTotal": 223428608,
+          "rss": 264863744,
+          "external": 15324202,
+          "arrayBuffers": 2789284
+        },
+        "mib": {
+          "heapUsed": 83.553,
+          "heapTotal": 213.078,
+          "rss": 252.594,
+          "external": 14.614,
+          "arrayBuffers": 2.66
+        },
+        "details": {}
+      }
+    },
+    "compiled": {
+      "label": "compiled-source-released",
+      "natural": {
+        "label": "compiled-source-released",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 360941664,
+          "heapTotal": 449359872,
+          "rss": 523358208,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 344.221,
+          "heapTotal": 428.543,
+          "rss": 499.113,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "compiled-source-released",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 319561848,
+          "heapTotal": 457277440,
+          "rss": 524918784,
+          "external": 11803688,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 304.758,
+          "heapTotal": 436.094,
+          "rss": 500.602,
+          "external": 11.257,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      }
+    },
+    "vectors": {
+      "thunks": 330665,
+      "empty": 0,
+      "singleton": 0,
+      "multi": 330665,
+      "arraySlots": 639954
+    }
+  },
+  "compact": {
+    "engine": "engine-compact-ir-labels-lazy-slice-paged-statements.mjs",
+    "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+    "before": {
+      "label": "before-compile",
+      "natural": {
+        "label": "before-compile",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 98525760,
+          "heapTotal": 217661440,
+          "rss": 266395648,
+          "external": 13652221,
+          "arrayBuffers": 1876078
+        },
+        "mib": {
+          "heapUsed": 93.961,
+          "heapTotal": 207.578,
+          "rss": 254.055,
+          "external": 13.02,
+          "arrayBuffers": 1.789
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "before-compile",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 87612456,
+          "heapTotal": 224215040,
+          "rss": 267177984,
+          "external": 13652261,
+          "arrayBuffers": 1007296
+        },
+        "mib": {
+          "heapUsed": 83.554,
+          "heapTotal": 213.828,
+          "rss": 254.801,
+          "external": 13.02,
+          "arrayBuffers": 0.961
+        },
+        "details": {}
+      }
+    },
+    "compiled": {
+      "label": "compiled-source-released",
+      "natural": {
+        "label": "compiled-source-released",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 343044960,
+          "heapTotal": 430948352,
+          "rss": 504107008,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 327.153,
+          "heapTotal": 410.984,
+          "rss": 480.754,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "compiled-source-released",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 295754488,
+          "heapTotal": 433160192,
+          "rss": 501854208,
+          "external": 11805090,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 282.053,
+          "heapTotal": 413.094,
+          "rss": 478.605,
+          "external": 11.258,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      }
+    },
+    "vectors": {
+      "thunks": 330665,
+      "empty": 71241,
+      "singleton": 122104,
+      "multi": 137320,
+      "arraySlots": 517850
+    }
+  },
+  "limitations": [
+    "Compile-only forced-GC Node samples are not browser/iPhone memory peaks.",
+    "Statement objects and expression trees are unchanged; this is a first compact-vector slice, not bytecode.",
+    "Runtime semantic equivalence is established by the separate fixture and M1 replay tests."
+  ],
+  "originalUnchanged": true
+}

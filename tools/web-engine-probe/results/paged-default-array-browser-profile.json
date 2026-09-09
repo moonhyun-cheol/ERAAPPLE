@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "generatedAt": "2026-09-09T05:36:48.369Z",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "measured": 1,
+  "results": {
+    "chromium": {
+      "status": "unavailable",
+      "error": "browserType.launch: Executable doesn't exist at C:\\app\\runtime\\playwright\\browsers\\chromium_headless_shell-1193\\chrome-win\\headless_shell.exe"
+    },
+    "webkit": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15",
+      "shape": [
+        400,
+        256
+      ],
+      "density": 0.001005859375,
+      "readIndex": {
+        "baseMs": 1.1081081081081066,
+        "pagedMs": 129,
+        "ratio": 116.41463414634163
+      },
+      "readIterate": {
+        "baseMs": 1.4814814814814814,
+        "pagedMs": 4.555555555555555,
+        "ratio": 3.075
+      },
+      "build": {
+        "baseMs": 0.13333333333333333,
+        "pagedMs": 0.291970802919708,
+        "ratio": 2.18978102189781
+      },
+      "memory": {
+        "available": false,
+        "reason": "precise JS heap telemetry is not exposed by this browser context"
+      },
+      "status": "measured"
+    }
+  },
+  "limitations": [
+    "Synthetic 2-D sparse BigInt workload, not the full game VM or iPhone RSS.",
+    "Wall-clock medians are promotion signals and vary by host/browser JIT.",
+    "Browser heap is reported only when the engine exposes performance.memory; absence is recorded rather than estimated."
+  ]
+}

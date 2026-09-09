@@ -1,0 +1,73 @@
+{
+  "engine": "webkit",
+  "browserVersion": "26.0",
+  "label": "baseline",
+  "passed": true,
+  "actualIPhone": false,
+  "workload": "10240 rows / 80 batches; 1 warmup + 3 samples; UI-only mock Worker; 390x844",
+  "bundleSha256": "3a6aa75afc4e40298c418b3991f3404e7098c2ef6eed86b63f3def41a8c25dae",
+  "median": {
+    "elapsedMs": 2305,
+    "handlerTotalMs": 156.00000000000074,
+    "handlerP95Ms": 3,
+    "mainReads": 80,
+    "composerReads": 157,
+    "createdElements": 23360,
+    "buttonQueries": 8240,
+    "scrolls": 77,
+    "elements": 4562
+  },
+  "samples": [
+    {
+      "mainReads": 80,
+      "composerReads": 157,
+      "createdElements": 23360,
+      "buttonQueries": 8240,
+      "scrolls": 77,
+      "batches": 80,
+      "acks": 80,
+      "elapsedMs": 2305,
+      "handlerTotalMs": 156.00000000000074,
+      "handlerP95Ms": 3,
+      "rows": 2000,
+      "elements": 4562,
+      "first": "ROW:8240 한글 출력 강조 끝",
+      "last": "ROW:10239 한글 출력 ",
+      "activeButtons": 62
+    },
+    {
+      "mainReads": 80,
+      "composerReads": 152,
+      "createdElements": 23360,
+      "buttonQueries": 8240,
+      "scrolls": 72,
+      "batches": 80,
+      "acks": 80,
+      "elapsedMs": 2501,
+      "handlerTotalMs": 158.99999999999977,
+      "handlerP95Ms": 3,
+      "rows": 2000,
+      "elements": 4562,
+      "first": "ROW:8240 한글 출력 강조 끝",
+      "last": "ROW:10239 한글 출력 ",
+      "activeButtons": 62
+    },
+    {
+      "mainReads": 80,
+      "composerReads": 158,
+      "createdElements": 23360,
+      "buttonQueries": 8240,
+      "scrolls": 78,
+      "batches": 80,
+      "acks": 80,
+      "elapsedMs": 2272,
+      "handlerTotalMs": 147.99999999999932,
+      "handlerP95Ms": 3,
+      "rows": 2000,
+      "elements": 4562,
+      "first": "ROW:8240 한글 출력 강조 끝",
+      "last": "ROW:10239 한글 출력 ",
+      "activeButtons": 62
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+TAP version 13
+# {"passed":true,"browserEngine":"chromium","offlineMode":"browser-offline","browser":"152.0.4191.66","iPhoneTested":false,"release":"5356ae826c56bb47a372","bytes":11700822,"subpathPassed":true,"initialHashFailureRollback":true,"failedUpdateKeepsOldCache":true,"waitingUpdatePassed":true,"unrelatedCachePreserved":true,"evictionRepairPassed":true,"offlineFixtureSaveReload":true,"offlineNewPageAfterUpdate":true,"updatePreservesSave":true,"mobileViewport":"390x844 simulated, not physical keyboard","originalUnchanged":true,"originalCount":1151,"originalDigest":"017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d","pageErrors":[],"externalRequests":[]}
+# Subtest: PWA: subpath, atomic install, failed update, waiting update, eviction repair, offline cold start
+ok 1 - PWA: subpath, atomic install, failed update, waiting update, eviction repair, offline cold start
+  ---
+  duration_ms: 4777.3589
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5140.7737
+

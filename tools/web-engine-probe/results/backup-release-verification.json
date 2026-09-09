@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "release": "deff12b426ac925e946c",
+  "url": "https://train-pens-raised-parade.trycloudflare.com/iphone-test/",
+  "verified": [
+    {
+      "name": "index.html",
+      "bytes": 6639,
+      "sha256": "86f605a19b42f6e748d584be48a343da01331d603a13946403b410d1607c38c4"
+    },
+    {
+      "name": "browser.js",
+      "bytes": 27222,
+      "sha256": "d5cd783f6e68d8a7f94d5dbd674fef42688c379d3062b11d6f11223d9e3c8752"
+    },
+    {
+      "name": "engine-worker.js",
+      "bytes": 343554,
+      "sha256": "75bded6b7b2c55ef7fb540ccc4bb56727aeb1f87c3923fa32a325abdf665e3bc"
+    },
+    {
+      "name": "eraJS-LICENSE.txt",
+      "bytes": 1061,
+      "sha256": "acbd9f2b463cd3431927837baf8abfc42f9b848e7d8732a5cebfd6cbeaf4c79f"
+    },
+    {
+      "name": "build.json",
+      "bytes": 274,
+      "sha256": "48016419a512cef197d91016acc6a7017cada5b7b84c55c1a0524222fde54d10"
+    },
+    {
+      "name": "local-game.json",
+      "bytes": 63760333,
+      "sha256": "32424703d38a0f162f6285cf144382e139ca9885e1a1361845d5f2d561ae3df7"
+    },
+    {
+      "name": "manifest.webmanifest",
+      "bytes": 500,
+      "sha256": "559c19ff906d1e855a0b1e6a963709b338931c5c2a880618903bafe9df7b1cb8"
+    },
+    {
+      "name": "icon-180.png",
+      "bytes": 642,
+      "sha256": "653bd2e4ba3b5b8e2468df9a11d2d168c8f38f5296ff794dce5d594aa2175dbb"
+    },
+    {
+      "name": "icon-192.png",
+      "bytes": 691,
+      "sha256": "beda65ebe09ef25ed5a8ff5f8fa5a7843577973e6a1291f904be1819a50cf292"
+    },
+    {
+      "name": "icon-512.png",
+      "bytes": 3239,
+      "sha256": "70b388b895bfe355fdf5b4fa3522344d7abb91883d0b48fcb98b35a8c6315570"
+    },
+    {
+      "name": "sw.js",
+      "bytes": 3877,
+      "sha256": "40bb33040cf23b9a817910265a382d1e1d3a9dfe50395f08ad7f4dd5e65935db"
+    },
+    {
+      "name": "pwa-build.json",
+      "bytes": 1216,
+      "sha256": "cba6b37639098151a88b1502550acb0fbf9d361643c10aa690349f767b740f88"
+    }
+  ],
+  "syntaxChecked": true,
+  "baselineCount": 1151,
+  "currentCount": 1721,
+  "originalChanged": 0,
+  "originalMissing": 0,
+  "legacyNodeSuite": "6/7: fixed-count baseline test rejects 570 added unrelated game files; baseline not overwritten",
+  "physicalIPhoneBackupTested": false
+}

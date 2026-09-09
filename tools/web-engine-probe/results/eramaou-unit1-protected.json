@@ -1,0 +1,2335 @@
+{
+  "capturedAt": "2026-09-08T08:09:06.678Z",
+  "originalTargetSha256": "56599eb0bcb4ae02a229353cdf03fb412f715b006d402f3d3101eb93e8596e32",
+  "originalTailSha256": "b136dca45028b8a32ccde5197778c3ceb9a0f62ede1dd66325a700a4c42f0458",
+  "records": [
+    {
+      "path": "tools/web-engine-probe/dist/engine.mjs",
+      "sha256": "2d387d9cf88cfbb3cfd6c163bffd4c338fcf23ba25276c66ffd8fe5b576de94a"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/browser.js",
+      "sha256": "d5cd783f6e68d8a7f94d5dbd674fef42688c379d3062b11d6f11223d9e3c8752"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/build.json",
+      "sha256": "48016419a512cef197d91016acc6a7017cada5b7b84c55c1a0524222fde54d10"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/engine-worker.js",
+      "sha256": "a76872a714d5f2a7f69eaa71675930d78fe765f580e914ccb0758d11988cb608"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/eraJS-LICENSE.txt",
+      "sha256": "acbd9f2b463cd3431927837baf8abfc42f9b848e7d8732a5cebfd6cbeaf4c79f"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/icon-180.png",
+      "sha256": "653bd2e4ba3b5b8e2468df9a11d2d168c8f38f5296ff794dce5d594aa2175dbb"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/icon-192.png",
+      "sha256": "beda65ebe09ef25ed5a8ff5f8fa5a7843577973e6a1291f904be1819a50cf292"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/icon-512.png",
+      "sha256": "70b388b895bfe355fdf5b4fa3522344d7abb91883d0b48fcb98b35a8c6315570"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/index.html",
+      "sha256": "ff69a1092e9727e2761a486ee23dc454e3df93a0268123f1c0058805f7eefc3a"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/local-game.bin",
+      "sha256": "dda7fa32ce4805c144444febe9834166035166efb385855420140c348e1471b5"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/manifest.webmanifest",
+      "sha256": "559c19ff906d1e855a0b1e6a963709b338931c5c2a880618903bafe9df7b1cb8"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/pwa-build.json",
+      "sha256": "a27aed50c488a3870ebb0fa7036a7d76a018ac5c486cbf2b230dbbb1f1c345bc"
+    },
+    {
+      "path": "tools/web-engine-probe/pwa-dist/sw.js",
+      "sha256": "e98a940a723af121af3a47108ca50aa10a241112a997041b3b7c9011170e0c0b"
+    },
+    {
+      "path": "tools/web-engine-probe/results/original-inventory.json",
+      "sha256": "3c9e8148df0ee34efb3ad4429e942a13d4874da93aeb36d77fe6f78be8dd10eb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/20200224-190939.log",
+      "sha256": "ddbbf3566a7fd1fcbb5fafc58883cd1b58562241ba8ae592fcb10120508b1746"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/ABL.CSV",
+      "sha256": "90f1122295179641ab0c493e0186758d8e69ca8bb4499b0ee7453b1c3dd66df6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA0.CSV",
+      "sha256": "5f76803823d41c084533ee70574eae9b289bd00e6610f0c0991796022de6f536"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA1.CSV",
+      "sha256": "55e8002298bda81c6b8ef5df487845c18c266bdab764469ba4fafdd6a035949b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA10.CSV",
+      "sha256": "593d5cf7c59d45e7033374fae3f53037e2576de11f4baaf2f0242cb2f22e3188"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA100.CSV",
+      "sha256": "3ef845e9a522bf9caabe3a03ce14e14efbd845b0065feffb9f0037a8dee778a6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA11.CSV",
+      "sha256": "1b8de5cb882405105192746b949e1b0d16d52c9e9aeff12aea578b45355859e8"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA12.CSV",
+      "sha256": "a7eac0c6a6789e2498b1c259087f64a0e29d8a9f2bc8b7045e2aee1e8b0678e6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA13.CSV",
+      "sha256": "917b867fc52a1fa209365229b700aa44f3c3f5079aeb32e64ea8f178c848f457"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA14.CSV",
+      "sha256": "380c62d574a4a0589eefcbb18250aa70ee141dd49ae058762cc922379b88861c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA15.CSV",
+      "sha256": "b2e587a2303c66cd1074ff25e4fe4d6fc3f4626329dd0e9447a00c67258ff326"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA150.CSV",
+      "sha256": "705bcd04a4542a17ca23e2a57e10d8c4ddea558bf8cfb8ebf697b775fc52a629"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA16.CSV",
+      "sha256": "7a596b7656ec1a171c6d3903958e1b267eab779ff1d4a037fd74902f24e90573"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA17.CSV",
+      "sha256": "7a71062bec7026c6f87622f7b5a826c8b8f32bc8c1ff3690ea6f9e0e3af7c58b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA18.CSV",
+      "sha256": "af52eac667ed185dc764ba62fe971330d4bc00c86f6d09c33374f89d362ce176"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA19.CSV",
+      "sha256": "1339894bb9fcf456e28fe41f87eb6947e9e86fbdefe96b810b1f131ca46d4781"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA2.CSV",
+      "sha256": "0d2bb11612348703587a6dd11801d9a64e9cac01644212dbcb1ee96570ca7cfb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA20.CSV",
+      "sha256": "484f1993e67106b43c7830b0ddae825e344a8d63aa3265943bc90b4ed5c61b01"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA201.CSV",
+      "sha256": "44ef8f0243799045396af9c45ee26f89366310d65f01dfd3c8ce405520d2779c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA202.CSV",
+      "sha256": "12aa928f3fa7fbe88c2cc01230a599714d9a65918990d2416aa360aaae3927f9"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA21.CSV",
+      "sha256": "58d13533a45198072fbe4c068d3457121b659c83b5e037bfe987f51e7daf7549"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA22.CSV",
+      "sha256": "104926726062567702a62b1082f29cd8a7864e73cb41d4579165f10ccc2a8457"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA23.CSV",
+      "sha256": "ec5eec021137590d0f5c9de840bbb886df0634189b4a57d53873a2f4b18baffb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA24.CSV",
+      "sha256": "48e288c3e39b7ac2ecb076092ad9d1d65ced43cccf8327ea1c2e67d18721870e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA3.CSV",
+      "sha256": "f8f0f005bfa10591193d31790ce961f0c1cffcb3b533d7fd4a9cbb9f5bf22119"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA31.CSV",
+      "sha256": "4cf36a83d8cc32313dc83d5a8eb5525087683613005a00ddf60f9558e4769995"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA32.CSV",
+      "sha256": "a5e59c051830cd454828235e6e3b535d04265073d3dac959ed1592217669e75c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA33.CSV",
+      "sha256": "65506eea7056d9f22cdd52515a4dbdae1010a6eca593c5e72b8e64fae6c55493"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA34.CSV",
+      "sha256": "5ab33647def4dd6dcd16310fca3c778fba92f6c2c27b2aba83d6e9c3d2dcfd03"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA35.CSV",
+      "sha256": "9087ce13bf0ea14e9545a2e0c12797a6985442478002234a5ff54db33e4137af"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA36.CSV",
+      "sha256": "4bd2acd6093edc1c407f67ad5211ea9009b13f5764b99a9898207119f7f359b9"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA37.CSV",
+      "sha256": "ae8e5b78142e3b275f3ff27c8f6958def5c19085444aeb9da497ab96b35f7f16"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA38.CSV",
+      "sha256": "1644ff165f12ee5fa7459cef3563f53742e772e708edeec379b07b722918e545"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA39.CSV",
+      "sha256": "d7775fdc881b3e42d69c55af752fa1bd319fbdcf3cfd7d2bee67970e985e91b1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA4.CSV",
+      "sha256": "da880c6790519391b8f55ff88006e1d9c3ef2da820e0faa79d5ef136e9cd2877"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA40.CSV",
+      "sha256": "6f427f7f712e556e3a5c7c75ba1536c30e533e59cb5f07cb87b15c0e9ba0b1e6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA41.CSV",
+      "sha256": "a1ef7b58dc842147bc0131d445f04a81a5be2c2a5279c0d6518b777dcc41f838"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA42.CSV",
+      "sha256": "94b634bd3cec4a5cb8a96e9d4da5ea3f4995214e53fb77e802d979cdf8bd06ae"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA43.CSV",
+      "sha256": "ea224d02fb60723f92e1ebfe26beb61cb05fabe10095d2ec3e17486deafc72da"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA44.CSV",
+      "sha256": "409c429d3d723ea755d1f6fc06dc71d1d273cb1b6d876183151d182547b1dab3"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA45.CSV",
+      "sha256": "ea709489c58290f81b9c3ecb1a3f1780f0e55dfcfe729d3523455a3933db5b31"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA46.CSV",
+      "sha256": "febed58ee80f8e371037d5cb83c35c231636df5022831124913c0d70bb7c8fa7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA5.CSV",
+      "sha256": "c1f695a795c2ce1eaf0f90b58fbf1bcd99975dbdc1a9550394fca05b140880fc"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA6.CSV",
+      "sha256": "9dc0d5107953c250f126cd26782679163c9128f4a65e64185176fd0ca50721fd"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA7.CSV",
+      "sha256": "e8616ca2e5e7714af345a43debcab617a403454b6884121843c68284171a1f14"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA8.CSV",
+      "sha256": "8cfd4322980d6643001caa2cba6f5200d4fe90895ce0ce0a479cdb6210963155"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/CHARA9.CSV",
+      "sha256": "367409e28bd4098c400af0b57618b81265f23de485761ec10a4b350fc7ecfb53"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/EXP.CSV",
+      "sha256": "31584fab255ecf1a70caf4cb8a60ae1fe6ccaf4281f4d09fe686615669134ef8"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/GAMEBASE.CSV",
+      "sha256": "9f5edffbf3f6d6cff74b85b106b2ffb6b02116e46bd6c1de12738e7470b68da5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/ITEM.CSV",
+      "sha256": "eec1c7185392445bbb0c49f9cbb2fe9ada703eab7de707b82abfed952ee9cefe"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/MARK.CSV",
+      "sha256": "cb20216957292bb8261f3b97e4bab30e1db6d481d1648a4e120203bc2169e90f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/PALAM.CSV",
+      "sha256": "e896904ef4903b92e8a6ba9fa5916f0757c91af9a6dd820f004cd17569e48e5f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/STR.CSV",
+      "sha256": "70f1e22962df79869b69b79d95bf0897cac5e836a952765c9d699829d8b81ed6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/TALENT.CSV",
+      "sha256": "a04f8af3f0c20759f0bd8a2cf1aad0b407083b2ebe8bec6378e0d1f92d038c05"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/TRAIN.CSV",
+      "sha256": "563e7fa51681ef5071a6cfd0a653540b4fff328b0fc27e6c1fd53c2194e446e0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/VARIABLESIZE.CSV",
+      "sha256": "3fbb4d4da4d53be24ab18ed3412abe2e3dbb095a27d230766ccca9ff8f6d3055"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/CSV/_REPLACE.CSV",
+      "sha256": "3fdc19afbfe0a95a7f30adfaa9530c8d8ac0cd3927ba7fd389b268f9b1d550e3"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABL.ERB",
+      "sha256": "8abf63a706b7db9e5313723d270465d964540f126398c09aba213df39737ddb9"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP0.ERB",
+      "sha256": "11db4738883a534e426e7d625644f37c8460d7f1ba6a80b7ed24c94511d3834e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP1.ERB",
+      "sha256": "e800b662c3b9eec8b60f55c5c5a552fcf1e1bcf474ecda9bdc99b56df2d10fb5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP10.ERB",
+      "sha256": "cd4a7b85b2c7a5021a5615dc4728b3c93364628cc8bb0ac018c45f04a266ecb1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP11.ERB",
+      "sha256": "e33db6b63cd775b9e734180f0b81c421c0dca747d30e0c6e4e63fc3d0d3c565a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP12.ERB",
+      "sha256": "de586bb417cfcb502902b4761103c8b8c6243df8d1efb2b09994e2ea8189c069"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP13.ERB",
+      "sha256": "8d627df4aad6b96baeff3b7e7a24d40ec1b04296aedf2d541b994f0cd3b1181b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP14.ERB",
+      "sha256": "d7c64f6907a22f028cb5700af5b235ea471d166a18881b9d40407925eb2d21eb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP15.ERB",
+      "sha256": "bf25233d58a210503c831e9b9dee4d303c0e695ee0617a1a1dc4b02d2440dfd9"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP16.ERB",
+      "sha256": "ff0a72c91a49852c3ea29e953d153e4262dcc7f4141dd2b573647847c3b5da0a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP17.ERB",
+      "sha256": "e6bf239ab20302429716793fc7317f67768e3ca8cbee5dcc191cfe426dddb953"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP2.ERB",
+      "sha256": "2c65c3f45c9b7414b73b4bc66c4a17de35fb320fa7716fe73edb024ed07a3bc4"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP20.ERB",
+      "sha256": "5498baff1ed760bebf4c973e3a253b9c478181ee8ec63cf96a5c23d72cc9f411"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP21.ERB",
+      "sha256": "af4c5caeee33f891ba1c429b99efa5df9bde5001a6030203373c7c8be635e8a1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP22.ERB",
+      "sha256": "4170dcd759ca0496b4505900a98bcbff6722476224012c15164d71842eec819b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP23.ERB",
+      "sha256": "19238a618ad6f79165320e08c889ad67ab7fb37c09d780d2eb1fcde067d7b1aa"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP3.ERB",
+      "sha256": "8d990d91b43d2e25b35aecdc2fb996bed66d14971a20e05bb0dc2c7e7578bc17"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP30.ERB",
+      "sha256": "b9fdf65bd8334b0da5b5a23de449263b62c40aab0e13ef73fd9c9f2d76657d68"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP31.ERB",
+      "sha256": "15972c5ae4a89b467d64b40cbe39e75221b9ca05657c03443c82d2e1849f074e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP32.ERB",
+      "sha256": "b287df59baab3da8fff7975950f4461c7d5268144b807822e43abe76aeacefd2"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP33.ERB",
+      "sha256": "3cf2967b9e626c4b88ab6b68e179681642bf126500a04f8055d33dacdb6d8c18"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP37.ERB",
+      "sha256": "321c247d06d5cbcca1c713a1dea6d479cfb334a06b46c0755f7db3b3dbb01ee7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP39.ERB",
+      "sha256": "a7be50a822703daf1d477d011ed3d2038410cee373fa57c7a42a38ea7dd1e63a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP4.ERB",
+      "sha256": "7181a38e845ab83673c1d3d95d9777e70062f90b5324c5ddac530a50be07f054"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP40.ERB",
+      "sha256": "a8520ff18f13991690844eb3e407a3e86b004a561fbf6aa30507e9ef7d88c81b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP5.ERB",
+      "sha256": "2ef173bd6bebf725459e5984df1399d22fb59b77d9a4b6435d17a7f20b3b18c2"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP6.ERB",
+      "sha256": "70388cfccb0954f1dea7d5ce414207858b64cdd3006191c1bb26cec222398cda"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP7.ERB",
+      "sha256": "89c2607ca14d91977f571bf79a157ca7f207115d7e74a9ad0c896da326ff74f2"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP8.ERB",
+      "sha256": "9d679cb8c55dea6d6053bb7f1f0f2adaa08d3d33a434c45f34bbb063b9333fc6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP9.ERB",
+      "sha256": "36f10d703531812b455e8073f3735249b2315c21a58ddb08a567decd356ddebc"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ABLUP99.ERB",
+      "sha256": "8cbfe4909dcae254ddc8eaad86c023605825732c64aaf7a944e94c1c365eed18"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ARCANA_BATTLE.ERB",
+      "sha256": "b0cd7c51bcd569cee64c6d7b0cfef1472065916987f11934be6268e9645d91b1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ARREST.ERB",
+      "sha256": "9a1c761e6dcf1f788ccb4676f5494ddf0c716511a2e1c81f6e42848ce93224bc"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/BANISHMENT.ERB",
+      "sha256": "1cb246726fddd51f1799d30e9c1fda95f585d69aac791d348fd10dd88443a66c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/BENKI.ERB",
+      "sha256": "1fbcd51b81b8849846b56e3a1662979a6b4becb7f3148847d08a725d29350fa7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CAMPAIGN_1.ERB",
+      "sha256": "46d428714082418ba40cf8b7697d812e5aa10eb37714f5abae3e7af414e513e2"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CAMPAIGN_EVENT.ERB",
+      "sha256": "27444cce8bce1167a2dca9f7d20a3c08d114d48df2525f1b98859a6d4b3dba90"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CHARA_BODY.ERB",
+      "sha256": "893e82a2a0740bfb14c5e4e8e2539ee8018461b3a53645ecba0b362b548efae6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CHARA_FAMILY.ERB",
+      "sha256": "451c12ce434368e1ad369bcbcf7586d8e2a60bcc3bc17a3655baa411a1d2bb5a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CHARA_FIRST_EXP.ERB",
+      "sha256": "367f7dd1cc84e75df07e7f9ff0236c29cc02d92480bfc3d5be28aa57698c853f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CHARA_INFO.ERB",
+      "sha256": "1e53015a3c68720857aca7a69759cd721694d8306f9197465a90c1ff3392af7c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CHARA_INFO_SHOW.ERB",
+      "sha256": "77bc156d06a183e825e28929d876be6ad7891c4a5b5bf971a26393bfd68a413e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CHARA_JOB_CHANGE.ERB",
+      "sha256": "7a20fe155559fbaff9bc92a86657a9f5b8e921b2c68d1d6e137ee6d34797c3a7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CHARA_MARRIAGE.ERB",
+      "sha256": "dbad3c4253e63d8b17918d8f17bb4c917ca2fb3c252871439762c4713ee83830"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CHARA_NAME_EDIT.ERB",
+      "sha256": "3ac9a38aa521492560c1811b780ce3446c010e865c4595f0ce3a64cc7f570b72"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CHARA_TEMPTATION.ERB",
+      "sha256": "a7e3e16d87aa3089ef7caadf3026691156a10df157a68cead5179b16e38721c7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CHAR_MAKE.ERB",
+      "sha256": "86aa60aa4ddea32bcfbfe4fc499e7bad79f58dfd231571a0400fc4f60a36eda7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CHAR_ST.ERB",
+      "sha256": "2ef31dc631b557479ae0d0e0df579d46bf135aa8c2748633eb3b2e3faf16f272"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMABLE.ERB",
+      "sha256": "c7e201b01bc4785c930945155cfeeba4504a577ad5d4b508c6b9ed625c2de912"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF0_愛撫.ERB",
+      "sha256": "85dc1a6605cecbd77e3dbd5678c2d84c4dc1b736654e372ef79b92a9856f2707"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF100_触手召喚.ERB",
+      "sha256": "1276b325df72236f2dae5612860495ce78b36d05ba4722527cb312e7110c5a1a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF10_振動の宝石.ERB",
+      "sha256": "6bc74b82f80869677134748848f60cddcabd10e9b17f781bb3cac4f11c39034c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF110_服の着脱.ERB",
+      "sha256": "32153bbb6f287cac9a5431206fa90af7c753d05d2c2b4f41266ead1423405381"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF111_服を破る.ERB",
+      "sha256": "c0d3aefbffa0368f70c597310b69cb70dabad387dc606e54f30073b6e7cc942b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF11_バイブ.ERB",
+      "sha256": "7a77a5774b5fb35ec20f8990eb0071118d0104eeb33c0b8e6fa67d39fa4e19b6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF120_挿入Ｇスポ責め.ERB",
+      "sha256": "4968412f51e1c73640f04bfe9799862f731f609c805162ead67899a9432d3a79"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF121_挿入子宮口責め.ERB",
+      "sha256": "f15842e380a78db134958b0ea8c68cb1528be42f7456a4f0cd9cc8fd6a798236"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF122_兜あわせ.ERB",
+      "sha256": "2cfad6a48d6a837c75b445345b41f3625244f9695cf526a4a31cad897ad06ac7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF123_パイズリフェラ.ERB",
+      "sha256": "607d72082f6f4e9b207c38b52c9830dd85d62f2bdf684c257d2aad6244efb5ba"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF124_ディープスロート.ERB",
+      "sha256": "fcc2e12f7249aef0f4c8338e943a4fad97305c2543358dba16efceb94b81e8da"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF125_フェラ自慰.ERB",
+      "sha256": "b504fbc6d0b18cc5a92fffa110bf23965b342e0d89a719a7c550bc088ba062f5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF126_手コキフェラ.ERB",
+      "sha256": "9606a09a7134b25241281806d538c0d393d242daddb8faf3b8f41374e8608310"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF127_バキュームフェラ.ERB",
+      "sha256": "5397564c8b903211de02fe254763fc37d4536e8cf2b836d07cb2359fd758dcbf"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF128_正常位・キス.ERB",
+      "sha256": "08bab9c1c23ccba10bdacf8dbaf36a494bef04f9657bacf89261aa949ba44fb8"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF129_正常位・胸愛撫.ERB",
+      "sha256": "9b1b694080d1c00bf475a3531336150cac89124638a93955b0cd638a59ac4a02"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF12_振動の杖.ERB",
+      "sha256": "444b231059254cc83af101a5a5419bb547ec482235f2aa02d8db32d853cf432a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF130_正常位ＳＰ.ERB",
+      "sha256": "d4666030c97c62481c04ea196cef18f2632c8bc47fb23eee2c51d2a35a593000"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF131_後背位・胸愛撫.ERB",
+      "sha256": "e95111ef8a660cb2a05e3ebbe1c9dcc6ae71f26045c4b4c4fd221f2adb5e2df5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF132_後背位・スパンキング.ERB",
+      "sha256": "e4cb6c230ded98d0775db932d1695749d8567cdf5b901a003ec783f380ac2e44"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF133_立ちバック.ERB",
+      "sha256": "2e211375ffbd73e15abfe670527f2fa9e74d01e0492da247148172e8f23fe944"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF134_後背位ＳＰ.ERB",
+      "sha256": "c6b7bd40ecaa30b03b2e8f5b029a1b91071564c9dccbc1114f1c29324ad5cd1c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF135_セルフクンニ.ERB",
+      "sha256": "382c978bcbb7e3d1e7c891c0de000602d21520b26fc38bd728a0ee9133edef66"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF13_アナルワーム.ERB",
+      "sha256": "c9784b2f9a151f25368ca38837edb5e30ddb2b65a7d7f46a929622d3ea9fcb32"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF14_クリキャップ.ERB",
+      "sha256": "bfee5d5b039372dc822dca24fe77de0a16f1d0181eda83d4a1777cceb3e4c5b9"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF150_フリー調教.ERB",
+      "sha256": "15a751afaa8243c5edbb8235df6e8fe3084cd1ff3c296db3c0705b1ffab97e2a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF15_二プルキャップ.ERB",
+      "sha256": "055b83042503a05cd1ed27ff2b98946f6859d1d1068e3ef242f922a1b1cb9e02"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF16_搾乳器.ERB",
+      "sha256": "8a6329391fc56c38e673b0e99580e203294229ecf025d6800d8364189b1842a3"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF17_オナホール.ERB",
+      "sha256": "dc7c0ae64730eb11311df90f5be3a0ce0acca75e494445b47153813cbb67d755"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF18_シャワー.ERB",
+      "sha256": "027df63eabb72bcf453162b79eadf5642933d57ca591c9faddbd5bceeafe5b7a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF19_アナルビーズ.ERB",
+      "sha256": "f3dda2219e76c43bf385e3612d2feadc5bb8a3574079dd85f489f30fe1be73f0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF1_クンニ.ERB",
+      "sha256": "c3b9fffc9b710163f63c2b1699c960f37dc44d9694b58f7dc4c656ef71782a0a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF200_コロシアム.ERB",
+      "sha256": "b33fad9992ac6536d9aa368c87ab5f69f94f5c0363f1901a744a4ab1444acf75"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF201_助手.ERB",
+      "sha256": "1a8a87032916f9570858be89c5aee5ec8cf7fc75538c88319da774f211227db2"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF202_最下層民.ERB",
+      "sha256": "6d34e9fcf1a6fd29a8b375a2fbfadbc68ae34f1115025b906a7588107a08f02b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF203_カビ犬.ERB",
+      "sha256": "1393b12231e1b998df9066902c7b6f0e934fa7d96b9cbf5087203beb865f5d9a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF204_オーク.ERB",
+      "sha256": "5b823edd4ce69d70e8553f6a343b9b5cd09628ee5de882eea848b61a91c64d5a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF205_腐れ豚.ERB",
+      "sha256": "ba0cc507232ace83cc681a2e4d1f226c581e3340374bfd50fa0de77b0607c02a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF206_トロル.ERB",
+      "sha256": "fdac358d0517880f58d225aef626e49adb72da3d6728791bc2a3b5f306350eff"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF207_媚薬スライム.ERB",
+      "sha256": "17ee7b9eed3fe6346efdc7af28a172a72403953083f5ec765706e5ae664a5de7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF208_触手.ERB",
+      "sha256": "2bb2f46727494c260226313a5a2fb05d7f34ab4849687189bb1a5dadb059bcbd"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF20_正常位.ERB",
+      "sha256": "d446d317d749f734aa7a04389789351ce186f9b17d2c02aebd5f08ef481cbfe6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF21_後背位.ERB",
+      "sha256": "b1703f0fd2b3dede744fba91e19d3d58369f2aa4c2f8a7cc52fdcc6f1d6bcd42"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF22_対面座位.ERB",
+      "sha256": "ead72cfb35efba9b4f6a8b700dd8da0750585ad34483419060b85892502bd3f9"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF23_背面座位.ERB",
+      "sha256": "76d8c4c1921472902a1260a8065cd212b7e162655d0efabc761017e426b2777c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF24_逆レイプ.ERB",
+      "sha256": "38eb05577e986be8d06396ba916c7371ba16b3c89f3b8904de1163d03ca56e35"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF25_逆アナルレイプ.ERB",
+      "sha256": "17ddb535d31ee6a966b707743255aafed53184070848effb553189dec1eaf082"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF26_正常位アナル.ERB",
+      "sha256": "b2c6fd46095aa0c11740a9c5074df8fbe16eca02999d0487346155967d113639"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF27_後背位アナル.ERB",
+      "sha256": "64487d9dfe17ae50eed4d77385c7ac0824a8b0fcec524a6614d85778b70b3d7a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF28_対面座位アナル.ERB",
+      "sha256": "824908b9c1b2fdd13dc86023efad368f46bf15923a9c8873a49414ad05433d70"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF29_背面座位アナル.ERB",
+      "sha256": "f6cec01017e3f86687b0a5483f50d6ea965f2301474d99f472144f5a25b4dce2"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF2_アナル愛撫.ERB",
+      "sha256": "36034bb4c651c06be7425ee762e07f88d5d1b8ac597e6a7c54e32b7985f2c55d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF30_手淫.ERB",
+      "sha256": "8fc70eae261e484b6d237608ba393f6612fb779f63303e43ee6f58067dc105b9"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF31_フェラチオ.ERB",
+      "sha256": "5b061dc9b1240ef1b6458cd6b5038b35f0f09c700fed5d849b759a5df6cf68d9"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF32_パイズリ.ERB",
+      "sha256": "2a0b1f9afbb14f3a1feedf8ed8cacec3b13fc8a1d2581a8e9987b1b1dc842954"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF33_素股.ERB",
+      "sha256": "e0b09386acfb754b42878e79c572bb22952720f89e248ceb47b3122797fa357e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF34_騎乗位.ERB",
+      "sha256": "bff8f1bb15c7f6c43b39358c9fcdfb22f357eba527d359b70640e8e46c0e5218"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF35_泡踊り.ERB",
+      "sha256": "96da73931e23f80c7030dbeb9ac35cecbe0094b62002237c6bfb7bd74beea7c0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF36_騎乗位アナル.ERB",
+      "sha256": "c5d14cf0c544b6912b99fa638b50914d6f5339c21470be8f37de5ce4e9bd71e7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF37_アナル奉仕.ERB",
+      "sha256": "ecec4e43d29c81cd9eabe64eb531f9fc20183bf6f59b5f916c4b2a31203f605a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF38_足コキ.ERB",
+      "sha256": "4deb8d90ee20772b287f9da8d5ba552e3cc26df6b220d8a13655ee3dd9ef5a4d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF3_自慰.ERB",
+      "sha256": "2eac90cd05dfcfb96e539791e341daf0cf767b425d330515aba1d265a9b9d4b6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF40_スパンキング.ERB",
+      "sha256": "b618b64237da7ba4f8037476296309ef1d5e0c628c41490231445ed737744ce8"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF41_鞭.ERB",
+      "sha256": "a146f7555f6ba4e1ca9b0765b71ceb6a551d8a0b6acfc54068a11be4a4ed7258"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF42_針.ERB",
+      "sha256": "acc71f8381c90da7c018c6a7708d88f9f98afb99acfb730ed056903b2d68e985"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF43_アイマスク.ERB",
+      "sha256": "97f935d3c809fde524f8d298dce6a7a088778d8b60d5c2952263f0409fa5693b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF44_縄.ERB",
+      "sha256": "e6d4ce3df758db8d48cf27257a8dee5bfeba47c63ab62f477f0a40b05e87d8f0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF45_ボールギャグ.ERB",
+      "sha256": "8efd4070a95a2f3f5227f6f9b47973a2b4363ae0f0ab25398761fad1de72847e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF46_浣腸器＋プラグ.ERB",
+      "sha256": "c98c9068b2e92127f9a3fc731592e1951a19b7da71f4bdacd81614656731534e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF47_ボンデージ装着.ERB",
+      "sha256": "aebb07057b428102f28657d3b41914a67b6a732dae5547540ab84aa4caf53bb0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF48_足コキする.ERB",
+      "sha256": "c3e5d2b4e99ae9ef9cef3c5b91b2e2fcb6f458d7ea4d627b8db8ac377dc4284b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF49_アナル電極.ERB",
+      "sha256": "22d1c53cfa2b47fe363594f26aada62adfa3a92fffa5424d02719daf2998f07f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF4_フェラする.ERB",
+      "sha256": "bcf1cc92e3b1ffd8dacad0ce56610afe19c17733e1a782c522a1b41c594fda07"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF50_ローション.ERB",
+      "sha256": "16a15e2fd4fd1bb0e2297f8e7a85b83e828c870746efff6686ca8f0e0120742a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF51_媚薬.ERB",
+      "sha256": "9a89835a9ab50161eeb96d6395796b888d6bc14b75e0f553c29208be8426860a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF52_利尿剤.ERB",
+      "sha256": "391ded30f0150b0b778f7e55dc8ef719c64da2332af13fb317b589fb3996c9b5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF53_水晶球.ERB",
+      "sha256": "9c7fc3931fccee41955b38a243969ad0642d87da210c3bb5656c8de9fac67b90"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF54_野外プレイ.ERB",
+      "sha256": "90435a491819453836903e03059a89b59a8ecede9a7413c155e39c67aac63afb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF55_何もしない.ERB",
+      "sha256": "ef2615ca14e941276e4ed4924ea4fe9388f43702ce430fdc3335027dc00e5212"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF56_会話する.ERB",
+      "sha256": "44344cc0e4fb4f5f32c13216443cd72f05f91afaba03a802ba2243e78f456770"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF57_羞恥プレイ.ERB",
+      "sha256": "bdd16e50b3ae8fb512368a86c7040b9af15545708c02e41e6f6887005dd4e1a1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF58_お風呂場プレイ.ERB",
+      "sha256": "ce3f56d3460ce6365286d7260f0352b540b9d82b53b853df7a979daa8066406d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF59_新妻プレイ.ERB",
+      "sha256": "effc78f47b411b1960979dbd260d0617f569d70eb9466266448ec93dc4aa583d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF5_胸愛撫.ERB",
+      "sha256": "cae36af6e764e03346cd2b9b1a971926e291e1f432dd96d7749f04f413a45b13"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF60_助手にキス.ERB",
+      "sha256": "671d4d30a22021b77e3606e48234d91ffa0e567d8d2da5d3d67641aac5eb7aa9"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF61_クンニ強制.ERB",
+      "sha256": "34da70742d59bbeb442beae42582f8386573adfdf2e531a3ea0340120e3be727"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF62_助手を犯す.ERB",
+      "sha256": "dd3e2889273169a6fc3467f43dfe71a9328822028f50b9df63629153ac29dc11"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF63_貝あわせ.ERB",
+      "sha256": "ce79f54aa359db11360ab6721ce59591ff229be1f2a13db4f8fcdb1034ca95c1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF64_３Ｐ.ERB",
+      "sha256": "abbde6e88f37f6809517f338f55abddf758ca92eb557ebd76d1491cbdbaff1be"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF65_助手を犯させる.ERB",
+      "sha256": "73980138565372b9da6e71355c519f91fd92c4bd1ad98815812e8dc1a26be2eb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF66_ニ本フェラ.ERB",
+      "sha256": "773634e6b2959eb2a588579f3774b5b9c3a04fc131a2da4f8333bc941406bb7e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF67_足コキする.ERB",
+      "sha256": "083d8343d19ef337d223097044b0ed20721cd465f5203c666232c570634740a6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF68_ダブルフェラ.ERB",
+      "sha256": "e94168bfcce572c99e426846657e5aaf54ef747e58a3bdee1ebba4d119eccac3"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF69_シックスナイン.ERB",
+      "sha256": "0cd5e475df5e8a914c23498b6f0ab641dcbe79b209d492a809fd30d39777cca8"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF6_キス.ERB",
+      "sha256": "7f597e100b7567e9d8edf40b3d51730df6b237d1b869f0860e9e1b2f11dbeb57"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF70_ダブル素股.ERB",
+      "sha256": "6131f0051e20e88d576651c5925375826c7f26a65e8b8155b03528aa4385ece3"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF71_ダブルパイズリ.ERB",
+      "sha256": "e98a3c1ceb7ce5a5940e3c622b28f1d3235d50b62cf44db3b5b0bd3362558afd"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF72_陰毛を剃る.ERB",
+      "sha256": "55809b62d3b075fa178dca8894da6d665957dbf418b7af9a02158995613d8851"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF73_髪型を弄る.ERB",
+      "sha256": "6a4478f0696626cace5c49931535cf8250ec202d3c416312030f303f23459a6b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF7_秘貝開帳.ERB",
+      "sha256": "f7978254ab72172fc3da1498b8b95bac5e1409576a611b8057b31a5a2a4f32da"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF80_イラマチオ.ERB",
+      "sha256": "9982dde6430d8e87aee7df046b11da396ef61318e9258a93f8f6c7e161480dcb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF81_フィストファック.ERB",
+      "sha256": "b336aa76a9f362e0e8f068a41cf91ebc487aa81acdf7c07ef18ed5e996044f22"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF82_アナルフィスト.ERB",
+      "sha256": "48cb608659825be5fca5d552e55d763034f90dc4dfbc7da45d8e8b5edee0a73b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF83_両穴フィスト.ERB",
+      "sha256": "5e3b310018f92ba4265ac6767b18c1df57b5ac06629da4a274137f991880ff93"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF84_Gスポット刺激.ERB",
+      "sha256": "900e9e7435cae6ae9dbf216874100f4ce0b604d3e4ef57c7e46902892f7b9cdf"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF85_放尿.ERB",
+      "sha256": "2fff54729b11a7e1ba4d095ca71aa9393344a6f89e46dcaf2ecbf1447ef4b968"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF87_ピアシング.ERB",
+      "sha256": "1cb2af586d2c20248b9d58da4eefb5dd7a561f194b1404bb48460c366182f286"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF89_獣姦プレイ.ERB",
+      "sha256": "eed5495c8b0f21372c0dacbe9c9034eb729460ed069041e071cd32ab63def72e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF8_指挿入れ.ERB",
+      "sha256": "f6b23bca81bcd8e773932eba2e4c7ce1e6568aac77ac5deae074ebc78e9cd6b0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF90_ニプルファック.ERB",
+      "sha256": "e8e9d22cd36542181250a64bc97e48c5f15f53b243a8b466e06f3f62e1227186"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF9_アナル舐め.ERB",
+      "sha256": "47409b70c9446f899e11de96a9164661b0754642d1d80ed3ddaff730ceb839d5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF_ANALSEX.ERB",
+      "sha256": "e4881c896a098f37bfa73fa6004454e033483de9e74d6044a2ffd4c900fbf44e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF_CONDOM.ERB",
+      "sha256": "ecff3972f216878221f322bb356922569cb8d3a022067c92f7e1e45b5f79f9ba"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMF_VAGINASEX.ERB",
+      "sha256": "282236baf5266362a7194131aae0525f73a4092129009caf1ca5d990846ed001"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COMORDER.ERB",
+      "sha256": "ae5cf6ba96d0faff081c98325b22fb0dd2568e36c6c7a118ea4252d7c43ea45c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/COM_REGISTER.ERB",
+      "sha256": "49cf0d189934889627e1ee591d733e2cb97e2338050404c85e71b39115d97370"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/CONFIG.ERB",
+      "sha256": "5b63491834eb172c3a3546ae5eeed58cc6e506ef4cd5441861f2be21617e32dc"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON.ERB",
+      "sha256": "f6185a727e38cfe5bb19019307d2ca50e9fa58ead722852ccf4ddee38030063e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_AFTER.ERB",
+      "sha256": "0980cc182acfda3027b3a38a105bd9cd203be6e5837f66868b3bafbb188c29dc"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_BATLLE.ERB",
+      "sha256": "524f185db8947be5f22edd0caa619bb31d9ab49cd043cf7622292504d05c3c1d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_BATLLE2.ERB",
+      "sha256": "778c97071ad89d61dd21f0f22bbc218140011057fc8f6fddd375732d698d680a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_BITCH.ERB",
+      "sha256": "6c7c5f33ae04571075235e6d96a2b32b9fe9a77a365e67667856c4efa3b12207"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_BITCH_LOG.ERB",
+      "sha256": "505efeb951575ded62164225e5341642ddea7f3b67bb6daebb3c87869039be92"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_INFO2.ERB",
+      "sha256": "e90e18a5d28c778fd539e499000c2aa7f36082109b1327eb170ff03abcd1e749"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_PARTY.ERB",
+      "sha256": "e8fb6fc60de50a9263dffaaceda11e1a99956b30f38b6f8a87eee8a6ea752fef"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_QUEST.ERB",
+      "sha256": "4381f4158543739de27ccf03649218b44fe3c93f89984df037680a64252cb344"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_ROOM.ERB",
+      "sha256": "a0ef954cda22693ed46ac4335ec53374d5fa5d2048cae0d0df787c5086b41621"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_RYOUZYOKU.ERB",
+      "sha256": "653479c2891f9e6fb6357257fee510f489ea7a481282ea4e88bc7cd0af4c48dd"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_SETUP.ERB",
+      "sha256": "7ccd7bf08947662f85322c437102308e894d718ed1ba30de63aeb426f06e0e8d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_TOWN.ERB",
+      "sha256": "ca613a53c026c7ecde34ffbcf4f55299f6753ee96134454614b5fb3316d095e7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/DUNGEON_TRAP.ERB",
+      "sha256": "4f425d88b52f0803581fda969ec2b4002978b812498dc24eef8dc514213922ef"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ENDING.ERB",
+      "sha256": "ace655e4d073d4585a7389720c966348bf3d587e310fc87f88fde1bbbef666c0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ENTER_ENEMY.ERB",
+      "sha256": "c1e109c54b79affd0353df7548567de83c1f226ee4c2ef9186d51ebdc41549ae"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EQUIP.ERB",
+      "sha256": "24fe5fd2f01037dc2959cbeb185d5563bb2d238ccd6a6cedf5da043d9649a93b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT1.ERB",
+      "sha256": "4a601e673b5f9e376ed942359fdec07e89f7b85696b05fcc3d09f24ae4e4a6e4"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_ADDICT.ERB",
+      "sha256": "67f8b523cde1f146b1bfd1cfa0732b9f253b58e61733b70c1e15a51cb20eb763"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_AFTERTRAIN.ERB",
+      "sha256": "1dfe9e3cab5be291710ea6d8a8c04e629d14db7a18e398fae6cc4df56752c260"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_AUTOTRAIN.ERB",
+      "sha256": "467c4c76b9b437beca3aa754200ff0703a9418e5a18cb317c467db74e9ed676c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_BEFORETRAIN.ERB",
+      "sha256": "95a0390c1f1fb803f35b81d65053d3e1a71717d63de7721977b6ac31634625eb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K.ERB",
+      "sha256": "5eff70cf517c7359900d91a33f058d7ad09d8dc5a2780c576ef1d8e78299f8ad"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K0_慈愛.ERB",
+      "sha256": "e20572ebed0d55ef93232f5a86f0d6d513b81f15dac47e124f1db3c43d8445c3"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K10_クラブ.ERB",
+      "sha256": "3e36e02ad99248e967444d2cb9fd05f56559f5d5fac7d61425d4216cc1b4fad0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K11_リリィ.ERB",
+      "sha256": "e35541c2a1443a5b89bac892b591dcb8eb669982e7adf8277c4caf13440f743c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K12_知的.ERB",
+      "sha256": "663a5e999c1caf48c8d534e7ae15f6822158a1102605d761afdef047e5f480c6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K13_庇護者.ERB",
+      "sha256": "de4b679bbaa7201c7efc8acd764e4264095ca2d37aa97edede89bef19d5bb7b8"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K14_貴公子.ERB",
+      "sha256": "b718c162ea3f9b490fa2e32000d7926c1c8dc8d18f5204c27115d3d623a8fe8e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K1_自信家.ERB",
+      "sha256": "af991dba496fe379694f84ef24b0cdf140c80d3dbd1da20be71ec405cd0e6ac1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K2_気弱.ERB",
+      "sha256": "60b931761cd06e01011432690e45c25de2c360c090aa6d74b714cf8aa8e43ce7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K3_高貴.ERB",
+      "sha256": "702456e088d58ab120c3362639a97508cbe67465ff5bd0e0d2d2157c7a9986f0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K4_冷徹.ERB",
+      "sha256": "1179d3f24cc45cd430461c032373642585a7c7abbb0fe0d19fa15f71eed9ea47"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K5_マオ.ERB",
+      "sha256": "1bc08e5ca58a7f2a6be880f06152620b7704d61024df33897035893ae244a25b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K6_悪女.ERB",
+      "sha256": "b032767e912803bc5ae997668ca44ee231ad6a5f5c2141a54a383fc4c6670ae8"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K7_ハート.ERB",
+      "sha256": "75b5209acb88fef871a699ad81063224b9fac731728efd2429081740babaac31"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K8_スペード.ERB",
+      "sha256": "d6e02183328bd556db46f82e6a0ce61968cbe6b3c6e8242d8e6dd793fd2fc5b6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_K9_ダイヤ.ERB",
+      "sha256": "34c5b9ae66c2d93a427a5d0ea63b0220bdd9faa82e8b8fecb43e0babd5c19f37"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_NEXTDAY.ERB",
+      "sha256": "6f2a1914609d038b3c65a8ebfa4d619ee3e25994a20976613826af7d167b89ed"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_NEXTMONTH.ERB",
+      "sha256": "65c0bcfeef67f353e69ee170d5296d4dd9acb0bae5c937bf7bca6cc3bda5aa6c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_PREGNANCY.ERB",
+      "sha256": "82d03aeb3965fbcc6b8f06ce9c40e3e79afe6eb0fafd8d168ef3ae9dc9fa72ee"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_SABBATH.ERB",
+      "sha256": "8760248635eed9f03e5f06bf7664008a6bd79f9a09911a3011612580e6c984c0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_TRAIN_MESSAGE_A.ERB",
+      "sha256": "a9a2e9bec1bd263677a7763ba02daaf5de79a39e85f0d06f8038ab2291e4cead"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_TRAIN_MESSAGE_B.ERB",
+      "sha256": "051c53fce2003e3425b4ee34a41f7378a48d22f590f37e1421c329ff5f09ac4a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVENT_TURNEND.ERB",
+      "sha256": "00a6fb7e41436de6d93008b8c3c230dc3b2a57c59d6fbef1c78a78f2f06870f0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EVETRAIN.ERB",
+      "sha256": "efce25cc9cab4df648e23e64b021f602fce7ab9c7d8f8b488582b8116922e640"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/EXECUTION.ERB",
+      "sha256": "428a9f2589be9472c5ba7587c1c597d3e0aced4182139aad620473a72015d344"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/FUNC_CHARA_AND_HAIR.ERB",
+      "sha256": "f2e647bd98e61ab07bf19ecb78d9e5139fb4172c93ef3249edfd71940c6fd4d6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/FUNC_CLOTH.ERB",
+      "sha256": "148cfd1fccdd9c5d11abe388e3651a51bf0f9bb95129c6f7786a5f05a8b19466"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/GET_SPECIALTALENT.ERB",
+      "sha256": "2fa59a8a035fe0aa494d1f8443a1b709259b95d7e5b0295b97b113296636738c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/GROTESQUE.ERB",
+      "sha256": "fce2b04fc4801b3246fac6e13fbc0cad889a613e5caa71ff7fcee1df54af3f8d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/INFRASTRUCTURE.ERB",
+      "sha256": "6edfbc74e67c73c48c68ee649da6abeaec8f4f9dfe6f2ac2d913e12994f6d059"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/INVASION.ERB",
+      "sha256": "7fa44d2fb0077c76834e5fe2ef2f6b6d114f56967c48cd28ecf9039b79a76730"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/INVASION_EVENT.ERB",
+      "sha256": "4fb0760640c56872a3dbe194cf6a11e0631c51a187f525cdca8b2d15a26e7cfa"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/INVASION_RYOUZYOKU.ERB",
+      "sha256": "146518c516a01491743a87815ca12535af5d9ee97d8cb1e08fa07f9673ffcadc"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/LABO.ERB",
+      "sha256": "0dddef4f6804bd8f66539d6eba14ffb832715bb9159d91b622bd313504f80421"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/LABO_DUNGEON_MAP.ERB",
+      "sha256": "3eff8ebb427e12e9afe17767c847cb519fa574d26c6c8e6ad8ead7f3331c4484"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/LABO_MAP.ERB",
+      "sha256": "7c872424775ac82f1f5e221c07312283ac906e5bc058780bbb960489c956dcf2"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/LIFE_LIST.ERB",
+      "sha256": "cdba7e1ecd1ab0f1d50045942c6cb63250e4a5e1d02d4366eda67b3eee233328"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/LOOK.ERB",
+      "sha256": "650b60b02075b4259ceaf41b31d059060d459517a9af808af9496df637b15dc6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/LOVERS.ERB",
+      "sha256": "1680689760b1dbbdb2244c337bf9b5fe7abda5a666d4553c49399611b79f2d67"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/LVUP.ERB",
+      "sha256": "c9ff47ad49e2b2d187957792e507b00c4295140c23d2e18907cf656d6423510a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/MAGIC.ERB",
+      "sha256": "cdec2fa7737a00ef4949032d0f936851ecb68039436a76e094daa6f5f4b611db"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/MAOUDIC.ERB",
+      "sha256": "f11cdeb12d2189174a73a2e45c8e9d516a9b6200a134e0e62dce5737acb6275c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/MAOUNET.ERB",
+      "sha256": "2ad77ba96fdc652955a5e908ed3da5f6d221729318fd942e4f4eac58d1da1789"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/MARRIAGE_DAY.ERB",
+      "sha256": "01198bad4b71de5107439415360e534d3b1f951f029d8582b130efebfc144210"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/MONSTER_DATA.ERB",
+      "sha256": "e842c0bf565b91084ece7e2fd9b0a35a5ceab939dbe49c1d6d4b917af2337733"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/MONSTER_PLAY.ERB",
+      "sha256": "614c0712b833b2440202a2b6e4f75e3e25294d2afcdcdaf9dd8ae35d778fc619"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/MONSTER_SKILL.ERB",
+      "sha256": "18dbd30029e369575596c627312cb09fa7f4b1579234d465db1b6a11422fd6f0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/MUSEUM.ERB",
+      "sha256": "945bd8b0071dd00192ed94cfcb7c11968f629167e273e3f40dff9d1361a4e0a7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/NAEDOKO.ERB",
+      "sha256": "36e3294e61ff47c14fbb0b88463448f5fedcf9314821a587be5994fb78807b0a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/NAMING.ERB",
+      "sha256": "369fbad7b93e39fa9fc9d2d6116c27de8f76bfd69c1881b705d0bc52cc097627"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/NTR.ERB",
+      "sha256": "5a85d47f6a835fb1447f68e0ea91c4de332c593cb67b17e7786c007cc85b8a0e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/PASSOUT.ERB",
+      "sha256": "8c5d5c374c28029eb8befdb9564b56f507bcab2d3eed00d91df8539de54619b4"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/PUBLIC_EXECUTION.ERB",
+      "sha256": "164e308012db3a8737adbdea7e1f7ea994071bdcdd6bc8194842fa6a4a74a6af"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SEIIN.ERB",
+      "sha256": "ce8fe6799c0711c71b7d5ea34148a3082c179636b1202de19825f4a8d78b388f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SELF_CALL.ERB",
+      "sha256": "fca6b5cfdaf188395b208a0ddba31c228d815c3604a1180de57801a38335f63d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SELL_CHARA.ERB",
+      "sha256": "79a65f73379a59df0a9971abdcac9faf74970e9c0dc95670c4eeca4d22cc72a4"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SELL_CHARA_ESTIMATE.ERB",
+      "sha256": "d012dd4e61996b6df511d126ca907c8a1c0123c0b5457a83458d5216a868d214"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SELL_FIGHTMONEY.ERB",
+      "sha256": "63fdb39702b179d73072a45d80b2a74961cfd6f197c615b94b0cd87e2a971311"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SELL_MATURO.ERB",
+      "sha256": "6cf2364e8d8186cd64c42b79245184d42b9c38a14a1e1a7527c45181c1aa7538"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SELL_MATURO_K1.ERB",
+      "sha256": "e87e55c1d060dc192f168947fa10fc06238873d6130e48c56d81fcf2bb585439"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SELL_MATURO_K2_牝犬.ERB",
+      "sha256": "eefa074e6614c6803252c1ff237c8220fa25e7b2eee607e27ae944290196584c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SELL_MILK.ERB",
+      "sha256": "6ee2e13f7caaaf34b17aef055bfb08d8cfc0e1b846cba49a3f213b44dfc2f1f3"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SELL_VIDEO.ERB",
+      "sha256": "19f3194eaecce1c91bd07d04214994f42c578fbcbc76fdd1a4ca0728dbbbead3"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SHOP.ERB",
+      "sha256": "f9afb9e071f2221fedd2197252de286c513f323102b6e9a5a580f07f93bd90cb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SHOP_2.ERB",
+      "sha256": "7a3336b402f1c0b921628481a60e9e99b41ac29df689e50728adbb8aceebecf0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SHOP_FUNCTION.ERB",
+      "sha256": "c2ea53f9f1e62e9c1cfd2c3e2ab354d46043c5b5f5ba34e931c8ed24417156c0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SHOP_ITEM.ERB",
+      "sha256": "a4283eb17dbfacd31a50b6ac3d6f8ba8b74a92213740707347763e18202937da"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SHOP_LABO.ERB",
+      "sha256": "7f217dfde16a39be23ecfa9acd8791913d359634ce06f4584d21dae03d520d18"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SHOP_TAILOR.ERB",
+      "sha256": "f47adcc3cbc454104ad8cb582c05984c7446e36862e61323a4545d0cd8ea9e26"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SHOP_TRAP.ERB",
+      "sha256": "41183f0a57354a262d374464a47bc6d560d757d2139296643af496485fb83b95"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SUMMON_MONSTER.ERB",
+      "sha256": "709e67651efad9b6757d8d1ba14b185bd81540fb7517dcd465da6b51db2d72df"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SYSTEM.ERB",
+      "sha256": "a523fc6ae137c1609b3b4828725502087b828569fe30fb5cc86e7513ac711c55"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SYSTEM_SOURCE.ERB",
+      "sha256": "1526a701dff2ea155cb18e2e830573552f4c1c01e980bac6fb07ed84e11c2e1a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SYSTEM_SOURCE_SUB1.ERB",
+      "sha256": "731400483ddc1ed61168ce709e6e7058143715113b0b21c3638beb80dd17fe67"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/SYSTEM_SOURCE_SUB2.ERB",
+      "sha256": "a00869f8bc31cf00f94df38133fff5348ef59b6e85b7b63b11a63238a8e488c7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/TATOO.ERB",
+      "sha256": "1b0532c3466c3300abe1ad588e7126b936c4ccf1a5e3fdd349fc346ea6fbe05e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/TAX.ERB",
+      "sha256": "a7a8ff0b345567f0d9100f5905b5e9707045da857018edab88bea1b67e94c318"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/TITLE.ERB",
+      "sha256": "7aa49bd3c571004c73b4fda3bf8f52fb3ec372ec88b7254b4d69046d7e901f8b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/TRAIN_MAIN.ERB",
+      "sha256": "b1647147334d45e814b18c6e1dcc8572cf476f1e875843d061a9b9fc2c2204aa"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/USERCOM.ERB",
+      "sha256": "7be7bc423831a66050142a2e526ad43674a30b358273d8d7b5ff0ba8793a7483"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/USE_EX_ITEM.ERB",
+      "sha256": "0051768702ee808610b7db675943b181d83bac22de844ee25e13759deb326c37"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/VARIABLES.ERH",
+      "sha256": "bb580730ecb30a30dc65ee10ca8e85c1ba773c772e50c7f079b44c3c745b9275"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/ZNAME.ERB",
+      "sha256": "82e98566d29335b7665cb9365295134964710081846141368bb0f1b33f1e44e2"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/_DRAW_EXT_COMM.ERB",
+      "sha256": "b7b9cc6ec65644be3dcb06eec91a4392a8990a3563067caccfdeb2ca146084bb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/ERB/_DRAW_MAINMENU.ERB",
+      "sha256": "df205690cbc7cda19f393181d97b7b026cfe419791b72d90f8d45013508a3f90"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/Emuera1824+v8.exe",
+      "sha256": "6ee53eaed0d280c05649eaaf7d90a2b62e516307ee55bcc8b38e87685f084b48"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/Emuera_readme.txt",
+      "sha256": "0e91c8659026dbdcbc0e678f6d1c9fbeb90fafad135e504b92169c1fc2a2e250"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/emuera.config",
+      "sha256": "51c1fe0350efbf486664c9c5e0a34c925c7fe62c491fdb0df5e629ece8eaa69f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/emuera.log",
+      "sha256": "8a3c5179e47d91dec02cdfdc60298152b9bf6fe9dac3f796d77fb77a77d9beba"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/erakanor.html",
+      "sha256": "5a7493dedd9e435543a3b86cf72d8d204b87d8ea5585743027f6c6b91da20922"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/license.txt",
+      "sha256": "31267b3eaca8c9cf6409ed3726044b8b3f70bdb60725eb806a6de7a2cd459034"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/readme.txt",
+      "sha256": "f0711753da2cffab1460a0866f911196282c61ca9d08f74a0b3c5a118c2f8f57"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/srs/eraMaou_srs.simplesrs",
+      "sha256": "62d5db4c7965c51812d30ac182227f2a5d599a09878c4b1d8e87a4f1224daad6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/srs/srs.simplesrs.zname",
+      "sha256": "522d28226383aa2913afb5b2cb9c3d67f8e8e3f7a42f05ea628452a6c89c21e0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/eramaouセーブデータ間キャラ移動/使用方法.txt",
+      "sha256": "3e160be7c9518cad5a0595b59f6605625a6b79cc4692166cdd9e69015fcb5d9d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/eramaouセーブデータ間キャラ移動/改変点.txt",
+      "sha256": "a690a25227bc5d6e4232f1b08a595cdce5ce0954bee41859f615146d77239c2a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/eramaouフラグまとめ.txt",
+      "sha256": "0775112176944ec3f801113de456a74867fe93604ec53bc5d2bcbd4ce8999487"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2012/!readme(1225パッチ).txt",
+      "sha256": "4ec965334a916174ef06611ebfc2ee87b1dc9ec6b8895e2af4160d925e5ba19e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2012/!readme.txt",
+      "sha256": "4dee5af2a953da01345cb5c81e9fe7605d36808d0dd984aa5f78a364b1090152"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2012/EVENT_TRAIN_MESSAGE_B.TXT",
+      "sha256": "b77fd59961372297be334f1e55a877007c73b816d1727878d51b8f818dcfadac"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2012/README_DUNGEON_TRAP.txt",
+      "sha256": "75b5e1d3bee837c2c0993346ad4c9e1dd05461d4e75ae8f0ed3bfdf6acaeda06"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2012/README_summon_monster.txt",
+      "sha256": "6f71fd66df58beb5679a2504182895fe7ba8749f3352dd31c754c79b55cd5e30"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2012/eramaou_kouzyou_patch.txt",
+      "sha256": "6a6cc8f01c0c92d8008db5ac2376b1503463e1d3f372ce30d79536dc58625f50"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2012/eramaou_trap_readme.txt",
+      "sha256": "dae1acbeaadba57d88d58c3ec8fac88a770ce3f1bc3741e245beb2e742963e96"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2012/readme_hdm.txt",
+      "sha256": "b66a7de66ab237811c274d3eddb4c26f6819c40924c25b583669ed8bf0fdbcb9"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2012/readme_tumeawase_02.txt",
+      "sha256": "f0a6d767437bbd75303f80e468d3153eb0a3ff550866902622d279b13c8d8bfa"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2012/readme_失神精飲絶頂パッチ.txt",
+      "sha256": "57897ee2f183da3a1d8e2144c388c9106f2210c8bb72f32ccf18d20dd06a8b58"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/!readme20130614.txt",
+      "sha256": "14fc1c5073bd2a9b30377313c46b92d4617f39535852591b2ec06ff4223461c8"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/!readme20131109.txt",
+      "sha256": "966137c4fb8033932b0d8b7a218a866b74c1d407ef156ae13a3db1d7d4fa1771"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/!readme_20130705.txt",
+      "sha256": "876b86af69136cb3fbe668b23ce5cf86ab405efb4701f2737bae93f28fadf859"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/!readme_COLOSSEUM_0.05.txt",
+      "sha256": "004501c07f3befd73549a91441430522ce553485e1d98665e25db99be0e098ac"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/!readme_EVENT_PREGNANCY_20130225.txt",
+      "sha256": "319764c5fb841297bf0a0e3d8500b8eacc7949bc00fac41898fbbfb129f1f511"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/!readme_patchまとめ.txt",
+      "sha256": "02f599531838f1e1c69a86825f6b30e9a9ba97c038062dbdba53842b198e5686"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/!readme_侵略.txt",
+      "sha256": "dbf704eb20f0b129b8378933c34d5e01de845033f136b11a43338762191e4e5a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/!readme_処女、ファーストキスパッチ.txt",
+      "sha256": "51b63a8117de7547fd0eb8f7f7d29b5aac493028298177dc2ec81fc823892164"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/!readme_征服後、コロシアム、キャラメイクパッチ.txt",
+      "sha256": "1b62ab1507c2129285132d4261ff26cb179f996f0228e5c6aaa64f36cf4296b2"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/README_DUNGEON_TRAP(20130422).txt",
+      "sha256": "0d85b445a50c9b34b85e1f38b08c5541530180b33e0e74b002e29da875b5c7cf"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/maou「」より.txt",
+      "sha256": "42d274ffd0a4542a53660a0507c5e2f1b8ce14bbdb275ea6b2808b74b3d2a785"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme20130711.txt",
+      "sha256": "83a9a5e4128fd37a825614c02209f2bc55c892014d1c5b6e50c94335f7759559"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme20130725.txt",
+      "sha256": "a8b65155648c838c7142bd57fe476a787f2e7d2d312a1af7da3870264a418b59"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme20131025.txt",
+      "sha256": "ca8246edf71af2893dcdb3e71fafd9719affc58e00cba811b391b865dc930766"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme20131222.txt",
+      "sha256": "7305bdaae895b1051e85a36b36ff7f94c9095781daa5d3f03421631688f66bf1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_0606.txt",
+      "sha256": "4a6ff6b956495b8ff65c4cc6d193ada56b48d52452961ffbf397782a98ea2af7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_20130629.txt",
+      "sha256": "7197a60fb1effc86cfb4ab17cbc9d39ef08b26cabf7a83fc961ac93ef139db5d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_20131117.txt",
+      "sha256": "1351cf687d69e4f5219ddd547ca22bdfd0e9a741244255cf9eb2be02745072d8"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_DRAW_MAINMENU_SHOP_処女献上ver2.txt",
+      "sha256": "b8d59d523d2e60fb2201f67feb57c9ab7e82ddc7b2db42cace0f86e0f22a8b98"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_EXUCUTION_20131224.txt",
+      "sha256": "730946182538f1949dac208688a11d8f523b88f0c83c3cba8f70502589abc4f7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_LVUPと指輪表示の修正.txt",
+      "sha256": "ca8246edf71af2893dcdb3e71fafd9719affc58e00cba811b391b865dc930766"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_akuzyo_0.08.txt",
+      "sha256": "70b258181fbbac7b52b64260335e8b56c5b2e604ab24dba1d5990b273424734f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_jiai0.10.txt",
+      "sha256": "e62caec8f2a08d84b75121ef703507acdae446de016fd4e26760e950db1375e6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_jiai_inu.txt",
+      "sha256": "9f8ebc9a971a161edc6ba97681c18b01c62e71c323562ee663e01425e701d431"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_jisinka0.10.txt",
+      "sha256": "ea289c38f18c08081d75d2a10a20195a1e7de006443ee7883cefbd36bc5d80bf"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_kiyowa0.11.txt",
+      "sha256": "452684bea399df0a222f72fb95e4901a398f83c94f8e9344f659b8edb35a25ea"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_kouki_0.10.txt",
+      "sha256": "6ce9e86f2bba2d604f1c003c38867e1cdc66efef62feae0f150eb2333b0ecc54"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_look.txt",
+      "sha256": "fe13572d73819ffb8ae092de2f5e9b87f1db05f504b8e08c5f875e96a4b4d95d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_mao_0.16.txt",
+      "sha256": "165f50c5743129185e61304f198e851ae2aa2518b906b0088df365506bed2f37"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_maou_20130808.txt",
+      "sha256": "8f78ac10a690a8e37fcf2b41ceff199b4d5fd2240eb381e2a73cbe3f28c95327"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_maturo.txt",
+      "sha256": "f0110ae62dacf41a82e7a511c680741f6ae55c6045fd3010c4adfe356efb0eb5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_ntr_20130830.txt",
+      "sha256": "3a7a3013363e31df5acaaff50d8deb4614bd3ec52f22e37207f55aa67a172af6"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_sell.txt",
+      "sha256": "ea5bdbb3d1bd2addf5098416b6907c2703e869da6694467a49b58103a582436b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_sm.txt",
+      "sha256": "434911976aae7f611d909369586186a10370c983727623cf8192283aaa92a59f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_フィルタ_実験室.txt",
+      "sha256": "f55172f8f1d79abde19afa8fd34b3313bab6fd62ca99857facbc2494150fadab"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_人数制限緩和.txt",
+      "sha256": "7e5e11a996c1f724b50f4dfb4d8c6f01c0cbaa9c94d88c19d5cfe14e32294631"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_侵略.txt",
+      "sha256": "cda6147039b984895cfd1d75f34dea9d5ca763826353ee143c491df2fc39d3f0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_貞操帯＆母乳まとめ.txt",
+      "sha256": "9134551d207ac2efdc5fd8f21e45752f100a26f711feaef078133637572cd5cd"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/readme_逆レイプ逆レイプアナル.txt",
+      "sha256": "c0df9759a032bdc0f54183a641a7d26308db0a414fe9c93436fdfdaa65ca1496"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2013/フラグまとめ.txt",
+      "sha256": "f68c0079c5e050f47d0f8225b9cb18b7bbad9e9a0655f8e10d1a14958e563e3b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme20140202.txt",
+      "sha256": "1d8f97d6611a142368fb34e10f0bf4e303f98a3f017ff956cf9fc057803a057b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme20140414.txt",
+      "sha256": "7fc6055aae27935a2a7b1c51bb12c7b2de87b910403775e04d6080813728a801"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_0.330_ダンジョン陵辱パッチ_20141129.txt",
+      "sha256": "d325a2817330b77b65a45e24ead778b41227f8fcc033e53b76e3413c38ffa815"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_0.330パッチ_20141124.txt",
+      "sha256": "045fab7de2f44fdf107f016f8d6905e3b7c21e4d3589379a87e006876c93596c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_ARCANA_20140329.txt",
+      "sha256": "dd6a398bc18d1ed2958bc978593f14af22df03a5f5ae5b52e21aca59f741b015"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_EVENT_PREGNANCY_20140307.txt",
+      "sha256": "7ee5248f3dbf20f914c6e46f0705246a7097e8c95f8b03c4fe4b71d22ef7f9ec"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_eramaouパッチ20141213.txt",
+      "sha256": "34f0ca212ff8a9216f16e53eb0520d486f3f8e78eac5f38db3d0df1739d6c539"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_patch_20140522.txt",
+      "sha256": "547867c0e8f415a6776ac195d224e1bebc6ebd6fb797287edcb0cc8a1de82f74"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_v0.301_パッチまとめ20140607.txt",
+      "sha256": "3ad9d45974c51092388a6e89eb954dbb3f34735f83567fa01c93ff1ee87faa2b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_v0.302_パッチまとめ20140614.txt",
+      "sha256": "dbf01ca5022ddfdb7888d2a45fe752c76ae4bbb4714f74c0a4080a4fe3604e91"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_v0.304_パッチまとめ20140809.txt",
+      "sha256": "25067cf0326b948561c4a5ebb7a93017b28f6b059798ba9f46019a5fc161d233"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_v0.304_パッチまとめ20140907.txt",
+      "sha256": "aa43ef5f45de681ea301de735f52e5719f7b566941c1bc4afe0ef3787139ec9a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_ご褒美口上パッチ_20140515.txt",
+      "sha256": "f6883158b451c86b8591ac6d50d7b7bb21a584630005d954dc8764db1ec095ee"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_ダンジョンパッチ_20140516.txt",
+      "sha256": "d2188f02b61c9715438b774182203da70fb3a1b02b101bac5534af9a1324ceda"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_パッチまとめ_20140517.txt",
+      "sha256": "db8fe490f2d1f70fccc14aa86d38a556b6c573507550ec3ffdc032c6d656688f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_パッチまとめ_20140524.txt",
+      "sha256": "6d4964e4c624305b163b626970cf031a8b0f9a4a889a75a4735b0d4c2d61a5d9"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/!readme_朝フェラ調教開始時パッチ_20140502.txt",
+      "sha256": "88874a7bdd7892fbbc2f1a1f37a461ae5d49c057ef2f31bb4ddb5b3b3d6e3522"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/20140521_eramaou_能力表示再構成の修正1.txt",
+      "sha256": "8d25b742ca4dc01ddce70488fe48018825a879d6aae7b2ca4af7f32a5f6ee269"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/K0_慈愛.txt",
+      "sha256": "041e718c05aec5eeb9722a074e0255792f0b771f06faa7281318f0568d55ae3c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/K10_ホワイトクラブ.txt",
+      "sha256": "456be58bf87c2cb36e49880ead8b214e4608df2c197a6911aa2d78676c3453a5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/K1_自信家.txt",
+      "sha256": "f1940e682e1e46f2dd88af2bedc16324874c85159c048381e5dacb587d6dc2a5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/K2_気弱.txt",
+      "sha256": "6fb8129be8d4fe1658c5e2a563ec328f6a1689ef4d74aa1e0e475281bcfa2f0b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/K3_高貴.txt",
+      "sha256": "83c17f9b210ed522bd0c5cebd22ae8235db61775802be38915285f78d6d13249"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/K5_マオ.txt",
+      "sha256": "9b5b0b8e3fd1924d93bbba1f45bda6fe65b046d10f48ec5e4083b685c34ffb62"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/K6_悪女.txt",
+      "sha256": "1c301348de419767a771ff9a5136915daeb7371bdc2f81d9742e67b0fa747851"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/K7_ゴールドハート.txt",
+      "sha256": "d217c89334a79bdfe5f49e4a0abfd1a484c4b6de640dc2ce5f0aaa1c8f3f31dd"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/K8_シルバースペード.txt",
+      "sha256": "aec6d5dd75c4416554029b5d2596dc69b5f3d28d2f57a6401fc83575b42e36fb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/K9_ブラックダイヤ.txt",
+      "sha256": "abd0f4f84476fff9457d9fabe59376037facf47e6f46e8e78d21eb76cc38bf9d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/README20140109.txt",
+      "sha256": "813dd963f876b283ef30e7f4bc5f8cc89e41848a4ef66ce3354872a7a6f40049"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/Readme お気に入りパッチ.txt",
+      "sha256": "842e140ea454ba081de016904e2e368336bd89bbdb8d9f30a5068cba8ab2833c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/Readme 売価に影響するバグ修正パッチ.txt",
+      "sha256": "a82704e2532bb61790c5fe240942866c583e4d4423daf433f4bf9fa930795a79"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/eramaou_ジョブチェンジ戦闘パッチ20140203.txt",
+      "sha256": "37d30539db3b61a952ee476cd0015d4a61597845e52a2d6acbdbb7b054db58ec"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/eramaou_ダンジョン罠奴隷売却パッチ20140405.txt",
+      "sha256": "d34a07364189634b34c6699b4a0bf8e69b1baf117d8e45e845d323a594d84cd0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/eramaou_武器素手パッチ20140222.txt",
+      "sha256": "8ba83851de0a3ab5e7baec8e7193608d92cb325de387a111b17f95268bf0e4bb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/eramaou_能力表示再構成_20140520.txt",
+      "sha256": "cb7cd77847663fd852204ffced54f9ad595606b852c86a8675296ebd673d5f89"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/mayoi_readme_20140518.txt",
+      "sha256": "5fcfb921ee7653894bc15f1f8a9a74031db489af5c2b5ba1c4b0a0800a01fda2"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme 晒し刑陵辱加筆修正.txt",
+      "sha256": "964ddf80ad3d239366dd0e24a8e3ff74e7d6304cc08c3644d1d354081adc872a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme20140213.txt",
+      "sha256": "6e2858143b765f63d495009a23381217d0cabbe5597afb3bb40bc187500ce005"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme20140223.txt",
+      "sha256": "1cb3372255cf8e6674f7ed2029b18a1c5f5b04177ea7de229f28ace5f1777de4"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme20140515.txt",
+      "sha256": "85f2214395d1094aa6a3df535d5a43cd3f9404f9afa34cbe52a9c1e614ee48ca"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme20140523.txt",
+      "sha256": "64e9e1cb7a23006e9fa9ceffce82803bd6c8e4a421d8ec782c1f494eb22fef64"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme20140528.txt",
+      "sha256": "0709729c1f2d14e65b3466cf947f72e921ad670b54141d9de2617b9f192fd95f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme20140601.txt",
+      "sha256": "086d7aab0a8abdbb859560cf1790708f78df9c90980c40500148074da599f271"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme20140601_3.txt",
+      "sha256": "f06e00c5047bda72927b9cac44b2fb4c178058048c39392e25ee1b30ba065a37"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme20140609.txt",
+      "sha256": "d6a5cb6adc89b4a752bc8ccb8558b979e35e4722a9f91351546eaf2fa55fd2d8"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme20140720.txt",
+      "sha256": "ca3a652f2ef26b87df4257729d2ca942530b3aa740d02c0e04786a159b66cbca"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme20141127.txt",
+      "sha256": "4a795981a2310f23823c25b299618848fbcad6f8b3357f6300e047f10bc60a90"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme20141207.txt",
+      "sha256": "34a7bc15d202a289261a314d232a71f3ca6f8f83eaafcb6395a80a1d63a09c61"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_0.301_MONSTER_DATA修正.txt",
+      "sha256": "0709729c1f2d14e65b3466cf947f72e921ad670b54141d9de2617b9f192fd95f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_20140515_戦闘ログでのスキップ停止.txt",
+      "sha256": "38f4c5932f7e3eda82ed5c252008e6be6360f1f2f9e305523610abfb04a765f7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_20140622.txt",
+      "sha256": "158de7c538f88986c5c20c4c8d4db4fa41bde1e523c986929d549de5acd63984"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_DUMMY削除.txt",
+      "sha256": "b822509833677f9afb5a7887e3da54325340cfc7411dafab3fe5fdef0ebaca13"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_DUNGEON_BATLLE2修正.txt",
+      "sha256": "f06e00c5047bda72927b9cac44b2fb4c178058048c39392e25ee1b30ba065a37"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_Gスポ子宮口攻めパッチ.txt",
+      "sha256": "d6a5cb6adc89b4a752bc8ccb8558b979e35e4722a9f91351546eaf2fa55fd2d8"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_LOOK_20140726.txt",
+      "sha256": "c40523b0026cd31d331772879887a8f3a98df095fda75e6adfcc5b4a4989660b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_MAGIC_20141008.txt",
+      "sha256": "16ee136f185f99b05463cacaed37dab91af184224f2b2028cb83ed14c4b42d13"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_PREGNANCY_20140526.txt",
+      "sha256": "05b712b969879bbdee6ce2937e3aa276431809629013d9765e8e8d95e276deee"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_PREGNANCY_20140611.txt",
+      "sha256": "1c3a9d09c8a81b7cb0ac3bd02a7718e82c00eb30673c19037b86dd3aba304883"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_PREGNANCY_20140620.txt",
+      "sha256": "a83b4a4e10ae140d21d31c6ce05c31968196c2beaceed3270e86f447ed9ca5d5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme__不具合修正パッチ_20140919.txt",
+      "sha256": "47154a441d27cd6ebfbd4a18f95faca47846a99b00b25ae32b9e52554a44aee1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_eramaou_博物館パッチ.txt",
+      "sha256": "2d1d539b242ab0e670a841a6257ff462e4a5a7d57bdf552fc6b3d36b29ad1301"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_eramaou_博物館パッチ_0.04.txt",
+      "sha256": "6c1e128ca5e483fe6855acbda0b7352cb1f552535d97d07971861803578e4b90"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_k10_0.12.txt",
+      "sha256": "6f5e5453e12a262be1abfd4c15023d5c3380aacf582b103afef7088b3bf26249"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_k7_0.11.txt",
+      "sha256": "bd3e14ea85df08c1f28083aa51c8662a9853b79ca7ab74a07d57712f8f10792a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_k8_0.11.txt",
+      "sha256": "e55aa8a5b647844a8a71e2812717ac0b0e0b2e7a36044e7974eb0ea92fc1f224"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_k9_0.12.txt",
+      "sha256": "b86f762308544c3cf4de54a253c64ef2706b90ad8d1774b31cfa3f53a1de7c06"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_lvupとst_up修正.txt",
+      "sha256": "64e9e1cb7a23006e9fa9ceffce82803bd6c8e4a421d8ec782c1f494eb22fef64"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_party_20140608.txt",
+      "sha256": "9cf60fb8d1588cca0829873480596eb94e44d1f47ebdd6aae775cd926d46aab1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_patch_0300_20140515.txt",
+      "sha256": "85f2214395d1094aa6a3df535d5a43cd3f9404f9afa34cbe52a9c1e614ee48ca"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_ver_0300.txt",
+      "sha256": "2b32503d6d1b98ebe671c9b28e8354030e5be3b3ed9406eb44f7250dfe55a3a0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_ver_0301.txt",
+      "sha256": "f4d548c66b3734fc4f9abf063c8eba348f013d7b4c36b71063431029346dc752"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_ver_0302.txt",
+      "sha256": "75a4ee9f85f48b7f2ad8eb76191a31ca9240000aeb19199e10c3a9e958d9cc1f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_ver_0303.txt",
+      "sha256": "c4a7149724899add2e0a7d58d73842fc1099338837dff8f05108ba11a5777f0a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_ver_0304.txt",
+      "sha256": "3fe19a17a9cb7b87f46625af6c5f367df8b5ed59fa0f1a6a2611ec5e02e58816"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_ver_0310.txt",
+      "sha256": "490ba526ef93d23638d03b1fc635c62efca828ef113597c7e55447c99d55110a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_ver_320.txt",
+      "sha256": "270498324ec1957a694d6a0b1fc797d3b964757621c80dab6fbc698818bbcf96"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_ver_330.txt",
+      "sha256": "8ad07ef75981985509ff554ddb37cee60a3b24e955d05c42e9afa9976542c752"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_キャラ消去時パッチ.txt",
+      "sha256": "2a68473195ce30b27fa4bdc6b7fdc5df1ab5be79a2c1b6ce19b5bfeb78d39dae"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_ダンジョンパッチ_20140818.txt",
+      "sha256": "39caf2958434d8ceed3631650e8c0a0e5131a70fef5726567798557220100f27"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_モンスター重複召喚制限パッチ_20141001.txt",
+      "sha256": "9100c1283072eceb84b1b9cb44c615d0c2ae56c71780e0ac8716d721dd004d0f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_侵略コロシアムパッチ_20140817.txt",
+      "sha256": "d208df5e759774e1c4869bd68488e70f8ad7abfa74e9cde7ab8c83c3cbe82036"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_妊娠・結婚生活パッチ_20140726.txt",
+      "sha256": "eb2f8a7de4ee156f745f0b7929ff804b844a9f3b8f504c0477f2539d9f3f1ad2"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme_結婚生活_20140115.txt",
+      "sha256": "797688a381d333565b2c9ef51841eba84d3d4168002a89573e724fe3459fa50e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/readme処刑に剥製化を追加.txt",
+      "sha256": "ab4691fdb7c67f8b3f1265d8386290c3d90f1ece0c8bdf3bb70d2ecb9b4ef2fa"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2014/キャラクター一人称ランダム.txt",
+      "sha256": "b7e0b500b9c0155ea3ab91ca5a75b22bc0f8884af6cfafd2731d2643d03fa561"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/20150113readme.txt",
+      "sha256": "a0ca4bdf97894845b82429f19b45e1a8d126b49b04301a1199dd97b4ca092645"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/20150525_readme_髪色追加.txt",
+      "sha256": "6632a4baacc4b8d0a011f156113fdc3862a4f0e6af43230770c10ef69803af37"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/20150617_2readme.txt",
+      "sha256": "0e64971f6d39597328c6c7ac0629c6ffba5ac93589bb2d3ae95d7e48095e53d5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/20150617readme.txt",
+      "sha256": "e2bb9add485feda2af83634022a30d0169f4f65631d4ec0851c47eef0ca16330"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/20150618readme.txt",
+      "sha256": "07fef0bc7522d019c92243b243c17c13abe55a0c43bbdd0851206d588995b456"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/20150624readme.txt",
+      "sha256": "e06bbf85a947d9df6d31cdace57a38f0373640d4c9d6eea4aea57dc8fa26f68b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/20150923_eramaou0450_OP修正パッチ.txt",
+      "sha256": "a6c5a5a4e21c3dffdfde11a294a58cd345e4fdaec05a088e1e79cffebfb85af3"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/Ex_karma.txt",
+      "sha256": "91e59997d5487050a2cbb6c84b7eb92cdf4ef7c2fb241f3e9b4676f238ce5747"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/README151206.txt",
+      "sha256": "a2b8e86279776f5359d5abbfa4b6cc76fb5cd5fb8a4ab0e36a42f144ed95118e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/README_CHARA_BODY.txt",
+      "sha256": "36116ef59c99ae9917203cfdd040705322375164f1cf5bdd873b12d35ea6548c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/_maou450用ぱっちっち20150903.txt",
+      "sha256": "f96abb0169a20d63a6bd8e407c2247ab0ebcdf2660515d1d2e0b65009f8d4a32"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme20150810.txt",
+      "sha256": "2646c5e983e5cda0c87b4ba055f8339987b0ae632931fbb5e50ad7e2f50b0d81"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme20150904.txt",
+      "sha256": "ff29413d4a4a1df8b24f484b7106abb4c049dd5bd0bd6f6dc7da160381718aed"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme20151230「狂王の虜パッチ」.txt",
+      "sha256": "0321ccc6ee3edf246d1eb065fe9a07f529139b8942b15933a8aa49043593b0e1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_20150930.txt",
+      "sha256": "975515603b5eed97ab0883151722cc962e2d6737b71b1f8bc678f3308326b316"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_20151017.txt",
+      "sha256": "46556bd99dff023d5cc6aaca32e1db38f7c0fe7b5395f0bf4f049a17e561f742"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_20151019.txt",
+      "sha256": "a705ca5fc7aa3916396039871b493dfd42590f11ad5f055db667992683793796"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_20151128.txt",
+      "sha256": "daf33e1c24da955d1deeac96089f354aab2977b1eed0f896d314b193aff0fe1e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_20160116.txt",
+      "sha256": "4156a667283c39ef58816a315711f50626b865dced98a0bf404eb9646cf28841"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_LOVERS.txt",
+      "sha256": "7635fcf080be45b71706733517903b98bc24968d13adbf6dba4ecea2b034d441"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_higosya_20150819.txt",
+      "sha256": "cfe64138d715c978528e387ee755303b0bbb66462220bf565b1eb579d4ebfbd5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_patch_20150228.txt",
+      "sha256": "7cb6f7eaab886838081693ca8e5016563a3dc97e13c80cde4fadd604f62ecb38"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_ver_340.txt",
+      "sha256": "caee258e4c2951806ac0eaf1c03c630c99a9e3f64a0bfe48d8e59b1659f026ed"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_ver_350.txt",
+      "sha256": "034ea38e8b70a03b6b00431ec3514e3d7405d0574c7709868a84f567f545c97c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_ver_400.txt",
+      "sha256": "fad8a81be85b9dd740d44ba7a9527cf7f3e8e68682a310c5576c7d877e0c0e80"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_ver_410.txt",
+      "sha256": "14dbf40920f06eb7f979eede0751c227796a495f312fe989da8ad288568a5b29"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_ver_450.txt",
+      "sha256": "9e5df1e77b84280be6e1ef4b88e1d79a0c7ee6d2276444752bc19c96c7097b51"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_ver_460.txt",
+      "sha256": "1f6cc352a692804ab79d05d1f8b58a3ad3fa1d5ccdeb355fbc6a3527a36eb407"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_ver_470.txt",
+      "sha256": "b6909a905ea696cee46c9c99dfbd3f4ca82566da99bd1e8ac81b67f4bf5c0628"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_ver_500.txt",
+      "sha256": "278f5ef0192bceebeb1423b31a800f0ded9060a8c3c6ed64feed918965ae7485"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_yattuke.txt",
+      "sha256": "6736f489f94d3545dbd41c11027d193213a1b80d4041fd6f75269e27caac8880"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/readme_処刑分化+博物館パッチ.txt",
+      "sha256": "01db470a01a7739412cffd47ae87d864e9e51baa902c13eea60dba11635b6779"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2015/処女献上修正他パッチ_readme.txt",
+      "sha256": "a8d160a792b2dae6c6584f085df8f2bcb939b7981d21dc12e22b3cfb528b766b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/!readme_INVASION_EVENT_20170101.txt",
+      "sha256": "e14a35b51e6fef8490df98b6e0444cbb100f15191445c1c8742cae7c8880779c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/README_RECODINGパッチ.txt",
+      "sha256": "6c1878f1ca27c0c01887f382ae2dd2307e702fd12b2d76c9a7cc03387e4b159f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/Readme_osaihu.txt",
+      "sha256": "93ddb2ca3868a82f6099f9e7adbc792b85a2ab2b03dcfab1274ac78aa8f747f3"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/_readme_20161023_牝犬末路.txt",
+      "sha256": "fa120d6cece34f1ba1e74c05ca34b18dfe9a467291105c3a0424b25d977c1533"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/eramaou_780_小パッチ_readme.txt",
+      "sha256": "09fb22dc17bd1f1f208f63fb459cc135cb4646074e96ad4834b9a00aab59f336"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/eramaou_790_小パッチ_readme.txt",
+      "sha256": "bdbf43743504733cf1bcf094707fc57d0f8842fb8bf2c3d78ecaa107015c7b2f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme20160522.txt",
+      "sha256": "e2f1d6a4713eafb0875fec16a934b0b41d47966c2bbed427e90bdca116dd6165"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_20161022.txt",
+      "sha256": "27f93a587a1d3b8e819bc6435194de8ae620ee79edb287c7e067a84001cb55e7"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_20161023.txt",
+      "sha256": "bbf0c7c214bd9ad98aa44da3de7d2afdb5d955f5869da83caf80ad769eb18aa0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_20161106.txt",
+      "sha256": "22d6216e4dc903587b5e1b904cb6ab1fc4c47a19b2f1b202a1d213c49146f76f"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_2016_08_07.txt",
+      "sha256": "a9db3b5e966710bd0f096d1a639683b9aa1ade05cd9951a788cdee139b81418b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_2016_09_04_kouki_kojo.txt",
+      "sha256": "8993d7d21253abec80713f30c8ee6bcecb11b89c5bc07c3ee6d83ba89720b816"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_patch_550.txt",
+      "sha256": "7535300d2e7cd0ca7f6f9f456ff07114a48d71ee9459f32bb0956b19dc0e6903"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_patch_m_0750.txt",
+      "sha256": "bbfcf58bae93e229be16b939a0e5b16417585cbfef12222f4508b7d4d79b2d80"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_v_0600.txt",
+      "sha256": "b23100a422cf137005b8f87587031a455884bf47189c859a31d50f2908836faf"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_510.txt",
+      "sha256": "20087da7bf9a82c954010590c7441aa1e842b234b44addb6373cfe8e85846c21"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_550.txt",
+      "sha256": "fc7495ef122ac2f0524c04dae17bf54fef0b78f8361f8468e90ffd43d63f9648"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_600.txt",
+      "sha256": "fe78dd91dcaa9f07300bdb6a3917efad307c64e87b24a4def8f42d98b53e3144"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_650.txt",
+      "sha256": "62a3bebbcbebf966533be0131a6a0f390c25fbb1b443e112a577f9834618700b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_700.txt",
+      "sha256": "12527d06e633750eb50b583db1efe2a7e337f02417b0cc47cd62531d59cbaa72"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_710.txt",
+      "sha256": "b84ff53f1cc91cf1216383edae0abf099fee9c23f6f0c568018c9f2729a3574e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_720.txt",
+      "sha256": "51763336245f01cc52de4247c6306d4747ac7986548b56dcc76f7d729f40a6ac"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_730.txt",
+      "sha256": "24df86028df8087f2d0cbad61729b7b05f1de4b5131adee4cacbc081ea4d0a2e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_740.txt",
+      "sha256": "12359c253ddccc1252a01073be134e777fa451fc70c3a0a12ac103a8678a8122"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_750.txt",
+      "sha256": "beadbbc8da79a630b6b7d1685dced1cba98dd012dcc33f004921c240c01fd691"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_760.txt",
+      "sha256": "8787cc72bf0144002d5cde93fa0340b1ad17f0bb01227da1baeac5e941b9bd62"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_770.txt",
+      "sha256": "cc42d95d268935351c46e9dfa862c165688b73afd2d1b3c50685221ca4ad3623"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_780.txt",
+      "sha256": "a9cd8fc3f618d558f5f388c60748c821b82d5ccb16cfad0d08f84d7745faa98c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_785.txt",
+      "sha256": "8d740c5596ab13dfda05c183e338078632e99f58e22dc357a4cf3d1e69e5c6a0"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_790.txt",
+      "sha256": "dfab7381d95ac665b291bdd05b6f1d4e4093ae2da1b7d5b986301cf3660adedd"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_ver_800.txt",
+      "sha256": "78a82d2403e949f747a68a070d7374c2b9276c40fe2bf11c137103d6ec1f74b1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_カテーテル(簡易版).txt",
+      "sha256": "afd9835b955e866c602a2d3be8f51348bc08dfcc17b2b8b1308aa9de38e48d2a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_博物館パッチ_0.041.txt",
+      "sha256": "1c25d00e2ee10408fcdd4fcadfab5cb35cf9ef9ef9f03130bb7d4a0fff386477"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_口上まとめ.txt",
+      "sha256": "c8c9c3c2c9c722ac497a0bd24f56b34cc66a1e4ba798723a0ec1c6c303359229"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/readme_重箱パッチ.txt",
+      "sha256": "ad78414a4ed263d6ddb92bf192d5b82fec2c53596836f2040b502550ead1b05c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/redome_オトコ勇者パッチ.txt",
+      "sha256": "b6ac6ad1cc484d33595cd24957f0075534e3a0bd00c685687b81b18c3158676a"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2016/口上若干追加.txt",
+      "sha256": "6957c67da15dc372485705fb399686cdb7c7ece71f22c87c5011613fa51906c5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2017/readme_ver_810.txt",
+      "sha256": "94abc6fc62d15afcb0dc5c9838a8b24eedd1b71aec8704c32240ebed580b780e"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/2017/readme_ver_900.txt",
+      "sha256": "df15866983e3c9cce8ffd3962bbd91e1368bfd2a78a0749bb7d2b126f57fd6dd"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/readme_ver_910.txt",
+      "sha256": "58d21c8bc6d731173bb4280f630d50417ee697244b406b73435d7076df85ef24"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/パッチREADME/readme_ver_920.txt",
+      "sha256": "737b68a853c6ee0407faecddf4e59e83456e086f3d975742dbb8cd973b00839b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K0_慈愛.txt",
+      "sha256": "041e718c05aec5eeb9722a074e0255792f0b771f06faa7281318f0568d55ae3c"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K10_ホワイトクラブ.txt",
+      "sha256": "456be58bf87c2cb36e49880ead8b214e4608df2c197a6911aa2d78676c3453a5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K11_リリィ.txt",
+      "sha256": "cbf08a588c1d0acc97aa45d1f5d92f3c07de14490dd0c7742d988a848acf59c1"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K12_知的.txt",
+      "sha256": "d1c638a4e3b45e46706ee4b52853557192ce57622e0e81afc7482bfc03af3a65"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K1_自信家.txt",
+      "sha256": "f1940e682e1e46f2dd88af2bedc16324874c85159c048381e5dacb587d6dc2a5"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K2_気弱.txt",
+      "sha256": "6fb8129be8d4fe1658c5e2a563ec328f6a1689ef4d74aa1e0e475281bcfa2f0b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K3_高貴.txt",
+      "sha256": "83c17f9b210ed522bd0c5cebd22ae8235db61775802be38915285f78d6d13249"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K5_マオ.txt",
+      "sha256": "9b5b0b8e3fd1924d93bbba1f45bda6fe65b046d10f48ec5e4083b685c34ffb62"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K6_悪女.txt",
+      "sha256": "1c301348de419767a771ff9a5136915daeb7371bdc2f81d9742e67b0fa747851"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K7_ゴールドハート.txt",
+      "sha256": "d217c89334a79bdfe5f49e4a0abfd1a484c4b6de640dc2ce5f0aaa1c8f3f31dd"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K8_シルバースペード.txt",
+      "sha256": "aec6d5dd75c4416554029b5d2596dc69b5f3d28d2f57a6401fc83575b42e36fb"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/ライセンス/K9_ブラックダイヤ.txt",
+      "sha256": "abd0f4f84476fff9457d9fabe59376037facf47e6f46e8e78d21eb76cc38bf9d"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/口上テンプレ/Chara150.csv",
+      "sha256": "05021a616f5e39fd6786ef6e7d2d8db4bbb864b9f5629b531bcf5e23c8599b11"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/口上テンプレ/EVENT_KXX.ERB",
+      "sha256": "db2e2dbdbdedae4f4275bc18f15e142ad9dfcf79c3b2d00a889442cc79af25b3"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/過去の読み物/eramaou210_spoiler.txt",
+      "sha256": "0fc7c1d4603fa4fe0249605458152e38a3eaadb6c7af21d3edb924a3e08e7470"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/過去の読み物/eramaou250_ヒント集.txt",
+      "sha256": "69eb126b557cf7cc761bdaf596f7f084b59172cc2038a3f4b2fe3489ae2ab06b"
+    },
+    {
+      "path": "에라마왕 개조판 1.28/資料/過去の読み物/eramaouに含まれているerapoke素質の調査.txt",
+      "sha256": "8c1474fe2df25313d90514dafacdf5023fd212465ccd931641804a1882756592"
+    }
+  ]
+}

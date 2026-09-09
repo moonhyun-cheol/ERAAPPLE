@@ -1,0 +1,23 @@
+TAP version 13
+# Subtest: backup codec: hash, schema, identity, duplicate/path keys and gzip corruption
+ok 1 - backup codec: hash, schema, identity, duplicate/path keys and gzip corruption
+  ---
+  duration_ms: 18.6325
+  type: 'test'
+  ...
+# Subtest: IndexedDB: consistent snapshot, full replacement, sync/async rollback and cross-tab lock
+ok 2 - IndexedDB: consistent snapshot, full replacement, sync/async rollback and cross-tab lock
+  ---
+  duration_ms: 854.2832
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1210.9448
+

@@ -1,0 +1,18 @@
+TAP version 13
+# {"passed":true,"browser":"152.0.4191.66","channel":"msedge","iPhoneTested":false,"actualGameTestedInBrowser":false,"fixtureOnly":true,"storage":"IndexedDB, isolated browser context; not production SaveService","reloaded":true,"restored":"엔진 시험\\n[0] 새 시험 [1] 저장 불러오기\\n1\\nRESTORED:42:브라우저 한글:77","storageKeys":["global.sav","save00.sav"],"pageErrors":[],"externalRequests":[],"originalFileRoutesRejected":true}
+# Subtest: browser fixture: Korean input, slot and GLOBAL survive page reload
+ok 1 - browser fixture: Korean input, slot and GLOBAL survive page reload
+  ---
+  duration_ms: 1717.1689
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2127.3325
+

@@ -1,0 +1,1365 @@
+{
+  "passed": true,
+  "generatedAt": "2026-09-09T06:43:04.499Z",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "engine": "engine-compact-ir-labels-lazy-slice-paged-statements.mjs",
+  "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+  "memory": {
+    "before": {
+      "label": "before-compile",
+      "natural": {
+        "label": "before-compile",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 98423688,
+          "heapTotal": 216612864,
+          "rss": 266653696,
+          "external": 13553207,
+          "arrayBuffers": 1876078
+        },
+        "mib": {
+          "heapUsed": 93.864,
+          "heapTotal": 206.578,
+          "rss": 254.301,
+          "external": 12.925,
+          "arrayBuffers": 1.789
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "before-compile",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 87509616,
+          "heapTotal": 223690752,
+          "rss": 268795904,
+          "external": 13553247,
+          "arrayBuffers": 1296387
+        },
+        "mib": {
+          "heapUsed": 83.456,
+          "heapTotal": 213.328,
+          "rss": 256.344,
+          "external": 12.925,
+          "arrayBuffers": 1.236
+        },
+        "details": {}
+      }
+    },
+    "compiled": {
+      "label": "compiled-source-released",
+      "natural": {
+        "label": "compiled-source-released",
+        "gcRequested": false,
+        "gcPerformed": false,
+        "bytes": {
+          "heapUsed": 343010488,
+          "heapTotal": 430686208,
+          "rss": 504594432,
+          "external": 11706076,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 327.12,
+          "heapTotal": 410.734,
+          "rss": 481.219,
+          "external": 11.164,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      },
+      "forcedGc": {
+        "label": "compiled-source-released",
+        "gcRequested": true,
+        "gcPerformed": true,
+        "bytes": {
+          "heapUsed": 295650224,
+          "heapTotal": 433684480,
+          "rss": 502345728,
+          "external": 11706076,
+          "arrayBuffers": 28907
+        },
+        "mib": {
+          "heapUsed": 281.954,
+          "heapTotal": 413.594,
+          "rss": 479.074,
+          "external": 11.164,
+          "arrayBuffers": 0.028
+        },
+        "details": {}
+      }
+    }
+  },
+  "graph": {
+    "objects": 3166785,
+    "statementCount": 639954
+  },
+  "focusStatements": {
+    "PrintForm": {
+      "count": 306841,
+      "shapes": [
+        {
+          "name": "arg,flags,raw",
+          "count": 306841
+        }
+      ],
+      "directPayloads": [
+        {
+          "name": "arg:Lazy",
+          "count": 306841
+        },
+        {
+          "name": "flags:number",
+          "count": 306841
+        },
+        {
+          "name": "raw:CompactSlice",
+          "count": 306841
+        }
+      ],
+      "directCompactLazy": 306841
+    },
+    "Assign": {
+      "count": 109513,
+      "shapes": [
+        {
+          "name": "inner,raw",
+          "count": 109513
+        }
+      ],
+      "directPayloads": [
+        {
+          "name": "inner:undefined",
+          "count": 109513
+        },
+        {
+          "name": "raw:CompactSlice",
+          "count": 109513
+        }
+      ],
+      "directCompactLazy": 0
+    },
+    "If": {
+      "count": 109098,
+      "shapes": [
+        {
+          "name": "elseThunk,ifThunk,raw",
+          "count": 109098
+        }
+      ],
+      "directPayloads": [
+        {
+          "name": "elseThunk:Thunk",
+          "count": 109098
+        },
+        {
+          "name": "ifThunk:Array",
+          "count": 109098
+        },
+        {
+          "name": "raw:CompactSlice",
+          "count": 109098
+        }
+      ],
+      "directCompactLazy": 0
+    },
+    "Return": {
+      "count": 30252,
+      "shapes": [
+        {
+          "name": "arg,raw",
+          "count": 30252
+        }
+      ],
+      "directPayloads": [
+        {
+          "name": "arg:Lazy",
+          "count": 30252
+        },
+        {
+          "name": "raw:CompactSlice",
+          "count": 30252
+        }
+      ],
+      "directCompactLazy": 30252
+    }
+  },
+  "statementTypes": [
+    {
+      "name": "PrintForm",
+      "count": 306841
+    },
+    {
+      "name": "Assign",
+      "count": 109513
+    },
+    {
+      "name": "If",
+      "count": 109098
+    },
+    {
+      "name": "Print",
+      "count": 31664
+    },
+    {
+      "name": "Return",
+      "count": 30252
+    },
+    {
+      "name": "Times",
+      "count": 19969
+    },
+    {
+      "name": "Call",
+      "count": 12878
+    },
+    {
+      "name": "DrawLine",
+      "count": 5150
+    },
+    {
+      "name": "ReturnF",
+      "count": 1896
+    },
+    {
+      "name": "Goto",
+      "count": 1402
+    },
+    {
+      "name": "ResetColor",
+      "count": 1294
+    },
+    {
+      "name": "Input",
+      "count": 959
+    },
+    {
+      "name": "Wait",
+      "count": 954
+    },
+    {
+      "name": "SetColor",
+      "count": 882
+    },
+    {
+      "name": "Case",
+      "count": 857
+    },
+    {
+      "name": "PrintC",
+      "count": 748
+    },
+    {
+      "name": "CallF",
+      "count": 744
+    },
+    {
+      "name": "Continue",
+      "count": 733
+    },
+    {
+      "name": "TryCall",
+      "count": 619
+    },
+    {
+      "name": "Repeat",
+      "count": 456
+    },
+    {
+      "name": "VarSet2",
+      "count": 419
+    },
+    {
+      "name": "For",
+      "count": 402
+    },
+    {
+      "name": "PrintFormC",
+      "count": 266
+    },
+    {
+      "name": "TryCallForm",
+      "count": 247
+    },
+    {
+      "name": "Jump",
+      "count": 183
+    },
+    {
+      "name": "Restart",
+      "count": 156
+    },
+    {
+      "name": "Method",
+      "count": 136
+    },
+    {
+      "name": "FontRegular",
+      "count": 100
+    },
+    {
+      "name": "FontBold",
+      "count": 98
+    },
+    {
+      "name": "GetPalamLv",
+      "count": 85
+    },
+    {
+      "name": "PrintS",
+      "count": 75
+    },
+    {
+      "name": "PrintData",
+      "count": 73
+    },
+    {
+      "name": "Split",
+      "count": 64
+    },
+    {
+      "name": "Break",
+      "count": 58
+    },
+    {
+      "name": "TryCCallForm",
+      "count": 53
+    },
+    {
+      "name": "PrintV",
+      "count": 42
+    },
+    {
+      "name": "Quit",
+      "count": 38
+    },
+    {
+      "name": "SetBit",
+      "count": 36
+    },
+    {
+      "name": "CallForm",
+      "count": 33
+    },
+    {
+      "name": "Begin",
+      "count": 31
+    },
+    {
+      "name": "DoWhile",
+      "count": 28
+    },
+    {
+      "name": "InputS",
+      "count": 27
+    },
+    {
+      "name": "Swap",
+      "count": 27
+    },
+    {
+      "name": "DelChara",
+      "count": 26
+    },
+    {
+      "name": "ClearLine",
+      "count": 24
+    },
+    {
+      "name": "ReuseLastLine",
+      "count": 24
+    },
+    {
+      "name": "AddChara",
+      "count": 23
+    },
+    {
+      "name": "TryCCall",
+      "count": 23
+    },
+    {
+      "name": "While",
+      "count": 20
+    },
+    {
+      "name": "CustomDrawLine",
+      "count": 18
+    },
+    {
+      "name": "Bar",
+      "count": 17
+    },
+    {
+      "name": "ResetStain",
+      "count": 16
+    },
+    {
+      "name": "PrintFormS",
+      "count": 15
+    },
+    {
+      "name": "TInput",
+      "count": 15
+    },
+    {
+      "name": "LoadGlobal",
+      "count": 14
+    },
+    {
+      "name": "SortChara",
+      "count": 14
+    },
+    {
+      "name": "ClearBit",
+      "count": 13
+    },
+    {
+      "name": "PutForm",
+      "count": 12
+    },
+    {
+      "name": "InvertBit",
+      "count": 10
+    },
+    {
+      "name": "SaveGlobal",
+      "count": 10
+    },
+    {
+      "name": "SetFont",
+      "count": 10
+    },
+    {
+      "name": "TryJump",
+      "count": 5
+    },
+    {
+      "name": "Alignment",
+      "count": 4
+    },
+    {
+      "name": "ChkData",
+      "count": 4
+    },
+    {
+      "name": "FontStyle",
+      "count": 4
+    },
+    {
+      "name": "GetExpLv",
+      "count": 4
+    },
+    {
+      "name": "SaveData",
+      "count": 4
+    },
+    {
+      "name": "SwapChara",
+      "count": 4
+    },
+    {
+      "name": "ChkFont",
+      "count": 3
+    },
+    {
+      "name": "GetFont",
+      "count": 3
+    },
+    {
+      "name": "ResetData",
+      "count": 3
+    },
+    {
+      "name": "Throw",
+      "count": 3
+    },
+    {
+      "name": "VarSet",
+      "count": 3
+    },
+    {
+      "name": "GetTime",
+      "count": 2
+    },
+    {
+      "name": "SetBgColor",
+      "count": 2
+    },
+    {
+      "name": "SubstringU",
+      "count": 2
+    },
+    {
+      "name": "AddDefChara",
+      "count": 1
+    },
+    {
+      "name": "ArrayShift",
+      "count": 1
+    },
+    {
+      "name": "CallFormF",
+      "count": 1
+    },
+    {
+      "name": "CallTrain",
+      "count": 1
+    },
+    {
+      "name": "FontItalic",
+      "count": 1
+    },
+    {
+      "name": "JumpForm",
+      "count": 1
+    },
+    {
+      "name": "LoadData",
+      "count": 1
+    },
+    {
+      "name": "PickupChara",
+      "count": 1
+    },
+    {
+      "name": "Redraw",
+      "count": 1
+    },
+    {
+      "name": "ResetBgColor",
+      "count": 1
+    },
+    {
+      "name": "StrLenForm",
+      "count": 1
+    },
+    {
+      "name": "Substring",
+      "count": 1
+    },
+    {
+      "name": "TOneInput",
+      "count": 1
+    },
+    {
+      "name": "UpCheck",
+      "count": 1
+    }
+  ],
+  "statementShapes": [
+    {
+      "name": "PrintForm|arg,flags,raw",
+      "count": 306841
+    },
+    {
+      "name": "Assign|inner,raw",
+      "count": 109513
+    },
+    {
+      "name": "If|elseThunk,ifThunk,raw",
+      "count": 109098
+    },
+    {
+      "name": "Print|flags,raw,value",
+      "count": 31664
+    },
+    {
+      "name": "Return|arg,raw",
+      "count": 30252
+    },
+    {
+      "name": "Times|arg,raw",
+      "count": 19969
+    },
+    {
+      "name": "Call|arg,raw",
+      "count": 12878
+    },
+    {
+      "name": "DrawLine|raw",
+      "count": 5150
+    },
+    {
+      "name": "ReturnF|arg,raw",
+      "count": 1896
+    },
+    {
+      "name": "Goto|arg,raw",
+      "count": 1402
+    },
+    {
+      "name": "ResetColor|raw",
+      "count": 1294
+    },
+    {
+      "name": "Input|arg,raw",
+      "count": 959
+    },
+    {
+      "name": "Wait|raw",
+      "count": 954
+    },
+    {
+      "name": "SetColor|arg,raw",
+      "count": 882
+    },
+    {
+      "name": "Case|arg,branch,def,raw",
+      "count": 857
+    },
+    {
+      "name": "PrintC|align,flags,raw,value",
+      "count": 748
+    },
+    {
+      "name": "CallF|arg,raw",
+      "count": 744
+    },
+    {
+      "name": "Continue|raw",
+      "count": 733
+    },
+    {
+      "name": "TryCall|arg,raw",
+      "count": 619
+    },
+    {
+      "name": "Repeat|arg,raw,thunk",
+      "count": 456
+    },
+    {
+      "name": "VarSet2|arg,raw",
+      "count": 419
+    },
+    {
+      "name": "For|arg,raw,thunk",
+      "count": 402
+    },
+    {
+      "name": "PrintFormC|align,arg,flags,raw",
+      "count": 266
+    },
+    {
+      "name": "TryCallForm|arg,raw",
+      "count": 247
+    },
+    {
+      "name": "Jump|arg,raw",
+      "count": 183
+    },
+    {
+      "name": "Restart|raw",
+      "count": 156
+    },
+    {
+      "name": "Method|arg,name,raw",
+      "count": 136
+    },
+    {
+      "name": "FontRegular|raw",
+      "count": 100
+    },
+    {
+      "name": "FontBold|raw",
+      "count": 98
+    },
+    {
+      "name": "GetPalamLv|arg,raw",
+      "count": 85
+    },
+    {
+      "name": "PrintS|arg,flags,raw",
+      "count": 75
+    },
+    {
+      "name": "PrintData|data,flags,raw",
+      "count": 73
+    },
+    {
+      "name": "Split|arg,raw",
+      "count": 64
+    },
+    {
+      "name": "Break|raw",
+      "count": 58
+    },
+    {
+      "name": "TryCCallForm|arg,catchThunk,raw,thenThunk",
+      "count": 53
+    },
+    {
+      "name": "PrintV|flags,raw,value",
+      "count": 42
+    },
+    {
+      "name": "Quit|raw",
+      "count": 38
+    },
+    {
+      "name": "SetBit|arg,raw",
+      "count": 36
+    },
+    {
+      "name": "CallForm|arg,raw",
+      "count": 33
+    },
+    {
+      "name": "Begin|arg,raw",
+      "count": 31
+    },
+    {
+      "name": "DoWhile|arg,raw,thunk",
+      "count": 28
+    },
+    {
+      "name": "InputS|arg,raw",
+      "count": 27
+    },
+    {
+      "name": "Swap|arg,raw",
+      "count": 27
+    },
+    {
+      "name": "DelChara|arg,raw",
+      "count": 26
+    },
+    {
+      "name": "ClearLine|arg,raw",
+      "count": 24
+    },
+    {
+      "name": "ReuseLastLine|arg,raw",
+      "count": 24
+    },
+    {
+      "name": "AddChara|arg,raw",
+      "count": 23
+    },
+    {
+      "name": "TryCCall|arg,catchThunk,raw,thenThunk",
+      "count": 23
+    },
+    {
+      "name": "While|arg,raw,thunk",
+      "count": 20
+    },
+    {
+      "name": "CustomDrawLine|arg,raw",
+      "count": 18
+    },
+    {
+      "name": "Bar|arg,newline,raw",
+      "count": 17
+    },
+    {
+      "name": "ResetStain|arg,raw",
+      "count": 16
+    },
+    {
+      "name": "PrintFormS|arg,flags,raw",
+      "count": 15
+    },
+    {
+      "name": "TInput|arg,raw",
+      "count": 15
+    },
+    {
+      "name": "LoadGlobal|raw",
+      "count": 14
+    },
+    {
+      "name": "SortChara|arg,raw",
+      "count": 14
+    },
+    {
+      "name": "ClearBit|arg,raw",
+      "count": 13
+    },
+    {
+      "name": "PutForm|arg,raw",
+      "count": 12
+    },
+    {
+      "name": "InvertBit|arg,raw",
+      "count": 10
+    },
+    {
+      "name": "SaveGlobal|raw",
+      "count": 10
+    },
+    {
+      "name": "SetFont|arg,raw",
+      "count": 10
+    },
+    {
+      "name": "TryJump|arg,raw",
+      "count": 5
+    },
+    {
+      "name": "Alignment|arg,raw",
+      "count": 4
+    },
+    {
+      "name": "ChkData|arg,raw",
+      "count": 4
+    },
+    {
+      "name": "FontStyle|arg,raw",
+      "count": 4
+    },
+    {
+      "name": "GetExpLv|arg,raw",
+      "count": 4
+    },
+    {
+      "name": "SaveData|arg,raw",
+      "count": 4
+    },
+    {
+      "name": "SwapChara|arg,raw",
+      "count": 4
+    },
+    {
+      "name": "ChkFont|arg,raw",
+      "count": 3
+    },
+    {
+      "name": "GetFont|raw",
+      "count": 3
+    },
+    {
+      "name": "ResetData|raw",
+      "count": 3
+    },
+    {
+      "name": "Throw|arg,raw",
+      "count": 3
+    },
+    {
+      "name": "VarSet|arg,raw",
+      "count": 3
+    },
+    {
+      "name": "GetTime|raw",
+      "count": 2
+    },
+    {
+      "name": "SetBgColor|arg,raw",
+      "count": 2
+    },
+    {
+      "name": "SubstringU|arg,raw",
+      "count": 2
+    },
+    {
+      "name": "AddDefChara|raw",
+      "count": 1
+    },
+    {
+      "name": "ArrayShift|arg,raw",
+      "count": 1
+    },
+    {
+      "name": "CallFormF|arg,raw",
+      "count": 1
+    },
+    {
+      "name": "CallTrain|arg,raw",
+      "count": 1
+    },
+    {
+      "name": "FontItalic|raw",
+      "count": 1
+    },
+    {
+      "name": "JumpForm|arg,raw",
+      "count": 1
+    },
+    {
+      "name": "LoadData|arg,raw",
+      "count": 1
+    },
+    {
+      "name": "PickupChara|arg,raw",
+      "count": 1
+    },
+    {
+      "name": "Redraw|arg,raw",
+      "count": 1
+    },
+    {
+      "name": "ResetBgColor|raw",
+      "count": 1
+    },
+    {
+      "name": "StrLenForm|arg,raw",
+      "count": 1
+    },
+    {
+      "name": "Substring|arg,raw",
+      "count": 1
+    },
+    {
+      "name": "TOneInput|arg,raw",
+      "count": 1
+    },
+    {
+      "name": "UpCheck|raw",
+      "count": 1
+    }
+  ],
+  "directCompactLazyByStatement": [
+    {
+      "name": "PrintForm",
+      "count": 306841
+    },
+    {
+      "name": "Print",
+      "count": 31664
+    },
+    {
+      "name": "Return",
+      "count": 30252
+    },
+    {
+      "name": "Times",
+      "count": 19969
+    },
+    {
+      "name": "Call",
+      "count": 12878
+    },
+    {
+      "name": "ReturnF",
+      "count": 1896
+    },
+    {
+      "name": "Goto",
+      "count": 1402
+    },
+    {
+      "name": "Input",
+      "count": 959
+    },
+    {
+      "name": "SetColor",
+      "count": 882
+    },
+    {
+      "name": "Case",
+      "count": 857
+    },
+    {
+      "name": "PrintC",
+      "count": 748
+    },
+    {
+      "name": "CallF",
+      "count": 744
+    },
+    {
+      "name": "TryCall",
+      "count": 619
+    },
+    {
+      "name": "Repeat",
+      "count": 456
+    },
+    {
+      "name": "VarSet2",
+      "count": 419
+    },
+    {
+      "name": "For",
+      "count": 402
+    },
+    {
+      "name": "PrintFormC",
+      "count": 266
+    },
+    {
+      "name": "TryCallForm",
+      "count": 247
+    },
+    {
+      "name": "Jump",
+      "count": 183
+    },
+    {
+      "name": "Method",
+      "count": 136
+    },
+    {
+      "name": "GetPalamLv",
+      "count": 85
+    },
+    {
+      "name": "PrintS",
+      "count": 75
+    },
+    {
+      "name": "Split",
+      "count": 64
+    },
+    {
+      "name": "TryCCallForm",
+      "count": 53
+    },
+    {
+      "name": "PrintV",
+      "count": 42
+    },
+    {
+      "name": "SetBit",
+      "count": 36
+    },
+    {
+      "name": "CallForm",
+      "count": 33
+    },
+    {
+      "name": "Begin",
+      "count": 31
+    },
+    {
+      "name": "DoWhile",
+      "count": 28
+    },
+    {
+      "name": "InputS",
+      "count": 27
+    },
+    {
+      "name": "Swap",
+      "count": 27
+    },
+    {
+      "name": "DelChara",
+      "count": 26
+    },
+    {
+      "name": "ClearLine",
+      "count": 24
+    },
+    {
+      "name": "ReuseLastLine",
+      "count": 24
+    },
+    {
+      "name": "AddChara",
+      "count": 23
+    },
+    {
+      "name": "TryCCall",
+      "count": 23
+    },
+    {
+      "name": "While",
+      "count": 20
+    },
+    {
+      "name": "CustomDrawLine",
+      "count": 18
+    },
+    {
+      "name": "Bar",
+      "count": 17
+    },
+    {
+      "name": "ResetStain",
+      "count": 16
+    },
+    {
+      "name": "PrintFormS",
+      "count": 15
+    },
+    {
+      "name": "TInput",
+      "count": 15
+    },
+    {
+      "name": "SortChara",
+      "count": 14
+    },
+    {
+      "name": "ClearBit",
+      "count": 13
+    },
+    {
+      "name": "PutForm",
+      "count": 12
+    },
+    {
+      "name": "InvertBit",
+      "count": 10
+    },
+    {
+      "name": "SetFont",
+      "count": 10
+    },
+    {
+      "name": "TryJump",
+      "count": 5
+    },
+    {
+      "name": "Alignment",
+      "count": 4
+    },
+    {
+      "name": "ChkData",
+      "count": 4
+    },
+    {
+      "name": "FontStyle",
+      "count": 4
+    },
+    {
+      "name": "GetExpLv",
+      "count": 4
+    },
+    {
+      "name": "SaveData",
+      "count": 4
+    },
+    {
+      "name": "SwapChara",
+      "count": 4
+    },
+    {
+      "name": "ChkFont",
+      "count": 3
+    },
+    {
+      "name": "Throw",
+      "count": 3
+    },
+    {
+      "name": "VarSet",
+      "count": 3
+    },
+    {
+      "name": "SetBgColor",
+      "count": 2
+    },
+    {
+      "name": "SubstringU",
+      "count": 2
+    },
+    {
+      "name": "ArrayShift",
+      "count": 1
+    },
+    {
+      "name": "CallFormF",
+      "count": 1
+    },
+    {
+      "name": "CallTrain",
+      "count": 1
+    },
+    {
+      "name": "JumpForm",
+      "count": 1
+    },
+    {
+      "name": "LoadData",
+      "count": 1
+    },
+    {
+      "name": "PickupChara",
+      "count": 1
+    },
+    {
+      "name": "Redraw",
+      "count": 1
+    },
+    {
+      "name": "StrLenForm",
+      "count": 1
+    },
+    {
+      "name": "Substring",
+      "count": 1
+    },
+    {
+      "name": "TOneInput",
+      "count": 1
+    }
+  ],
+  "topObjectTypes": [
+    {
+      "name": "CompactSlice",
+      "count": 734057
+    },
+    {
+      "name": "Lazy",
+      "count": 615854
+    },
+    {
+      "name": "Array",
+      "count": 489237
+    },
+    {
+      "name": "CompactLabelMap",
+      "count": 330665
+    },
+    {
+      "name": "Thunk",
+      "count": 330665
+    },
+    {
+      "name": "PrintForm",
+      "count": 306841
+    },
+    {
+      "name": "Assign",
+      "count": 109513
+    },
+    {
+      "name": "If",
+      "count": 109098
+    },
+    {
+      "name": "Print",
+      "count": 31664
+    },
+    {
+      "name": "Return",
+      "count": 30252
+    },
+    {
+      "name": "Times",
+      "count": 19969
+    },
+    {
+      "name": "Fn",
+      "count": 16859
+    },
+    {
+      "name": "Call",
+      "count": 12878
+    },
+    {
+      "name": "DrawLine",
+      "count": 5150
+    },
+    {
+      "name": "Map",
+      "count": 3224
+    },
+    {
+      "name": "Variable",
+      "count": 2654
+    },
+    {
+      "name": "ReturnF",
+      "count": 1896
+    },
+    {
+      "name": "Goto",
+      "count": 1402
+    },
+    {
+      "name": "ResetColor",
+      "count": 1294
+    },
+    {
+      "name": "Input",
+      "count": 959
+    },
+    {
+      "name": "Wait",
+      "count": 954
+    },
+    {
+      "name": "Const",
+      "count": 916
+    },
+    {
+      "name": "SetColor",
+      "count": 882
+    },
+    {
+      "name": "Case",
+      "count": 857
+    },
+    {
+      "name": "PrintC",
+      "count": 748
+    },
+    {
+      "name": "CallF",
+      "count": 744
+    },
+    {
+      "name": "Continue",
+      "count": 733
+    },
+    {
+      "name": "TryCall",
+      "count": 619
+    },
+    {
+      "name": "Object",
+      "count": 545
+    },
+    {
+      "name": "Method2",
+      "count": 489
+    },
+    {
+      "name": "Repeat",
+      "count": 456
+    },
+    {
+      "name": "VarSet2",
+      "count": 419
+    },
+    {
+      "name": "For",
+      "count": 402
+    },
+    {
+      "name": "(anonymous)",
+      "count": 398
+    },
+    {
+      "name": "Function",
+      "count": 398
+    },
+    {
+      "name": "Parsimmon",
+      "count": 398
+    },
+    {
+      "name": "PrintFormC",
+      "count": 266
+    },
+    {
+      "name": "TryCallForm",
+      "count": 247
+    },
+    {
+      "name": "Jump",
+      "count": 183
+    },
+    {
+      "name": "Order",
+      "count": 160
+    }
+  ],
+  "method": "Reachable VM graph traversal; statement identity is derived from compact Thunk vectors, then grouped by constructor, own-field shape, and direct payload type.",
+  "limitations": [
+    "Counts and shapes are exact for the current game immediately after compile, but they are not retained-byte measurements.",
+    "Nested payload objects can be shared; direct payload counts must not be summed as exclusive retained memory.",
+    "Assign creates its typed inner statement lazily during execution, so compile-time counts only describe the outer Assign objects.",
+    "Current-game corpus only; medium and large alternate ERA games remain untested."
+  ],
+  "originalUnchanged": true
+}

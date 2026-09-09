@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "engine": "chromium",
+  "syncRollback": true,
+  "asyncRollback": true,
+  "fullReplacement": true,
+  "gzip": true,
+  "crossTabLock": true
+}

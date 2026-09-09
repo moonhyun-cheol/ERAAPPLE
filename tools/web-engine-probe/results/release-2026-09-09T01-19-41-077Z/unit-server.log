@@ -1,0 +1,95 @@
+TAP version 13
+# Subtest: timed input accepts one on-time integer; rejects invalid, duplicate and stale input
+ok 1 - timed input accepts one on-time integer; rejects invalid, duplicate and stale input
+  ---
+  duration_ms: 2.0988
+  type: 'test'
+  ...
+# Subtest: timer vs click race: elapsed deadline chooses engine default exactly once
+ok 2 - timer vs click race: elapsed deadline chooses engine default exactly once
+  ---
+  duration_ms: 0.335
+  type: 'test'
+  ...
+# Subtest: zero timeout, long duration, countdown-free timeout and cancellation
+ok 3 - zero timeout, long duration, countdown-free timeout and cancellation
+  ---
+  duration_ms: 0.167
+  type: 'test'
+  ...
+# Subtest: engine TINPUT and TINPUTS retain script defaults on null, and chosen values on input
+ok 4 - engine TINPUT and TINPUTS retain script defaults on null, and chosen values on input
+  ---
+  duration_ms: 42.217
+  type: 'test'
+  ...
+# Subtest: preview boundary: local only
+ok 5 - preview boundary: local only
+  ---
+  duration_ms: 42.3432
+  type: 'test'
+  ...
+# Subtest: preview boundary: https://approved.example
+ok 6 - preview boundary: https://approved.example
+  ---
+  duration_ms: 14.2183
+  type: 'test'
+  ...
+# Subtest: invalid public origin configuration fails closed
+ok 7 - invalid public origin configuration fails closed
+  ---
+  duration_ms: 0.5828
+  type: 'test'
+  ...
+# Subtest: original 1,151 files still match the recorded baseline byte-for-byte
+ok 8 - original 1,151 files still match the recorded baseline byte-for-byte
+  ---
+  duration_ms: 371.0597
+  type: 'test'
+  ...
+# Subtest: Korean input, ordinary integer, slot/GLOBAL survive a new VM
+ok 9 - Korean input, ordinary integer, slot/GLOBAL survive a new VM
+  ---
+  duration_ms: 68.1474
+  type: 'test'
+  ...
+# Subtest: KNOWN DEFECT: INPUT rounds 9007199254740993 via Number
+ok 10 - KNOWN DEFECT: INPUT rounds 9007199254740993 via Number
+  ---
+  duration_ms: 30.3973
+  type: 'test'
+  ...
+# Subtest: host storage failure is not reported as successful save
+ok 11 - host storage failure is not reported as successful save
+  ---
+  duration_ms: 12.9837
+  type: 'test'
+  ...
+# Subtest: unknown instruction is rejected during execution (lazy parsing)
+ok 12 - unknown instruction is rejected during execution (lazy parsing)
+  ---
+  duration_ms: 6.7886
+  type: 'test'
+  ...
+# Subtest: async storage rejection is awaited, not reported as success
+ok 13 - async storage rejection is awaited, not reported as success
+  ---
+  duration_ms: 12.055
+  type: 'test'
+  ...
+# Subtest: design/report relative links and JSON example resolve
+ok 14 - design/report relative links and JSON example resolve
+  ---
+  duration_ms: 10.9862
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 939.9541
+

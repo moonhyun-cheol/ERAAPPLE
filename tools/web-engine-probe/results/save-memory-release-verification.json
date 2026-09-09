@@ -1,0 +1,531 @@
+{
+  "passed": true,
+  "started": "2026-09-09T02:18:31.796Z",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "chromiumChannel": "msedge",
+  "actualIPhone": false,
+  "published": false,
+  "knownLimitations": [
+    "WebKit browser-offline toggle is not certified; server-stop is a separate path.",
+    "Desktop automation is not iOS home-screen process termination testing.",
+    "Node sampled save heap is not peak RSS or IndexedDB memory."
+  ],
+  "steps": [
+    {
+      "id": "build",
+      "args": [
+        "build.mjs"
+      ],
+      "env": {},
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 504,
+      "tests": 0,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\build.log",
+      "logSha256": "fd20b0cbb05c46736bf721d8460fe63e26cd79c72428f91a5cf169d5acd1d3f1",
+      "outputs": {}
+    },
+    {
+      "id": "package",
+      "args": [
+        "build-pwa.mjs"
+      ],
+      "env": {},
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 4367,
+      "tests": 0,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\package.log",
+      "logSha256": "7cc43e537ee8d0b9d2515305ef01ede0ead05d96f9fdcb2b189651eaefcf5f42",
+      "outputs": {}
+    },
+    {
+      "id": "unit-server",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "test.mjs",
+        "input-gate-test.mjs",
+        "serve-pwa-test.mjs"
+      ],
+      "env": {},
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 1391,
+      "tests": 14,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\unit-server.log",
+      "logSha256": "5a9d87045939f2ff2034c2536c1edacc3d9230011f53912cb20ca03784134933",
+      "outputs": {}
+    },
+    {
+      "id": "deferred-local",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "deferred-local-test.mjs"
+      ],
+      "env": {},
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 329,
+      "tests": 3,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\deferred-local.log",
+      "logSha256": "919977e9285e2e4e277b0aefa1ad14727a828b6bf7e654113370ab81e8bbed0d",
+      "outputs": {}
+    },
+    {
+      "id": "save-trace",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "compact-save-test.mjs",
+        "runtime-trace-test.mjs"
+      ],
+      "env": {},
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 13796,
+      "tests": 9,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\save-trace.log",
+      "logSha256": "900398a86bb459d187c96117f7a59e47ac668ff43c9f64b4dd588d38d9e809c9",
+      "outputs": {
+        "save-compatibility.json": "496f6ea5f6c8ec39b447a08774609629b47606e583a0329920d3dfdf690ad55b",
+        "save-trace-chromium.json": "b10314e86ea660bb9b5ebdb61580aae9db46bee1f4233801557e5eb2b69159b7",
+        "save-trace-webkit.json": "ccaa92faffc2c65ecc4c8fb12134219f7c2a2c5f5c36165e2bfe187b7bd7a600"
+      }
+    },
+    {
+      "id": "runtime",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "runtime-browser-test.mjs"
+      ],
+      "env": {},
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 15279,
+      "tests": 2,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\runtime.log",
+      "logSha256": "697091163c1652afbecf1c0828895c58d6b78278d669a1ab155c797687dbbd4f",
+      "outputs": {
+        "runtime-chromium.json": "c235ea572506d726d2f131b42df5c5f4cbae29a3ebd71c6f735ae530e714c484",
+        "runtime-webkit.json": "72bcf69c107452cdd89c24d9d218a1fb9c3681f6eb82bf34b03a970c8be97ebb"
+      }
+    },
+    {
+      "id": "render",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "render-performance-test.mjs"
+      ],
+      "env": {},
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 16665,
+      "tests": 2,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\render.log",
+      "logSha256": "e2a7608fb1a8f099eb07fb699995df82d90e123a7883c1900cd3492ce909fa76",
+      "outputs": {
+        "render-optimized-chromium.json": "dd22ee464f6255e7a8f726eba61aa17933777ab985b4428da59eba159bcc0519",
+        "render-optimized-webkit.json": "5ef42a14931beb19e7b0516ad719cf41d38be6c4498c21ec78c4cdfd683dec47"
+      }
+    },
+    {
+      "id": "days",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "day-browser-test.mjs"
+      ],
+      "env": {},
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 50813,
+      "tests": 2,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\days.log",
+      "logSha256": "bdf9bffe617575c91314f4f9dbb11d5fe78d0f6ade8eece480ff11e57b299031",
+      "outputs": {
+        "day-chromium.json": "35d7f3b0f7e4040c7f210fe4bd1f2254f9d1acf4b22aca83e0549455b1088b8f",
+        "day-webkit.json": "55c3d7ae651e9dcb70b7c54fbbf895b46e7795340c401ffd22d5a65dc0a4426f"
+      }
+    },
+    {
+      "id": "browser",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "browser-test.mjs"
+      ],
+      "env": {},
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 2238,
+      "tests": 1,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\browser.log",
+      "logSha256": "0b8ecd180170d52aa8b33dd9b049e97b05a9633d25a73ec6d8b8147e69ab9516",
+      "outputs": {
+        "browser.json": "d8cd20a89bd35c89a6d1d6f60cf1e42206aed1176e036d3c4f59472ab9ad6611"
+      }
+    },
+    {
+      "id": "backup-chromium",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "backup-test.mjs"
+      ],
+      "env": {
+        "PROBE_BROWSER_ENGINE": "chromium",
+        "PROBE_OFFLINE_MODE": "browser-offline"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 1569,
+      "tests": 2,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\backup-chromium.log",
+      "logSha256": "00b207b255a70ddc8a28775c31689a3b7a89d5a220265122b889978ccf16dd05",
+      "outputs": {
+        "backup-unit-chromium.json": "fdd5d4a26541e4e52bf27ad6ceb97941eac8ad31a5fa846bffc5d43bb0d0fa34"
+      }
+    },
+    {
+      "id": "game-chromium",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "game-browser-test.mjs"
+      ],
+      "env": {
+        "PROBE_BROWSER_ENGINE": "chromium",
+        "PROBE_OFFLINE_MODE": "browser-offline"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 14170,
+      "tests": 1,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\game-chromium.log",
+      "logSha256": "2628b4440037fe1f84c5d2b06134f9755e59c1f42c6dc761777281aca1448485",
+      "outputs": {
+        "game-browser-chromium.json": "ef3b8967b239562634db788ff6c3c2aa739b47a13a6f6de66779371d51ae1f71"
+      }
+    },
+    {
+      "id": "mobile-chromium",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "mobile-wait-test.mjs"
+      ],
+      "env": {
+        "PROBE_BROWSER_ENGINE": "chromium",
+        "PROBE_OFFLINE_MODE": "browser-offline"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 4037,
+      "tests": 1,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\mobile-chromium.log",
+      "logSha256": "05aef4b2fa61b69a585f8594a6a5704c6a16781247c4c0e867392297af7265c3",
+      "outputs": {
+        "mobile-wait-chromium.json": "5a691eb5841a884df13c28f065f381e133d90b5fde71f749ea5ac2242bb3e1a2"
+      }
+    },
+    {
+      "id": "pwa-chromium",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "pwa-test.mjs"
+      ],
+      "env": {
+        "PROBE_BROWSER_ENGINE": "chromium",
+        "PROBE_OFFLINE_MODE": "browser-offline"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 5829,
+      "tests": 1,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\pwa-chromium.log",
+      "logSha256": "8200f48c205cd34a3d513bdcc91bbebcb8a8f284cac2ac938140c0c550c94917",
+      "outputs": {
+        "pwa-chromium.json": "6950d3fa440bfa1308cb2c91ef095389187048baa358f6ab6aa88bb6121509e3"
+      }
+    },
+    {
+      "id": "pwa-game-chromium",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "pwa-game-test.mjs"
+      ],
+      "env": {
+        "PROBE_BROWSER_ENGINE": "chromium",
+        "PROBE_OFFLINE_MODE": "browser-offline"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 9124,
+      "tests": 1,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\pwa-game-chromium.log",
+      "logSha256": "ac06f20d26b99d0ed9f81de44958ab0fdc51d83ecdc1748882712f8ec938ab88",
+      "outputs": {
+        "pwa-game-chromium-browser-offline.json": "6459b1f493dd341a4cf79c238b2bcd48d6b81e7a108136311cd15d0e63563e0b"
+      }
+    },
+    {
+      "id": "backup-webkit",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "backup-test.mjs"
+      ],
+      "env": {
+        "PROBE_BROWSER_ENGINE": "webkit",
+        "PROBE_OFFLINE_MODE": "server-stop"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 1578,
+      "tests": 2,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\backup-webkit.log",
+      "logSha256": "4ae0d3f214e60318d00d8bbb73e7371c5da1bd419eed775e61ac91aa314118a4",
+      "outputs": {
+        "backup-unit-webkit.json": "4896958b05b58da3748c4434bdb3f19202ebeb17f598c60cce71ddbe781ecf00"
+      }
+    },
+    {
+      "id": "game-webkit",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "game-browser-test.mjs"
+      ],
+      "env": {
+        "PROBE_BROWSER_ENGINE": "webkit",
+        "PROBE_OFFLINE_MODE": "server-stop"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 18736,
+      "tests": 1,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\game-webkit.log",
+      "logSha256": "6fdb35ac17f0c0090bfd50d6c692ad86fdcb948071648fd8118b4f689875baeb",
+      "outputs": {
+        "game-browser-webkit.json": "8d9dfe3c897fddf3051baad700a5f1085c798346acb4a514a91e79ec1c0f3117"
+      }
+    },
+    {
+      "id": "mobile-webkit",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "mobile-wait-test.mjs"
+      ],
+      "env": {
+        "PROBE_BROWSER_ENGINE": "webkit",
+        "PROBE_OFFLINE_MODE": "server-stop"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 5668,
+      "tests": 1,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\mobile-webkit.log",
+      "logSha256": "3a0eb5ce6ce0538013cabbda6a8666cc18063a802f9eb3c45aef09b740521386",
+      "outputs": {
+        "mobile-wait-webkit.json": "ba18ca59e44350f7b48b1d97723bc61f0139d596bf0fe1b66b15a74c22d6a5f9"
+      }
+    },
+    {
+      "id": "pwa-webkit",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "pwa-test.mjs"
+      ],
+      "env": {
+        "PROBE_BROWSER_ENGINE": "webkit",
+        "PROBE_OFFLINE_MODE": "server-stop"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 7356,
+      "tests": 1,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\pwa-webkit.log",
+      "logSha256": "57166c2d0122b6a1ccaa6e7b6097b1f366d632c4ff4c5970861e10e4df75c714",
+      "outputs": {
+        "pwa-webkit-server-stop.json": "67e7c273b7ab25957aaca3a6973ad7bbc32dcc7a4e20f137fa953ae93993320b"
+      }
+    },
+    {
+      "id": "pwa-game-webkit",
+      "args": [
+        "--test",
+        "--test-concurrency=1",
+        "--test-reporter=tap",
+        "--test-timeout=520000",
+        "pwa-game-test.mjs"
+      ],
+      "env": {
+        "PROBE_BROWSER_ENGINE": "webkit",
+        "PROBE_OFFLINE_MODE": "server-stop"
+      },
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 16659,
+      "tests": 1,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\pwa-game-webkit.log",
+      "logSha256": "abbdb6bb8ae2e3bcfac74e6f85869e827e09f2c0d49707f23c05b6a9280397b5",
+      "outputs": {
+        "pwa-game-webkit-server-stop.json": "b7bf60fcaaaf61bca912220c8bc6c4b4cf8807c5694ce0277cfd047286eabf00"
+      }
+    },
+    {
+      "id": "save-profile",
+      "args": [
+        "--expose-gc",
+        "save-memory-profile.mjs"
+      ],
+      "env": {},
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 11280,
+      "tests": 0,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\save-profile.log",
+      "logSha256": "6ac7a2cfa4a583fba275a72ce8e3a6288c2c65615dc90e19b888cbc79b121529",
+      "outputs": {
+        "save-memory-profile.json": "690a296edd32f0b9b9740dcde3d6f4267408fcd95efd3447d1eed1f4c30deb39"
+      }
+    },
+    {
+      "id": "deferred-profile",
+      "args": [
+        "--expose-gc",
+        "deferred-local-profile.mjs"
+      ],
+      "env": {},
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 11316,
+      "tests": 0,
+      "log": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\release-2026-09-09T02-18-31-796Z\\deferred-profile.log",
+      "logSha256": "1e4c4dead39df38b7afb593619abcb5f63c3f75cc8cdc21528ed48dc87c05609",
+      "outputs": {
+        "deferred-local-profile.json": "cf1bb98091d65d47552ae13e45b912dfaff6ed6e0d77b7ed6428904242cc5a75"
+      }
+    }
+  ],
+  "integrity": {
+    "release": "788a65fe4ef13e28da14",
+    "originalCount": 1151,
+    "originalDigest": "017cbaf8e24440301e71e395bfc8f49189fccab6948c72b517b330898815a37d",
+    "upstreamCommit": "fb487bceacd899a033db017ff0dff5bb3878d4a5",
+    "upstreamTrackedClean": true,
+    "bytes": 11701650,
+    "artifacts": {
+      "pwa-dist/browser.js": "b3dcfbb3863aa1f0d121d3a732a478b626989e42bb8b251ae1479198d101e6f6",
+      "pwa-dist/build.json": "76ceadc152f7ca1b008e28115f5ca799f2a7f32be03533404ec5673193f5b95c",
+      "pwa-dist/engine-worker.js": "50cbdb0fea60f3ec1d36d7b5b82cadd55a30a5ff285bd8a9f25e685fd8d4fb09",
+      "pwa-dist/eraJS-LICENSE.txt": "acbd9f2b463cd3431927837baf8abfc42f9b848e7d8732a5cebfd6cbeaf4c79f",
+      "pwa-dist/icon-180.png": "653bd2e4ba3b5b8e2468df9a11d2d168c8f38f5296ff794dce5d594aa2175dbb",
+      "pwa-dist/icon-192.png": "beda65ebe09ef25ed5a8ff5f8fa5a7843577973e6a1291f904be1819a50cf292",
+      "pwa-dist/icon-512.png": "70b388b895bfe355fdf5b4fa3522344d7abb91883d0b48fcb98b35a8c6315570",
+      "pwa-dist/index.html": "b972688517e100b25806daed4d7a9f1cfee1ae724425de463b7801d3173811a5",
+      "pwa-dist/local-game.bin": "dda7fa32ce4805c144444febe9834166035166efb385855420140c348e1471b5",
+      "pwa-dist/manifest.webmanifest": "559c19ff906d1e855a0b1e6a963709b338931c5c2a880618903bafe9df7b1cb8",
+      "pwa-dist/sw.js": "d8851c3826e7a06146b3bdce4d3a872c475256fe142f2915c135d6585eec8f90",
+      "pwa-dist/pwa-build.json": "398f67d5d8534a1be69711bf97760d5f2232715ebaad615178f2a211fc7c4e19",
+      "dist/browser.js": "b3dcfbb3863aa1f0d121d3a732a478b626989e42bb8b251ae1479198d101e6f6",
+      "dist/engine-worker.js": "50cbdb0fea60f3ec1d36d7b5b82cadd55a30a5ff285bd8a9f25e685fd8d4fb09",
+      "dist/eraJS-LICENSE.txt": "acbd9f2b463cd3431927837baf8abfc42f9b848e7d8732a5cebfd6cbeaf4c79f",
+      "dist/build.json": "76ceadc152f7ca1b008e28115f5ca799f2a7f32be03533404ec5673193f5b95c",
+      "dist/engine.mjs": "7227aa53349ed891e95db1284891e2fd15c6365128047a71f78b6d360682b374",
+      "dist/engine-legacy.mjs": "2d387d9cf88cfbb3cfd6c163bffd4c338fcf23ba25276c66ffd8fe5b576de94a",
+      "dist/engine-save-only.mjs": "6458848a60c201bd9f9c5cb3ff9705004878ce953353c2f290ffcf47fe85b464",
+      "dist/index.html": "63069317ac548d472850ad38715bbd7cf973259e091a91467087933cd9996045"
+    },
+    "sources": {
+      "backup-test.mjs": "5868aaf29775da5bd618239d106a49dc4f41a9859e40c9dd80acd321b923eb61",
+      "backup-ui.mjs": "599b31f3ee268b49fb2c14752ed0091ebe8536a80ed4af676cd1b889f11e23da",
+      "browser-store.mjs": "c0fe6991335927ff6a818b2bf01e18b97db00fa4660f3b55fe7b7e1760a871b7",
+      "browser-test.mjs": "5ce7a5ac2359b5f750e200c0df35135c16681500f9d70244c252f9e7c9091df1",
+      "browser.mjs": "fc037b71ac36658950d791c457ea5339feabd340014dbc1057a628d911f95793",
+      "build-pwa.mjs": "a0a6444d4989d1d41da9e2467a83bfc6399b1f67d07be692ac3fc03d33fba3c5",
+      "build.mjs": "01f7fbcdebea410389e85862b1c4dd2490768a93af04066df20243daf90688d1",
+      "check-preview.mjs": "b11b951fd242c015e94c5e2656d119094a168db7bc024e4043da3f1358391beb",
+      "compact-save-test.mjs": "5c6254a36d81e28e8e4e6e0467c0c596151ab63cc2f1a2252ee97737c6522a9e",
+      "compact-save.mjs": "8283bce40b6699a448e400b21618de9bab881a3a0f11805b9ec49cb956027363",
+      "day-browser-test.mjs": "e66f18518fb311c6c77681d4cc2e0055510baff623333b83890557a86e18190a",
+      "day-reproduction.mjs": "6befe210bef638327f90fa8f2b9ae3173bc8c2d86bec2c3cb0a0f46b4912de70",
+      "deferred-local-profile.mjs": "4ecfa5a0a45873ea9b31cec7ee698d3d5d12a9eb228a20a9956af1cd0db21e57",
+      "deferred-local-test.mjs": "d5318ca08679cd343d21f5f501f57db73e3e7cdc6c484ef416f571548f3f704f",
+      "deferred-local.mjs": "9137b735ea50dcf67d2813b28d14fbdc9833952b524ea1bd93b0cfb9aa5b6edc",
+      "engine-worker.mjs": "78b93eb21508760ac4b90e9b9dc0215932a6171a2a838fc2fd1c4094651312f2",
+      "eramaou-unit-test.mjs": "e81ce125fa6892b84c01f39118138aed52cf613c57a33a1d657e64cda98a17d4",
+      "fixture.mjs": "2982b80ef8fb6308ba73f234743b2a8579c1bc273cf83102db0f79101a79876c",
+      "game-browser-test.mjs": "e792254916166c0f11759d1321cf753b6c589dc8911b1d4a565b60e9adca148f",
+      "index.html": "63069317ac548d472850ad38715bbd7cf973259e091a91467087933cd9996045",
+      "input-gate-test.mjs": "ec34121303264dc7c9ddef46bc4b8315654a486a98b5ee3b75d4f48bbc99d40f",
+      "input-gate.mjs": "0395227ec966ff5b1a7de50b3b0631f522ee4e4549536eec76ad24425ed4f5f0",
+      "inventory.mjs": "2add6354d8dd7c6488c6f1c2f54688f89b5e919915bc54334776d6db07891584",
+      "mobile-wait-test.mjs": "b8c1609e55cb6ace2235d59a2515ba55f2ddfd83775b51dad79fd31e5dcfcb79",
+      "package-lock.json": "0e6ea090f44bfad283a7342c2221ffa631382164febb17b97c105ebef8435c97",
+      "package.json": "64d4e1b6b2898ea2732d168203458eeadc286d5da9be6ca3a9058c2b830042df",
+      "probe.mjs": "762d5a18156821895fb019449ca640bac73006eec3cf9fa33f2b8e87483e1253",
+      "pwa-game-test.mjs": "57dfd985c50b7b50035ee9daab076d52aa55944041159098dfbffb2207960c2a",
+      "pwa-test.mjs": "e7ed0e13e27ac963d57c662c744c930c8c8d71f3597016a3410c3549ac38d60b",
+      "pwa.mjs": "9fe483dc7082d10eb25f08bd2e959d728d6ec754dcd934d4726f1f77daee42c7",
+      "release-regression.mjs": "a62d82ab84175be19f93513a662afcef9f7f87c58be1c50ea715645a9088d1fd",
+      "render-performance-test.mjs": "017cee0b4ce64693bbb52aefb0d0c111189cce9e7aa7b65703f0b8d2fe645850",
+      "runtime-browser-test.mjs": "1637ec5fe5acaed8ebd5f419169394f99a99040b090dc78c5a1b496ce211c399",
+      "runtime-trace-test.mjs": "5f09eaba29116b8db1b1f8ec3f94e577470281e36fd785762b6f119b58616f1a",
+      "runtime-trace.mjs": "a15b3bd4a71e489ece4213bb2b37c243ca003f1603a7ad6af681f7a44e00cbd0",
+      "save-backup.mjs": "216b830d5c690b05b51a9f428c61f04812ee56834773f5e5bafdee3a2322c386",
+      "save-build-plugin.mjs": "f3a21a7afcf9e59a9b2816cc60a1d3a221d7c130192afa8807ad0723c0b43ca2",
+      "save-memory-profile.mjs": "0be37b850a27be6acd027401fe9a4352f7ca8a2cc9a86e72d525e7538e579478",
+      "serve-pwa-test.mjs": "5113b97d7610cb3cd4a2619e4a3974ae145fdeb90500d02ed43194354a3e3f6f",
+      "serve-pwa.mjs": "254212226411ed70b36ba96d3e4d7be70df946bb80c2b32c504a799d48b1f296",
+      "serve.mjs": "eb50bac6cf16ee77349f6851038e3df7cd7a23d167bd10163de6bf33366897ac",
+      "sw-template.js": "9dd9c7a8d179ed8b14f59fa2b26d8c4172f88c501610b3750ace5e277443490e",
+      "test.mjs": "b355814c3a49dae0bbf720814c979ad68f997e75783515768daf2c0c09dd602e",
+      "verify-release.mjs": "65a4421b22d6a9bef0b91b18f2ec0f82815c581dbdd509fb60a09076002bf77a"
+    },
+    "actualIPhone": false
+  },
+  "tests": 45,
+  "finished": "2026-09-09T02:22:06.515Z"
+}

@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "browser": "152.0.4191.66",
+  "channel": "msedge",
+  "iPhoneTested": false,
+  "actualGameTestedInBrowser": false,
+  "fixtureOnly": true,
+  "storage": "IndexedDB, isolated browser context; not production SaveService",
+  "reloaded": true,
+  "restored": "엔진 시험\n[0] 새 시험 [1] 저장 불러오기\n1\nRESTORED:42:브라우저 한글:77",
+  "storageKeys": [
+    "global.sav",
+    "save00.sav"
+  ],
+  "pageErrors": [],
+  "externalRequests": [],
+  "originalFileRoutesRejected": true
+}

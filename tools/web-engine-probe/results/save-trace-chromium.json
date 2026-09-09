@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "engine": "chromium",
+  "phaseOrdering": true,
+  "interruptedSavePreserved": true,
+  "unavailableJournal": true,
+  "actualIPhone": false
+}

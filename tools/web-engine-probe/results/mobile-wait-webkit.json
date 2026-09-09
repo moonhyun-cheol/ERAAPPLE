@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:59801/iphone-test/",
+  "engine": "webkit",
+  "actualIPhone": false,
+  "offlineStatus": "오프라인 준비됨 · 788a65fe4ef13e28da14 · 10개 자산 (영구 보존 아님)",
+  "modeContinueToDifficulty": true,
+  "difficultyContinueToSettings": true,
+  "settingsContinueAndScroll": true,
+  "documentOnlyScroll": true,
+  "fixedComposer": true,
+  "rotationAndReducedViewport": true,
+  "errors": [],
+  "failedResponses": []
+}
