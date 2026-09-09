@@ -1,0 +1,2 @@
+# Prebuilt PWA hashes must survive Git checkout unchanged on every platform.
+/tools/web-engine-probe/pwa-dist/** -text

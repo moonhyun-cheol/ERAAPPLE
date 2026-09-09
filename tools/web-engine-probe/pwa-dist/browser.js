@@ -333,8 +333,74 @@ function setupBackup(isRunning) {
   return { update, isBusy: () => busy };
 }
 
+// runtime-trace.mjs
+var TRACE_KEY = "era-runtime-trace-v1:";
+var phases = {
+  start: "\uB85C\uB529 / \uCEF4\uD30C\uC77C",
+  running: "\uAC8C\uC784 \uCC98\uB9AC \uC911",
+  waiting: "\uC785\uB825 \uB300\uAE30",
+  serialize: "\uC800\uC7A5 \uB370\uC774\uD130 \uC0DD\uC131 \uC911",
+  writing: "\uC800\uC7A5\uC18C \uAE30\uB85D \uC911",
+  committed: "\uC800\uC7A5 \uC644\uB8CC",
+  stopped: "\uC0AC\uC6A9\uC790/\uC2E4\uD589\uAE30 \uC911\uC9C0",
+  ended: "\uAC8C\uC784 \uC885\uB8CC",
+  error: "\uC2E4\uD589 \uC624\uB958"
+};
+function createRuntimeTrace(storage = () => localStorage, mode2 = "game") {
+  const key = TRACE_KEY + mode2;
+  let available = true, current = null;
+  function read() {
+    try {
+      const raw = storage().getItem(key);
+      if (!raw || raw.length > 2048) return null;
+      const record2 = JSON.parse(raw);
+      return record2?.schema === 1 && phases[record2.phase] && Number.isFinite(record2.at) ? record2 : null;
+    } catch {
+      available = false;
+      return null;
+    }
+  }
+  const previous = read();
+  return {
+    previous,
+    get available() {
+      return available;
+    },
+    record(phase, file) {
+      if (!phases[phase]) return current;
+      const now = Date.now();
+      current = { schema: 1, phase, at: now, save: current?.save ?? null };
+      if (["serialize", "writing", "committed"].includes(phase)) {
+        current.save = { phase, key: typeof file === "string" ? file.slice(0, 40) : "", at: now };
+      }
+      try {
+        storage().setItem(key, JSON.stringify(current));
+        available = true;
+      } catch {
+        available = false;
+      }
+      return current;
+    }
+  };
+}
+function describeTrace(record2) {
+  if (!record2) return "\uC774\uC804 \uAE30\uB85D \uC5C6\uC74C";
+  const when = new Date(record2.at).toLocaleString();
+  const save = record2.save;
+  return `${when} \xB7 ${phases[record2.phase] ?? "\uC54C \uC218 \uC5C6\uC74C"}` + (save && phases[save.phase] ? ` \xB7 ${String(save.key).slice(0, 40)}: ${phases[save.phase]}` : "");
+}
+
 // browser.mjs
 var $ = (selector) => document.querySelector(selector);
+var trace = createRuntimeTrace();
+function showPrevious() {
+  $("#previous-run").textContent = "\uC9C1\uC804 \uC2E4\uD589: " + describeTrace(trace.previous);
+}
+function recordPhase(phase, key) {
+  const record2 = trace.record(phase, key);
+  $("#current-run").textContent = "\uD604\uC7AC \uC2E4\uD589: " + describeTrace(record2) + (trace.available ? "" : " \xB7 \uC9C4\uB2E8 \uAE30\uB85D \uBCF4\uAD00 \uBD88\uAC00 (\uAC8C\uC784 \uC800\uC7A5\uACFC \uBCC4\uAC1C)");
+}
+showPrevious();
 var output = $("#output");
 var input = $("#input");
 var submit = $("#submit");
@@ -342,29 +408,42 @@ var status2 = $("#status");
 var worker;
 var waiting = null;
 var watchdog;
+var countdown;
 var mode;
+var choiceButtons = /* @__PURE__ */ new Set();
+var rowButtons = /* @__PURE__ */ new WeakMap();
 var starting = false;
 var releaseSession;
 var backup = setupBackup(() => Boolean(worker) || starting);
 var epoch = 0;
 var composing = false;
 var followNext = false;
-var scrollFrame;
+var following = true;
+var scrollFrame = null;
+var composerHeight;
 var composer = $("#composer");
+var main = $("main");
 function nearLatest() {
-  return document.querySelector("main").getBoundingClientRect().bottom - composer.getBoundingClientRect().top < 80;
+  return main.getBoundingClientRect().bottom - composer.getBoundingClientRect().top < 80;
 }
 function latest() {
-  cancelAnimationFrame(scrollFrame);
+  if (scrollFrame !== null) return;
   scrollFrame = requestAnimationFrame(() => {
-    measureComposer();
+    scrollFrame = null;
+    following = true;
     window.scrollTo(0, document.documentElement.scrollHeight);
   });
 }
 function measureComposer() {
-  document.documentElement.style.setProperty("--composer-height", `${composer.getBoundingClientRect().height}px`);
+  const height = composer.getBoundingClientRect().height;
+  if (height === composerHeight) return;
+  composerHeight = height;
+  document.documentElement.style.setProperty("--composer-height", `${height}px`);
 }
 new ResizeObserver(measureComposer).observe(composer);
+window.addEventListener("scroll", () => {
+  following = nearLatest();
+}, { passive: true });
 function state(text) {
   status2.textContent = text;
 }
@@ -375,12 +454,19 @@ function controls(enabled) {
   submit.textContent = pause ? "\uACC4\uC18D \u25B6" : "\uC804\uC1A1";
   submit.disabled = !enabled;
   input.disabled = !enabled;
-  for (const button2 of output.querySelectorAll("button")) button2.disabled = !enabled || button2.dataset.epoch !== String(epoch);
+  for (const button2 of choiceButtons) button2.disabled = !enabled;
 }
-function stop(text = "\uC911\uC9C0\uB428 \u2014 \uC800\uC7A5 \uC911 \uC911\uC9C0\uD55C \uACBD\uC6B0 \uB9C8\uC9C0\uB9C9 \uC800\uC7A5 \uC644\uB8CC \uC5EC\uBD80\uB97C \uD655\uC778\uD558\uC138\uC694") {
+function endChoice() {
+  clearInterval(countdown);
+  waiting = null;
+  controls(false);
+  choiceButtons.clear();
+}
+function stop(text = "\uC911\uC9C0\uB428 \u2014 \uC800\uC7A5 \uC911 \uC911\uC9C0\uD55C \uACBD\uC6B0 \uB9C8\uC9C0\uB9C9 \uC800\uC7A5 \uC644\uB8CC \uC5EC\uBD80\uB97C \uD655\uC778\uD558\uC138\uC694", phase = "stopped") {
+  if (worker) recordPhase(phase);
   worker?.terminate();
   worker = null;
-  waiting = null;
+  endChoice();
   releaseSession?.();
   releaseSession = null;
   backup.update();
@@ -389,10 +475,11 @@ function stop(text = "\uC911\uC9C0\uB428 \u2014 \uC800\uC7A5 \uC911 \uC911\uC9C0
   state(text);
   followNext = false;
   cancelAnimationFrame(scrollFrame);
+  scrollFrame = null;
 }
 $("#latest").addEventListener("click", latest);
 function viewport() {
-  const follow = nearLatest();
+  const follow = following = nearLatest();
   const view = window.visualViewport;
   document.documentElement.style.setProperty("--keyboard", `${Math.max(0, innerHeight - (view?.height ?? innerHeight) - (view?.offsetTop ?? 0))}px`);
   measureComposer();
@@ -415,48 +502,88 @@ function send(value) {
   }
   $("#notice").textContent = "";
   followNext = true;
-  waiting = null;
-  controls(false);
+  const id = waiting.id;
+  endChoice();
   state("\uC2E4\uD589 \uC911");
   watch2();
-  worker.postMessage({ type: "input", value });
+  recordPhase("running");
+  worker.postMessage({ type: "input", id, value });
 }
-function render(event) {
-  const follow = nearLatest();
-  if (event.type === "clear") {
-    for (let n = 0; n < event.count && output.lastChild; n++) output.lastChild.remove();
-    return;
+output.addEventListener("click", (event) => {
+  const button2 = event.target.closest("button");
+  if (button2 && !button2.disabled && choiceButtons.has(button2)) send(button2.dataset.value);
+});
+function removeRow(row) {
+  const buttons = rowButtons.get(row);
+  if (buttons) for (const button2 of buttons) choiceButtons.delete(button2);
+  row.remove();
+}
+function renderBatch(events) {
+  const follow = followNext || following;
+  const pending = [];
+  for (const event of events) {
+    if (event.type === "clear") {
+      for (let n = 0; n < event.count; n++) {
+        if (pending.length) pending.pop();
+        else if (output.lastChild) removeRow(output.lastChild);
+        else break;
+      }
+    } else if (event.type === "content" || event.type === "line") pending.push(event);
+    else $("#notice").textContent = "\uBBF8\uC9C0\uC6D0 \uCD9C\uB825 \uC774\uBCA4\uD2B8: " + event.type;
   }
+  const fragment = document.createDocumentFragment();
+  for (const event of pending) render(event, fragment);
+  output.append(fragment);
+  while (output.childElementCount > 2e3) removeRow(output.firstChild);
+  if (follow) latest();
+}
+function applyStyle(node, style) {
+  style ??= {};
+  if (/^[\da-f]{6}$/i.test(style.color)) node.style.color = "#" + style.color;
+  if (style.bold) node.style.fontWeight = "bold";
+  if (style.italic) node.style.fontStyle = "italic";
+  if (style.underline || style.strike) node.style.textDecoration = style.underline ? style.strike ? "underline line-through" : "underline" : "line-through";
+}
+function render(event, fragment) {
   const row = document.createElement("div");
   row.className = "game-line";
   if (event.type === "content") {
-    row.style.textAlign = ["LEFT", "CENTER", "RIGHT"].includes(event.align) ? event.align.toLowerCase() : "left";
-    for (const chunk of event.children) {
-      const node = document.createElement(chunk.type === "button" ? "button" : "span");
-      node.textContent = chunk.text;
-      const style = chunk.style ?? {};
-      if (/^[\da-f]{6}$/i.test(style.color)) node.style.color = "#" + style.color;
-      if (style.bold) node.style.fontWeight = "bold";
-      if (style.italic) node.style.fontStyle = "italic";
-      node.style.textDecoration = [style.underline && "underline", style.strike && "line-through"].filter(Boolean).join(" ");
-      if (chunk.type === "button") {
-        node.type = "button";
-        node.disabled = true;
-        node.dataset.value = String(chunk.value);
-        node.dataset.epoch = String(epoch);
-        node.addEventListener("click", () => send(String(chunk.value)));
+    if (event.align === "CENTER" || event.align === "RIGHT") row.style.textAlign = event.align.toLowerCase();
+    if (event.children.length === 1 && event.children[0].type === "string") {
+      row.textContent = event.children[0].text;
+      applyStyle(row, event.children[0].style);
+    } else {
+      const buttons = [];
+      for (const chunk of event.children) {
+        const node = document.createElement(chunk.type === "button" ? "button" : "span");
+        node.textContent = chunk.text;
+        applyStyle(node, chunk.style);
+        if (chunk.type === "button") {
+          node.type = "button";
+          node.disabled = true;
+          node.dataset.value = String(chunk.value);
+          node.dataset.epoch = String(epoch);
+          choiceButtons.add(node);
+          buttons.push(node);
+        }
+        row.append(node);
       }
-      row.append(node);
+      if (buttons.length) rowButtons.set(row, buttons);
     }
-  } else if (event.type === "line") row.textContent = event.value || "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500";
-  else {
-    $("#notice").textContent = "\uBBF8\uC9C0\uC6D0 \uCD9C\uB825 \uC774\uBCA4\uD2B8: " + event.type;
-    return;
-  }
-  output.append(row);
-  while (output.childElementCount > 2e3) output.firstChild.remove();
-  if (follow) latest();
+  } else row.textContent = event.value || "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500";
+  fragment.append(row);
 }
+function timedNotice() {
+  if (waiting?.type !== "tinput") return;
+  const seconds = Math.max(0, (waiting.deadline - Date.now()) / 1e3);
+  $("#notice").textContent = waiting.countdown ? `\uC81C\uD55C\uC2DC\uAC04 ${seconds.toFixed(1)}\uCD08 \u2014 \uC2DC\uAC04\uC774 \uB05D\uB098\uBA74 \uAC8C\uC784\uC758 \uAE30\uBCF8 \uC120\uD0DD\uC73C\uB85C \uC9C4\uD589\uD569\uB2C8\uB2E4.` : "\uC81C\uD55C\uC2DC\uAC04 \uC785\uB825 \u2014 \uC2DC\uAC04\uC774 \uB05D\uB098\uBA74 \uAC8C\uC784\uC758 \uAE30\uBCF8 \uC120\uD0DD\uC73C\uB85C \uC9C4\uD589\uD569\uB2C8\uB2E4.";
+}
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden && worker) {
+    timedNotice();
+    worker.postMessage({ type: "resume" });
+  }
+});
 async function start(selected) {
   if (starting || backup.isBusy()) return;
   stop();
@@ -483,6 +610,11 @@ async function start(selected) {
 function launch(selected) {
   mode = selected;
   epoch = 0;
+  trace = createRuntimeTrace(void 0, mode);
+  showPrevious();
+  recordPhase("start");
+  followNext = true;
+  following = true;
   output.replaceChildren();
   $("#error").textContent = "";
   $("#notice").textContent = "";
@@ -494,33 +626,57 @@ function launch(selected) {
   current.onerror = (event) => {
     if (worker === current) {
       $("#error").textContent = event.message;
-      stop("\uC2E4\uD328");
+      stop("\uC2E4\uD328", "error");
     }
   };
   current.onmessage = ({ data }) => {
     if (worker !== current) return;
+    if (data.type === "save-progress") {
+      recordPhase(data.phase, data.key);
+      current.postMessage({ type: "progress-recorded", id: data.id });
+      watch2();
+    }
     if (data.type === "events") {
-      for (const event of data.events) render(event);
+      renderBatch(data.events);
+      current.postMessage({ type: "rendered", id: data.id });
+      watch2();
+    }
+    if (data.type === "running") {
+      if (waiting?.id === data.id) {
+        endChoice();
+        followNext = true;
+      }
+      $("#notice").textContent = "";
+      state("\uC2E4\uD589 \uC911");
+      watch2();
+      recordPhase("running");
     }
     if (data.type === "waiting") {
+      recordPhase("waiting");
       clearTimeout(watchdog);
-      waiting = data.event;
+      clearInterval(countdown);
+      waiting = { ...data.event, id: data.id, deadline: data.deadline };
       controls(true);
       epoch++;
       input.inputMode = data.event.numeric ? "numeric" : "text";
       input.placeholder = data.event.type === "wait" ? "\uC785\uB825 \uC5C6\uC774 \uACC4\uC18D \u25B6 \uBC84\uD2BC\uC744 \uB204\uB974\uC138\uC694" : "\uAC12\uC744 \uC785\uB825\uD558\uAC70\uB098 \uC120\uD0DD\uC9C0\uB97C \uB204\uB974\uC138\uC694";
       status2.dataset.stack = JSON.stringify(data.stack);
       status2.dataset.waitType = data.event.type;
+      status2.dataset.requestId = String(data.id);
       $("#notice").textContent = data.event.type === "wait" ? "\uBA48\uCD98 \uAC83\uC774 \uC544\uB2D9\uB2C8\uB2E4. \uACC4\uC18D \u25B6 \uBC84\uD2BC\uC744 \uB204\uB974\uBA74 \uB2E4\uC74C\uC73C\uB85C \uC9C4\uD589\uD569\uB2C8\uB2E4." : "";
+      if (waiting.type === "tinput") {
+        timedNotice();
+        if (waiting.countdown) countdown = setInterval(timedNotice, 100);
+      }
       if (followNext) latest();
       followNext = false;
       state("\uC785\uB825 \uB300\uAE30");
     }
     if (data.type === "saved") $("#saved").textContent = "\uC800\uC7A5 \uC644\uB8CC: " + data.key;
-    if (data.type === "ended") stop(mode === "game" ? "\uAC8C\uC784 \uC885\uB8CC" : "\uC2DC\uD5D8 \uC885\uB8CC");
+    if (data.type === "ended") stop(mode === "game" ? "\uAC8C\uC784 \uC885\uB8CC" : "\uC2DC\uD5D8 \uC885\uB8CC", "ended");
     if (data.type === "error") {
       $("#error").textContent = JSON.stringify(data.error, null, 2);
-      stop("\uC2E4\uD328 \u2014 \uC5D4\uC9C4 \uD638\uD658\uC131/\uC800\uC7A5 \uC624\uB958\uB97C \uD655\uC778\uD558\uC138\uC694");
+      stop("\uC2E4\uD328 \u2014 \uC5D4\uC9C4 \uD638\uD658\uC131/\uC800\uC7A5 \uC624\uB958\uB97C \uD655\uC778\uD558\uC138\uC694", "error");
     }
   };
   current.postMessage({ type: "start", mode });

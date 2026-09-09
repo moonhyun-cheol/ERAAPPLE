@@ -1,6 +1,7 @@
 {
   "engine": "eraJS",
   "commit": "fb487bceacd899a033db017ff0dff5bb3878d4a5",
-  "note": "Rebundled upstream release JavaScript, not a TypeScript source rebuild; not an iPhone certification.",
-  "sha256": "d5cd783f6e68d8a7f94d5dbd674fef42688c379d3062b11d6f11223d9e3c8752"
+  "saveOptimization": "era-save-memory-v1 (zero-tail prefixes, direct numeric restore)",
+  "note": "Pinned upstream release JavaScript with fingerprint-checked local save overlay; not an iPhone certification.",
+  "sha256": "b3dcfbb3863aa1f0d121d3a732a478b626989e42bb8b251ae1479198d101e6f6"
 }

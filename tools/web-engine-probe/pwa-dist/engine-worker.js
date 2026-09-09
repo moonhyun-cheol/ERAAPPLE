@@ -3313,6 +3313,7 @@ var Int1DValue = class _Int1DValue {
     const realSize = size ?? [1e3];
     cond(realSize.length === 1, `${name} is not a ${realSize.length}D variable`);
     this.name = name;
+    this.saveShape = [...realSize];
     this.value = new Array(realSize[0]).fill(0n);
   }
   reset(value) {
@@ -5422,6 +5423,7 @@ var Int2DValue = class _Int2DValue {
     const realSize = size ?? [100, 100];
     cond(realSize.length === 2, `${name} is not a ${realSize.length}D variable`);
     this.name = name;
+    this.saveShape = [...realSize];
     this.value = new Array(realSize[0]).fill(0).map(() => new Array(realSize[1]).fill(0n));
   }
   reset(value) {
@@ -5493,6 +5495,7 @@ var Int3DValue = class _Int3DValue {
     const realSize = size ?? [100, 100, 100];
     cond(realSize.length === 3, `${name} is not a ${realSize.length}D variable`);
     this.name = name;
+    this.saveShape = [...realSize];
     this.value = new Array(realSize[0]).fill(0).map(() => new Array(realSize[1]).fill(0).map(() => new Array(realSize[2]).fill(0n)));
   }
   reset(value) {
@@ -5593,7 +5596,7 @@ var LoadData = class extends Statement {
             cell.reset(BigInt(value));
           } else if (cell instanceof Int1DValue) {
             strArray(value, "");
-            cell.reset(value.map((v) => BigInt(v)));
+            cell.reset(value);
           } else if (cell instanceof Str0DValue) {
             string(value, "");
             cell.reset(value);
@@ -5612,13 +5615,13 @@ var LoadData = class extends Statement {
           cell.reset(BigInt(value));
         } else if (cell instanceof Int1DValue) {
           strArray(value, "");
-          cell.reset(value.map((v) => BigInt(v)));
+          cell.reset(value);
         } else if (cell instanceof Int2DValue) {
           strArray2D(value, "");
-          cell.reset(value.map((v0) => v0.map((v1) => BigInt(v1))));
+          cell.reset(value);
         } else if (cell instanceof Int3DValue) {
           strArray3D(value, "");
-          cell.reset(value.map((v0) => v0.map((v1) => v1.map((v2) => BigInt(v2)))));
+          cell.reset(value);
         } else if (cell instanceof Str0DValue) {
           string(value, "");
           cell.reset(value);
@@ -5681,13 +5684,13 @@ var LoadGlobal = class extends Statement {
           cell.reset(BigInt(value));
         } else if (cell instanceof Int1DValue) {
           strArray(value, "");
-          cell.reset(value.map((v) => BigInt(v)));
+          cell.reset(value);
         } else if (cell instanceof Int2DValue) {
           strArray2D(value, "");
-          cell.reset(value.map((v0) => v0.map((v1) => BigInt(v1))));
+          cell.reset(value);
         } else if (cell instanceof Int3DValue) {
           strArray3D(value, "");
-          cell.reset(value.map((v0) => v0.map((v1) => v1.map((v2) => BigInt(v2)))));
+          cell.reset(value);
         } else if (cell instanceof Str0DValue) {
           string(value, "");
           cell.reset(value);
@@ -6593,6 +6596,25 @@ var ReuseLastLine = class extends Statement {
   }
 };
 
+// compact-save.mjs
+function compactIntegers(value, shape, depth = 0) {
+  if (!Array.isArray(shape) || depth >= shape.length) throw new Error("Missing integer save shape");
+  let end = value.length;
+  const leaf = depth === shape.length - 1;
+  if (leaf && end <= shape[depth]) {
+    while (end && value[end - 1] === 0n) end--;
+  }
+  const result = new Array(end);
+  for (let i = 0; i < end; i++) {
+    result[i] = leaf ? value[i].toString() : compactIntegers(value[i], shape, depth + 1);
+  }
+  if (!leaf && end <= shape[depth]) {
+    while (end && result[end - 1].length === 0) end--;
+    result.length = end;
+  }
+  return result;
+}
+
 // ../../.my_agent_remote/undercrow__eraJS/build/property/dim.js
 var Dim = class {
   name;
@@ -6790,6 +6812,7 @@ var SaveData = class extends Statement {
     bigint(index, "1st argument of SAVEDATA must be a number");
     const comment = await commentExpr.reduce(vm2);
     string(comment, "2nd argument of SAVEDATA must be a string");
+    await vm2.external.saveProgress?.({ phase: "serialize", key: savefile.game(Number(index)) });
     const saveData = {
       code: vm2.code.csv.gamebase.code ?? 0,
       version: vm2.code.csv.gamebase.version ?? 0,
@@ -6813,11 +6836,11 @@ var SaveData = class extends Statement {
       if (cell instanceof Int0DValue) {
         saveData.data.variables[name] = cell.value.toString();
       } else if (cell instanceof Int1DValue) {
-        saveData.data.variables[name] = cell.value.map((value) => value.toString());
+        saveData.data.variables[name] = compactIntegers(cell.value, cell.saveShape);
       } else if (cell instanceof Int2DValue) {
-        saveData.data.variables[name] = cell.value.map((value0) => value0.map((value1) => value1.toString()));
+        saveData.data.variables[name] = compactIntegers(cell.value, cell.saveShape);
       } else if (cell instanceof Int3DValue) {
-        saveData.data.variables[name] = cell.value.map((value0) => value0.map((value1) => value1.map((value2) => value2.toString())));
+        saveData.data.variables[name] = compactIntegers(cell.value, cell.saveShape);
       } else if (cell instanceof Str0DValue || cell instanceof Str1DValue) {
         saveData.data.variables[name] = cell.value;
       } else if (cell instanceof IntChar0DValue) {
@@ -6828,7 +6851,7 @@ var SaveData = class extends Statement {
       } else if (cell instanceof IntChar1DValue) {
         for (let i = 0; i < vm2.characterList.length; ++i) {
           const characterCell = vm2.characterList[i].getValue(name);
-          saveData.data.characters[i][name] = characterCell.value.map((value) => value.toString());
+          saveData.data.characters[i][name] = compactIntegers(characterCell.value, characterCell.saveShape);
         }
       } else if (cell instanceof StrChar0DValue || cell instanceof StrChar1DValue) {
         for (let i = 0; i < vm2.characterList.length; ++i) {
@@ -6866,12 +6889,13 @@ var SaveGlobal = class extends Statement {
     tryParse(PARSER103, raw);
   }
   async *run(vm2) {
+    await vm2.external.saveProgress?.({ phase: "serialize", key: savefile.global });
     const saveData = {
       code: vm2.code.csv.gamebase.code ?? 0,
       version: vm2.code.csv.gamebase.version ?? 0,
       data: {}
     };
-    saveData.data.GLOBAL = vm2.getValue("GLOBAL").value.map((value) => value.toString());
+    saveData.data.GLOBAL = compactIntegers(vm2.getValue("GLOBAL").value, vm2.getValue("GLOBAL").saveShape);
     saveData.data.GLOBALS = vm2.getValue("GLOBALS").value;
     for (const property of vm2.code.header) {
       if (property instanceof Dim && property.isSave() && property.isGlobal()) {
@@ -6879,11 +6903,11 @@ var SaveGlobal = class extends Statement {
         if (cell instanceof Int0DValue) {
           saveData.data[property.name] = cell.value.toString();
         } else if (cell instanceof Int1DValue) {
-          saveData.data[property.name] = cell.value.map((value) => value.toString());
+          saveData.data[property.name] = compactIntegers(cell.value, cell.saveShape);
         } else if (cell instanceof Int2DValue) {
-          saveData.data[property.name] = cell.value.map((value0) => value0.map((value1) => value1.toString()));
+          saveData.data[property.name] = compactIntegers(cell.value, cell.saveShape);
         } else if (cell instanceof Int3DValue) {
-          saveData.data[property.name] = cell.value.map((value0) => value0.map((value1) => value1.map((value2) => value2.toString())));
+          saveData.data[property.name] = compactIntegers(cell.value, cell.saveShape);
         } else if (cell instanceof Str0DValue) {
           saveData.data[property.name] = cell.value;
         } else if (cell instanceof Str1DValue) {
@@ -9552,13 +9576,95 @@ function createStore(name = "era-engine-probe-v1") {
   };
 }
 
+// input-gate.mjs
+function createInputGate(resume, { now = Date.now, schedule = setTimeout, unschedule = clearTimeout } = {}) {
+  let sequence = 0, pending = null, timer;
+  function cancel() {
+    unschedule(timer);
+    timer = void 0;
+    pending = null;
+  }
+  function finish(value) {
+    const request = pending;
+    if (!request) return false;
+    cancel();
+    resume(value, request.id);
+    return true;
+  }
+  function check() {
+    if (pending?.deadline == null) return;
+    const remaining = pending.deadline - now();
+    if (remaining <= 0) finish(null);
+    else {
+      unschedule(timer);
+      timer = schedule(check, Math.min(remaining, 2147483647));
+    }
+  }
+  return {
+    open(event) {
+      cancel();
+      const timeout = event.type === "tinput" ? Number(event.timeout) : null;
+      if (timeout != null && (!Number.isFinite(timeout) || timeout < 0)) throw new Error("Invalid timed-input duration");
+      pending = { id: ++sequence, event, deadline: timeout == null ? null : now() + timeout };
+      if (timeout != null) timer = schedule(check, Math.min(timeout, 2147483647));
+      return pending;
+    },
+    accept(id, value) {
+      if (!pending || pending.id !== id || typeof value !== "string") return false;
+      if (pending.deadline != null && now() >= pending.deadline) return finish(null);
+      const { event } = pending;
+      if (event.type !== "wait" && event.numeric && (!/^[+-]?\d+$/.test(value) || !Number.isSafeInteger(Number(value)))) return false;
+      return finish(event.type === "wait" ? "" : value);
+    },
+    check,
+    cancel
+  };
+}
+
+// runtime-trace.mjs
+function createProgressBridge(send, timeoutMs = 1500) {
+  let sequence = 0;
+  const pending = /* @__PURE__ */ new Map();
+  return {
+    acknowledge(id) {
+      pending.get(id)?.();
+    },
+    report(progress2) {
+      return new Promise((resolve) => {
+        const id = ++sequence;
+        const finish = () => {
+          clearTimeout(timer);
+          pending.delete(id);
+          resolve();
+        };
+        const timer = setTimeout(finish, timeoutMs);
+        pending.set(id, finish);
+        try {
+          send({ type: "save-progress", id, ...progress2 });
+        } catch {
+          finish();
+        }
+      });
+    }
+  };
+}
+
 // engine-worker.mjs
+var progress = createProgressBridge((message) => postMessage(message));
 var vm;
 var generator;
-var waiting = false;
 var busy = false;
+var batchId = 0;
+var rendered;
+var gate = createInputGate((value, id) => {
+  busy = true;
+  postMessage({ type: "running", id });
+  advance(value).finally(() => {
+    busy = false;
+  });
+});
 function fail(error) {
-  waiting = false;
+  gate.cancel();
   postMessage({ type: "error", error: {
     message: error.message,
     name: error.name,
@@ -9568,40 +9674,64 @@ function fail(error) {
   } });
 }
 async function advance(value) {
-  waiting = false;
   let events = [];
-  const flush = () => {
-    if (events.length) postMessage({ type: "events", events });
+  const flush = async () => {
+    if (!events.length) return;
+    const id = ++batchId;
+    const ack = new Promise((resolve) => {
+      rendered = { id, resolve };
+    });
+    postMessage({ type: "events", id, events });
     events = [];
+    await ack;
   };
   try {
     for (let n = 0; n < 1e5; n++) {
       const next = await generator.next(value);
       value = null;
       if (next.done) {
-        flush();
+        await flush();
         postMessage({ type: "ended" });
         return;
       }
       const event = next.value;
-      if (event.type === "tinput") throw new Error("Timed input is not supported by this probe host");
-      if (["input", "wait"].includes(event.type)) {
-        flush();
-        waiting = true;
-        postMessage({ type: "waiting", event, stack: vm.contextStack.map((c) => c.fn.name) });
+      if (["input", "wait", "tinput"].includes(event.type)) {
+        await flush();
+        const { id, deadline } = gate.open(event);
+        postMessage({ type: "waiting", id, deadline, event, stack: vm.contextStack.map((c) => c.fn.name) });
         return;
       }
       events.push(event);
-      if (events.length >= 128) flush();
+      if (events.length >= 128) await flush();
     }
     throw new Error("Event budget exceeded; stop and restart the session");
   } catch (error) {
-    flush();
+    await flush();
     fail(error);
   }
 }
 self.onmessage = async ({ data }) => {
+  if (data.type === "progress-recorded") {
+    progress.acknowledge(data.id);
+    return;
+  }
+  if (data.type === "rendered") {
+    if (rendered?.id === data.id) {
+      const { resolve } = rendered;
+      rendered = null;
+      resolve();
+    }
+    return;
+  }
   if (busy) return;
+  if (data.type === "input") {
+    gate.accept(data.id, data.value);
+    return;
+  }
+  if (data.type === "resume") {
+    gate.check();
+    return;
+  }
   busy = true;
   try {
     if (data.type === "start" && !generator) {
@@ -9643,15 +9773,18 @@ self.onmessage = async ({ data }) => {
       source = null;
       generator = vm.start({
         getSavedata: async (key) => store.get(key),
+        saveProgress: (detail) => progress.report(detail),
         setSavedata: async (key, value) => {
+          await progress.report({ phase: "writing", key });
           await store.set(key, value);
+          await progress.report({ phase: "committed", key });
           postMessage({ type: "saved", key });
         },
         getTime: () => Date.now(),
         getFont: () => false
       });
       await advance(null);
-    } else if (data.type === "input" && waiting) await advance(data.value);
+    }
   } catch (error) {
     fail(error);
   } finally {
