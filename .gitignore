@@ -1,0 +1,14 @@
+﻿# Save Files
+[Ss]av/
+global.sav
+save[0-9]+.sav
+
+# Log File
+emuera.log
+logs/
+
+# Debug file
+debug/
+
+# Local upstream checkout used by development probes
+.my_agent_remote/
