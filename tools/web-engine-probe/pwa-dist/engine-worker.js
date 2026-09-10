@@ -9407,6 +9407,95 @@ async function* DATALOADED(vm2) {
     yield* MAIN();
   });
 }
+var SAVE_SLOT_COUNT = 20;
+var SAVE_CANCEL = 100;
+function beginScene(keyword) {
+  return {
+    raw: new CompactSlice(FILE, 0, "BEGIN " + keyword, "BEGIN".length),
+    run: async function* () {
+      return { type: "begin", keyword };
+    }
+  };
+}
+function slotMenu(vm2, title) {
+  return {
+    raw: new CompactSlice(FILE, 0, "PRINTL " + title, "PRINTL".length),
+    run: async function* () {
+      yield* vm2.printer.print("------------------------", /* @__PURE__ */ new Set(["L"]));
+      yield* vm2.printer.print(title, /* @__PURE__ */ new Set(["L"]));
+      for (let i = 0; i < SAVE_SLOT_COUNT; ++i) {
+        const raw = await vm2.external.getSavedata(savefile.game(i));
+        let label = "----";
+        if (raw != null) {
+          try {
+            const parsed = JSON.parse(raw);
+            const comment = parsed && parsed.data ? parsed.data.comment : null;
+            label = typeof comment === "string" && comment.length > 0 ? comment : "----";
+          } catch (e) {
+            label = "(\uC190\uC0C1\uB41C \uB370\uC774\uD130)";
+          }
+        }
+        yield* vm2.printer.print("[" + i + "] " + label, /* @__PURE__ */ new Set(["L"]));
+      }
+      yield* vm2.printer.print("[" + SAVE_CANCEL + "] \uCDE8\uC18C", /* @__PURE__ */ new Set(["L"]));
+      return null;
+    }
+  };
+}
+function saveSlot(vm2, slot) {
+  return {
+    raw: new CompactSlice(FILE, 0, "SAVEDATA " + slot, "SAVEDATA".length),
+    run: async function* () {
+      const now = (0, import_dayjs4.default)(vm2.external.getTime());
+      vm2.getValue("SAVEDATA_TEXT").set(vm2, now.format("YYYY/MM/DD HH:mm:ss"), []);
+      if (vm2.fnMap.has("SAVEINFO")) {
+        yield* vm2.run(new Call(new CompactSlice(FILE, 0, "CALL SAVEINFO", "CALL".length)));
+      }
+      yield* vm2.run(new SaveData(new CompactSlice(FILE, 0, "SAVEDATA " + slot + ", SAVEDATA_TEXT", "SAVEDATA".length)));
+      yield* vm2.printer.print("\uC2AC\uB86F " + slot + "\uC5D0 \uC800\uC7A5\uD588\uC2B5\uB2C8\uB2E4.", /* @__PURE__ */ new Set(["L"]));
+      return null;
+    }
+  };
+}
+function loadSlot(vm2, slot) {
+  return {
+    raw: new CompactSlice(FILE, 0, "LOADDATA " + slot, "LOADDATA".length),
+    run: async function* () {
+      const raw = await vm2.external.getSavedata(savefile.game(slot));
+      if (raw == null) {
+        yield* vm2.printer.print("\uC2AC\uB86F " + slot + "\uC740(\uB294) \uBE44\uC5B4 \uC788\uC2B5\uB2C8\uB2E4.", /* @__PURE__ */ new Set(["L"]));
+        return null;
+      }
+      return yield* vm2.run(new LoadData(new CompactSlice(FILE, 0, "LOADDATA " + slot, "LOADDATA".length)));
+    }
+  };
+}
+async function* SAVEGAME(vm2) {
+  return yield* runScene(vm2, function* () {
+    yield slotMenu(vm2, "SAVE GAME");
+    yield new Input(new CompactSlice(FILE, 0, "INPUT", "INPUT".length));
+    const input = Number(vm2.getValue("RESULT").get(vm2, [0]));
+    if (Number.isInteger(input) && input >= 0 && input < SAVE_SLOT_COUNT) {
+      yield saveSlot(vm2, input);
+    }
+    yield beginScene("SHOP");
+  });
+}
+async function* LOADGAME(vm2) {
+  return yield* runScene(vm2, function* () {
+    while (true) {
+      yield slotMenu(vm2, "LOAD GAME");
+      yield new Input(new CompactSlice(FILE, 0, "INPUT", "INPUT".length));
+      const input = Number(vm2.getValue("RESULT").get(vm2, [0]));
+      if (Number.isInteger(input) && input >= 0 && input < SAVE_SLOT_COUNT) {
+        yield loadSlot(vm2, input);
+      } else {
+        yield beginScene("TITLE");
+        return;
+      }
+    }
+  });
+}
 
 // ../../.my_agent_remote/undercrow__eraJS/build/value/special/charanum.js
 var CharaNumValue = class {
@@ -9640,27 +9729,6 @@ var valueList = [
 var value_list_default = valueList;
 
 // ../../.my_agent_remote/undercrow__eraJS/build/vm.js
-function explicitStaticScopes(root) {
-  const scopes = /* @__PURE__ */ new Set(), seen = /* @__PURE__ */ new WeakSet(), stack = [root];
-  while (stack.length) {
-    const value = stack.pop();
-    if (typeof value === "string") {
-      for (const match2 of value.matchAll(/[^\s+\-*\/%=!<>|&^~?#()\[\]{},.:$\\'";@]+@([^\s+\-*\/%=!<>|&^~?#()\[\]{},.:$\\'";@]+)/gu)) scopes.add(match2[1]);
-      continue;
-    }
-    if (value == null || typeof value !== "object" && typeof value !== "function" || seen.has(value)) continue;
-    seen.add(value);
-    if (value.constructor?.name === "Variable" && value.scope != null) scopes.add(value.scope);
-    if (Array.isArray(value)) for (const item of value) stack.push(item);
-    else if (value instanceof Map) for (const [key, item] of value) stack.push(key, item);
-    else if (value instanceof Set) for (const item of value) stack.push(item);
-    else for (const key of Reflect.ownKeys(value)) {
-      const descriptor = Object.getOwnPropertyDescriptor(value, key);
-      if (descriptor && "value" in descriptor) stack.push(descriptor.value);
-    }
-  }
-  return scopes;
-}
 var EVENT = [
   "EVENTFIRST",
   "EVENTTRAIN",
@@ -9682,7 +9750,6 @@ var VM = class {
   templateMap;
   globalMap;
   staticMap;
-  explicitStaticScopes;
   characterList;
   contextStack;
   printer;
@@ -9696,7 +9763,6 @@ var VM = class {
     this.templateMap = /* @__PURE__ */ new Map();
     this.globalMap = /* @__PURE__ */ new Map();
     this.staticMap = /* @__PURE__ */ new Map();
-    this.explicitStaticScopes = explicitStaticScopes(code.fnList);
     this.characterList = [];
     this.contextStack = [];
     for (const fn of code.fnList) {
@@ -9827,25 +9893,23 @@ var VM = class {
     }
     this.staticMap = /* @__PURE__ */ new Map();
     this.staticMap.set("@DUMMY", /* @__PURE__ */ new Map());
-    for (const scope of this.explicitStaticScopes) {
-      if (this.fnMap.has(scope) || this.eventMap.has(scope)) await this.ensureStaticScope(scope, varSize2);
+    let fnList = [...this.fnMap.values()];
+    for (const events of this.eventMap.values()) {
+      fnList = fnList.concat(events);
     }
-    for (const context of this.contextStack) await this.ensureStaticScope(context.fn.name, varSize2);
+    for (const fn of fnList) {
+      this.staticMap.set(fn.name, /* @__PURE__ */ new Map());
+      this.staticMap.get(fn.name).set("LOCAL", new Int1DValue("LOCAL", varSize2.get("LOCAL")));
+      this.staticMap.get(fn.name).set("LOCALS", new Str1DValue("LOCALS", varSize2.get("LOCALS")));
+      for (const property of fn.property) {
+        if (property instanceof Dim && !property.isDynamic()) {
+          this.staticMap.get(fn.name).set(property.name, await property.build(this));
+        } else if (property instanceof LocalSize || property instanceof LocalSSize) {
+          property.apply(this, fn.name);
+        }
+      }
+    }
     this.characterList = [];
-  }
-  async ensureStaticScope(name, varSize2 = this.code.csv.varSize) {
-    if (this.staticMap.has(name)) return this.staticMap.get(name);
-    const fn = this.fnMap.get(name) ?? this.eventMap.get(name)?.at(-1);
-    if (fn == null) throw notFound("Scope", name);
-    const scope = /* @__PURE__ */ new Map();
-    this.staticMap.set(name, scope);
-    scope.set("LOCAL", new Int1DValue("LOCAL", varSize2.get("LOCAL")));
-    scope.set("LOCALS", new Str1DValue("LOCALS", varSize2.get("LOCALS")));
-    for (const property of fn.property) {
-      if (property instanceof Dim && !property.isDynamic()) scope.set(property.name, await property.build(this));
-      else if (property instanceof LocalSize || property instanceof LocalSSize) property.apply(this, fn.name);
-    }
-    return scope;
   }
   configure(config) {
     this.printer.defaultColor = config.front;
@@ -9858,7 +9922,6 @@ var VM = class {
     return this.contextStack[this.contextStack.length - 1];
   }
   async pushContext(fn) {
-    await this.ensureStaticScope(fn.name);
     const context = {
       fn,
       dynamicMap: /* @__PURE__ */ new Map(),
@@ -9934,6 +9997,12 @@ var VM = class {
           break;
         case "DATALOADED":
           result = yield* DATALOADED(this);
+          break;
+        case "SAVEGAME":
+          result = yield* SAVEGAME(this);
+          break;
+        case "LOADGAME":
+          result = yield* LOADGAME(this);
           break;
         default:
           throw notFound("Scene", begin);
