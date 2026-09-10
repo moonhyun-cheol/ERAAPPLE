@@ -1,0 +1,330 @@
+{
+  "game": "에라마왕 개조판 1.28",
+  "node": "v24.15.0",
+  "exposedGc": true,
+  "requestedTurns": 60,
+  "fnCount": 2149,
+  "driveStatus": "turns-complete",
+  "ok": true,
+  "sawShop": true,
+  "turnsCompleted": 60,
+  "contentEvents": 1566,
+  "totalInputs": 181,
+  "memory": {
+    "baselineRssMiB": 330.27,
+    "peakRssMiB": 335.41,
+    "finalRssMiB": 324.67,
+    "finalHeapUsedMiB": 73.17,
+    "firstTurnHeapMiB": 82.66,
+    "lastTurnHeapMiB": 73.17,
+    "heapGrowthMiB": -9.49,
+    "samplesEvery": 1
+  },
+  "timing": {
+    "totalMs": 60372.6,
+    "meanTurnMs": 995.5,
+    "maxTurnMs": 2194.5
+  },
+  "samples": [
+    {
+      "turn": 1,
+      "rssMiB": 330.27,
+      "heapUsedMiB": 82.66
+    },
+    {
+      "turn": 2,
+      "rssMiB": 331.96,
+      "heapUsedMiB": 83.2
+    },
+    {
+      "turn": 3,
+      "rssMiB": 331.98,
+      "heapUsedMiB": 83.26
+    },
+    {
+      "turn": 4,
+      "rssMiB": 331.63,
+      "heapUsedMiB": 83.6
+    },
+    {
+      "turn": 5,
+      "rssMiB": 332.45,
+      "heapUsedMiB": 83.6
+    },
+    {
+      "turn": 6,
+      "rssMiB": 332.12,
+      "heapUsedMiB": 83.69
+    },
+    {
+      "turn": 7,
+      "rssMiB": 332.14,
+      "heapUsedMiB": 83.71
+    },
+    {
+      "turn": 8,
+      "rssMiB": 332.16,
+      "heapUsedMiB": 83.95
+    },
+    {
+      "turn": 9,
+      "rssMiB": 330.92,
+      "heapUsedMiB": 83.93
+    },
+    {
+      "turn": 10,
+      "rssMiB": 331.45,
+      "heapUsedMiB": 83.93
+    },
+    {
+      "turn": 11,
+      "rssMiB": 331.52,
+      "heapUsedMiB": 83.93
+    },
+    {
+      "turn": 12,
+      "rssMiB": 331.86,
+      "heapUsedMiB": 83.99
+    },
+    {
+      "turn": 13,
+      "rssMiB": 331.95,
+      "heapUsedMiB": 84.05
+    },
+    {
+      "turn": 14,
+      "rssMiB": 333.29,
+      "heapUsedMiB": 84.24
+    },
+    {
+      "turn": 15,
+      "rssMiB": 331.7,
+      "heapUsedMiB": 84.29
+    },
+    {
+      "turn": 16,
+      "rssMiB": 331.68,
+      "heapUsedMiB": 84.32
+    },
+    {
+      "turn": 17,
+      "rssMiB": 331.89,
+      "heapUsedMiB": 84.32
+    },
+    {
+      "turn": 18,
+      "rssMiB": 331.98,
+      "heapUsedMiB": 84.32
+    },
+    {
+      "turn": 19,
+      "rssMiB": 331.98,
+      "heapUsedMiB": 84.32
+    },
+    {
+      "turn": 20,
+      "rssMiB": 332.15,
+      "heapUsedMiB": 84.54
+    },
+    {
+      "turn": 21,
+      "rssMiB": 332.22,
+      "heapUsedMiB": 84.54
+    },
+    {
+      "turn": 22,
+      "rssMiB": 332.01,
+      "heapUsedMiB": 84.7
+    },
+    {
+      "turn": 23,
+      "rssMiB": 332.84,
+      "heapUsedMiB": 84.71
+    },
+    {
+      "turn": 24,
+      "rssMiB": 324.13,
+      "heapUsedMiB": 71.86
+    },
+    {
+      "turn": 25,
+      "rssMiB": 324.17,
+      "heapUsedMiB": 71.86
+    },
+    {
+      "turn": 26,
+      "rssMiB": 323.99,
+      "heapUsedMiB": 72.04
+    },
+    {
+      "turn": 27,
+      "rssMiB": 324,
+      "heapUsedMiB": 72.04
+    },
+    {
+      "turn": 28,
+      "rssMiB": 323.96,
+      "heapUsedMiB": 72.04
+    },
+    {
+      "turn": 29,
+      "rssMiB": 323.96,
+      "heapUsedMiB": 72.03
+    },
+    {
+      "turn": 30,
+      "rssMiB": 323.77,
+      "heapUsedMiB": 72.04
+    },
+    {
+      "turn": 31,
+      "rssMiB": 323.47,
+      "heapUsedMiB": 72.04
+    },
+    {
+      "turn": 32,
+      "rssMiB": 323.72,
+      "heapUsedMiB": 72.04
+    },
+    {
+      "turn": 33,
+      "rssMiB": 323.74,
+      "heapUsedMiB": 72.04
+    },
+    {
+      "turn": 34,
+      "rssMiB": 324.01,
+      "heapUsedMiB": 72.04
+    },
+    {
+      "turn": 35,
+      "rssMiB": 324.01,
+      "heapUsedMiB": 72.04
+    },
+    {
+      "turn": 36,
+      "rssMiB": 323.95,
+      "heapUsedMiB": 72.21
+    },
+    {
+      "turn": 37,
+      "rssMiB": 324,
+      "heapUsedMiB": 72.21
+    },
+    {
+      "turn": 38,
+      "rssMiB": 323.68,
+      "heapUsedMiB": 72.38
+    },
+    {
+      "turn": 39,
+      "rssMiB": 323.69,
+      "heapUsedMiB": 72.37
+    },
+    {
+      "turn": 40,
+      "rssMiB": 324.15,
+      "heapUsedMiB": 72.43
+    },
+    {
+      "turn": 41,
+      "rssMiB": 324.2,
+      "heapUsedMiB": 72.45
+    },
+    {
+      "turn": 42,
+      "rssMiB": 324.05,
+      "heapUsedMiB": 72.44
+    },
+    {
+      "turn": 43,
+      "rssMiB": 324.12,
+      "heapUsedMiB": 72.44
+    },
+    {
+      "turn": 44,
+      "rssMiB": 324.04,
+      "heapUsedMiB": 72.45
+    },
+    {
+      "turn": 45,
+      "rssMiB": 324.13,
+      "heapUsedMiB": 72.45
+    },
+    {
+      "turn": 46,
+      "rssMiB": 324.35,
+      "heapUsedMiB": 72.45
+    },
+    {
+      "turn": 47,
+      "rssMiB": 324.36,
+      "heapUsedMiB": 72.45
+    },
+    {
+      "turn": 48,
+      "rssMiB": 324.36,
+      "heapUsedMiB": 72.64
+    },
+    {
+      "turn": 49,
+      "rssMiB": 324.36,
+      "heapUsedMiB": 72.64
+    },
+    {
+      "turn": 50,
+      "rssMiB": 324.27,
+      "heapUsedMiB": 72.79
+    },
+    {
+      "turn": 51,
+      "rssMiB": 324.27,
+      "heapUsedMiB": 72.8
+    },
+    {
+      "turn": 52,
+      "rssMiB": 324.41,
+      "heapUsedMiB": 72.8
+    },
+    {
+      "turn": 53,
+      "rssMiB": 324.41,
+      "heapUsedMiB": 72.81
+    },
+    {
+      "turn": 54,
+      "rssMiB": 324.41,
+      "heapUsedMiB": 72.81
+    },
+    {
+      "turn": 55,
+      "rssMiB": 324.41,
+      "heapUsedMiB": 72.81
+    },
+    {
+      "turn": 56,
+      "rssMiB": 324.41,
+      "heapUsedMiB": 72.81
+    },
+    {
+      "turn": 57,
+      "rssMiB": 324.41,
+      "heapUsedMiB": 72.81
+    },
+    {
+      "turn": 58,
+      "rssMiB": 324.44,
+      "heapUsedMiB": 73
+    },
+    {
+      "turn": 59,
+      "rssMiB": 323.18,
+      "heapUsedMiB": 73
+    },
+    {
+      "turn": 60,
+      "rssMiB": 324.67,
+      "heapUsedMiB": 73.17
+    }
+  ]
+}

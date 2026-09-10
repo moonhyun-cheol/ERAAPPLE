@@ -30,6 +30,18 @@
 //      when the game lacks @SYSTEM_AUTOSAVE (the main game defines it, so it
 //      never fired; '에라마왕 개조판 1.28' does not, so its very first shop autosave
 //      crashed). We insert the comma and the missing "SAVEDATA".length offset.
+//   6. eraJS never implemented the manual save/load scenes: the `SAVEGAME` /
+//      `LOADGAME` commands (and `BEGIN SAVEGAME/LOADGAME`) return a `begin`
+//      keyword the VM dispatcher (vm.js start() switch) has no case for, so it
+//      throws `Scene SAVEGAME not found` the instant a game reaches its manual
+//      save/load UI. The main game routes these through its own functions so it
+//      never hit the gap; '에라마왕 개조판 1.28' calls bare SAVEGAME (shop option
+//      200) and LOADGAME (shop option 300 / title continue), so its save menu was
+//      unreachable. We add faithful SAVEGAME/LOADGAME slot-menu scenes (scene.js)
+//      plus their two dispatch cases (vm.js). Slot labels reuse the same JSON
+//      savedata comment CHKDATA reads, rendered as printer-auto-detected [n]
+//      buttons; selecting a slot runs SAVEDATA (save) or LOADDATA -> DATALOADED
+//      (load). Cancel returns to the natural caller (SHOP for save, TITLE for load).
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -41,6 +53,106 @@ const erbHash = '4bdcd4db383fed0413279507eb8e25e237bffa2490a016efc87a5176a15b622
 const indexHash = 'c80f7eff1a62dcb6b57949a1a337437443ca2b0b316e92b38fc7f8766fd32913';
 const dimHash = 'ad6796e361d6f5be9749a95f4244f258f16c04c3ad735e32d78d81a36dcf263e';
 const sceneHash = '074903852ba7a8dc24c89fbfc46f5b157f1c54435c9be3d592002e92dcb9154c';
+const vmHash = '18fe5bb4ebe0d48a588a410f71472d5d629bfd95c54c200e09b4d36b960779f1';
+
+// Manual save/load scenes appended to scene.js (see fix #6). Kept as a literal so
+// the generated source stays plain concatenation (no nested template/backticks)
+// and references only scene.js module scope (runScene, FILE, Slice) plus the
+// imports injected below (Input, Call, SaveData, dayjs, savefile, LoadData).
+const SAVE_LOAD_SCENES = `
+// --- era-compat-fix-v1: manual SAVEGAME / LOADGAME slot-menu scenes (fix #6) ---
+const SAVE_SLOT_COUNT = 20;
+const SAVE_CANCEL = 100;
+function beginScene(keyword) {
+    return {
+        raw: new Slice(FILE, 0, "BEGIN " + keyword, "BEGIN".length),
+        run: async function* () {
+            return { type: "begin", keyword };
+        },
+    };
+}
+function slotMenu(vm, title) {
+    return {
+        raw: new Slice(FILE, 0, "PRINTL " + title, "PRINTL".length),
+        run: async function* () {
+            yield* vm.printer.print("------------------------", new Set(["L"]));
+            yield* vm.printer.print(title, new Set(["L"]));
+            for (let i = 0; i < SAVE_SLOT_COUNT; ++i) {
+                const raw = await vm.external.getSavedata(savefile.game(i));
+                let label = "----";
+                if (raw != null) {
+                    try {
+                        const parsed = JSON.parse(raw);
+                        const comment = parsed && parsed.data ? parsed.data.comment : null;
+                        label = typeof comment === "string" && comment.length > 0 ? comment : "----";
+                    }
+                    catch (e) {
+                        label = "(손상된 데이터)";
+                    }
+                }
+                yield* vm.printer.print("[" + i + "] " + label, new Set(["L"]));
+            }
+            yield* vm.printer.print("[" + SAVE_CANCEL + "] 취소", new Set(["L"]));
+            return null;
+        },
+    };
+}
+function saveSlot(vm, slot) {
+    return {
+        raw: new Slice(FILE, 0, "SAVEDATA " + slot, "SAVEDATA".length),
+        run: async function* () {
+            const now = dayjs(vm.external.getTime());
+            vm.getValue("SAVEDATA_TEXT").set(vm, now.format("YYYY/MM/DD HH:mm:ss"), []);
+            if (vm.fnMap.has("SAVEINFO")) {
+                yield* vm.run(new Call(new Slice(FILE, 0, "CALL SAVEINFO", "CALL".length)));
+            }
+            yield* vm.run(new SaveData(new Slice(FILE, 0, "SAVEDATA " + slot + ", SAVEDATA_TEXT", "SAVEDATA".length)));
+            yield* vm.printer.print("슬롯 " + slot + "에 저장했습니다.", new Set(["L"]));
+            return null;
+        },
+    };
+}
+function loadSlot(vm, slot) {
+    return {
+        raw: new Slice(FILE, 0, "LOADDATA " + slot, "LOADDATA".length),
+        run: async function* () {
+            const raw = await vm.external.getSavedata(savefile.game(slot));
+            if (raw == null) {
+                yield* vm.printer.print("슬롯 " + slot + "은(는) 비어 있습니다.", new Set(["L"]));
+                return null;
+            }
+            return yield* vm.run(new LoadData(new Slice(FILE, 0, "LOADDATA " + slot, "LOADDATA".length)));
+        },
+    };
+}
+export async function* SAVEGAME(vm) {
+    return yield* runScene(vm, function* () {
+        yield slotMenu(vm, "SAVE GAME");
+        yield new Input(new Slice(FILE, 0, "INPUT", "INPUT".length));
+        const input = Number(vm.getValue("RESULT").get(vm, [0]));
+        if (Number.isInteger(input) && input >= 0 && input < SAVE_SLOT_COUNT) {
+            yield saveSlot(vm, input);
+        }
+        yield beginScene("SHOP");
+    });
+}
+export async function* LOADGAME(vm) {
+    return yield* runScene(vm, function* () {
+        while (true) {
+            yield slotMenu(vm, "LOAD GAME");
+            yield new Input(new Slice(FILE, 0, "INPUT", "INPUT".length));
+            const input = Number(vm.getValue("RESULT").get(vm, [0]));
+            if (Number.isInteger(input) && input >= 0 && input < SAVE_SLOT_COUNT) {
+                yield loadSlot(vm, input);
+            }
+            else {
+                yield beginScene("TITLE");
+                return;
+            }
+        }
+    });
+}
+`;
 
 function makeReplace(label, source) {
   const state = { source };
@@ -198,6 +310,40 @@ export function transformSceneSource(source) {
   r.apply(
     'new Slice(FILE, 0, "SAVEDATA 99 SAVEDATA_TEXT")',
     'new Slice(FILE, 0, "SAVEDATA 99, SAVEDATA_TEXT", "SAVEDATA".length)');
+  // Fix #6: inject the two imports the appended save/load scenes need, then
+  // append the SAVEGAME/LOADGAME scene bodies at module scope.
+  r.apply(
+    `import Wait from "./statement/command/wait";
+const FILE = "BUILTIN.ERB";`,
+    `import Wait from "./statement/command/wait";
+import LoadData from "./statement/command/loaddata";
+import { savefile } from "./savedata";
+const FILE = "BUILTIN.ERB";`);
+  return r.result() + SAVE_LOAD_SCENES;
+}
+
+export function transformVmSource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== vmHash) throw new Error(`Compat fix source fingerprint mismatch: vm.js (${digest})`);
+  const r = makeReplace('Compat vm.js', source);
+  // Fix #6: register the SAVEGAME/LOADGAME scenes (added in scene.js) in the
+  // begin-dispatch switch so bare SAVEGAME/LOADGAME no longer throw notFound.
+  r.apply(
+    `                case "DATALOADED":
+                    result = yield* scene.DATALOADED(this);
+                    break;
+                default: throw E.notFound("Scene", begin);`,
+    `                case "DATALOADED":
+                    result = yield* scene.DATALOADED(this);
+                    break;
+                case "SAVEGAME":
+                    result = yield* scene.SAVEGAME(this);
+                    break;
+                case "LOADGAME":
+                    result = yield* scene.LOADGAME(this);
+                    break;
+                default: throw E.notFound("Scene", begin);`);
   return r.result();
 }
 
@@ -307,6 +453,10 @@ export function compatFixPlugin(engine) {
     }));
     build.onLoad({ filter: /[\\/]build[\\/]scene\.js$/ }, async args => ({
       contents: transformSceneSource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]vm\.js$/ }, async args => ({
+      contents: transformVmSource(await readFile(args.path, 'utf8')),
       loader: 'js', resolveDir: path.dirname(args.path)
     }));
   } };

@@ -1,0 +1,38 @@
+{
+  "game": "에라마왕 개조판 1.28",
+  "node": "v24.15.0",
+  "fnCount": 2149,
+  "phaseA": {
+    "stop": "shop-after-save",
+    "inputs": 28,
+    "sawSaveMenu": true,
+    "saved": true,
+    "savedataKeys": [
+      "save99.sav",
+      "save00.sav"
+    ],
+    "save00Bytes": 9122,
+    "saveMenuHead": "200\n------------------------\nSAVE GAME\n[0] ----\n[1] ----\n[2] ----\n[3] ----\n[4] ----\n[5] ----\n[6] ----\n[7] ----\n[8] ----\n[9] ----\n[10] ----\n[11] ----\n[12] ----\n[13] ----\n[14] ----\n[15] ----\n[16] ----\n[17] ----\n[18] ----\n[19] ----\n[100] 취소\n",
+    "savedDay": "0",
+    "savedMoney": "10000",
+    "savedName": "당신",
+    "charCount": 2
+  },
+  "phaseB": {
+    "stop": "shop-after-load",
+    "inputs": 3,
+    "sawLoadMenu": true,
+    "loaded": true,
+    "loadMenuHead": "0\n------------------------\nLOAD GAME\n[0] 2023/11/15 07:13:201일째 오전\n[1] ----\n[2] ----\n[3] ----\n[4] ----\n[5] ----\n[6] ----\n[7] ----\n[8] ----\n[9] ----\n[10] ----\n[11] ----\n[12] ----\n[13] ----\n[14] ----\n[15] ----\n[16] ----\n[17] ----\n[18] ----\n[19] ----\n[100] 취소\n",
+    "loadedDay": "0",
+    "loadedMoney": "10000",
+    "loadedName": "당신",
+    "charCount": 2
+  },
+  "roundtrip": {
+    "dayMatch": true,
+    "moneyMatch": true,
+    "nameMatch": true
+  },
+  "ok": true
+}
