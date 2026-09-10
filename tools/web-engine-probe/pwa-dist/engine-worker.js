@@ -1545,13 +1545,15 @@ function parse2(fileName, rows) {
         result.title = row[1];
         break;
       case "\u30B3\u30FC\u30C9": {
-        const code = parseInt(row[1]);
+        const rawCode = row[1];
+        const code = rawCode == null || rawCode.trim() === "" ? 0 : parseInt(rawCode);
         number(code, `Code in ${fileName} should be an integer`);
         result.code = code;
         break;
       }
       case "\u30D0\u30FC\u30B8\u30E7\u30F3": {
-        const version = parseInt(row[1]);
+        const rawVersion = row[1];
+        const version = rawVersion == null || rawVersion.trim() === "" ? 0 : parseInt(rawVersion);
         number(version, `Version in ${fileName} should be an integer`);
         result.version = version;
         break;
@@ -7151,6 +7153,26 @@ var Dim = class {
       const value = await Promise.all(this.value.map((v) => v.reduce(vm2)));
       strArray(value, "Default value for 1D #DIMS must be a string array");
       return new Str1DValue(this.name, [value.length]).reset(value);
+    } else if (this.value != null && this.value.length > 1 && this.type === "number" && this.size.length <= 1 && !this.isChar()) {
+      const value = await Promise.all(this.value.map((v) => v.reduce(vm2)));
+      bigintArray(value, "Default value for 1D #DIM must be a number array");
+      let length = value.length;
+      if (this.size.length === 1) {
+        const size = await this.size[0].reduce(vm2);
+        bigint(size, "Size of an array must be an integer");
+        length = Math.max(Number(size), value.length);
+      }
+      return new Int1DValue(this.name, [length]).reset(value);
+    } else if (this.value != null && this.value.length > 1 && this.type === "string" && this.size.length <= 1 && !this.isChar()) {
+      const value = await Promise.all(this.value.map((v) => v.reduce(vm2)));
+      strArray(value, "Default value for 1D #DIMS must be a string array");
+      let length = value.length;
+      if (this.size.length === 1) {
+        const size = await this.size[0].reduce(vm2);
+        bigint(size, "Size of an array must be an integer");
+        length = Math.max(Number(size), value.length);
+      }
+      return new Str1DValue(this.name, [length]).reset(value);
     } else if (this.size.length === 0 && this.type === "number" && !this.isChar()) {
       return new Int0DValue(this.name);
     } else if (this.size.length === 0 && this.type === "string" && !this.isChar()) {
@@ -8629,6 +8651,7 @@ var property_default = parser2;
 // ../../.my_agent_remote/undercrow__eraJS/build/parser/erb.js
 function parseERB(files2, macros) {
   const result = [];
+  const globals = [];
   for (const [name, content] of files2) {
     const normalized = normalize(content);
     const lines = preprocess(toLines(normalized), macros);
@@ -8636,12 +8659,17 @@ function parseERB(files2, macros) {
       line.file = name;
     }
     let index = 0;
+    while (lines.length > index && lines[index].content.startsWith("#")) {
+      globals.push(tryParse(property_default, lines[index]));
+      index += 1;
+    }
     while (lines.length > index) {
       const [fn, consumed] = parseFn(lines, index);
       result.push(fn);
       index += consumed;
     }
   }
+  result.globals = globals;
   return result;
 }
 function parseFn(lines, from) {
@@ -9249,7 +9277,7 @@ async function* SHOP(vm2) {
       const now = (0, import_dayjs4.default)(vm2.external.getTime());
       vm2.getValue("SAVEDATA_TEXT").set(vm2, now.format("YYYY/MM/DD HH:mm:ss"), []);
       yield new Call(new CompactSlice(FILE, 0, "CALL SAVEINFO", "CALL".length));
-      yield new SaveData(new CompactSlice(FILE, 0, "SAVEDATA 99 SAVEDATA_TEXT"));
+      yield new SaveData(new CompactSlice(FILE, 0, "SAVEDATA 99, SAVEDATA_TEXT", "SAVEDATA".length));
     }
     yield* MAIN();
   });
@@ -9971,7 +9999,8 @@ function compile(files2) {
     }
   }
   const fnList = parseERB(erbFiles, macros);
-  return new VM({ header, fnList, csv });
+  const mergedHeader = fnList.globals != null ? header.concat(fnList.globals) : header;
+  return new VM({ header: mergedHeader, fnList, csv });
 }
 
 // fixture.mjs

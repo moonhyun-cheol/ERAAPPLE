@@ -1,6 +1,8 @@
-import { mkdir, readFile, writeFile, rename, rm, access } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, rename, rm, access, readdir } from 'node:fs/promises';
 import { deflateSync, gzipSync } from 'node:zlib';
-import { inventory, gameFiles, sha } from './inventory.mjs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { inventory, gameFiles, sha, decode } from './inventory.mjs';
 
 // Dependency-free, original geometric icon; not game artwork.
 function icon(size) {
@@ -23,7 +25,31 @@ function icon(size) {
   return Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', ihdr), chunk('IDAT', deflateSync(raw)), chunk('IEND', Buffer.alloc(0))]);
 }
 const before = await inventory();
-const source = await gameFiles(before.records);
+// Optional alternate game: package a SEPARATE game folder (e.g. '에라마왕 개조판 1.28') instead of
+// the root baseline. Root is still scanned as the tamper baseline (never written); the alternate
+// folder is read-only. Same file-key scheme as gameFiles (CSV -> basename, ERB/ERH -> relative path).
+const altName = process.env.PWA_GAME_ROOT ?? null;
+async function loadAltGame(name) {
+  const gameRoot = fileURLToPath(new URL('../../' + name + '/', import.meta.url));
+  const files = new Map();
+  async function walk(rel) {
+    for (const entry of await readdir(path.join(gameRoot, rel), { withFileTypes: true })) {
+      const child = rel + '/' + entry.name;
+      if (entry.isSymbolicLink()) throw new Error('Symlink not supported: ' + child);
+      if (entry.isDirectory()) { await walk(child); continue; }
+      if (!entry.isFile() || !/\.(erb|erh|csv)$/i.test(entry.name)) continue;
+      const ext = path.extname(entry.name).toUpperCase();
+      const result = decode(await readFile(path.join(gameRoot, child)));
+      if (result.text == null) throw new Error('encoding-unresolved: ' + child);
+      const key = ext === '.CSV' ? path.basename(child).toUpperCase() : child.replace(/^\//, '');
+      if (files.has(key)) throw new Error('eraJS file key collision: ' + key);
+      files.set(key, result.text);
+    }
+  }
+  for (const top of ['CSV', 'ERB']) await walk(top);
+  return { files };
+}
+const source = altName ? await loadAltGame(altName) : await gameFiles(before.records);
 const assets = new Map();
 for (const name of ['index.html', 'browser.js', 'engine-worker.js', 'eraJS-LICENSE.txt', 'build.json']) {
   assets.set(name, await readFile(new URL('./dist/' + name, import.meta.url)));
@@ -34,7 +60,7 @@ assets.set('index.html', Buffer.from(assets.get('index.html').toString().replace
 // line by line so it never holds the whole ~61 MiB text as one string / one JSON.parse (peak
 // memory that risks iOS Safari Jetsam). gzip level 9 keeps the download at ~11 MiB.
 assets.set('local-game.bin', gzipSync(Buffer.from(
-  [JSON.stringify({ id: 'eraTHYMKR', count: source.files.size }),
+  [JSON.stringify({ id: altName ? 'era-alt-game' : 'eraTHYMKR', count: source.files.size }),
     ...[...source.files].map(entry => JSON.stringify(entry))].join('\n') + '\n'), { level: 9 }));
 assets.set('manifest.webmanifest', Buffer.from(JSON.stringify({ id: './', name: 'eraTHYMKR 웹 실행 시험', short_name: 'era 시험', lang: 'ko',
   start_url: './', scope: './', display: 'standalone', background_color: '#151821', theme_color: '#151821',
@@ -47,6 +73,7 @@ const release = sha(JSON.stringify(hashes) + template).slice(0, 20);
 assets.set('sw.js', Buffer.from(template.replace('__RELEASE__', JSON.stringify(release)).replace('__ASSETS__', JSON.stringify(hashes, null, 2))));
 const report = { release, bytes: [...assets.values()].reduce((n, b) => n + b.length, 0), assets: hashes,
   originalCount: before.records.length, originalDigest: before.originalDigest, iPhoneTested: false,
+  packagedGame: altName ?? 'root-baseline', gameFileCount: source.files.size,
   note: 'Private static test artifact; check game and bundled dependency rights before distribution.' };
 assets.set('pwa-build.json', Buffer.from(JSON.stringify(report, null, 2) + '\n'));
 const stage = new URL(`./.pwa-stage-${process.pid}/`, import.meta.url);
