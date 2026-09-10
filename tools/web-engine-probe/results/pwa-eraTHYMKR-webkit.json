@@ -1,0 +1,17 @@
+{
+  "game": "eraTHYMKR",
+  "engine": "webkit",
+  "url": "http://127.0.0.1:4174/iphone-test/",
+  "startedAt": "2026-09-10T06:42:22.439Z",
+  "status": "입력 대기",
+  "outputHead": "────────────────────────\neraTHYMKR 2019 국내 갱신판 · 191028\nv3.21\n통합자: ㅇㄹ\n( 2019년 10월 28일 최종갱신)\n※본 게임은 조교 SLG 제작 툴 erakanon을 수정·재배포한 것입니다.\n「노예를 괴롭혀주세요…… 노예를 아껴주세요」\n────────────────────────\n[0] 힘세고 강한 시작\n[1] 불러오기",
+  "outputLength": 207,
+  "menuButtons": [
+    "[0] 힘세고 강한 시작",
+    "[1] 불러오기"
+  ],
+  "rendered": true,
+  "pageErrors": [],
+  "externalRequests": [],
+  "passed": true
+}
