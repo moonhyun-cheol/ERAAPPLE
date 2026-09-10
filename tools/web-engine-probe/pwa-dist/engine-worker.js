@@ -1696,6 +1696,20 @@ var Order = class {
 };
 
 // ../../.my_agent_remote/undercrow__eraJS/build/statement/expr/variable.js
+function resolveNameIndex(vm2, name, key) {
+  if (key === "")
+    return key;
+  const nameVar = vm2.globalMap.get(name + "NAME");
+  if (nameVar != null && Array.isArray(nameVar.value)) {
+    const index = nameVar.value.indexOf(key);
+    if (index >= 0)
+      return BigInt(index);
+  }
+  const konst = vm2.globalMap.get(key);
+  if (konst != null && typeof konst.value === "bigint")
+    return konst.value;
+  return key;
+}
 var Variable = class {
   name;
   index;
@@ -1726,7 +1740,10 @@ var Variable = class {
     if (this.index.length !== 0) {
       const result = [];
       for (const i of this.index) {
-        const value = await i.reduce(vm2);
+        let value = await i.reduce(vm2);
+        if (typeof value === "string") {
+          value = resolveNameIndex(vm2, this.name, value);
+        }
         bigint(value, "Index of variable should be an integer");
         result.push(Number(value));
       }
@@ -2947,27 +2964,72 @@ var Statement = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/lazy.js
-var Lazy = class {
-  raw;
-  parser;
-  isCompiled;
-  cache;
-  constructor(raw, parser3) {
-    this.parser = parser3;
-    this.raw = raw;
-    this.isCompiled = false;
+// compact-lazy-slice.mjs
+var RANGE_BASE = 67108864;
+function encodeRange(from, to) {
+  return Number.isInteger(from) && Number.isInteger(to) && from >= 0 && to >= 0 && from < RANGE_BASE && to < RANGE_BASE ? from * RANGE_BASE + to : [from, to];
+}
+function rangeFrom(range) {
+  return typeof range === "number" ? Math.floor(range / RANGE_BASE) : range[0];
+}
+function rangeTo(range) {
+  return typeof range === "number" ? range % RANGE_BASE : range[1];
+}
+function createCompactLazy(tryParse2) {
+  return class Lazy {
+    raw;
+    value;
+    constructor(raw, parser3) {
+      this.raw = raw;
+      this.value = parser3;
+    }
+    get() {
+      if (this.raw === null) return this.value;
+      const result = tryParse2(this.value, this.raw);
+      this.raw = null;
+      this.value = result;
+      return result;
+    }
+  };
+}
+var CompactSlice = class _CompactSlice {
+  file;
+  line;
+  content;
+  range;
+  constructor(file, line, content, from, to) {
+    this.file = file;
+    this.line = line;
+    this.content = content;
+    this.range = encodeRange(from ?? 0, to ?? content.length);
+  }
+  get from() {
+    return rangeFrom(this.range);
+  }
+  set from(value) {
+    this.range = encodeRange(value, this.to);
+  }
+  get to() {
+    return rangeTo(this.range);
+  }
+  set to(value) {
+    this.range = encodeRange(this.from, value);
+  }
+  slice(from, to) {
+    const newFrom = this.from + (from ?? 0);
+    const newTo = to == null ? this.to : Math.min(this.to, this.from + to);
+    return new _CompactSlice(this.file, this.line, this.content, newFrom, newTo);
   }
   get() {
-    if (this.isCompiled) {
-      return this.cache;
-    }
-    const result = tryParse(this.parser, this.raw);
-    this.isCompiled = true;
-    this.cache = result;
-    return result;
+    return this.content.slice(this.from, this.to);
+  }
+  length() {
+    return this.to - this.from;
   }
 };
+
+// ../../.my_agent_remote/undercrow__eraJS/build/lazy.js
+var lazy_default = createCompactLazy(tryParse);
 
 // ../../.my_agent_remote/undercrow__eraJS/build/statement/assign/assign-form.js
 var PARSER = sepBy0(",", form[","]);
@@ -2977,7 +3039,7 @@ var AssignForm = class extends Statement {
   constructor(dest, raw) {
     super(raw);
     this.dest = dest;
-    this.arg = new Lazy(raw, PARSER);
+    this.arg = new lazy_default(raw, PARSER);
   }
   async *run(vm2) {
     const dest = this.dest.getCell(vm2);
@@ -3005,7 +3067,7 @@ var AssignInt = class extends Statement {
   constructor(dest, raw) {
     super(raw);
     this.dest = dest;
-    this.arg = new Lazy(raw, PARSER2);
+    this.arg = new lazy_default(raw, PARSER2);
   }
   async *run(vm2) {
     const dest = this.dest.getCell(vm2);
@@ -3031,7 +3093,7 @@ var AssignOpInt = class extends Statement {
     super(raw);
     this.dest = dest;
     this.operator = operator;
-    this.arg = new Lazy(raw, PARSER3);
+    this.arg = new lazy_default(raw, PARSER3);
   }
   async *run(vm2) {
     const dest = this.dest.getCell(vm2);
@@ -3082,7 +3144,7 @@ var AssignOpStr = class extends Statement {
     super(raw);
     this.dest = dest;
     this.operator = operator;
-    this.arg = new Lazy(raw, PARSER4);
+    this.arg = new lazy_default(raw, PARSER4);
   }
   async *run(vm2) {
     const dest = this.dest.getCell(vm2);
@@ -3110,7 +3172,7 @@ var AssignPrefix = class extends Statement {
     super(raw);
     this.dest = dest;
     this.operator = operator;
-    this.arg = new Lazy(raw, PARSER5);
+    this.arg = new lazy_default(raw, PARSER5);
   }
   async *run(vm2) {
     this.raw.get();
@@ -3141,7 +3203,7 @@ var AssignPostfix = class extends Statement {
     super(raw);
     this.dest = dest;
     this.operator = operator;
-    this.arg = new Lazy(raw, PARSER6);
+    this.arg = new lazy_default(raw, PARSER6);
   }
   async *run(vm2) {
     this.raw.get();
@@ -3169,7 +3231,7 @@ var AssignStr = class extends Statement {
   constructor(dest, raw) {
     super(raw);
     this.dest = dest;
-    this.arg = new Lazy(raw, PARSER7);
+    this.arg = new lazy_default(raw, PARSER7);
   }
   async *run(vm2) {
     const dest = this.dest.getCell(vm2);
@@ -3190,7 +3252,6 @@ var PARSER_PREFIX = import_parsimmon6.default.seq(alt("++", "--").trim(WS0), var
 var PARSER_POSTFIX = import_parsimmon6.default.seq(variable, alt("++", "--").trim(WS0), import_parsimmon6.default.all);
 var PARSER_VAR = import_parsimmon6.default.seq(variable, import_parsimmon6.default.alt(alt("="), alt("'="), alt("*=", "/=", "%=", "+=", "-=", "&=", "|=", "^=")).trim(WS0), import_parsimmon6.default.all);
 var Assign = class extends Statement {
-  inner;
   constructor(raw) {
     super(raw);
   }
@@ -3293,6 +3354,337 @@ var Int0DValue = class _Int0DValue {
   }
 };
 
+// paged-default-array.mjs
+var DEFAULT_PAGE_SIZE = 256;
+var DEFAULT_DENSE_THRESHOLD = 0.75;
+var states = /* @__PURE__ */ new WeakMap();
+var arrayIndex = (property) => {
+  if (typeof property !== "string" || property === "") return null;
+  const index = Number(property);
+  return Number.isInteger(index) && index >= 0 && index < 4294967295 && String(index) === property ? index : null;
+};
+var keyOf = (path) => path.join("/");
+var samePrefix = (candidate, prefix) => prefix.every((value, index) => candidate[index] === value);
+var pathOf = (key) => key === "" ? [] : key.split("/").map(Number);
+function createPagedArray(shape, zero, {
+  pageSize = DEFAULT_PAGE_SIZE,
+  denseThreshold = DEFAULT_DENSE_THRESHOLD,
+  sparse1d = false
+} = {}) {
+  if (!Array.isArray(shape) || shape.length < 1 || shape.length > 3) throw new RangeError("Paged arrays require 1-3 dimensions");
+  const dimensions = shape.map((size) => {
+    const probe = new Array(size);
+    return probe.length;
+  });
+  if (!Number.isInteger(pageSize) || pageSize < 1) throw new RangeError("Invalid page size");
+  if (!(denseThreshold > 0 && denseThreshold <= 1)) throw new RangeError("Invalid dense threshold");
+  const leafSize = dimensions.at(-1);
+  const effectivePageSize = Math.max(1, Math.min(pageSize, leafSize || 1));
+  const state = {
+    dimensions,
+    zero,
+    requestedPageSize: pageSize,
+    pageSize: effectivePageSize,
+    denseThreshold,
+    pages: /* @__PURE__ */ new Map(),
+    denseLeaves: /* @__PURE__ */ new Map(),
+    leafProxies: /* @__PURE__ */ new Map(),
+    lengths: /* @__PURE__ */ new Map(),
+    assigned: /* @__PURE__ */ new Map(),
+    version: 0,
+    root: null
+  };
+  const lengthAt = (depth, path) => state.lengths.get(keyOf(path)) ?? dimensions[depth];
+  const pageMap = (path, create = false) => {
+    const key = keyOf(path);
+    let result = state.pages.get(key);
+    if (!result && create) state.pages.set(key, result = /* @__PURE__ */ new Map());
+    return result;
+  };
+  const promote = (path, length, target = null) => {
+    const key = keyOf(path);
+    let dense = state.denseLeaves.get(key);
+    if (dense) return dense;
+    dense = target ?? new Array(length);
+    dense.length = length;
+    dense.fill(zero);
+    const pages = state.pages.get(key);
+    if (pages) {
+      for (const [pageIndex, page] of pages) {
+        const start = pageIndex * effectivePageSize;
+        for (let offset = 0; offset < page.values.length && start + offset < length; offset++) {
+          if (page.values[offset] !== zero) dense[start + offset] = page.values[offset];
+        }
+      }
+      state.pages.delete(key);
+    }
+    state.denseLeaves.set(key, dense);
+    return dense;
+  };
+  const readLeaf = (path, index) => {
+    const dense = state.denseLeaves.get(keyOf(path));
+    if (dense) return dense[index] === void 0 ? zero : dense[index];
+    const page = pageMap(path)?.get(Math.floor(index / effectivePageSize));
+    return page ? page.values[index % effectivePageSize] : zero;
+  };
+  const writeLeaf = (path, index, value, length, proxy, target) => {
+    const key = keyOf(path);
+    const dense = state.denseLeaves.get(key);
+    if (dense) {
+      if (dense.length < length) dense.push(...new Array(length - dense.length).fill(zero));
+      dense[index] = value;
+      return;
+    }
+    const pageIndex = Math.floor(index / effectivePageSize), offset = index % effectivePageSize;
+    let pages = pageMap(path);
+    let page = pages?.get(pageIndex);
+    if (value === zero) {
+      if (!page || page.values[offset] === zero) return;
+      page.values[offset] = zero;
+      if (--page.nonDefault === 0) {
+        pages.delete(pageIndex);
+        if (pages.size === 0) state.pages.delete(key);
+      }
+      return;
+    }
+    if (!page) {
+      pages = pageMap(path, true);
+      pages.set(pageIndex, page = { values: new Array(effectivePageSize).fill(zero), nonDefault: 0 });
+    }
+    if (page.values[offset] === zero) page.nonDefault++;
+    page.values[offset] = value;
+    if (pages.size * effectivePageSize >= Math.max(1, Math.ceil(length * denseThreshold))) {
+      promote(path, length, target);
+      if (proxy) state.leafProxies.set(key, proxy);
+    }
+  };
+  const truncate = (depth, path, length) => {
+    if (depth === dimensions.length - 1) {
+      const key = keyOf(path);
+      const dense = state.denseLeaves.get(key);
+      if (dense) {
+        dense.length = length;
+        return;
+      }
+      const pages = pageMap(path);
+      if (pages) for (const [pageIndex, page] of pages) {
+        const start = pageIndex * effectivePageSize;
+        if (start >= length) pages.delete(pageIndex);
+        else if (start + effectivePageSize > length) {
+          for (let offset = Math.max(0, length - start); offset < effectivePageSize; offset++) {
+            if (page.values[offset] !== zero) {
+              page.values[offset] = zero;
+              page.nonDefault--;
+            }
+          }
+          if (page.nonDefault === 0) pages.delete(pageIndex);
+        }
+      }
+      if (pages?.size === 0) state.pages.delete(key);
+      return;
+    }
+    for (const collection of [state.pages, state.denseLeaves, state.leafProxies, state.lengths, state.assigned]) {
+      for (const key of [...collection.keys()]) {
+        const candidate = pathOf(key);
+        if (samePrefix(candidate, path) && candidate.length > depth && candidate[depth] >= length) collection.delete(key);
+      }
+    }
+  };
+  const valueAt = (depth, path, index) => {
+    if (depth === dimensions.length - 1) return readLeaf(path, index);
+    const childPath = [...path, index], childKey = keyOf(childPath);
+    const assigned = state.assigned.get(childKey);
+    if (assigned !== void 0) return assigned;
+    return state.leafProxies.get(childKey) ?? make(depth + 1, childPath);
+  };
+  const make = (depth, path) => {
+    const isLeaf = depth === dimensions.length - 1;
+    const initialLength = lengthAt(depth, path);
+    const dense1d = isLeaf && dimensions.length === 1 && !sparse1d;
+    const target = dense1d ? new Array(initialLength).fill(zero) : new Array(initialLength);
+    if (dense1d) state.denseLeaves.set("", target);
+    let proxy;
+    proxy = new Proxy(target, {
+      get(array2, property, receiver) {
+        if (property === Symbol.iterator) return function* pagedValues() {
+          if (!isLeaf) {
+            for (let index2 = 0; index2 < array2.length; index2++) yield valueAt(depth, path, index2);
+            return;
+          }
+          const key = keyOf(path);
+          let observedVersion = -1, dense = null, pageIndex = -1, page = null;
+          for (let index2 = 0; index2 < array2.length; index2++) {
+            const nextPageIndex = Math.floor(index2 / effectivePageSize);
+            if (observedVersion !== state.version || nextPageIndex !== pageIndex) {
+              observedVersion = state.version;
+              dense = state.denseLeaves.get(key) ?? null;
+              pageIndex = nextPageIndex;
+              page = dense ? null : state.pages.get(key)?.get(pageIndex) ?? null;
+            }
+            yield dense ? dense[index2] === void 0 ? zero : dense[index2] : page ? page.values[index2 % effectivePageSize] : zero;
+          }
+        };
+        const index = arrayIndex(property);
+        if (index == null) return Reflect.get(array2, property, receiver);
+        if (index >= array2.length) return void 0;
+        return valueAt(depth, path, index);
+      },
+      set(array2, property, value, receiver) {
+        state.version++;
+        const index = arrayIndex(property);
+        if (index == null) {
+          if (property === "length") {
+            const previous = array2.length;
+            if (!Reflect.set(array2, property, value, receiver)) return false;
+            state.lengths.set(keyOf(path), array2.length);
+            if (array2.length < previous) truncate(depth, path, array2.length);
+            else if (isLeaf) {
+              const dense = state.denseLeaves.get(keyOf(path));
+              if (dense && dense !== array2) dense.push(...new Array(array2.length - dense.length).fill(zero));
+              else if (dense === array2) for (let i = previous; i < array2.length; i++) array2[i] = zero;
+            }
+            return true;
+          }
+          return Reflect.set(array2, property, value, receiver);
+        }
+        if (index >= array2.length) {
+          const previous = array2.length;
+          array2.length = index + 1;
+          state.lengths.set(keyOf(path), array2.length);
+          if (isLeaf) {
+            const dense = state.denseLeaves.get(keyOf(path));
+            if (dense === array2) for (let i = previous; i < index; i++) array2[i] = zero;
+          }
+        }
+        if (isLeaf) writeLeaf(path, index, value, array2.length, proxy, array2);
+        else state.assigned.set(keyOf([...path, index]), value);
+        return true;
+      },
+      has(array2, property) {
+        const index = arrayIndex(property);
+        return index == null ? Reflect.has(array2, property) : index < array2.length;
+      }
+    });
+    states.set(proxy, state);
+    return proxy;
+  };
+  state.root = make(0, []);
+  return state.root;
+}
+var nestedGet = (root, indices, start = 0) => {
+  let value = root;
+  for (let depth = start; depth < indices.length; depth++) value = value[indices[depth]];
+  return value;
+};
+var nestedSet = (root, indices, value) => {
+  let target = root;
+  for (let depth = 0; depth < indices.length - 1; depth++) target = target[indices[depth]];
+  target[indices.at(-1)] = value;
+};
+var directIndices = (indices) => indices.map((index) => arrayIndex(String(index)));
+var directLengthAt = (state, depth, path) => state.lengths.get(keyOf(path)) ?? state.dimensions[depth];
+var directReadLeaf = (state, path, index) => {
+  const key = keyOf(path), dense = state.denseLeaves.get(key);
+  if (dense) return dense[index] === void 0 ? state.zero : dense[index];
+  const page = state.pages.get(key)?.get(Math.floor(index / state.pageSize));
+  return page ? page.values[index % state.pageSize] : state.zero;
+};
+var directPromote = (state, path, length) => {
+  const key = keyOf(path), dense = new Array(length).fill(state.zero), pages = state.pages.get(key);
+  if (pages) {
+    for (const [pageIndex, page] of pages) {
+      const start = pageIndex * state.pageSize;
+      for (let offset = 0; offset < page.values.length && start + offset < length; offset++) {
+        if (page.values[offset] !== state.zero) dense[start + offset] = page.values[offset];
+      }
+    }
+    state.pages.delete(key);
+  }
+  state.denseLeaves.set(key, dense);
+};
+var directWriteLeaf = (state, path, index, value, length) => {
+  const key = keyOf(path), dense = state.denseLeaves.get(key);
+  if (dense) {
+    if (dense.length < length) dense.push(...new Array(length - dense.length).fill(state.zero));
+    dense[index] = value;
+    return;
+  }
+  const pageIndex = Math.floor(index / state.pageSize), offset = index % state.pageSize;
+  let pages = state.pages.get(key), page = pages?.get(pageIndex);
+  if (value === state.zero) {
+    if (!page || page.values[offset] === state.zero) return;
+    page.values[offset] = state.zero;
+    if (--page.nonDefault === 0) {
+      pages.delete(pageIndex);
+      if (pages.size === 0) state.pages.delete(key);
+    }
+    return;
+  }
+  if (!page) {
+    if (!pages) state.pages.set(key, pages = /* @__PURE__ */ new Map());
+    pages.set(pageIndex, page = { values: new Array(state.pageSize).fill(state.zero), nonDefault: 0 });
+  }
+  if (page.values[offset] === state.zero) page.nonDefault++;
+  page.values[offset] = value;
+  if (pages.size * state.pageSize >= Math.max(1, Math.ceil(length * state.denseThreshold))) directPromote(state, path, length);
+};
+function pagedArrayGet(value, indices) {
+  const state = states.get(value);
+  if (!state) return nestedGet(value, indices);
+  if (!Array.isArray(indices) || indices.length !== state.dimensions.length) throw new RangeError("Index dimensionality mismatch");
+  const normalized = directIndices(indices);
+  if (normalized.includes(null)) return nestedGet(state.root, indices);
+  const path = [];
+  for (let depth = 0; depth < state.dimensions.length - 1; depth++) {
+    const index2 = normalized[depth];
+    if (index2 >= directLengthAt(state, depth, path)) return nestedGet(state.root, indices);
+    path.push(index2);
+    const assigned = state.assigned.get(keyOf(path));
+    if (assigned !== void 0) return nestedGet(assigned, indices, depth + 1);
+  }
+  const index = normalized.at(-1);
+  return index < directLengthAt(state, state.dimensions.length - 1, path) ? directReadLeaf(state, path, index) : void 0;
+}
+function pagedArraySet(value, indices, next) {
+  const state = states.get(value);
+  if (!state) {
+    nestedSet(value, indices, next);
+    return;
+  }
+  if (!Array.isArray(indices) || indices.length !== state.dimensions.length) throw new RangeError("Index dimensionality mismatch");
+  const normalized = directIndices(indices);
+  if (normalized.includes(null)) {
+    nestedSet(state.root, indices, next);
+    return;
+  }
+  const path = [];
+  for (let depth = 0; depth < state.dimensions.length - 1; depth++) {
+    const index2 = normalized[depth];
+    if (index2 >= directLengthAt(state, depth, path)) {
+      nestedSet(state.root, indices, next);
+      return;
+    }
+    path.push(index2);
+    if (state.assigned.get(keyOf(path)) !== void 0) {
+      nestedSet(state.root, indices, next);
+      return;
+    }
+  }
+  state.version++;
+  const index = normalized.at(-1), key = keyOf(path);
+  let length = directLengthAt(state, state.dimensions.length - 1, path);
+  if (index >= length) {
+    length = index + 1;
+    state.lengths.set(key, length);
+  }
+  directWriteLeaf(state, path, index, next, length);
+}
+function pagedDenseBacking(value) {
+  const state = states.get(value);
+  if (!state || value !== state.root || state.dimensions.length !== 1) return null;
+  return state.denseLeaves.get("") ?? null;
+}
+
 // deferred-local.mjs
 function deferLocalArray(cell, size, zero) {
   if (!Number.isInteger(size) || size < 0 || size > 4294967295) {
@@ -3341,7 +3733,7 @@ var Int1DValue = class _Int1DValue {
     this.name = name;
     this.saveShape = [...realSize];
     if (name === "LOCAL") deferLocalArray(this, realSize[0], 0n);
-    else this.value = new Array(realSize[0]).fill(0n);
+    else this.value = createPagedArray(realSize, 0n);
   }
   reset(value) {
     for (let i = 0; i < this.value.length; ++i) {
@@ -3575,7 +3967,7 @@ var Str1DValue = class _Str1DValue {
     cond(realSize.length === 1, `${name} is not a ${realSize.length}D variable`);
     this.name = name;
     if (name === "LOCALS") deferLocalArray(this, realSize[0], "");
-    else this.value = new Array(realSize[0]).fill("");
+    else this.value = createPagedArray(realSize, "");
   }
   reset(value) {
     for (let i = 0; i < this.value.length; ++i) {
@@ -3791,7 +4183,7 @@ var AddChara = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER8);
+    this.arg = new lazy_default(raw, PARSER8);
   }
   async *run(vm2) {
     for (const expr2 of this.arg.get()) {
@@ -3811,7 +4203,7 @@ var AddCopyChara = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER9);
+    this.arg = new lazy_default(raw, PARSER9);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
   async *run() {
@@ -3856,7 +4248,7 @@ var Alignment = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER12);
+    this.arg = new lazy_default(raw, PARSER12);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
   async *run(vm2) {
@@ -3871,7 +4263,7 @@ var ArrayShift = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER13);
+    this.arg = new lazy_default(raw, PARSER13);
   }
   async *run(vm2) {
     const [targetExpr, countExpr, fillExpr] = this.arg.get();
@@ -3909,7 +4301,7 @@ var Bar = class extends Statement {
   newline;
   constructor(raw, newline = false) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER14);
+    this.arg = new lazy_default(raw, PARSER14);
     this.newline = newline;
   }
   async *run(vm2) {
@@ -3939,7 +4331,7 @@ var Begin = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER15);
+    this.arg = new lazy_default(raw, PARSER15);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
   async *run() {
@@ -4005,7 +4397,7 @@ var Call = class _Call extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, _Call.PARSER);
+    this.arg = new lazy_default(raw, _Call.PARSER);
   }
   async *run(vm2) {
     const [target, argExpr] = this.arg.get();
@@ -4045,7 +4437,7 @@ var CallF = class _CallF extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, Call.PARSER);
+    this.arg = new lazy_default(raw, Call.PARSER);
   }
   async *run(vm2) {
     const [target, argExpr] = this.arg.get();
@@ -4062,7 +4454,7 @@ var CallForm = class _CallForm extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, _CallForm.PARSER("(,"));
+    this.arg = new lazy_default(raw, _CallForm.PARSER("(,"));
   }
   async *run(vm2) {
     const [targetExpr, argExpr] = this.arg.get();
@@ -4077,7 +4469,7 @@ var CallFormF = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, CallForm.PARSER("(,"));
+    this.arg = new lazy_default(raw, CallForm.PARSER("(,"));
   }
   async *run(vm2) {
     const [targetExpr, argExpr] = this.arg.get();
@@ -4093,7 +4485,7 @@ var CallTrain = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER17);
+    this.arg = new lazy_default(raw, PARSER17);
   }
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
@@ -4104,6 +4496,69 @@ var CallTrain = class extends Statement {
 
 // ../../.my_agent_remote/undercrow__eraJS/build/statement/command/case.js
 var import_parsimmon9 = __toESM(require_parsimmon_umd_min());
+
+// compact-function-ir.mjs
+function encodePrintFlags(flags) {
+  let mask = 0;
+  for (const flag of flags) {
+    const code = flag.charCodeAt(0) - 65;
+    if (code < 0 || code >= 26) throw new RangeError(`Unsupported PRINT flag: ${flag}`);
+    mask |= 1 << code;
+  }
+  return mask;
+}
+function hasPrintFlag(flags, flag) {
+  if (typeof flags !== "number") return flags.has(flag);
+  const code = flag.charCodeAt(0) - 65;
+  return code >= 0 && code < 26 && (flags & 1 << code) !== 0;
+}
+function compactStatementVector(statements) {
+  return statements.length === 0 ? null : statements.length === 1 ? statements[0] : statements;
+}
+function statementVectorLength(statements) {
+  return statements == null ? 0 : Array.isArray(statements) ? statements.length : 1;
+}
+function statementVectorAt(statements, index) {
+  return Array.isArray(statements) ? statements[index] : index === 0 ? statements : void 0;
+}
+
+// compact-label-map.mjs
+var CompactLabelMap = class {
+  key;
+  value;
+  overflow;
+  set(key, value) {
+    if (this.overflow) {
+      this.overflow.set(key, value);
+    } else if (this.key === void 0 || this.key === key) {
+      this.key = key;
+      this.value = value;
+    } else {
+      this.overflow = /* @__PURE__ */ new Map([[this.key, this.value], [key, value]]);
+      this.key = void 0;
+      this.value = void 0;
+    }
+    return this;
+  }
+  get(key) {
+    if (this.overflow) return this.overflow.get(key);
+    return this.key === key ? this.value : void 0;
+  }
+  has(key) {
+    if (this.overflow) return this.overflow.has(key);
+    return this.key !== void 0 && this.key === key;
+  }
+  forEach(callback, thisArg) {
+    if (this.overflow) {
+      this.overflow.forEach((value, key) => callback.call(thisArg, value, key, this));
+    } else if (this.key !== void 0) {
+      callback.call(thisArg, this.value, this.key, this);
+    }
+  }
+  get size() {
+    return this.overflow?.size ?? (this.key === void 0 ? 0 : 1);
+  }
+};
 
 // ../../.my_agent_remote/undercrow__eraJS/build/statement/command/dowhile.js
 var LOOP = /^LOOP\s+/i;
@@ -4123,7 +4578,7 @@ var DoWhile = class _DoWhile extends Statement {
   thunk;
   constructor(raw, thunk) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER_COND);
+    this.arg = new lazy_default(raw, PARSER_COND);
     this.thunk = thunk;
   }
   async *run(vm2, label) {
@@ -4173,7 +4628,7 @@ var For = class _For extends Statement {
   thunk;
   constructor(raw, thunk) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER18);
+    this.arg = new lazy_default(raw, PARSER18);
     this.thunk = thunk;
   }
   async *run(vm2, label) {
@@ -4258,7 +4713,7 @@ var If = class _If extends Statement {
     super(ifThunk[0][0]);
     this.ifThunk = ifThunk.map(([raw, thunk]) => [
       raw,
-      new Lazy(raw, PARSER19),
+      new lazy_default(raw, PARSER19),
       thunk
     ]);
     this.elseThunk = elseThunk;
@@ -4299,7 +4754,7 @@ var Repeat = class _Repeat extends Statement {
   thunk;
   constructor(raw, thunk) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER20);
+    this.arg = new lazy_default(raw, PARSER20);
     this.thunk = thunk;
   }
   async *run(vm2, label) {
@@ -4350,7 +4805,7 @@ var While = class _While extends Statement {
   thunk;
   constructor(raw, thunk) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER21);
+    this.arg = new lazy_default(raw, PARSER21);
     this.thunk = thunk;
   }
   async *run(vm2, label) {
@@ -4398,7 +4853,7 @@ var Thunk = class {
   // NOTE: `statement` argument is mixed array of statments and labels
   constructor(statement) {
     this.statement = [];
-    this.labelMap = /* @__PURE__ */ new Map();
+    this.labelMap = new CompactLabelMap();
     for (let i = 0; i < statement.length; ++i) {
       const s = statement[i];
       if (typeof s === "string") {
@@ -4429,14 +4884,15 @@ var Thunk = class {
         s.thunk.labelMap.forEach((_, l) => this.labelMap.set(l, i));
       }
     }
+    this.statement = compactStatementVector(this.statement);
   }
   async *run(vm2, label) {
     let start = 0;
     if (label != null) {
       start = this.labelMap.get(label) ?? 0;
     }
-    for (let i = start; i < this.statement.length; ++i) {
-      const statement = this.statement[i];
+    for (let i = start; i < statementVectorLength(this.statement); ++i) {
+      const statement = statementVectorAt(this.statement, i);
       const result = yield* vm2.run(statement, label);
       switch (result?.type) {
         case "begin":
@@ -4507,8 +4963,8 @@ var Case = class _Case extends Statement {
   def;
   constructor(raw, branch, def) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER_EXPR);
-    this.branch = branch.map(([cond2, thunk]) => [new Lazy(cond2, PARSER_BRANCH), thunk]);
+    this.arg = new lazy_default(raw, PARSER_EXPR);
+    this.branch = branch.map(([cond2, thunk]) => [new lazy_default(cond2, PARSER_BRANCH), thunk]);
     this.def = def;
   }
   async *run(vm2, label) {
@@ -4517,6 +4973,9 @@ var Case = class _Case extends Statement {
         if (thunk.labelMap.has(label)) {
           return yield* thunk.run(vm2, label);
         }
+      }
+      if (this.def.labelMap.has(label)) {
+        return yield* this.def.run(vm2, label);
       }
     }
     const value = await this.arg.get().reduce(vm2);
@@ -4546,7 +5005,7 @@ var Case = class _Case extends Statement {
         return yield* expr2.run(vm2);
       }
     }
-    return null;
+    return yield* this.def.run(vm2);
   }
 };
 
@@ -4604,7 +5063,7 @@ var ChkData = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER25);
+    this.arg = new lazy_default(raw, PARSER25);
   }
   async *run(vm2) {
     const index = await this.arg.get().reduce(vm2);
@@ -4651,7 +5110,7 @@ var ChkFont = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER26);
+    this.arg = new lazy_default(raw, PARSER26);
   }
   async *run(vm2) {
     const arg = await this.arg.get().reduce(vm2);
@@ -4668,7 +5127,7 @@ var ClearBit = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER27);
+    this.arg = new lazy_default(raw, PARSER27);
   }
   async *run(vm2) {
     const [destExpr, ...bitExpr] = this.arg.get();
@@ -4695,7 +5154,7 @@ var ClearLine = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER28);
+    this.arg = new lazy_default(raw, PARSER28);
   }
   async *run(vm2) {
     const count = await this.arg.get().reduce(vm2);
@@ -4740,7 +5199,7 @@ var CopyChara = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER31);
+    this.arg = new lazy_default(raw, PARSER31);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
   async *run() {
@@ -4820,7 +5279,7 @@ var CustomDrawLine = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER35);
+    this.arg = new lazy_default(raw, PARSER35);
   }
   async *run(vm2) {
     const value = this.arg.get();
@@ -4835,7 +5294,7 @@ var VarSet = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER36);
+    this.arg = new lazy_default(raw, PARSER36);
   }
   async *run(vm2) {
     const [destExpr, indexExpr, valueExpr, startExpr, endExpr] = this.arg.get();
@@ -4897,7 +5356,7 @@ var DelChara = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER39);
+    this.arg = new lazy_default(raw, PARSER39);
   }
   async *run(vm2) {
     const arg = this.arg.get();
@@ -4922,7 +5381,7 @@ var DelData = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER40);
+    this.arg = new lazy_default(raw, PARSER40);
   }
   async *run(vm2) {
     const index = await this.arg.get().reduce(vm2);
@@ -4951,7 +5410,7 @@ var DrawLineForm = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER42);
+    this.arg = new lazy_default(raw, PARSER42);
   }
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
@@ -4980,7 +5439,7 @@ var EncodeToUni = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER44);
+    this.arg = new lazy_default(raw, PARSER44);
   }
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
@@ -5000,7 +5459,7 @@ var Escape = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER45);
+    this.arg = new lazy_default(raw, PARSER45);
   }
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
@@ -5075,7 +5534,7 @@ var FontStyle = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER49);
+    this.arg = new lazy_default(raw, PARSER49);
   }
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
@@ -5108,7 +5567,7 @@ var GetExpLv = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER51);
+    this.arg = new lazy_default(raw, PARSER51);
   }
   async *run(vm2) {
     const [valExpr, maxExpr] = this.arg.get();
@@ -5166,7 +5625,7 @@ var GetPalamLv = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER54);
+    this.arg = new lazy_default(raw, PARSER54);
   }
   async *run(vm2) {
     const [valExpr, maxExpr] = this.arg.get();
@@ -5249,7 +5708,7 @@ var Goto = class _Goto extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER58);
+    this.arg = new lazy_default(raw, PARSER58);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
   async *run(vm2) {
@@ -5264,7 +5723,7 @@ var GotoForm = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER59);
+    this.arg = new lazy_default(raw, PARSER59);
   }
   async *run(vm2) {
     const arg = await this.arg.get().reduce(vm2);
@@ -5286,7 +5745,7 @@ var Input = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER60);
+    this.arg = new lazy_default(raw, PARSER60);
   }
   async *run(vm2) {
     const arg = this.arg.get();
@@ -5309,7 +5768,7 @@ var InputS = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER61);
+    this.arg = new lazy_default(raw, PARSER61);
   }
   async *run(vm2) {
     const arg = this.arg.get();
@@ -5344,7 +5803,7 @@ var InvertBit = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER63);
+    this.arg = new lazy_default(raw, PARSER63);
   }
   async *run(vm2) {
     const [destExpr, ...bitExpr] = this.arg.get();
@@ -5407,7 +5866,7 @@ var Jump = class _Jump extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, Call.PARSER);
+    this.arg = new lazy_default(raw, Call.PARSER);
   }
   async *run(vm2) {
     const [target, argExpr] = this.arg.get();
@@ -5420,7 +5879,7 @@ var JumpForm = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, CallForm.PARSER("("));
+    this.arg = new lazy_default(raw, CallForm.PARSER("("));
   }
   async *run(vm2) {
     const [targetExpr, argExpr] = this.arg.get();
@@ -5452,7 +5911,7 @@ var Int2DValue = class _Int2DValue {
     cond(realSize.length === 2, `${name} is not a ${realSize.length}D variable`);
     this.name = name;
     this.saveShape = [...realSize];
-    this.value = new Array(realSize[0]).fill(0).map(() => new Array(realSize[1]).fill(0n));
+    this.value = createPagedArray(realSize, 0n);
   }
   reset(value) {
     for (let i = 0; i < this.value.length; ++i) {
@@ -5469,12 +5928,12 @@ var Int2DValue = class _Int2DValue {
   }
   get(_vm, index) {
     const realIndex = _Int2DValue.normalizeIndex(this.name, index);
-    return this.value[realIndex[0]][realIndex[1]];
+    return pagedArrayGet(this.value, realIndex);
   }
   set(_vm, value, index) {
     const realIndex = _Int2DValue.normalizeIndex(this.name, index);
     bigint(value, "Cannot assign a string to a numeric variable");
-    this.value[realIndex[0]][realIndex[1]] = value;
+    pagedArraySet(this.value, realIndex, value);
   }
   // NOTE: index, range are ignored (Emuera emulation)
   rangeSet(_vm, value, _index, _range) {
@@ -5524,7 +5983,7 @@ var Int3DValue = class _Int3DValue {
     cond(realSize.length === 3, `${name} is not a ${realSize.length}D variable`);
     this.name = name;
     this.saveShape = [...realSize];
-    this.value = new Array(realSize[0]).fill(0).map(() => new Array(realSize[1]).fill(0).map(() => new Array(realSize[2]).fill(0n)));
+    this.value = createPagedArray(realSize, 0n);
   }
   reset(value) {
     for (let i = 0; i < this.value.length; ++i) {
@@ -5545,12 +6004,12 @@ var Int3DValue = class _Int3DValue {
   }
   get(_vm, index) {
     const realIndex = _Int3DValue.normalizeIndex(this.name, index);
-    return this.value[realIndex[0]][realIndex[1]][realIndex[2]];
+    return pagedArrayGet(this.value, realIndex);
   }
   set(_vm, value, index) {
     const realIndex = _Int3DValue.normalizeIndex(this.name, index);
     bigint(value, "Cannot assign a string to a numeric variable");
-    this.value[realIndex[0]][realIndex[1]][realIndex[2]] = BigInt(value);
+    pagedArraySet(this.value, realIndex, BigInt(value));
   }
   // NOTE: index, range are ignored (Emuera emulation)
   rangeSet(_vm, value, _index, _range) {
@@ -5585,7 +6044,7 @@ var LoadData = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER66);
+    this.arg = new lazy_default(raw, PARSER66);
   }
   async *run(vm2) {
     const index = await this.arg.get().reduce(vm2);
@@ -5745,7 +6204,7 @@ var Method = class extends Statement {
   constructor(name, raw) {
     super(raw);
     this.name = name;
-    this.arg = new Lazy(raw, PARSER69);
+    this.arg = new lazy_default(raw, PARSER69);
   }
   async *run(vm2) {
     const arg = this.arg.get();
@@ -5949,7 +6408,7 @@ var OneInput = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER73);
+    this.arg = new lazy_default(raw, PARSER73);
   }
   // TODO: use only the first character of argument
   async *run(vm2) {
@@ -5973,7 +6432,7 @@ var OneInputS = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER74);
+    this.arg = new lazy_default(raw, PARSER74);
   }
   async *run(vm2) {
     const arg = this.arg.get();
@@ -6008,7 +6467,7 @@ var PickupChara = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER76);
+    this.arg = new lazy_default(raw, PARSER76);
   }
   async *run(vm2) {
     const argExpr = this.arg.get();
@@ -6051,8 +6510,8 @@ var Print = class extends Statement {
   value;
   constructor(flags, raw) {
     super(raw);
-    this.flags = new Set(flags);
-    this.value = new Lazy(raw, PARSER77);
+    this.flags = encodePrintFlags(flags);
+    this.value = new lazy_default(raw, PARSER77);
   }
   async *run(vm2) {
     if (vm2.printer.skipDisp) {
@@ -6071,7 +6530,7 @@ var PrintButton = class extends Statement {
   constructor(raw, align) {
     super(raw);
     this.align = align;
-    this.arg = new Lazy(raw, PARSER78);
+    this.arg = new lazy_default(raw, PARSER78);
   }
   async *run(vm2) {
     const [textExpr, valueExpr] = this.arg.get();
@@ -6092,8 +6551,8 @@ var PrintC = class extends Statement {
   constructor(align, flags, raw) {
     super(raw);
     this.align = align;
-    this.flags = new Set(flags);
-    this.value = new Lazy(raw, PARSER79);
+    this.flags = encodePrintFlags(flags);
+    this.value = new lazy_default(raw, PARSER79);
   }
   async *run(vm2) {
     if (vm2.printer.skipDisp) {
@@ -6139,11 +6598,11 @@ var PrintData = class _PrintData extends Statement {
       const current = lines[index];
       index += 1;
       if (DATA.test(current.content)) {
-        data.push(new Lazy(current.slice("DATA".length), PARSER_CONST));
+        data.push(new lazy_default(current.slice("DATA".length), PARSER_CONST));
       } else if (DATAFORM.test(current.content)) {
-        data.push(new Lazy(current.slice("DATAFORM".length), PARSER_FORM));
+        data.push(new lazy_default(current.slice("DATAFORM".length), PARSER_FORM));
       } else if (DATAFORM_EMPTY.test(current.content)) {
-        data.push(new Lazy(current.slice("DATAFORM".length), PARSER_CONST));
+        data.push(new lazy_default(current.slice("DATAFORM".length), PARSER_CONST));
       } else if (DATALIST.test(current.content) || ENDLIST.test(current.content)) {
       } else if (ENDDATA.test(current.content)) {
         return [new _PrintData(lines[from], flags, data), index - from];
@@ -6156,7 +6615,7 @@ var PrintData = class _PrintData extends Statement {
   data;
   constructor(raw, flags, data) {
     super(raw);
-    this.flags = new Set(flags);
+    this.flags = encodePrintFlags(flags);
     this.data = data;
   }
   async *run(vm2) {
@@ -6178,14 +6637,16 @@ var PrintForm = class extends Statement {
   arg;
   constructor(flags, raw) {
     super(raw);
-    this.flags = new Set(flags);
-    this.arg = new Lazy(raw, PARSER81);
+    this.flags = encodePrintFlags(flags);
+    this.arg = null;
   }
   async *run(vm2) {
     if (vm2.printer.skipDisp) {
       return null;
     }
-    const value = await this.arg.get().reduce(vm2);
+    const arg = this.arg ?? tryParse(PARSER81, this.raw);
+    this.arg = arg;
+    const value = await arg.reduce(vm2);
     yield* vm2.printer.print(value, this.flags);
     return null;
   }
@@ -6200,8 +6661,8 @@ var PrintFormC = class extends Statement {
   constructor(align, flags, raw) {
     super(raw);
     this.align = align;
-    this.flags = new Set(flags);
-    this.arg = new Lazy(raw, PARSER82);
+    this.flags = encodePrintFlags(flags);
+    this.arg = new lazy_default(raw, PARSER82);
   }
   async *run(vm2) {
     if (vm2.printer.skipDisp) {
@@ -6220,8 +6681,8 @@ var PrintFormS = class extends Statement {
   arg;
   constructor(flags, raw) {
     super(raw);
-    this.flags = new Set(flags);
-    this.arg = new Lazy(raw, PARSER83);
+    this.flags = encodePrintFlags(flags);
+    this.arg = new lazy_default(raw, PARSER83);
   }
   async *run(vm2) {
     if (vm2.printer.skipDisp) {
@@ -6242,7 +6703,7 @@ var PrintPalam = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER84);
+    this.arg = new lazy_default(raw, PARSER84);
   }
   async *run(vm2) {
     if (vm2.printer.skipDisp) {
@@ -6304,11 +6765,11 @@ var PrintPlain = class extends Statement {
     super(raw);
     switch (postfix) {
       case null: {
-        this.arg = new Lazy(raw, PARSER_CONST2);
+        this.arg = new lazy_default(raw, PARSER_CONST2);
         break;
       }
       case "FORM": {
-        this.arg = new Lazy(raw, PARSER_FORM2);
+        this.arg = new lazy_default(raw, PARSER_FORM2);
       }
     }
   }
@@ -6330,8 +6791,8 @@ var PrintS = class extends Statement {
   arg;
   constructor(flags, raw) {
     super(raw);
-    this.flags = new Set(flags);
-    this.arg = new Lazy(raw, PARSER85);
+    this.flags = encodePrintFlags(flags);
+    this.arg = new lazy_default(raw, PARSER85);
   }
   async *run(vm2) {
     if (vm2.printer.skipDisp) {
@@ -6386,8 +6847,8 @@ var PrintV = class extends Statement {
   value;
   constructor(flags, raw) {
     super(raw);
-    this.flags = new Set(flags);
-    this.value = new Lazy(raw, PARSER87);
+    this.flags = encodePrintFlags(flags);
+    this.value = new lazy_default(raw, PARSER87);
   }
   async *run(vm2) {
     if (vm2.printer.skipDisp) {
@@ -6408,7 +6869,7 @@ var PutForm = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER88);
+    this.arg = new lazy_default(raw, PARSER88);
   }
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
@@ -6440,7 +6901,7 @@ var Randomize = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER90);
+    this.arg = new lazy_default(raw, PARSER90);
   }
   async *run(vm2) {
     const seed = await this.arg.get().reduce(vm2);
@@ -6456,7 +6917,7 @@ var Redraw = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER91);
+    this.arg = new lazy_default(raw, PARSER91);
   }
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
@@ -6543,7 +7004,7 @@ var ResetStain = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER96);
+    this.arg = new lazy_default(raw, PARSER96);
   }
   async *run(vm2) {
     const num = await this.arg.get().reduce(vm2);
@@ -6577,7 +7038,7 @@ var Return = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER98);
+    this.arg = new lazy_default(raw, PARSER98);
   }
   async *run(vm2) {
     const result = [];
@@ -6597,7 +7058,7 @@ var ReturnF = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER99);
+    this.arg = new lazy_default(raw, PARSER99);
   }
   async *run(vm2) {
     return {
@@ -6613,7 +7074,7 @@ var ReuseLastLine = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER100);
+    this.arg = new lazy_default(raw, PARSER100);
   }
   async *run(vm2) {
     const value = await this.arg.get()?.reduce(vm2) ?? "";
@@ -6627,14 +7088,15 @@ var ReuseLastLine = class extends Statement {
 // compact-save.mjs
 function compactIntegers(value, shape, depth = 0) {
   if (!Array.isArray(shape) || depth >= shape.length) throw new Error("Missing integer save shape");
-  let end = value.length;
+  const source = (depth === 0 && shape.length === 1 ? pagedDenseBacking(value) : null) ?? value;
+  let end = source.length;
   const leaf = depth === shape.length - 1;
   if (leaf && end <= shape[depth]) {
-    while (end && value[end - 1] === 0n) end--;
+    while (end && source[end - 1] === 0n) end--;
   }
   const result = new Array(end);
   for (let i = 0; i < end; i++) {
-    result[i] = leaf ? value[i].toString() : compactIntegers(value[i], shape, depth + 1);
+    result[i] = leaf ? source[i].toString() : compactIntegers(source[i], shape, depth + 1);
   }
   if (!leaf && end <= shape[depth]) {
     while (end && result[end - 1].length === 0) end--;
@@ -6832,7 +7294,7 @@ var SaveData = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER101);
+    this.arg = new lazy_default(raw, PARSER101);
   }
   async *run(vm2) {
     const [indexExpr, commentExpr] = this.arg.get();
@@ -6955,7 +7417,7 @@ var SetBgColor = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER104);
+    this.arg = new lazy_default(raw, PARSER104);
   }
   async *run(vm2) {
     const parsed = this.arg.get();
@@ -6984,7 +7446,7 @@ var SetBgColorByName = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER105);
+    this.arg = new lazy_default(raw, PARSER105);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
   async *run(_vm) {
@@ -6999,7 +7461,7 @@ var SetBit = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER106);
+    this.arg = new lazy_default(raw, PARSER106);
   }
   async *run(vm2) {
     const [destExpr, ...bitExpr] = this.arg.get();
@@ -7028,7 +7490,7 @@ var SetColor = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER107);
+    this.arg = new lazy_default(raw, PARSER107);
   }
   async *run(vm2) {
     const parsed = this.arg.get();
@@ -7057,7 +7519,7 @@ var SetColorByName = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER108);
+    this.arg = new lazy_default(raw, PARSER108);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
   async *run(_vm) {
@@ -7072,7 +7534,7 @@ var SetFont = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER109);
+    this.arg = new lazy_default(raw, PARSER109);
   }
   async *run(vm2) {
     const font = await this.arg.get()?.reduce(vm2) ?? "";
@@ -7088,7 +7550,7 @@ var SkipDisp = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER110);
+    this.arg = new lazy_default(raw, PARSER110);
   }
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
@@ -7104,7 +7566,7 @@ var SortChara = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER111);
+    this.arg = new lazy_default(raw, PARSER111);
   }
   async *run(vm2) {
     let [varExpr, order] = this.arg.get();
@@ -7176,7 +7638,7 @@ var Split = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER112);
+    this.arg = new lazy_default(raw, PARSER112);
   }
   async *run(vm2) {
     const [valueExpr, sepExpr, destExpr] = this.arg.get();
@@ -7229,7 +7691,7 @@ var StrFind = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER115);
+    this.arg = new lazy_default(raw, PARSER115);
   }
   async *run(vm2) {
     const [valueExpr, searchExpr] = this.arg.get();
@@ -7248,7 +7710,7 @@ var StrFindU = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER116);
+    this.arg = new lazy_default(raw, PARSER116);
   }
   async *run(vm2) {
     const [valueExpr, searchExpr] = this.arg.get();
@@ -7267,7 +7729,7 @@ var StrLen = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER117);
+    this.arg = new lazy_default(raw, PARSER117);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
   async *run(vm2) {
@@ -7284,7 +7746,7 @@ var StrLenForm = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER118);
+    this.arg = new lazy_default(raw, PARSER118);
   }
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
@@ -7300,7 +7762,7 @@ var StrLenFormU = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER119);
+    this.arg = new lazy_default(raw, PARSER119);
   }
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
@@ -7316,7 +7778,7 @@ var StrLen2 = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER120);
+    this.arg = new lazy_default(raw, PARSER120);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
   async *run(vm2) {
@@ -7333,7 +7795,7 @@ var Substring = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER121);
+    this.arg = new lazy_default(raw, PARSER121);
   }
   async *run(vm2) {
     const [valueExpr, startExpr, endExpr] = this.arg.get();
@@ -7358,7 +7820,7 @@ var SubstringU = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER122);
+    this.arg = new lazy_default(raw, PARSER122);
   }
   async *run(vm2) {
     const [valueExpr, startExpr, endExpr] = this.arg.get();
@@ -7383,7 +7845,7 @@ var Swap = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER123);
+    this.arg = new lazy_default(raw, PARSER123);
   }
   async *run(vm2) {
     const [leftExpr, rightExpr] = this.arg.get();
@@ -7405,7 +7867,7 @@ var SwapChara = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER124);
+    this.arg = new lazy_default(raw, PARSER124);
   }
   async *run(vm2) {
     const [leftExpr, rightExpr] = this.arg.get();
@@ -7426,7 +7888,7 @@ var Throw = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER125);
+    this.arg = new lazy_default(raw, PARSER125);
   }
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
@@ -7444,7 +7906,7 @@ var Times = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER126);
+    this.arg = new lazy_default(raw, PARSER126);
   }
   async *run(vm2) {
     const [dest, value] = this.arg.get();
@@ -7472,7 +7934,7 @@ var TInput = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER127);
+    this.arg = new lazy_default(raw, PARSER127);
   }
   async *run(vm2) {
     const [timeoutExpr, defExpr, showExpr, message] = this.arg.get();
@@ -7504,7 +7966,7 @@ var TInputS = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER128);
+    this.arg = new lazy_default(raw, PARSER128);
   }
   async *run(vm2) {
     const [timeoutExpr, defExpr, showExpr, message] = this.arg.get();
@@ -7536,7 +7998,7 @@ var TOneInput = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER129);
+    this.arg = new lazy_default(raw, PARSER129);
   }
   async *run(vm2) {
     const [timeoutExpr, defExpr, showExpr, message] = this.arg.get();
@@ -7568,7 +8030,7 @@ var TOneInputS = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER130);
+    this.arg = new lazy_default(raw, PARSER130);
   }
   async *run(vm2) {
     const [timeoutExpr, defExpr, showExpr, message] = this.arg.get();
@@ -7599,7 +8061,7 @@ var TryCall = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, Call.PARSER);
+    this.arg = new lazy_default(raw, Call.PARSER);
   }
   async *run(vm2) {
     const [target, argExpr] = this.arg.get();
@@ -7616,7 +8078,7 @@ var TryCallForm = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, CallForm.PARSER("(,"));
+    this.arg = new lazy_default(raw, CallForm.PARSER("(,"));
   }
   async *run(vm2) {
     const [targetExpr, argExpr] = this.arg.get();
@@ -7645,7 +8107,7 @@ var TryCCall = class _TryCCall extends Statement {
   catchThunk;
   constructor(raw, thenThunk, catchThunk) {
     super(raw);
-    this.arg = new Lazy(raw, Call.PARSER);
+    this.arg = new lazy_default(raw, Call.PARSER);
     this.thenThunk = thenThunk;
     this.catchThunk = catchThunk;
   }
@@ -7684,7 +8146,7 @@ var TryCCallForm = class _TryCCallForm extends Statement {
   catchThunk;
   constructor(raw, thenThunk, catchThunk) {
     super(raw);
-    this.arg = new Lazy(raw, CallForm.PARSER(""));
+    this.arg = new lazy_default(raw, CallForm.PARSER(""));
     this.thenThunk = thenThunk;
     this.catchThunk = catchThunk;
   }
@@ -7727,7 +8189,7 @@ var TryCGoto = class _TryCGoto extends Statement {
   catchThunk;
   constructor(raw, catchThunk) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER131);
+    this.arg = new lazy_default(raw, PARSER131);
     this.catchThunk = catchThunk;
   }
   async *run(vm2, label) {
@@ -7762,7 +8224,7 @@ var TryCGotoForm = class _TryCGotoForm extends Statement {
   catchThunk;
   constructor(raw, catchThunk) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER132);
+    this.arg = new lazy_default(raw, PARSER132);
     this.catchThunk = catchThunk;
   }
   async *run(vm2, label) {
@@ -7796,7 +8258,7 @@ var TryCJump = class _TryCJump extends Statement {
   catchExpr;
   constructor(raw, catchExpr) {
     super(raw);
-    this.arg = new Lazy(raw, Call.PARSER);
+    this.arg = new lazy_default(raw, Call.PARSER);
     this.catchExpr = catchExpr;
   }
   async *run(vm2, label) {
@@ -7830,7 +8292,7 @@ var TryCJumpForm = class _TryCJumpForm extends Statement {
   catchThunk;
   constructor(raw, catchThunk) {
     super(raw);
-    this.arg = new Lazy(raw, CallForm.PARSER(""));
+    this.arg = new lazy_default(raw, CallForm.PARSER(""));
     this.catchThunk = catchThunk;
   }
   async *run(vm2, label) {
@@ -7850,7 +8312,7 @@ var TryGoto = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER133);
+    this.arg = new lazy_default(raw, PARSER133);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
   async *run(vm2) {
@@ -7872,7 +8334,7 @@ var TryGotoForm = class _TryGotoForm extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER134);
+    this.arg = new lazy_default(raw, PARSER134);
   }
   async *run(vm2) {
     const target = (await this.arg.get().reduce(vm2)).toUpperCase();
@@ -7889,7 +8351,7 @@ var TryJump = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, Call.PARSER);
+    this.arg = new lazy_default(raw, Call.PARSER);
   }
   async *run(vm2) {
     const [target, argExpr] = this.arg.get();
@@ -7906,7 +8368,7 @@ var TryJumpForm = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, CallForm.PARSER("("));
+    this.arg = new lazy_default(raw, CallForm.PARSER("("));
   }
   async *run(vm2) {
     const [targetExpr, argExpr] = this.arg.get();
@@ -7961,7 +8423,7 @@ var VarSet2 = class extends Statement {
   arg;
   constructor(raw) {
     super(raw);
-    this.arg = new Lazy(raw, PARSER136);
+    this.arg = new lazy_default(raw, PARSER136);
   }
   async *run(vm2) {
     const [destExpr, valueExpr, startExpr, endExpr] = this.arg.get();
@@ -8012,39 +8474,6 @@ var WaitAnyKey = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/slice.js
-var Slice = class _Slice {
-  file;
-  // NOTE: `line` is 0-indexed
-  line;
-  from;
-  to;
-  content;
-  constructor(file, line, content, from, to) {
-    this.file = file;
-    this.line = line;
-    this.content = content;
-    this.from = from ?? 0;
-    this.to = to ?? content.length;
-  }
-  slice(from, to) {
-    const newFrom = this.from + (from ?? 0);
-    let newTo;
-    if (to == null) {
-      newTo = this.to;
-    } else {
-      newTo = Math.min(this.to, this.from + to);
-    }
-    return new _Slice(this.file, this.line, this.content, newFrom, newTo);
-  }
-  get() {
-    return this.content.slice(this.from, this.to);
-  }
-  length() {
-    return this.to - this.from;
-  }
-};
-
 // ../../.my_agent_remote/undercrow__eraJS/build/parser/preprocess.js
 function normalize(raw) {
   if (raw.startsWith("\uFEFF") || raw.startsWith("\uFFEF")) {
@@ -8054,14 +8483,14 @@ function normalize(raw) {
 }
 function toLines(raw) {
   const converted = raw.replace(/\r\n/g, "\n").replace(/\r/g, "\n").split("\n");
-  return converted.map((content, index) => new Slice("", index, content));
+  return converted.map((content, index) => new CompactSlice("", index, content));
 }
 function preprocess(lines, macros) {
   const fn = [
     // Strip comments
-    (prev) => prev.map((line) => new Slice("", line.line, line.content.replace(/;.*$/, ""))),
+    (prev) => prev.map((line) => new CompactSlice("", line.line, line.content.replace(/;.*$/, ""))),
     // Trim whitespaces
-    (prev) => prev.map((line) => new Slice("", line.line, line.content.trim())),
+    (prev) => prev.map((line) => new CompactSlice("", line.line, line.content.trim())),
     // Remove empty lines
     (prev) => prev.filter((line) => line.content.length > 0),
     // Remove [SKIPSTART]~[SKIPEND] and [IF_DEBUG]~[ENDIF] lines
@@ -8112,7 +8541,7 @@ function preprocess(lines, macros) {
         if (line.content === "{") {
           const endIndex = index + prev.slice(index).findIndex((l) => l.content === "}");
           const subLines = prev.slice(index + 1, endIndex);
-          result.push(new Slice(subLines[0].file, subLines[0].line, subLines.map((l) => l.content).join("")));
+          result.push(new CompactSlice(subLines[0].file, subLines[0].line, subLines.map((l) => l.content).join("")));
           index = endIndex + 1;
         } else {
           result.push(line);
@@ -8671,7 +9100,7 @@ var Printer = class {
   }
   async *print(text, flags, cell) {
     yield* this.clearTemp();
-    if (flags.has("S") && this.chunks.length > 0) {
+    if (hasPrintFlag(flags, "S") && this.chunks.length > 0) {
       yield* this.newline();
     }
     if (text.length > 0) {
@@ -8690,10 +9119,10 @@ var Printer = class {
         }
       });
     }
-    if (flags.has("S") || flags.has("L") || flags.has("W")) {
+    if (hasPrintFlag(flags, "S") || hasPrintFlag(flags, "L") || hasPrintFlag(flags, "W")) {
       yield* this.newline();
     }
-    if (flags.has("W")) {
+    if (hasPrintFlag(flags, "W")) {
       yield* this.wait(false);
     }
     if (this.draw) {
@@ -8797,7 +9226,7 @@ async function* runScene(vm2, scene) {
 function* eventStatement(vm2, target) {
   for (const fn of vm2.eventMap.get(target) ?? []) {
     yield {
-      raw: new Slice(FILE, 0, "CALL " + target, "CALL".length),
+      raw: new CompactSlice(FILE, 0, "CALL " + target, "CALL".length),
       run: async function* () {
         return yield* fn.run(vm2, []);
       }
@@ -8806,21 +9235,21 @@ function* eventStatement(vm2, target) {
 }
 function* MAIN() {
   while (true) {
-    yield new Call(new Slice(FILE, 0, "CALL SHOW_SHOP", "CALL".length));
-    yield new Input(new Slice(FILE, 0, "INPUT", "INPUT".length));
-    yield new Call(new Slice(FILE, 0, "CALL USERSHOP", "CALL".length));
+    yield new Call(new CompactSlice(FILE, 0, "CALL SHOW_SHOP", "CALL".length));
+    yield new Input(new CompactSlice(FILE, 0, "INPUT", "INPUT".length));
+    yield new Call(new CompactSlice(FILE, 0, "CALL USERSHOP", "CALL".length));
   }
 }
 async function* SHOP(vm2) {
   return yield* runScene(vm2, function* () {
     yield* eventStatement(vm2, "EVENTSHOP");
     if (vm2.fnMap.has("SYSTEM_AUTOSAVE")) {
-      yield new Call(new Slice(FILE, 0, "CALL SYSTEM_AUTOSAVE", "CALL".length));
+      yield new Call(new CompactSlice(FILE, 0, "CALL SYSTEM_AUTOSAVE", "CALL".length));
     } else {
       const now = (0, import_dayjs4.default)(vm2.external.getTime());
       vm2.getValue("SAVEDATA_TEXT").set(vm2, now.format("YYYY/MM/DD HH:mm:ss"), []);
-      yield new Call(new Slice(FILE, 0, "CALL SAVEINFO", "CALL".length));
-      yield new SaveData(new Slice(FILE, 0, "SAVEDATA 99 SAVEDATA_TEXT"));
+      yield new Call(new CompactSlice(FILE, 0, "CALL SAVEINFO", "CALL".length));
+      yield new SaveData(new CompactSlice(FILE, 0, "SAVEDATA 99 SAVEDATA_TEXT"));
     }
     yield* MAIN();
   });
@@ -8849,27 +9278,27 @@ async function* TRAIN(vm2) {
         vm2.getValue("NEXTCOM").set(vm2, 0n, []);
       } else {
         const comAble = /* @__PURE__ */ new Set();
-        yield new Call(new Slice(FILE, 0, "CALL SHOW_STATUS", "CALL".length));
+        yield new Call(new CompactSlice(FILE, 0, "CALL SHOW_STATUS", "CALL".length));
         const trainIds = [...vm2.code.csv.train.keys()];
         trainIds.sort((a, b) => a - b);
         for (let i = 0; i < trainIds.length; ++i) {
           const id = trainIds[i];
           vm2.getValue("RESULT").set(vm2, 1n, []);
           if (vm2.fnMap.has(`COM_ABLE${id}`)) {
-            yield new Call(new Slice(FILE, 0, `CALL COM_ABLE${id}`, "CALL".length));
+            yield new Call(new CompactSlice(FILE, 0, `CALL COM_ABLE${id}`, "CALL".length));
           }
           if (vm2.getValue("RESULT").get(vm2, []) !== 0n) {
             comAble.add(id);
             const name = vm2.code.csv.train.get(id);
             const idString = id.toString().padStart(3, " ");
-            yield new PrintC("RIGHT", [], new Slice(FILE, 0, `PRINTC ${name}[${idString}]`, "PRINTC".length));
+            yield new PrintC("RIGHT", [], new CompactSlice(FILE, 0, `PRINTC ${name}[${idString}]`, "PRINTC".length));
             if (i % vm2.printCPerLine === 0) {
-              yield new Print(["L"], new Slice(FILE, 0, "PRINTL", "PRINTL".length));
+              yield new Print(["L"], new CompactSlice(FILE, 0, "PRINTL", "PRINTL".length));
             }
           }
         }
-        yield new Call(new Slice(FILE, 0, "CALL SHOW_USERCOM", "CALL".length));
-        yield new Input(new Slice(FILE, 0, "INPUT", "INPUT".length));
+        yield new Call(new CompactSlice(FILE, 0, "CALL SHOW_USERCOM", "CALL".length));
+        yield new Input(new CompactSlice(FILE, 0, "INPUT", "INPUT".length));
         const input = vm2.getValue("RESULT").get(vm2, [0]);
         if (comAble.has(Number(input))) {
           vm2.getValue("SELECTCOM").set(vm2, input, []);
@@ -8885,20 +9314,20 @@ async function* TRAIN(vm2) {
             character.getValue("NOWEX").reset([]);
           }
           yield* eventStatement(vm2, "EVENTCOM");
-          yield new Call(new Slice(FILE, 0, `CALL COM${selectCom}`, "CALL".length));
+          yield new Call(new CompactSlice(FILE, 0, `CALL COM${selectCom}`, "CALL".length));
           if (vm2.getValue("RESULT").get(vm2, [0]) !== 0n) {
             wait = true;
-            yield new Call(new Slice(FILE, 0, "CALL SOURCE_CHECK", "CALL".length));
+            yield new Call(new CompactSlice(FILE, 0, "CALL SOURCE_CHECK", "CALL".length));
             for (const character of vm2.characterList) {
               character.getValue("SOURCE").reset([]);
             }
             yield* eventStatement(vm2, "EVENTCOMEND");
           }
         } else {
-          yield new Call(new Slice(FILE, 0, "CALL USERCOM", "CALL".length));
+          yield new Call(new CompactSlice(FILE, 0, "CALL USERCOM", "CALL".length));
         }
         if (wait) {
-          yield new Wait(new Slice(FILE, 0, "WAIT", "WAIT".length));
+          yield new Wait(new CompactSlice(FILE, 0, "WAIT", "WAIT".length));
         }
         break;
       }
@@ -8915,14 +9344,14 @@ async function* ABLUP(vm2) {
   return yield* runScene(vm2, function* () {
     while (true) {
       vm2.printer.skipDisp = false;
-      yield new Call(new Slice(FILE, 0, "CALL SHOW_JUEL", "CALL".length));
-      yield new Call(new Slice(FILE, 0, "CALL SHOW_ABLUP_SELECT", "CALL".length));
-      yield new Input(new Slice(FILE, 0, "INPUT", "INPUT".length));
+      yield new Call(new CompactSlice(FILE, 0, "CALL SHOW_JUEL", "CALL".length));
+      yield new Call(new CompactSlice(FILE, 0, "CALL SHOW_ABLUP_SELECT", "CALL".length));
+      yield new Input(new CompactSlice(FILE, 0, "INPUT", "INPUT".length));
       const input = vm2.getValue("RESULT").get(vm2, []);
       if (input >= 0 && input < 100) {
-        yield new TryCall(new Slice(FILE, 0, `TRYCALL ABLUP${input}`, "TRYCALL".length));
+        yield new TryCall(new CompactSlice(FILE, 0, `TRYCALL ABLUP${input}`, "TRYCALL".length));
       } else {
-        yield new Call(new Slice(FILE, 0, "CALL USERABLUP", "CALL".length));
+        yield new Call(new CompactSlice(FILE, 0, "CALL USERABLUP", "CALL".length));
       }
     }
   });
@@ -8940,12 +9369,12 @@ async function* FIRST(vm2) {
 }
 async function* TITLE(vm2) {
   return yield* runScene(vm2, function* () {
-    yield new Call(new Slice(FILE, 0, "CALL SYSTEM_TITLE", "CALL".length));
+    yield new Call(new CompactSlice(FILE, 0, "CALL SYSTEM_TITLE", "CALL".length));
   });
 }
 async function* DATALOADED(vm2) {
   return yield* runScene(vm2, function* () {
-    yield new TryCall(new Slice(FILE, 0, "TRYCALL SYSTEM_LOADEND", "TRYCALL".length));
+    yield new TryCall(new CompactSlice(FILE, 0, "TRYCALL SYSTEM_LOADEND", "TRYCALL".length));
     yield* eventStatement(vm2, "EVENTLOAD");
     yield* MAIN();
   });
@@ -9183,6 +9612,27 @@ var valueList = [
 var value_list_default = valueList;
 
 // ../../.my_agent_remote/undercrow__eraJS/build/vm.js
+function explicitStaticScopes(root) {
+  const scopes = /* @__PURE__ */ new Set(), seen = /* @__PURE__ */ new WeakSet(), stack = [root];
+  while (stack.length) {
+    const value = stack.pop();
+    if (typeof value === "string") {
+      for (const match2 of value.matchAll(/[^\s+\-*\/%=!<>|&^~?#()\[\]{},.:$\\'";@]+@([^\s+\-*\/%=!<>|&^~?#()\[\]{},.:$\\'";@]+)/gu)) scopes.add(match2[1]);
+      continue;
+    }
+    if (value == null || typeof value !== "object" && typeof value !== "function" || seen.has(value)) continue;
+    seen.add(value);
+    if (value.constructor?.name === "Variable" && value.scope != null) scopes.add(value.scope);
+    if (Array.isArray(value)) for (const item of value) stack.push(item);
+    else if (value instanceof Map) for (const [key, item] of value) stack.push(key, item);
+    else if (value instanceof Set) for (const item of value) stack.push(item);
+    else for (const key of Reflect.ownKeys(value)) {
+      const descriptor = Object.getOwnPropertyDescriptor(value, key);
+      if (descriptor && "value" in descriptor) stack.push(descriptor.value);
+    }
+  }
+  return scopes;
+}
 var EVENT = [
   "EVENTFIRST",
   "EVENTTRAIN",
@@ -9204,6 +9654,7 @@ var VM = class {
   templateMap;
   globalMap;
   staticMap;
+  explicitStaticScopes;
   characterList;
   contextStack;
   printer;
@@ -9217,6 +9668,7 @@ var VM = class {
     this.templateMap = /* @__PURE__ */ new Map();
     this.globalMap = /* @__PURE__ */ new Map();
     this.staticMap = /* @__PURE__ */ new Map();
+    this.explicitStaticScopes = explicitStaticScopes(code.fnList);
     this.characterList = [];
     this.contextStack = [];
     for (const fn of code.fnList) {
@@ -9347,23 +9799,25 @@ var VM = class {
     }
     this.staticMap = /* @__PURE__ */ new Map();
     this.staticMap.set("@DUMMY", /* @__PURE__ */ new Map());
-    let fnList = [...this.fnMap.values()];
-    for (const events of this.eventMap.values()) {
-      fnList = fnList.concat(events);
+    for (const scope of this.explicitStaticScopes) {
+      if (this.fnMap.has(scope) || this.eventMap.has(scope)) await this.ensureStaticScope(scope, varSize2);
     }
-    for (const fn of fnList) {
-      this.staticMap.set(fn.name, /* @__PURE__ */ new Map());
-      this.staticMap.get(fn.name).set("LOCAL", new Int1DValue("LOCAL", varSize2.get("LOCAL")));
-      this.staticMap.get(fn.name).set("LOCALS", new Str1DValue("LOCALS", varSize2.get("LOCALS")));
-      for (const property of fn.property) {
-        if (property instanceof Dim && !property.isDynamic()) {
-          this.staticMap.get(fn.name).set(property.name, await property.build(this));
-        } else if (property instanceof LocalSize || property instanceof LocalSSize) {
-          property.apply(this, fn.name);
-        }
-      }
-    }
+    for (const context of this.contextStack) await this.ensureStaticScope(context.fn.name, varSize2);
     this.characterList = [];
+  }
+  async ensureStaticScope(name, varSize2 = this.code.csv.varSize) {
+    if (this.staticMap.has(name)) return this.staticMap.get(name);
+    const fn = this.fnMap.get(name) ?? this.eventMap.get(name)?.at(-1);
+    if (fn == null) throw notFound("Scope", name);
+    const scope = /* @__PURE__ */ new Map();
+    this.staticMap.set(name, scope);
+    scope.set("LOCAL", new Int1DValue("LOCAL", varSize2.get("LOCAL")));
+    scope.set("LOCALS", new Str1DValue("LOCALS", varSize2.get("LOCALS")));
+    for (const property of fn.property) {
+      if (property instanceof Dim && !property.isDynamic()) scope.set(property.name, await property.build(this));
+      else if (property instanceof LocalSize || property instanceof LocalSSize) property.apply(this, fn.name);
+    }
+    return scope;
   }
   configure(config) {
     this.printer.defaultColor = config.front;
@@ -9376,6 +9830,7 @@ var VM = class {
     return this.contextStack[this.contextStack.length - 1];
   }
   async pushContext(fn) {
+    await this.ensureStaticScope(fn.name);
     const context = {
       fn,
       dynamicMap: /* @__PURE__ */ new Map(),

@@ -1,0 +1,564 @@
+{
+  "passed": true,
+  "generatedAt": "2026-09-10T02:07:04.036Z",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "engine": "engine-compact-ir-labels-lazy-slice-paged-statements-printform-static-assign-sparse1d.mjs",
+  "method": "Fixed-seed new game played to day 16 (two characters, rest-only); live VM censused before teardown. Sub-graph censuses attribute reachable objects/strings/slots per owner and may overlap; do not sum.",
+  "limitations": [
+    "Node heapUsed and reachability census are not iPhone/WebKit RSS or true allocation peaks.",
+    "Sub-graph censuses share cross-referenced objects; per-owner counts overlap.",
+    "censusObjectGraph counts references and code units, not shallow/retained bytes."
+  ],
+  "originalUnchanged": true,
+  "day16LiveForcedGcMiB": 287.591,
+  "characters": 2,
+  "staticScopes": 297,
+  "functions": 16453,
+  "fullCensus": {
+    "objects": 2976609,
+    "arrays": 590121,
+    "arraySlots": 12869578,
+    "maps": 3525,
+    "mapEntries": 29450,
+    "strings": 1624716,
+    "stringCodeUnits": 45905041,
+    "bigints": 11343827,
+    "topConstructors": [
+      {
+        "name": "_CompactSlice",
+        "count": 734600
+      },
+      {
+        "name": "Array",
+        "count": 590121
+      },
+      {
+        "name": "CompactLabelMap",
+        "count": 330666
+      },
+      {
+        "name": "Thunk",
+        "count": 330666
+      },
+      {
+        "name": "Lazy",
+        "count": 309560
+      },
+      {
+        "name": "PrintForm",
+        "count": 306841
+      },
+      {
+        "name": "Assign",
+        "count": 109513
+      },
+      {
+        "name": "_If",
+        "count": 109098
+      },
+      {
+        "name": "Print",
+        "count": 31664
+      },
+      {
+        "name": "Return",
+        "count": 30252
+      },
+      {
+        "name": "Times",
+        "count": 19969
+      },
+      {
+        "name": "_Fn",
+        "count": 16860
+      },
+      {
+        "name": "_Call",
+        "count": 12878
+      },
+      {
+        "name": "Variable",
+        "count": 6931
+      },
+      {
+        "name": "Const",
+        "count": 5980
+      },
+      {
+        "name": "DrawLine",
+        "count": 5150
+      },
+      {
+        "name": "Map",
+        "count": 3525
+      },
+      {
+        "name": "Binary",
+        "count": 2414
+      },
+      {
+        "name": "ReturnF",
+        "count": 1896
+      },
+      {
+        "name": "_Goto",
+        "count": 1402
+      },
+      {
+        "name": "ResetColor",
+        "count": 1294
+      },
+      {
+        "name": "Input",
+        "count": 959
+      },
+      {
+        "name": "Wait",
+        "count": 954
+      },
+      {
+        "name": "SetColor",
+        "count": 882
+      },
+      {
+        "name": "_Case",
+        "count": 857
+      }
+    ]
+  },
+  "storage": {
+    "global": {
+      "maps": 1,
+      "cells": 783,
+      "deferredCells": 0,
+      "allocatedCells": 117,
+      "arrays": 94857,
+      "slots": 11426198,
+      "nonDefaultSlots": 2586
+    },
+    "static": {
+      "maps": 297,
+      "cells": 593,
+      "deferredCells": 526,
+      "allocatedCells": 66,
+      "arrays": 66,
+      "slots": 54112,
+      "nonDefaultSlots": 113
+    },
+    "characters": {
+      "maps": 2,
+      "cells": 56,
+      "deferredCells": 0,
+      "allocatedCells": 44,
+      "arrays": 44,
+      "slots": 33600,
+      "nonDefaultSlots": 57
+    }
+  },
+  "roots": {
+    "characterList": {
+      "objects": 147,
+      "arrays": 87,
+      "arraySlots": 33644,
+      "maps": 2,
+      "mapEntries": 56,
+      "strings": 376,
+      "stringCodeUnits": 969,
+      "bigints": 33404,
+      "topConstructors": [
+        {
+          "name": "Array",
+          "count": 87
+        },
+        {
+          "name": "_Int1DValue",
+          "count": 42
+        },
+        {
+          "name": "_Str0DValue",
+          "count": 8
+        },
+        {
+          "name": "_Int0DValue",
+          "count": 4
+        },
+        {
+          "name": "_Str1DValue",
+          "count": 2
+        },
+        {
+          "name": "Character",
+          "count": 2
+        },
+        {
+          "name": "Map",
+          "count": 2
+        }
+      ]
+    },
+    "staticMap": {
+      "objects": 1253,
+      "arrays": 362,
+      "arraySlots": 54408,
+      "maps": 298,
+      "mapEntries": 890,
+      "strings": 3182,
+      "stringCodeUnits": 14365,
+      "bigints": 53007,
+      "topConstructors": [
+        {
+          "name": "Array",
+          "count": 362
+        },
+        {
+          "name": "Map",
+          "count": 298
+        },
+        {
+          "name": "_Int1DValue",
+          "count": 296
+        },
+        {
+          "name": "_Str1DValue",
+          "count": 296
+        },
+        {
+          "name": "_Int0DValue",
+          "count": 1
+        }
+      ]
+    },
+    "globalMap": {
+      "objects": 95725,
+      "arrays": 94941,
+      "arraySlots": 11426312,
+      "maps": 1,
+      "mapEntries": 783,
+      "strings": 83462,
+      "stringCodeUnits": 24469,
+      "bigints": 11250980,
+      "topConstructors": [
+        {
+          "name": "Array",
+          "count": 94941
+        },
+        {
+          "name": "_Int0DValue",
+          "count": 624
+        },
+        {
+          "name": "_Int1DValue",
+          "count": 63
+        },
+        {
+          "name": "_Str1DValue",
+          "count": 33
+        },
+        {
+          "name": "_IntChar1DValue",
+          "count": 21
+        },
+        {
+          "name": "_Int2DValue",
+          "count": 12
+        },
+        {
+          "name": "_Str0DValue",
+          "count": 11
+        },
+        {
+          "name": "_Int3DValue",
+          "count": 9
+        },
+        {
+          "name": "_StrChar0DValue",
+          "count": 4
+        },
+        {
+          "name": "_IntChar0DValue",
+          "count": 2
+        },
+        {
+          "name": "_StrChar1DValue",
+          "count": 1
+        },
+        {
+          "name": "CharaNumValue",
+          "count": 1
+        }
+      ]
+    },
+    "printer": {
+      "objects": 4,
+      "arrays": 2,
+      "arraySlots": 0,
+      "maps": 0,
+      "mapEntries": 0,
+      "strings": 7,
+      "stringCodeUnits": 34,
+      "bigints": 0,
+      "topConstructors": [
+        {
+          "name": "Array",
+          "count": 2
+        },
+        {
+          "name": "Object",
+          "count": 1
+        },
+        {
+          "name": "Printer",
+          "count": 1
+        }
+      ]
+    },
+    "code": {
+      "objects": 2879445,
+      "arrays": 494714,
+      "arraySlots": 1353721,
+      "maps": 3218,
+      "mapEntries": 10960,
+      "strings": 1520975,
+      "stringCodeUnits": 45505961,
+      "bigints": 5436,
+      "topConstructors": [
+        {
+          "name": "_CompactSlice",
+          "count": 734600
+        },
+        {
+          "name": "Array",
+          "count": 494714
+        },
+        {
+          "name": "CompactLabelMap",
+          "count": 330665
+        },
+        {
+          "name": "Thunk",
+          "count": 330665
+        },
+        {
+          "name": "Lazy",
+          "count": 309560
+        },
+        {
+          "name": "PrintForm",
+          "count": 306841
+        },
+        {
+          "name": "Assign",
+          "count": 109513
+        },
+        {
+          "name": "_If",
+          "count": 109098
+        },
+        {
+          "name": "Print",
+          "count": 31664
+        },
+        {
+          "name": "Return",
+          "count": 30252
+        },
+        {
+          "name": "Times",
+          "count": 19969
+        },
+        {
+          "name": "_Fn",
+          "count": 16859
+        }
+      ]
+    },
+    "fnMap": {
+      "objects": 2731554,
+      "arrays": 473880,
+      "arraySlots": 1266772,
+      "maps": 606,
+      "mapEntries": 18190,
+      "strings": 1443631,
+      "stringCodeUnits": 42975207,
+      "bigints": 4890,
+      "topConstructors": [
+        {
+          "name": "_CompactSlice",
+          "count": 690741
+        },
+        {
+          "name": "Array",
+          "count": 473880
+        },
+        {
+          "name": "CompactLabelMap",
+          "count": 318001
+        },
+        {
+          "name": "Thunk",
+          "count": 318001
+        },
+        {
+          "name": "Lazy",
+          "count": 297023
+        },
+        {
+          "name": "PrintForm",
+          "count": 280275
+        },
+        {
+          "name": "Assign",
+          "count": 106422
+        },
+        {
+          "name": "_If",
+          "count": 104959
+        },
+        {
+          "name": "Print",
+          "count": 30775
+        },
+        {
+          "name": "Return",
+          "count": 27814
+        },
+        {
+          "name": "Times",
+          "count": 19916
+        },
+        {
+          "name": "_Fn",
+          "count": 16453
+        }
+      ]
+    },
+    "eventMap": {
+      "objects": 142918,
+      "arrays": 20318,
+      "arraySlots": 69539,
+      "maps": 100,
+      "mapEntries": 335,
+      "strings": 89231,
+      "stringCodeUnits": 2851156,
+      "bigints": 497,
+      "topConstructors": [
+        {
+          "name": "_CompactSlice",
+          "count": 43549
+        },
+        {
+          "name": "PrintForm",
+          "count": 26397
+        },
+        {
+          "name": "Array",
+          "count": 20318
+        },
+        {
+          "name": "CompactLabelMap",
+          "count": 12526
+        },
+        {
+          "name": "Thunk",
+          "count": 12526
+        },
+        {
+          "name": "Lazy",
+          "count": 12412
+        },
+        {
+          "name": "_If",
+          "count": 4084
+        },
+        {
+          "name": "Assign",
+          "count": 3080
+        },
+        {
+          "name": "Return",
+          "count": 2431
+        },
+        {
+          "name": "DrawLine",
+          "count": 1525
+        },
+        {
+          "name": "Print",
+          "count": 840
+        },
+        {
+          "name": "_Call",
+          "count": 541
+        }
+      ]
+    },
+    "templateMap": {
+      "objects": 2713,
+      "arrays": 0,
+      "arraySlots": 0,
+      "maps": 2487,
+      "mapEntries": 6995,
+      "strings": 1637,
+      "stringCodeUnits": 5524,
+      "bigints": 0,
+      "topConstructors": [
+        {
+          "name": "Map",
+          "count": 2487
+        },
+        {
+          "name": "Object",
+          "count": 226
+        }
+      ]
+    },
+    "contextStack": {
+      "objects": 14,
+      "arrays": 6,
+      "arraySlots": 1102,
+      "maps": 2,
+      "mapEntries": 2,
+      "strings": 108,
+      "stringCodeUnits": 39,
+      "bigints": 1000,
+      "topConstructors": [
+        {
+          "name": "Array",
+          "count": 6
+        },
+        {
+          "name": "Map",
+          "count": 2
+        },
+        {
+          "name": "_Fn",
+          "count": 1
+        },
+        {
+          "name": "_Int1DValue",
+          "count": 1
+        },
+        {
+          "name": "_Str1DValue",
+          "count": 1
+        },
+        {
+          "name": "CompactLabelMap",
+          "count": 1
+        },
+        {
+          "name": "Object",
+          "count": 1
+        },
+        {
+          "name": "Thunk",
+          "count": 1
+        }
+      ]
+    }
+  }
+}

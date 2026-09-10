@@ -174,6 +174,56 @@ test('1-D storage uses a dense backing while preserving zero-filled growth', () 
   assert.equal(pagedArrayStats(arr).nonDefault, 1);
 });
 
+test('sparse1d keeps a huge mostly-default 1-D row unphysicalized while matching dense semantics', () => {
+  const size = 20000;
+  const arr = createPagedArray([size], 0n, { sparse1d: true, pageSize: 256 });
+  const ref = new Array(size).fill(0n);
+  // No backing is materialized up front (the whole point: no new Array(size).fill(0n)).
+  let stats = pagedArrayStats(arr);
+  assert.equal(stats.pages, 0);
+  assert.equal(stats.denseLeaves, 0);
+  assert.equal(stats.allocatedSlots, 0, 'nothing physicalized before any write');
+  assert.equal(arr.length, size, 'logical length preserved');
+  assert.equal(arr[12345], 0n, 'unwritten slot reads as default');
+
+  // Scattered sparse writes: only touched pages allocate, never the full row.
+  const coords = [3, 900, 5000, 12345, 19999];
+  for (const [n, c] of coords.entries()) { arr[c] = BigInt(n + 1); ref[c] = BigInt(n + 1); }
+  stats = pagedArrayStats(arr);
+  assert.equal(stats.nonDefault, 5, 'live values tracked');
+  assert.ok(stats.allocatedSlots <= coords.length * 256, 'only touched pages allocated, not the 20000-slot row');
+  assert.ok(stats.allocatedSlots < size, 'stays far below full dense allocation');
+  for (let i = 0; i < size; i++) assert.equal(arr[i] === undefined ? 0n : arr[i], ref[i]);
+
+  // Clearing a value reclaims its page when it was the only occupant.
+  arr[3] = 0n; ref[3] = 0n;
+  assert.equal(pagedArrayStats(arr).nonDefault, 4, 'cleared value reclaimed');
+
+  // Growth still fills the gap with the default, like the dense contract.
+  arr[size + 5] = 42n;
+  assert.equal(arr.length, size + 6);
+  assert.equal(arr[size + 1], 0n, 'grown gap remains default-filled');
+  assert.equal(arr[size + 5], 42n);
+});
+
+test('sparse1d promotes to a dense backing once writes saturate the row', () => {
+  const arr = createPagedArray([1000], 0n, { sparse1d: true, pageSize: 256, denseThreshold: 0.75 });
+  assert.equal(pagedArrayStats(arr).denseLeaves, 0, 'starts sparse');
+  // Threshold ceil(1000*0.75)=750; pages.size*256 >= 750 promotes at the 3rd distinct page.
+  arr[0] = 1n;   // page 0
+  arr[300] = 2n; // page 1
+  assert.equal(pagedArrayStats(arr).denseLeaves, 0, 'two pages stay sparse');
+  arr[600] = 3n; // page 2 -> 3*256=768 >= 750 -> promote
+  const stats = pagedArrayStats(arr);
+  assert.equal(stats.pages, 0);
+  assert.equal(stats.denseLeaves, 1, 'saturated row promoted to dense');
+  assert.equal(arr[0], 1n);
+  assert.equal(arr[300], 2n);
+  assert.equal(arr[600], 3n);
+  assert.equal(arr[999], 0n, 'promoted row preserves default fill');
+  assert.deepEqual([...arr].filter(v => v !== 0n), [1n, 2n, 3n], 'iterator matches after promotion');
+});
+
 test('nested leaves cap page size and promote independently when sparse allocation saturates', () => {
   const arr = createPagedArray([3, 10], 0n, { pageSize: 256, denseThreshold: 0.5 });
   let stats = pagedArrayStats(arr);

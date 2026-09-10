@@ -1,0 +1,416 @@
+{
+  "passed": true,
+  "generatedAt": "2026-09-10T03:00:56.742Z",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "engine": "engine-compact-ir-labels-lazy-slice-paged-statements-printform-static-assign.mjs",
+  "method": "Fixed-seed new game (identical driver to m1-baseline). Between input prompts every yielded event feeds a natural-heap high-water sampler; forcedGC resident floor taken at each new day. transient = segmentPeak - residentFloor.",
+  "limitations": [
+    "Node heapUsed is a lower bound on transient pressure, not iPhone/WebKit RSS or a true GC-instant peak.",
+    "Sampling granularity is per yielded event; allocation spikes strictly inside one event step are not resolved.",
+    "Two-character rest-only fixed-seed path; not a user-save reproduction or full-game compatibility result."
+  ],
+  "originalUnchanged": true,
+  "peakTransition": {
+    "fromDay": 1,
+    "toDay": 2,
+    "events": 13,
+    "children": 43,
+    "saveWrites": 2,
+    "saveBytes": 68884,
+    "types": {
+      "line": 5,
+      "content": 7,
+      "input": 1
+    },
+    "peak": {
+      "heapUsedMiB": 733.474,
+      "externalMiB": 11.633,
+      "arrayBuffersMiB": 0.403,
+      "rssMiB": 884.859
+    },
+    "residentFloorMiB": 267.515,
+    "transientMiB": 465.959
+  },
+  "residentFloorMiB": {
+    "0": 267.276,
+    "1": 267.515,
+    "2": 278.752,
+    "3": 279.154,
+    "4": 279.472,
+    "5": 278.953,
+    "6": 279.232,
+    "7": 279.318,
+    "8": 279.317,
+    "9": 279.337,
+    "10": 279.377,
+    "11": 279.386,
+    "12": 279.387,
+    "13": 279.393,
+    "14": 279.424,
+    "15": 279.437,
+    "16": 279.452
+  },
+  "transitions": [
+    {
+      "fromDay": 0,
+      "toDay": 1,
+      "events": 11,
+      "children": 7,
+      "saveWrites": 0,
+      "saveBytes": 0,
+      "types": {
+        "content": 8,
+        "line": 2,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 282.45,
+        "externalMiB": 11.633,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 479.402
+      },
+      "residentFloorMiB": 267.276,
+      "transientMiB": 15.174
+    },
+    {
+      "fromDay": 1,
+      "toDay": 2,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68884,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 733.474,
+        "externalMiB": 11.633,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 884.859
+      },
+      "residentFloorMiB": 267.515,
+      "transientMiB": 465.959
+    },
+    {
+      "fromDay": 2,
+      "toDay": 3,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68888,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 570.915,
+        "externalMiB": 11.633,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 877.992
+      },
+      "residentFloorMiB": 278.752,
+      "transientMiB": 292.162
+    },
+    {
+      "fromDay": 3,
+      "toDay": 4,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68884,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 575.67,
+        "externalMiB": 11.633,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 877.168
+      },
+      "residentFloorMiB": 279.154,
+      "transientMiB": 296.516
+    },
+    {
+      "fromDay": 4,
+      "toDay": 5,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68888,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 458.266,
+        "externalMiB": 11.633,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 878.711
+      },
+      "residentFloorMiB": 279.472,
+      "transientMiB": 178.794
+    },
+    {
+      "fromDay": 5,
+      "toDay": 6,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68887,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 457.989,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 879.395
+      },
+      "residentFloorMiB": 278.953,
+      "transientMiB": 179.036
+    },
+    {
+      "fromDay": 6,
+      "toDay": 7,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68885,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 406.644,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 879.922
+      },
+      "residentFloorMiB": 279.232,
+      "transientMiB": 127.412
+    },
+    {
+      "fromDay": 7,
+      "toDay": 8,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68889,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 457.519,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 879.117
+      },
+      "residentFloorMiB": 279.318,
+      "transientMiB": 178.202
+    },
+    {
+      "fromDay": 8,
+      "toDay": 9,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68885,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 459.208,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 879.336
+      },
+      "residentFloorMiB": 279.317,
+      "transientMiB": 179.891
+    },
+    {
+      "fromDay": 9,
+      "toDay": 10,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68891,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 457.788,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 879.539
+      },
+      "residentFloorMiB": 279.337,
+      "transientMiB": 178.451
+    },
+    {
+      "fromDay": 10,
+      "toDay": 11,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68890,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 455.849,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 879.555
+      },
+      "residentFloorMiB": 279.377,
+      "transientMiB": 176.472
+    },
+    {
+      "fromDay": 11,
+      "toDay": 12,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68887,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 459.059,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 878.215
+      },
+      "residentFloorMiB": 279.386,
+      "transientMiB": 179.673
+    },
+    {
+      "fromDay": 12,
+      "toDay": 13,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68891,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 457.641,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 878.973
+      },
+      "residentFloorMiB": 279.387,
+      "transientMiB": 178.254
+    },
+    {
+      "fromDay": 13,
+      "toDay": 14,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68889,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 457.713,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 879.965
+      },
+      "residentFloorMiB": 279.393,
+      "transientMiB": 178.319
+    },
+    {
+      "fromDay": 14,
+      "toDay": 15,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68887,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 459.043,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 879.973
+      },
+      "residentFloorMiB": 279.424,
+      "transientMiB": 179.619
+    },
+    {
+      "fromDay": 15,
+      "toDay": 16,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68890,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 457.675,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 879.98
+      },
+      "residentFloorMiB": 279.437,
+      "transientMiB": 178.238
+    },
+    {
+      "fromDay": 15,
+      "toDay": 16,
+      "events": 13,
+      "children": 43,
+      "saveWrites": 2,
+      "saveBytes": 68890,
+      "types": {
+        "line": 5,
+        "content": 7,
+        "input": 1
+      },
+      "peak": {
+        "heapUsedMiB": 457.675,
+        "externalMiB": 11.632,
+        "arrayBuffersMiB": 0.403,
+        "rssMiB": 879.98
+      },
+      "residentFloorMiB": 279.437,
+      "transientMiB": 178.238
+    }
+  ]
+}

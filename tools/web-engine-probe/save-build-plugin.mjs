@@ -14,7 +14,7 @@ const hashes = {
   'statement/command/loaddata.js': '576b1aa06480b3427360a127b98c1e5c947ac66cc93c0aa9600d8fc1eb61b633',
   'statement/command/loadglobal.js': '470762902ec909afee065a73581c2088b98d00d086483f4da5e414a788842cba'
 };
-export function transformSaveSource(relative, source, { lazyLocals = true, pagedStorage = false } = {}) {
+export function transformSaveSource(relative, source, { lazyLocals = true, pagedStorage = false, sparse1d = false } = {}) {
   // Compare canonical line endings so a clean Windows or Linux checkout works.
   source = source.replaceAll('\r\n', '\n');
   if (createHash('sha256').update(source).digest('hex') !== hashes[relative]) {
@@ -54,8 +54,11 @@ export function transformSaveSource(relative, source, { lazyLocals = true, paged
     const zero = relative === 'value/str-1d.js' ? '""' : '0n';
     source = `import { createPagedArray, pagedArrayGet, pagedArraySet } from ${JSON.stringify(path.join(here, 'paged-default-array.mjs').replaceAll('\\', '/'))};\n` + source;
     if (relative === 'value/int-1d.js') {
+      // Global (non-LOCAL) 1-D integer arrays dominate the day-16 live heap: ~11.4M
+      // slots that are 99.98% the 0n default. sparse1d keeps those rows unphysicalized
+      // (paged, promote-on-saturation) instead of a dense fill; semantics are identical.
       replace('        else this.value = new Array(realSize[0]).fill(0n);',
-        '        else this.value = createPagedArray(realSize, 0n);');
+        `        else this.value = createPagedArray(realSize, 0n${sparse1d ? ', { sparse1d: true }' : ''});`);
     } else if (relative === 'value/str-1d.js') {
       replace('        else this.value = new Array(realSize[0]).fill("");',
         '        else this.value = createPagedArray(realSize, "");');

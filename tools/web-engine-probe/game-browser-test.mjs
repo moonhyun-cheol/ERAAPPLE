@@ -32,7 +32,7 @@ test(`actual game ${pwa ? 'PWA offline' : 'browser'}: title, setup and compatibi
     browser = await (browserEngine === 'webkit' ? webkit : chromium).launch({ headless: true, ...(channel && browserEngine !== 'webkit' ? { channel } : {}) });
     const context = await browser.newContext(pwa ? { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 3 } : {});
     page = await context.newPage();
-    page.setDefaultTimeout(20000);
+    page.setDefaultTimeout(Number(process.env.PROBE_ACTION_TIMEOUT ?? 20000));
     const errors = [], externalRequests = [], steps = [];
     page.on('pageerror', error => errors.push(error.message));
     page.on('request', request => { if (!request.url().startsWith(url + '/')) externalRequests.push(request.url()); });

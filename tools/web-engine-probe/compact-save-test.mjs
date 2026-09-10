@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, writeFile } from 'node:fs/promises';
 import { compactIntegers } from './compact-save.mjs';
+import { createPagedArray, pagedDenseBacking } from './paged-default-array.mjs';
 import { transformSaveSource } from './save-build-plugin.mjs';
 import { compile as compact } from './dist/engine.mjs';
 import { compile as paged } from './dist/engine-compact-ir-labels-lazy-slice-paged.mjs';
@@ -40,6 +41,25 @@ test('zero prefixes preserve every integer, dense/empty arrays and extended leaf
       assert.deepEqual(restore(prefix, shape), original);
       assert.deepEqual(restore(compactIntegers(make(shape, -9n), shape), shape), make(shape, -9n));
     }
+  }
+});
+test('paged dense-1d compaction is byte-identical to the plain-array serialization', () => {
+  const size = 4096;
+  const scenarios = [
+    [[0, 5n], [3, -9007199254740993n], [17, 1n], [900, -1n], [4095, 0n]], // internal + trailing zeros, last slot zero
+    [[0, 0n]],                                                            // all default -> []
+    [[4095, 7n]],                                                         // only the final declared slot set
+  ];
+  for (const writes of scenarios) {
+    const plain = Array.from({ length: size }, () => 0n);
+    const paged = createPagedArray([size], 0n);
+    for (const [i, v] of writes) { plain[i] = v; paged[i] = v; }
+    assert.ok(pagedDenseBacking(paged), 'dense-1d paged root exposes its backing');
+    assert.deepEqual(compactIntegers(paged, [size]), compactIntegers(plain, [size]));
+    // Extend past the declared dimension: the trailing zero must be preserved (no trim).
+    plain.push(0n); paged.push(0n);
+    assert.deepEqual(compactIntegers(paged, [size]), compactIntegers(plain, [size]));
+    assert.equal(JSON.stringify(compactIntegers(paged, [size])), JSON.stringify(compactIntegers(plain, [size])));
   }
 });
 test('pinned overlay fails closed on upstream change; CRLF/LF equivalent', async () => {

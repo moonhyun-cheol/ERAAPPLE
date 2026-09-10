@@ -10,7 +10,7 @@ import { createReplayRecorder, hashValue, runReplay } from './replay-harness.mjs
 const child = process.argv.includes('--child');
 const semanticStateOnly = process.argv.includes('--semantic-state-only');
 const engineArg = process.argv.find(argument => argument.startsWith('--engine='))?.slice('--engine='.length) ?? 'engine.mjs';
-assert.match(engineArg, /^engine(?:-compact-ir(?:-labels(?:-lazy(?:-slice(?:-paged(?:-statements(?:-printform(?:-static(?:-assign)?)?)?)?)?)?)?)?)?\.mjs$/, 'unsupported M1 engine bundle');
+assert.match(engineArg, /^engine(?:-compact-ir(?:-labels(?:-lazy(?:-slice(?:-paged(?:-statements(?:-printform(?:-static(?:-assign(?:-if)?)?)?)?)?)?)?)?)?)?\.mjs$/, 'unsupported M1 engine bundle');
 const saveManifest = store => Object.fromEntries([...store].sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0)
   .map(([key, value]) => [key, { bytes: Buffer.byteLength(value), sha256: sha(value) }]));
 const selectedState = vm => ({

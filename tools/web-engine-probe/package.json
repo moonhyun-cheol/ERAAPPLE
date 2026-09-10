@@ -25,6 +25,7 @@
     "profile:paged-browser": "node paged-default-array-browser-profile.mjs",
     "profile:m1": "node --expose-gc m1-baseline.mjs",
     "profile:m1-ownership": "node --expose-gc m1-ownership-profile.mjs",
+    "profile:transition-peak": "node --expose-gc transition-peak-profile.mjs",
     "profile:compact-ir": "node --expose-gc compact-function-ir-profile.mjs",
     "profile:compact-statements": "node --expose-gc compact-statement-vector-profile.mjs",
     "profile:statement-payloads": "node --expose-gc statement-payload-profile.mjs",

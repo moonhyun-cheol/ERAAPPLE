@@ -1,11 +1,11 @@
 /* Replaced by build-pwa.mjs; no remote scripts or user-provided code. */
-const RELEASE = "788a65fe4ef13e28da14";
+const RELEASE = "193771804a0ebbc2f032";
 const ASSETS = {
   "index.html": "b972688517e100b25806daed4d7a9f1cfee1ae724425de463b7801d3173811a5",
   "browser.js": "b3dcfbb3863aa1f0d121d3a732a478b626989e42bb8b251ae1479198d101e6f6",
-  "engine-worker.js": "50cbdb0fea60f3ec1d36d7b5b82cadd55a30a5ff285bd8a9f25e685fd8d4fb09",
+  "engine-worker.js": "5d65b79fc9ffab458854b3df771daf2ed054356a7fb2b21bd08e35f0f63966ce",
   "eraJS-LICENSE.txt": "acbd9f2b463cd3431927837baf8abfc42f9b848e7d8732a5cebfd6cbeaf4c79f",
-  "build.json": "76ceadc152f7ca1b008e28115f5ca799f2a7f32be03533404ec5673193f5b95c",
+  "build.json": "10bedcc8bf7e83897ed6063dfef02682659ae05c2725677eb43bb69faf37ccc9",
   "local-game.bin": "dda7fa32ce4805c144444febe9834166035166efb385855420140c348e1471b5",
   "manifest.webmanifest": "559c19ff906d1e855a0b1e6a963709b338931c5c2a880618903bafe9df7b1cb8",
   "icon-180.png": "653bd2e4ba3b5b8e2468df9a11d2d168c8f38f5296ff794dce5d594aa2175dbb",

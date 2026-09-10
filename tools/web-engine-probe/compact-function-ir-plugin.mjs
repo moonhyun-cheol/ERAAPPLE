@@ -11,6 +11,7 @@ const hashes = {
   'slice.js': '9ead05fe3d42404488b5cad23297fb57ac88144b39d60e17279b724a9611de6e',
   'printer.js': '221ca0d8db63b75b5caf50d8eb14b738c1f59146af17d785d4c82c4c448faed9',
   'statement/assign/index.js': '4cac9672488c27895147f83faa704ee295b4cb611fe3dd4a6bc73bac13ca0d31',
+  'statement/command/if.js': 'e97f5775df17c1b7bf3c5be055d9f4a8cc275c069c34246d2e81832d082af6c4',
   'statement/command/print.js': '837e0dd59914a68db3febb17d586469d7ed7f942ba7d0583a314a44349756abc',
   'statement/command/printc.js': '1dff7fb9eec196fb9293daec84e891fb12371979f54e13b617c766c123335147',
   'statement/command/printdata.js': '381ac5b9405ae0e21a650a67008c1711ec64d0e5e90efefab621d16c80d1ed03',
@@ -26,7 +27,7 @@ const lazySliceHelper = path.join(here, 'compact-lazy-slice.mjs').replaceAll('\\
 
 export function transformCompactFunctionSource(relative, source,
   { compactLabels = false, compactLazy = false, compactSlice = false, compactStatements = false,
-    compactPrintFormPayload = false, compactAssignPayload = false } = {}) {
+    compactPrintFormPayload = false, compactAssignPayload = false, compactIfPayload = false } = {}) {
   source = source.replaceAll('\r\n', '\n');
   const digest = createHash('sha256').update(source).digest('hex');
   if (digest !== hashes[relative]) {
@@ -61,6 +62,17 @@ export function transformCompactFunctionSource(relative, source,
   } else if (relative === 'statement/assign/index.js') {
     if (compactAssignPayload) replace('    inner;\n', '', 1);
     return source;
+  } else if (relative === 'statement/command/if.js') {
+    if (compactIfPayload) {
+      // Each IF/ELSEIF branch eagerly allocates a Lazy wrapper (raw already parsed lazily).
+      // Defer the wrapper allocation until the branch first runs; parse timing is unchanged,
+      // so semantics (including parse-error timing) are identical.
+      replace('        this.ifThunk = ifThunk.map(([raw, thunk]) => [\n            raw,\n            new Lazy(raw, PARSER),\n            thunk,\n        ]);',
+        '        this.ifThunk = ifThunk.map(([raw, thunk]) => [raw, null, thunk]);', 1);
+      replace('        for (const [, cond, thunk] of this.ifThunk) {\n            const condValue = await cond.get().reduce(vm);\n            assert.bigint(condValue, "Condition should be an integer");\n            if (condValue !== 0n) {\n                return yield* thunk.run(vm);\n            }\n        }',
+        '        for (const branch of this.ifThunk) {\n            let cond = branch[1];\n            if (cond === null) {\n                cond = new Lazy(branch[0], PARSER);\n                branch[1] = cond;\n            }\n            const condValue = await cond.get().reduce(vm);\n            assert.bigint(condValue, "Condition should be an integer");\n            if (condValue !== 0n) {\n                return yield* branch[2].run(vm);\n            }\n        }', 1);
+    }
+    return source;
   } else if (relative === 'printer.js') {
     source = `import { hasPrintFlag } from ${JSON.stringify(helper)};\n` + source;
     replace('flags.has("S")', 'hasPrintFlag(flags, "S")', 2);
@@ -81,15 +93,15 @@ export function transformCompactFunctionSource(relative, source,
 
 export function compactFunctionIrPlugin(engine,
   { compactLabels = false, compactLazy = false, compactSlice = false, compactStatements = false,
-    compactPrintFormPayload = false, compactAssignPayload = false } = {}) {
+    compactPrintFormPayload = false, compactAssignPayload = false, compactIfPayload = false } = {}) {
   const suffix = [compactLabels && 'labels', compactLazy && 'lazy', compactSlice && 'slice', compactStatements && 'statements',
-    compactPrintFormPayload && 'printform', compactAssignPayload && 'assign'].filter(Boolean).join('-');
+    compactPrintFormPayload && 'printform', compactAssignPayload && 'assign', compactIfPayload && 'if'].filter(Boolean).join('-');
   return { name: `era-compact-function-ir${suffix ? `-${suffix}` : ''}-v1`, setup(build) {
-    build.onLoad({ filter: /[\\/]build[\\/](lazy|slice|thunk|printer|statement[\\/](assign[\\/]index|command[\\/]print(c|data|form(c|s)?|s|v)?))\.js$/ }, async args => {
+    build.onLoad({ filter: /[\\/]build[\\/](lazy|slice|thunk|printer|statement[\\/](assign[\\/]index|command[\\/](if|print(c|data|form(c|s)?|s|v)?)))\.js$/ }, async args => {
       const relative = path.relative(path.join(engine, 'build'), args.path).replaceAll('\\', '/');
       if (!hashes[relative]) throw new Error('Unexpected compact function IR path: ' + args.path);
       return { contents: transformCompactFunctionSource(relative, await readFile(args.path, 'utf8'),
-        { compactLabels, compactLazy, compactSlice, compactStatements, compactPrintFormPayload, compactAssignPayload }), loader: 'js', resolveDir: path.dirname(args.path) };
+        { compactLabels, compactLazy, compactSlice, compactStatements, compactPrintFormPayload, compactAssignPayload, compactIfPayload }), loader: 'js', resolveDir: path.dirname(args.path) };
     });
   } };
 }

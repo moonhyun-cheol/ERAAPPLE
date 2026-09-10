@@ -22,7 +22,8 @@ const nonDefaultIn = (array, zero) => {
 
 export function createPagedArray(shape, zero, {
   pageSize = DEFAULT_PAGE_SIZE,
-  denseThreshold = DEFAULT_DENSE_THRESHOLD
+  denseThreshold = DEFAULT_DENSE_THRESHOLD,
+  sparse1d = false
 } = {}) {
   if (!Array.isArray(shape) || shape.length < 1 || shape.length > 3) throw new RangeError('Paged arrays require 1-3 dimensions');
   const dimensions = shape.map(size => {
@@ -143,10 +144,14 @@ export function createPagedArray(shape, zero, {
   const make = (depth, path) => {
     const isLeaf = depth === dimensions.length - 1;
     const initialLength = lengthAt(depth, path);
-    const target = isLeaf && dimensions.length === 1
+    // 1D arrays default to a dense backing for hot direct indexing. sparse1d keeps
+    // them on the same page/promote path as nested leaves so huge, mostly-default
+    // global integer rows are not physicalized as full new Array(size).fill(zero).
+    const dense1d = isLeaf && dimensions.length === 1 && !sparse1d;
+    const target = dense1d
       ? new Array(initialLength).fill(zero)
       : new Array(initialLength);
-    if (isLeaf && dimensions.length === 1) state.denseLeaves.set('', target);
+    if (dense1d) state.denseLeaves.set('', target);
     let proxy;
     proxy = new Proxy(target, {
       get(array, property, receiver) {
@@ -318,6 +323,18 @@ export function pagedArraySet(value, indices, next) {
     state.lengths.set(key, length);
   }
   directWriteLeaf(state, path, index, next, length);
+}
+
+// Serialization fast path. A dense 1-D paged root stores its slots in a single
+// real Array backing; index access through the Proxy allocates a property-key
+// string per slot, so the trailing-zero scan over huge mostly-default global rows
+// (GLOBAL, A-Z, FLAG ...) becomes the day-transition allocation spike. Exposing
+// the raw backing lets the saver scan/trim it directly with no per-slot trap.
+// Returns null for sparse/nested/foreign values so callers keep the Proxy path.
+export function pagedDenseBacking(value) {
+  const state = states.get(value);
+  if (!state || value !== state.root || state.dimensions.length !== 1) return null;
+  return state.denseLeaves.get('') ?? null;
 }
 
 export function pagedArrayStats(value) {

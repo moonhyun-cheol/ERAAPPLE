@@ -3,6 +3,7 @@
   "commit": "fb487bceacd899a033db017ff0dff5bb3878d4a5",
   "saveOptimization": "era-save-memory-v1 (zero-tail prefixes, direct numeric restore)",
   "runtimeOptimization": "era-deferred-local-v1 (LOCAL/LOCALS arrays allocated on first access)",
+  "workerOptimization": "era-save-memory-v1 (pagedStorage) + era-compact-function-ir-v1 (labels, lazy slice, statements, printform, assign payloads) + era-lazy-static-scope-v1; acceptance-verified replay + full save hash parity with baseline",
   "note": "Pinned upstream release JavaScript with fingerprint-checked local overlays; not an iPhone certification.",
   "sha256": "b3dcfbb3863aa1f0d121d3a732a478b626989e42bb8b251ae1479198d101e6f6"
 }
