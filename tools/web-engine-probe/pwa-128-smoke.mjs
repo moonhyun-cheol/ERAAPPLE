@@ -6,6 +6,7 @@ import { chromium, webkit } from 'playwright';
 
 const url = process.env.SMOKE_URL ?? 'http://127.0.0.1:4174/iphone-test/';
 const engineName = process.env.PROBE_BROWSER_ENGINE ?? 'chromium';
+const gameId = process.env.SMOKE_GAME ?? 'eramaou128';
 const errors = [], externalRequests = [];
 const origin = new URL(url).origin;
 const browser = await (engineName === 'webkit' ? webkit : chromium).launch({ headless: true });
@@ -14,10 +15,10 @@ const page = await context.newPage();
 page.setDefaultTimeout(60000);
 page.on('pageerror', e => errors.push(e.message));
 context.on('request', r => { if (!r.url().startsWith(origin + '/')) externalRequests.push(r.url()); });
-const result = { game: '에라마왕 개조판 1.28', engine: engineName, url, startedAt: new Date().toISOString() };
+const result = { game: gameId, engine: engineName, url, startedAt: new Date().toISOString() };
 try {
   await page.goto(url);
-  await page.locator('#game-start').click();
+  await page.locator(`#game-menu button[data-game="${gameId}"]`).click();
   // Wait until the title actually rendered and the engine is waiting for the first menu input.
   await page.waitForFunction(() => document.querySelector('#status')?.textContent === '입력 대기'
     && document.querySelector('#output')?.innerText.trim().length > 0);
@@ -27,7 +28,7 @@ try {
   result.outputHead = output.slice(0, 400);
   result.outputLength = output.length;
   result.menuButtons = buttons.slice(0, 20);
-  await page.screenshot({ path: new URL(`./results/pwa-128-${engineName}.png`, import.meta.url).pathname.replace(/^\//, ''), fullPage: true });
+  await page.screenshot({ path: new URL(`./results/pwa-${gameId}-${engineName}.png`, import.meta.url).pathname.replace(/^\//, ''), fullPage: true });
   result.rendered = output.length > 0;
   result.pageErrors = errors;
   result.externalRequests = externalRequests;
@@ -39,7 +40,7 @@ try {
   try { result.outputHead = (await page.locator('#output').innerText()).trim().slice(0, 400); } catch { /* ignore */ }
   try { result.errorBox = (await page.locator('#error').innerText()).trim().slice(0, 400); } catch { /* ignore */ }
 } finally {
-  await writeFile(new URL(`./results/pwa-128-${engineName}.json`, import.meta.url), JSON.stringify(result, null, 2) + '\n');
+  await writeFile(new URL(`./results/pwa-${gameId}-${engineName}.json`, import.meta.url), JSON.stringify(result, null, 2) + '\n');
   console.log(JSON.stringify(result, null, 2));
   await context.close();
   await browser.close();

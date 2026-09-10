@@ -49,19 +49,31 @@ async function loadAltGame(name) {
   for (const top of ['CSV', 'ERB']) await walk(top);
   return { files };
 }
-const source = altName ? await loadAltGame(altName) : await gameFiles(before.records);
 const assets = new Map();
 for (const name of ['index.html', 'browser.js', 'engine-worker.js', 'eraJS-LICENSE.txt', 'build.json']) {
   assets.set(name, await readFile(new URL('./dist/' + name, import.meta.url)));
 }
 assets.set('index.html', Buffer.from(assets.get('index.html').toString().replace('data-pwa="false"', 'data-pwa="true"')
   .replace('<!-- PWA_LINKS -->', '<link rel="manifest" href="manifest.webmanifest">\n<link rel="apple-touch-icon" href="icon-180.png">')));
-// NDJSON: a header line, then one JSON [key, text] pair per line. The worker stream-decodes it
-// line by line so it never holds the whole ~61 MiB text as one string / one JSON.parse (peak
-// memory that risks iOS Safari Jetsam). gzip level 9 keeps the download at ~11 MiB.
-assets.set('local-game.bin', gzipSync(Buffer.from(
-  [JSON.stringify({ id: altName ? 'era-alt-game' : 'eraTHYMKR', count: source.files.size }),
-    ...[...source.files].map(entry => JSON.stringify(entry))].join('\n') + '\n'), { level: 9 }));
+// Games packaged into this one PWA. Default: root baseline + the 1.28 mod, each with its own
+// bin and IndexedDB namespace so their saves never mix. PWA_GAME_ROOT still builds a single
+// alternate game (kept for legacy single-game smoke builds).
+const registry = altName
+  ? [{ id: 'era-alt-game', label: altName, folder: altName, bin: 'local-game.bin' }]
+  : [{ id: 'eraTHYMKR', label: 'eraTHYMKR (원작)', folder: null, bin: 'local-game.bin' },
+     { id: 'eramaou128', label: '에라마왕 개조판 1.28', folder: '에라마왕 개조판 1.28', bin: 'game-eramaou128.bin' }];
+const games = [];
+for (const entry of registry) {
+  const source = entry.folder ? await loadAltGame(entry.folder) : await gameFiles(before.records);
+  // NDJSON: a header line, then one JSON [key, text] pair per line. The worker stream-decodes it
+  // line by line so it never holds the whole text as one string / one JSON.parse (peak memory
+  // that risks iOS Safari Jetsam). gzip level 9 keeps the download small.
+  assets.set(entry.bin, gzipSync(Buffer.from(
+    [JSON.stringify({ id: entry.id, count: source.files.size }),
+      ...[...source.files].map(pair => JSON.stringify(pair))].join('\n') + '\n'), { level: 9 }));
+  games.push({ id: entry.id, label: entry.label, bin: entry.bin, db: `era-game-${entry.id}-erajs-v1`, count: source.files.size });
+}
+assets.set('games.json', Buffer.from(JSON.stringify({ games }, null, 2) + '\n'));
 assets.set('manifest.webmanifest', Buffer.from(JSON.stringify({ id: './', name: 'eraTHYMKR 웹 실행 시험', short_name: 'era 시험', lang: 'ko',
   start_url: './', scope: './', display: 'standalone', background_color: '#151821', theme_color: '#151821',
   icons: [192, 512].map(size => ({ src: `icon-${size}.png`, sizes: `${size}x${size}`, type: 'image/png', purpose: 'any maskable' }))
@@ -73,7 +85,7 @@ const release = sha(JSON.stringify(hashes) + template).slice(0, 20);
 assets.set('sw.js', Buffer.from(template.replace('__RELEASE__', JSON.stringify(release)).replace('__ASSETS__', JSON.stringify(hashes, null, 2))));
 const report = { release, bytes: [...assets.values()].reduce((n, b) => n + b.length, 0), assets: hashes,
   originalCount: before.records.length, originalDigest: before.originalDigest, iPhoneTested: false,
-  packagedGame: altName ?? 'root-baseline', gameFileCount: source.files.size,
+  packagedGames: games.map(game => ({ id: game.id, label: game.label, db: game.db, count: game.count })),
   note: 'Private static test artifact; check game and bundled dependency rights before distribution.' };
 assets.set('pwa-build.json', Buffer.from(JSON.stringify(report, null, 2) + '\n'));
 const stage = new URL(`./.pwa-stage-${process.pid}/`, import.meta.url);

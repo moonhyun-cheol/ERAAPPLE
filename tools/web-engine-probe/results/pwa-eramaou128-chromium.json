@@ -1,0 +1,17 @@
+{
+  "game": "eramaou128",
+  "engine": "chromium",
+  "url": "http://127.0.0.1:4174/iphone-test/",
+  "startedAt": "2026-09-10T06:41:09.262Z",
+  "status": "입력 대기",
+  "outputHead": "────────────────────────\neramaou\nVer0.920\n「」\n(2011 - 2018)\n※본 게임은 조교SLG작성툴인 erakanon의 개변・재배포입니다。\n────────────────────────\n[0] LOAD GAME\n[1] NEW GAME",
+  "outputLength": 148,
+  "menuButtons": [
+    "[0] LOAD GAME",
+    "[1] NEW GAME"
+  ],
+  "rendered": true,
+  "pageErrors": [],
+  "externalRequests": [],
+  "passed": true
+}

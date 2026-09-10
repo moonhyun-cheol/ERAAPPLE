@@ -1,0 +1,18 @@
+{
+  "games": [
+    {
+      "id": "eraTHYMKR",
+      "label": "eraTHYMKR (원작)",
+      "bin": "local-game.bin",
+      "db": "era-game-eraTHYMKR-erajs-v1",
+      "count": 1115
+    },
+    {
+      "id": "eramaou128",
+      "label": "에라마왕 개조판 1.28",
+      "bin": "game-eramaou128.bin",
+      "db": "era-game-eramaou128-erajs-v1",
+      "count": 330
+    }
+  ]
+}

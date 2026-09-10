@@ -177,25 +177,25 @@ function timedNotice() {
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden && worker) { timedNotice(); worker.postMessage({ type: 'resume' }); }
 });
-async function start(selected) {
+async function start(selected, game) {
   if (starting || backup.isBusy()) return;
   stop(); starting = true; backup.update();
   try {
     await withSaveLock(() => new Promise(resolve => {
       releaseSession = resolve;
-      try { launch(selected); } catch (error) { stop('실패: ' + error.message); }
+      try { launch(selected, game); } catch (error) { stop('실패: ' + error.message); }
       starting = false; backup.update();
     }));
   } catch (error) { state(error.message); }
   finally { starting = false; backup.update(); }
 }
-function launch(selected) {
+function launch(selected, game) {
   mode = selected; epoch = 0;
   trace = createRuntimeTrace(undefined, mode); showPrevious(); recordPhase('start');
   followNext = true; following = true;
   output.replaceChildren(); $('#error').textContent = ''; $('#notice').textContent = '';
   $('#saved').textContent = '이번 세션 저장 완료 기록 없음';
-  $('#session').textContent = mode === 'game' ? '실제 게임 · eraTHYMKR / eraJS 후보' : '독립 입력·저장 시험';
+  $('#session').textContent = mode === 'game' ? ('실제 게임 · ' + (game?.label ?? 'eraTHYMKR') + ' / eraJS 후보') : '독립 입력·저장 시험';
   state('파일 로딩 / 컴파일 중');
   const current = worker = new Worker('./engine-worker.js', { type: 'module' });
   watch();
@@ -244,7 +244,7 @@ function launch(selected) {
       stop('실패 — 엔진 호환성/저장 오류를 확인하세요', 'error');
     }
   };
-  current.postMessage({ type: 'start', mode });
+  current.postMessage({ type: 'start', mode, bin: game?.bin, db: game?.db });
 }
 $('form').addEventListener('submit', event => {
   event.preventDefault();
@@ -260,4 +260,27 @@ $('#continue').addEventListener('click', () => { if (waiting?.type === 'wait') s
 $('#game-start').addEventListener('click', () => start('game'));
 $('#start').addEventListener('click', () => start('fixture'));
 $('#stop').addEventListener('click', () => stop());
+// Multi-game launcher: when the PWA build ships a games.json manifest, offer one button per
+// game. Each starts with its own bundle and IndexedDB namespace so saves never mix. The probe
+// server (no manifest) keeps the single default start button unchanged.
+async function loadGames() {
+  try {
+    const response = await fetch('./games.json', { cache: 'no-store' });
+    if (!response.ok) return null;
+    const data = await response.json();
+    return Array.isArray(data.games) && data.games.length ? data.games : null;
+  } catch { return null; }
+}
+loadGames().then(games => {
+  const menu = $('#game-menu');
+  if (!games || !menu) return;
+  menu.replaceChildren();
+  for (const game of games) {
+    const button = document.createElement('button');
+    button.type = 'button'; button.className = 'game-choice';
+    button.dataset.game = game.id; button.textContent = '▶ ' + game.label;
+    button.addEventListener('click', () => start('game', game));
+    menu.append(button);
+  }
+});
 controls(false);

@@ -584,7 +584,7 @@ document.addEventListener("visibilitychange", () => {
     worker.postMessage({ type: "resume" });
   }
 });
-async function start(selected) {
+async function start(selected, game) {
   if (starting || backup.isBusy()) return;
   stop();
   starting = true;
@@ -593,7 +593,7 @@ async function start(selected) {
     await withSaveLock(() => new Promise((resolve) => {
       releaseSession = resolve;
       try {
-        launch(selected);
+        launch(selected, game);
       } catch (error) {
         stop("\uC2E4\uD328: " + error.message);
       }
@@ -607,7 +607,7 @@ async function start(selected) {
     backup.update();
   }
 }
-function launch(selected) {
+function launch(selected, game) {
   mode = selected;
   epoch = 0;
   trace = createRuntimeTrace(void 0, mode);
@@ -619,7 +619,7 @@ function launch(selected) {
   $("#error").textContent = "";
   $("#notice").textContent = "";
   $("#saved").textContent = "\uC774\uBC88 \uC138\uC158 \uC800\uC7A5 \uC644\uB8CC \uAE30\uB85D \uC5C6\uC74C";
-  $("#session").textContent = mode === "game" ? "\uC2E4\uC81C \uAC8C\uC784 \xB7 eraTHYMKR / eraJS \uD6C4\uBCF4" : "\uB3C5\uB9BD \uC785\uB825\xB7\uC800\uC7A5 \uC2DC\uD5D8";
+  $("#session").textContent = mode === "game" ? "\uC2E4\uC81C \uAC8C\uC784 \xB7 " + (game?.label ?? "eraTHYMKR") + " / eraJS \uD6C4\uBCF4" : "\uB3C5\uB9BD \uC785\uB825\xB7\uC800\uC7A5 \uC2DC\uD5D8";
   state("\uD30C\uC77C \uB85C\uB529 / \uCEF4\uD30C\uC77C \uC911");
   const current = worker = new Worker("./engine-worker.js", { type: "module" });
   watch2();
@@ -679,7 +679,7 @@ function launch(selected) {
       stop("\uC2E4\uD328 \u2014 \uC5D4\uC9C4 \uD638\uD658\uC131/\uC800\uC7A5 \uC624\uB958\uB97C \uD655\uC778\uD558\uC138\uC694", "error");
     }
   };
-  current.postMessage({ type: "start", mode });
+  current.postMessage({ type: "start", mode, bin: game?.bin, db: game?.db });
 }
 $("form").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -703,4 +703,28 @@ $("#continue").addEventListener("click", () => {
 $("#game-start").addEventListener("click", () => start("game"));
 $("#start").addEventListener("click", () => start("fixture"));
 $("#stop").addEventListener("click", () => stop());
+async function loadGames() {
+  try {
+    const response = await fetch("./games.json", { cache: "no-store" });
+    if (!response.ok) return null;
+    const data = await response.json();
+    return Array.isArray(data.games) && data.games.length ? data.games : null;
+  } catch {
+    return null;
+  }
+}
+loadGames().then((games) => {
+  const menu = $("#game-menu");
+  if (!games || !menu) return;
+  menu.replaceChildren();
+  for (const game of games) {
+    const button2 = document.createElement("button");
+    button2.type = "button";
+    button2.className = "game-choice";
+    button2.dataset.game = game.id;
+    button2.textContent = "\u25B6 " + game.label;
+    button2.addEventListener("click", () => start("game", game));
+    menu.append(button2);
+  }
+});
 controls(false);

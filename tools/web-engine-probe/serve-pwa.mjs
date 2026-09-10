@@ -11,7 +11,8 @@ export function createStaticServer(directory = new URL('./pwa-dist/', import.met
   }
   const types = { 'index.html': 'text/html; charset=utf-8', 'browser.js': 'text/javascript; charset=utf-8',
     'engine-worker.js': 'text/javascript; charset=utf-8', 'sw.js': 'text/javascript; charset=utf-8',
-    'local-game.bin': 'application/octet-stream', 'build.json': 'application/json', 'pwa-build.json': 'application/json',
+    'local-game.bin': 'application/octet-stream', 'games.json': 'application/json',
+    'build.json': 'application/json', 'pwa-build.json': 'application/json',
     'manifest.webmanifest': 'application/manifest+json', 'eraJS-LICENSE.txt': 'text/plain; charset=utf-8',
     'icon-180.png': 'image/png', 'icon-192.png': 'image/png', 'icon-512.png': 'image/png' };
   const server = http.createServer(async (req, res) => {
@@ -24,10 +25,12 @@ export function createStaticServer(directory = new URL('./pwa-dist/', import.met
     const pathname = new URL(req.url, origin).pathname;
     if (prefix !== '/' && pathname === prefix.slice(0, -1)) { res.writeHead(308, { Location: prefix }).end(); return; }
     const name = pathname.startsWith(prefix) ? pathname.slice(prefix.length) || 'index.html' : '';
-    if (!Object.hasOwn(types, name)) { res.writeHead(404).end(); return; }
+    const contentType = Object.hasOwn(types, name) ? types[name]
+      : /^game-[a-zA-Z0-9_]+\.bin$/.test(name) ? 'application/octet-stream' : null;
+    if (!contentType) { res.writeHead(404).end(); return; }
     try {
       const bytes = await readFile(new URL(name, directory));
-      res.writeHead(200, { 'Content-Type': types[name], 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff',
+      res.writeHead(200, { 'Content-Type': contentType, 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff',
         'Cross-Origin-Resource-Policy': 'same-origin', 'Referrer-Policy': 'no-referrer' });
       res.end(req.method === 'HEAD' ? undefined : bytes);
     } catch { res.writeHead(404).end('Build PWA first'); }

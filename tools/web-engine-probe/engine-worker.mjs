@@ -60,7 +60,7 @@ self.onmessage = async ({ data }) => {
       const game = data.mode === 'game';
       let source = files;
       if (game) {
-        const response = await fetch('./local-game.bin');
+        const response = await fetch(data.bin ?? './local-game.bin');
         if (!response.ok) throw new Error('Local game endpoint: HTTP ' + response.status);
         // Bundle is gzip-compressed NDJSON to cut download, offline cache and SW hashing memory
         // (~61 MiB -> ~11 MiB). Named .bin, served application/octet-stream so no proxy/tunnel
@@ -90,7 +90,7 @@ self.onmessage = async ({ data }) => {
         if (!header || source.size !== header.count)
           throw new Error('Local game bundle incomplete: ' + source.size + '/' + (header?.count ?? '?'));
       }
-      const store = createStore(game ? 'era-game-eraTHYMKR-erajs-v1' : 'era-engine-probe-v1');
+      const store = createStore(game ? (data.db ?? 'era-game-eraTHYMKR-erajs-v1') : 'era-engine-probe-v1');
       vm = compile(source);
       source = null; // drop the large source reference so GC can reclaim it during play
       generator = vm.start({
