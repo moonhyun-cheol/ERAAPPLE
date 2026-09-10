@@ -1,0 +1,552 @@
+{
+  "game": "에라마왕 개조판 1.28",
+  "node": "v24.15.0",
+  "phase": "start",
+  "counts": {
+    ".CSV": 56,
+    ".ERB": 273,
+    ".ERH": 1
+  },
+  "totalSourceBytes": 9723811,
+  "encodingsSummary": {
+    "utf-8-bom": 329,
+    "utf-8": 1
+  },
+  "unresolvedEncodings": [],
+  "loadedMs": 175.8,
+  "compileMs": 377.6,
+  "compileHeapDeltaMiB": 129.31,
+  "rssAfterCompileMiB": 283.09,
+  "fnCount": 2149,
+  "customTitleRegistered": true,
+  "startStatus": "input-after-choices",
+  "startMs": 1245.6,
+  "choicesFed": [
+    "1",
+    "100"
+  ],
+  "observations": {
+    "events": 13007,
+    "inputs": 2003,
+    "inputsConsumed": 2,
+    "autoFed": 2000,
+    "titleTextSeen": true,
+    "inputStacks": [
+      [
+        "@DUMMY",
+        "SYSTEM_TITLE"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "FIRST_SETTING"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ],
+      [
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE",
+        "CHOOSE_CHARASTERISTIC"
+      ],
+      [
+        "@DUMMY",
+        "EVENTFIRST",
+        "RAND_CHARA_MAKE"
+      ]
+    ],
+    "sampleText": [
+      "eramaou",
+      "Ver0.920",
+      "「」",
+      "(2011 - 2018)",
+      "※본 게임은 조교SLG작성툴인 erakanon의 개변・재배포입니다。",
+      "[0] LOAD GAME",
+      "[1] NEW GAME",
+      "1",
+      "[0] 마왕(魔王)의 성별 ：남성",
+      "[1] 광왕(광왕)의 성별 ：후타나리",
+      "[2] 초기노예 ：랜덤",
+      "[100] 결정",
+      "100",
+      "먼 옛날, 불사의 힘을 손에 넣은 마왕이 있었다",
+      "마왕은 여성에 의해서가 아니라면 쓰러지지 않는 저주로 인해",
+      "세계를 장악할 만큼의 힘을 거머쥐었으나",
+      "어느 날 전설의 여용사(女勇者)에 의해 쓰러져 봉인되었다",
+      "그 봉인이 긴 시간에 걸쳐 지금 풀린 것이다",
+      "오늘도 더러움을 모르는 용사가 던전의 문을 두드린다",
+      "우선은 나의 잠을 깨운 어리석은 여자에게 포상을 내려줘야겠군…",
+      "마왕은 봉인 파괴 때문에 에너지를 흡수당해 힘없이 누워있는 모험가를 내려다보았다",
+      "………",
+      "……",
+      "…",
+      "…",
+      "……",
+      "………",
+      "확실히， 눈앞의 용사는 이렇게 보인다…",
+      "[0] 인상 ：자애로움",
+      "[1] 머리색 ：갈색",
+      "[100] …여자，였을것이다",
+      "0",
+      "어떤 태도였지…",
+      "[ 0]       자애로움[ 1]       자신만만[ 2]       기가약함",
+      "[ 3]        고귀함[ 4]        냉철함[ 5]         악녀",
+      "[ 6]       두뇌명석[ 7]        비호자",
+      "0",
+      "확실히， 눈앞의 용사는 이렇게 보인다…",
+      "[0] 인상 ：자애로움",
+      "[1] 머리색 ：갈색"
+    ],
+    "lateText": [
+      "1",
+      "[0] 마왕(魔王)의 성별 ：남성",
+      "[1] 광왕(광왕)의 성별 ：후타나리",
+      "[2] 초기노예 ：랜덤",
+      "[100] 결정",
+      "100",
+      "먼 옛날, 불사의 힘을 손에 넣은 마왕이 있었다",
+      "마왕은 여성에 의해서가 아니라면 쓰러지지 않는 저주로 인해",
+      "세계를 장악할 만큼의 힘을 거머쥐었으나",
+      "어느 날 전설의 여용사(女勇者)에 의해 쓰러져 봉인되었다",
+      "그 봉인이 긴 시간에 걸쳐 지금 풀린 것이다",
+      "오늘도 더러움을 모르는 용사가 던전의 문을 두드린다",
+      "우선은 나의 잠을 깨운 어리석은 여자에게 포상을 내려줘야겠군…",
+      "마왕은 봉인 파괴 때문에 에너지를 흡수당해 힘없이 누워있는 모험가를 내려다보았다",
+      "………",
+      "……",
+      "…",
+      "…",
+      "……",
+      "………",
+      "확실히， 눈앞의 용사는 이렇게 보인다…",
+      "[0] 인상 ：자애로움",
+      "[1] 머리색 ：갈색",
+      "[100] …여자，였을것이다",
+      "0",
+      "어떤 태도였지…",
+      "[ 0]       자애로움[ 1]       자신만만[ 2]       기가약함",
+      "[ 3]        고귀함[ 4]        냉철함[ 5]         악녀",
+      "[ 6]       두뇌명석[ 7]        비호자",
+      "0",
+      "확실히， 눈앞의 용사는 이렇게 보인다…",
+      "[0] 인상 ：자애로움",
+      "[1] 머리색 ：갈색",
+      "[100] …여자，였을것이다",
+      "0",
+      "어떤 태도였지…",
+      "[ 0]       자애로움[ 1]       자신만만[ 2]       기가약함",
+      "[ 3]        고귀함[ 4]        냉철함[ 5]         악녀",
+      "[ 6]       두뇌명석[ 7]        비호자",
+      "0",
+      "확실히， 눈앞의 용사는 이렇게 보인다…",
+      "[0] 인상 ：자애로움",
+      "[1] 머리색 ：갈색",
+      "[100] …여자，였을것이다",
+      "0",
+      "어떤 태도였지…",
+      "[ 0]       자애로움[ 1]       자신만만[ 2]       기가약함",
+      "[ 3]        고귀함[ 4]        냉철함[ 5]         악녀",
+      "[ 6]       두뇌명석[ 7]        비호자",
+      "0",
+      "확실히， 눈앞의 용사는 이렇게 보인다…",
+      "[0] 인상 ：자애로움",
+      "[1] 머리색 ：갈색",
+      "[100] …여자，였을것이다",
+      "0",
+      "어떤 태도였지…",
+      "[ 0]       자애로움[ 1]       자신만만[ 2]       기가약함",
+      "[ 3]        고귀함[ 4]        냉철함[ 5]         악녀",
+      "[ 6]       두뇌명석[ 7]        비호자",
+      "0"
+    ],
+    "lastText": [
+      "[ 3]        고귀함[ 4]        냉철함[ 5]         악녀",
+      "[ 6]       두뇌명석[ 7]        비호자",
+      "0",
+      "확실히， 눈앞의 용사는 이렇게 보인다…",
+      "[0] 인상 ：자애로움",
+      "[1] 머리색 ：갈색",
+      "[100] …여자，였을것이다",
+      "0",
+      "어떤 태도였지…",
+      "[ 0]       자애로움[ 1]       자신만만[ 2]       기가약함",
+      "[ 3]        고귀함[ 4]        냉철함[ 5]         악녀",
+      "[ 6]       두뇌명석[ 7]        비호자"
+    ]
+  },
+  "peakRssMiB": 321.44,
+  "savedataKeys": [],
+  "ok": true,
+  "elapsedMs": 1799.1,
+  "baseRssMiB": 55.2
+}

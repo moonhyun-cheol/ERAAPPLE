@@ -1,0 +1,11 @@
+{
+  "bisect": true,
+  "erbCount": 274,
+  "offenderCount": 1,
+  "offenders": [
+    {
+      "file": "ERB/ARREST.ERB",
+      "message": "Parser error found: Expected one of ('@')"
+    }
+  ]
+}

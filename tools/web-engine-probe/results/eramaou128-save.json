@@ -1,0 +1,316 @@
+{
+  "game": "에라마왕 개조판 1.28",
+  "node": "v24.15.0",
+  "phase": "drive",
+  "exposedGc": true,
+  "counts": {
+    ".CSV": 56,
+    ".ERB": 273,
+    ".ERH": 1
+  },
+  "totalSourceBytes": 9723811,
+  "fnCount": 2149,
+  "customTitleRegistered": true,
+  "driveStatus": "shop-autosave-reached",
+  "saveWrites": [
+    {
+      "key": "save99.sav",
+      "bytes": 8912
+    }
+  ],
+  "saveGrossHeapDelta": null,
+  "savedataKeys": [
+    "save99.sav"
+  ],
+  "observations": {
+    "events": 199,
+    "inputs": 26,
+    "decisions": [
+      {
+        "i": 1,
+        "type": "input",
+        "stack": [
+          "@DUMMY",
+          "SYSTEM_TITLE"
+        ],
+        "choice": "1",
+        "tail": "eramaouVer0.920「」(2011 - 2018)※본 게임은 조교SLG작성툴인 erakanon의 개변・재배포입니다。[0] LOAD GAME[1] NEW GAME"
+      },
+      {
+        "i": 2,
+        "type": "input",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "FIRST_SETTING"
+        ],
+        "choice": "100",
+        "tail": "1[0] 마왕(魔王)의 성별 ：남성[1] 광왕(광왕)의 성별 ：후타나리[2] 초기노예 ：랜덤[100] 결정"
+      },
+      {
+        "i": 3,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST"
+        ],
+        "choice": "",
+        "tail": " 있었다마왕은 여성에 의해서가 아니라면 쓰러지지 않는 저주로 인해세계를 장악할 만큼의 힘을 거머쥐었으나어느 날 전설의 여용사(女勇者)에 의해 쓰러져 봉인되었다그 봉인이 긴 시간에 걸쳐 지금 풀린 것이다오늘도 더러움을 모르는 용사가 던전의 문을 두드린다"
+      },
+      {
+        "i": 4,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST"
+        ],
+        "choice": "",
+        "tail": "우선은 나의 잠을 깨운 어리석은 여자에게 포상을 내려줘야겠군…"
+      },
+      {
+        "i": 5,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST"
+        ],
+        "choice": "",
+        "tail": "마왕은 봉인 파괴 때문에 에너지를 흡수당해 힘없이 누워있는 모험가를 내려다보았다"
+      },
+      {
+        "i": 6,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST"
+        ],
+        "choice": "",
+        "tail": "………"
+      },
+      {
+        "i": 7,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST"
+        ],
+        "choice": "",
+        "tail": "……"
+      },
+      {
+        "i": 8,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST"
+        ],
+        "choice": "",
+        "tail": "…"
+      },
+      {
+        "i": 9,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST"
+        ],
+        "choice": "",
+        "tail": ""
+      },
+      {
+        "i": 10,
+        "type": "input",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "RAND_CHARA_MAKE"
+        ],
+        "choice": "0",
+        "tail": "………………확실히， 눈앞의 용사는 이렇게 보인다…[0] 인상 ：자애로움[1] 머리색 ：녹발[100] …여자，였을것이다"
+      },
+      {
+        "i": 11,
+        "type": "input",
+        "stack": [
+          "EVENTFIRST",
+          "RAND_CHARA_MAKE",
+          "CHOOSE_CHARASTERISTIC"
+        ],
+        "choice": "0",
+        "tail": "0어떤 태도였지…[ 0]       자애로움[ 1]       자신만만[ 2]       기가약함[ 3]        고귀함[ 4]        냉철함[ 5]         악녀[ 6]       두뇌명석[ 7]        비호자"
+      },
+      {
+        "i": 12,
+        "type": "input",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "RAND_CHARA_MAKE"
+        ],
+        "choice": "0",
+        "tail": "0확실히， 눈앞의 용사는 이렇게 보인다…[0] 인상 ：자애로움[1] 머리색 ：녹발[100] …여자，였을것이다"
+      },
+      {
+        "i": 13,
+        "type": "input",
+        "stack": [
+          "EVENTFIRST",
+          "RAND_CHARA_MAKE",
+          "CHOOSE_CHARASTERISTIC"
+        ],
+        "choice": "0",
+        "tail": "0어떤 태도였지…[ 0]       자애로움[ 1]       자신만만[ 2]       기가약함[ 3]        고귀함[ 4]        냉철함[ 5]         악녀[ 6]       두뇌명석[ 7]        비호자"
+      },
+      {
+        "i": 14,
+        "type": "input",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "RAND_CHARA_MAKE"
+        ],
+        "choice": "0",
+        "tail": "0확실히， 눈앞의 용사는 이렇게 보인다…[0] 인상 ：자애로움[1] 머리색 ：녹발[100] …여자，였을것이다"
+      },
+      {
+        "i": 15,
+        "type": "input",
+        "stack": [
+          "EVENTFIRST",
+          "RAND_CHARA_MAKE",
+          "CHOOSE_CHARASTERISTIC"
+        ],
+        "choice": "0",
+        "tail": "0어떤 태도였지…[ 0]       자애로움[ 1]       자신만만[ 2]       기가약함[ 3]        고귀함[ 4]        냉철함[ 5]         악녀[ 6]       두뇌명석[ 7]        비호자"
+      },
+      {
+        "i": 16,
+        "type": "input",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "RAND_CHARA_MAKE"
+        ],
+        "choice": "100",
+        "tail": "0확실히， 눈앞의 용사는 이렇게 보인다…[0] 인상 ：자애로움[1] 머리색 ：녹발[100] …여자，였을것이다"
+      },
+      {
+        "i": 17,
+        "type": "wait",
+        "stack": [
+          "EVENTFIRST",
+          "RAND_CHARA_MAKE",
+          "SHOW_CHARA_INFO"
+        ],
+        "choice": "",
+        "tail": "‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥고통:LV0[...]쾌락:LV0[...]굴복:LV0[...]반발:LV0[...]‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥"
+      },
+      {
+        "i": 18,
+        "type": "wait",
+        "stack": [
+          "EVENTFIRST",
+          "RAND_CHARA_MAKE",
+          "SHOW_CHARA_INFO"
+        ],
+        "choice": "",
+        "tail": "부정의 구슬：0     쾌Ｆ의 구슬：0     ‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥【무기】　:데스단검【장식A】　:장식용 반지【장식B】　:장식용 반지‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥"
+      },
+      {
+        "i": 19,
+        "type": "input",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "RAND_CHARA_MAKE"
+        ],
+        "choice": "2",
+        "tail": "：없음][좋아하는것]그림♡♡[1개 좋아하는 것이 있습니다]지금 나유타의 복장은모험가복차림입니다.‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥봉인을 푼 용사는 이런 여자였나…？[1] 달랐던 생각이 든다…  [2] 확실히 그렇다…"
+      },
+      {
+        "i": 20,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "RAND_CHARA_MAKE"
+        ],
+        "choice": "",
+        "tail": "2*****************************************모험가나유타를 지하 감옥에 유폐했습니다!*****************************************"
+      },
+      {
+        "i": 21,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "OPENING_TUTORIAL"
+        ],
+        "choice": "",
+        "tail": ".처음 보는 얼굴에 고개를 갸웃거리고 있자, 그녀가 이어서 말하였다.「마왕님이 봉인된 이후로 수백년이 지났고, 저는 그때 태어나지도 않았으니 모르는게 당연하시겠죠.」「그 사이에 무슨 일이 일어났는지 간략하게 설명드리려고 하는데… 어떻게 생각하시나요?」"
+      },
+      {
+        "i": 22,
+        "type": "input",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "OPENING_TUTORIAL"
+        ],
+        "choice": "1",
+        "tail": "[1] 설명을 듣는다[2] 설명을 듣지 않는다"
+      },
+      {
+        "i": 23,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "OPENING_TUTORIAL"
+        ],
+        "choice": "",
+        "tail": " 위한 결정이었죠.」「하지만 마왕군이 마계로 철수하자, 여신들은 마계와 인간계의 연결점을 닫아버렸습니다.」「이후에 틈을 이용해서 인간계로 마족들이 들어오는 방법을 찾아내었지만,」「예전처럼 대량의 마족을 이용한 마왕군은 빠른 시일 내에는 힘들것입니다.」"
+      },
+      {
+        "i": 24,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "OPENING_TUTORIAL"
+        ],
+        "choice": "",
+        "tail": " 만들어 마왕군의 제건에 사용하거나 마왕군을 위한 성처리 변기,」「아니면 본보기로 처형하시는 등 원하시는 방법으로 처리하시면 됩니다.」「물론 마왕님은 지금 당장 복수하고 싶으시겠지만, 전력이 모일 때 까지는 자중해주시기를 바라는게 저희의 마음입니다.」"
+      },
+      {
+        "i": 25,
+        "type": "wait",
+        "stack": [
+          "@DUMMY",
+          "EVENTFIRST",
+          "OPENING_TUTORIAL"
+        ],
+        "choice": "",
+        "tail": "에게 광왕의 자리를 물려줬으나」「현 광왕은 그녀처럼 강하지도, 정의감이 뛰어난 인물도 아니나 색욕에 빠져있는 자입니다.」「다행히 마왕님을 별로 신경 쓰지도 않고 있어서 군대를 동원하지는 않을것이나」「잡히게 된다면 노리개로 쓰일수도 있으니 조심하세요.」"
+      },
+      {
+        "i": 26,
+        "type": "input",
+        "stack": [
+          "@DUMMY"
+        ],
+        "choice": "0",
+        "tail": "     [---] 　　　       [---] 　　　　　          [199] 휴식         [200] 세이브          [300] 로드      [777] CONFIG          [888] 통신        [999] 마계사전"
+      }
+    ],
+    "phase": "shop",
+    "saved": true,
+    "sawShop": true,
+    "peakRssMiB": 325.43,
+    "stacks": [],
+    "lastError": null
+  },
+  "ok": true,
+  "elapsedMs": 2437,
+  "finalRssMiB": 325.43
+}
