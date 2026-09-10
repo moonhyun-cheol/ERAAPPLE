@@ -274,6 +274,8 @@ async function loadGames() {
 loadGames().then(games => {
   const menu = $('#game-menu');
   if (!games || !menu) return;
+  // Populate the backup selector with the same manifest so backups target the right game DB.
+  backup.setGames(games);
   menu.replaceChildren();
   for (const game of games) {
     const button = document.createElement('button');

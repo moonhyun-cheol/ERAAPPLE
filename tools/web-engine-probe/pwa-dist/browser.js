@@ -94,22 +94,13 @@ if (document.documentElement.dataset.pwa !== "true") {
 }
 
 // save-backup.mjs
-var GAME_DB = "era-game-eraTHYMKR-erajs-v1";
-var SAVE_LOCK = GAME_DB + ":session";
 var MAX_BACKUP_BYTES = 64 * 1024 * 1024;
 var MAX_JSON_BYTES = 256 * 1024 * 1024;
-var identity = { game: "eraTHYMKR", engine: "eraJS", profile: "erajs-json-v1", code: 890016222, version: 3210 };
+var DEFAULT_TARGET = { id: "eraTHYMKR", game: "eraTHYMKR", db: "era-game-eraTHYMKR-erajs-v1", code: 890016222, version: 3210 };
 var record = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
 var bytes = (text) => new TextEncoder().encode(text);
 function require2(condition, message) {
   if (!condition) throw new Error(message);
-}
-async function withSaveLock(operation) {
-  require2(navigator.locks, "\uC800\uC7A5 \uBCF4\uD638\uB97C \uC9C0\uC6D0\uD558\uB294 \uCD5C\uC2E0 Safari/\uBE0C\uB77C\uC6B0\uC800\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4.");
-  return navigator.locks.request(SAVE_LOCK, { ifAvailable: true }, (lock) => {
-    require2(lock, "\uB2E4\uB978 \uD0ED\uC5D0\uC11C \uAC8C\uC784 \uB610\uB294 \uBC31\uC5C5\uC774 \uC2E4\uD589 \uC911\uC785\uB2C8\uB2E4. \uC800\uC7A5 \uD6C4 \uB2E4\uB978 \uC2E4\uD589\uAE30\uB97C \uB2EB\uC73C\uC138\uC694.");
-    return operation();
-  });
 }
 async function digest(text) {
   return [...new Uint8Array(await crypto.subtle.digest("SHA-256", bytes(text)))].map((n) => n.toString(16).padStart(2, "0")).join("");
@@ -121,83 +112,104 @@ function variables(value, depth = 0) {
 function variableMap(value) {
   return record(value) && Object.entries(value).every(([key, item]) => /^[A-Z_][A-Z0-9_]*$/i.test(key) && !["__proto__", "constructor", "prototype"].includes(key) && variables(item));
 }
-function validateEntries(entries) {
-  require2(Array.isArray(entries) && entries.length > 0 && entries.length <= 1001, "\uBE44\uC5B4 \uC788\uAC70\uB098 \uC800\uC7A5 \uAC1C\uC218\uAC00 \uC798\uBABB\uB41C \uBC31\uC5C5\uC785\uB2C8\uB2E4.");
-  const seen = /* @__PURE__ */ new Set();
-  for (const entry of entries) {
-    require2(Array.isArray(entry) && entry.length === 2, "\uC800\uC7A5 \uD56D\uBAA9 \uD615\uC2DD \uC624\uB958");
-    const [key, value] = entry;
-    require2(typeof key === "string" && /^(global|save\d{2,6})\.sav$/.test(key) && !seen.has(key), "\uC800\uC7A5 \uD30C\uC77C \uC774\uB984\uC774 \uC798\uBABB\uB418\uC5C8\uAC70\uB098 \uC911\uBCF5\uB429\uB2C8\uB2E4.");
-    seen.add(key);
-    require2(typeof value === "string" && value.length <= MAX_JSON_BYTES, "\uC800\uC7A5 \uB0B4\uC6A9 \uD615\uC2DD \uC624\uB958");
-    let save;
-    try {
-      save = JSON.parse(value);
-    } catch {
-      throw new Error("\uC800\uC7A5 \uB0B4\uC6A9\uC774 \uC190\uC0C1\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
-    }
-    require2(record(save) && save.code === identity.code && save.version === identity.version, "\uB2E4\uB978 \uAC8C\uC784 \uB610\uB294 \uC9C0\uC6D0\uD558\uC9C0 \uC54A\uB294 \uAC8C\uC784 \uBC84\uC804\uC758 \uC800\uC7A5\uC785\uB2C8\uB2E4.");
-    const data = save.data;
-    if (key === "global.sav") {
-      require2(variableMap(data) && Array.isArray(data.GLOBAL) && Array.isArray(data.GLOBALS), "\uACF5\uD1B5 \uC800\uC7A5 \uB0B4\uC6A9 \uD615\uC2DD \uC624\uB958");
-    } else {
-      require2(record(data) && typeof data.comment === "string" && Array.isArray(data.characters) && data.characters.every(variableMap) && variableMap(data.variables), "\uC2AC\uB86F \uC800\uC7A5 \uB0B4\uC6A9 \uD615\uC2DD \uC624\uB958");
-    }
-  }
-  return entries;
-}
-async function encodeBackup(entries) {
-  validateEntries(entries);
-  const payload = { ...identity, createdAt: (/* @__PURE__ */ new Date()).toISOString(), entries };
-  const text = JSON.stringify({ format: "era-web-save-backup", schema: 1, payload, sha256: await digest(JSON.stringify(payload)) });
-  require2(bytes(text).length <= MAX_JSON_BYTES, "\uC555\uCD95 \uC804 \uBC31\uC5C5\uC774 256 MiB\uB97C \uCD08\uACFC\uD569\uB2C8\uB2E4.");
-  return text;
-}
-async function decodeBackup(text) {
-  require2(typeof text === "string" && bytes(text).length <= MAX_JSON_BYTES, "\uC555\uCD95 \uC804 \uBC31\uC5C5\uC774 256 MiB\uB97C \uCD08\uACFC\uD569\uB2C8\uB2E4.");
-  let backup2;
-  try {
-    backup2 = JSON.parse(text);
-  } catch {
-    throw new Error("JSON \uBC31\uC5C5 \uD30C\uC77C\uC774 \uC544\uB2C8\uAC70\uB098 \uC190\uC0C1\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
-  }
-  require2(record(backup2) && backup2.format === "era-web-save-backup" && backup2.schema === 1 && record(backup2.payload), "\uC9C0\uC6D0\uD558\uC9C0 \uC54A\uB294 \uBC31\uC5C5 \uD615\uC2DD\uC785\uB2C8\uB2E4. PC .sav \uD30C\uC77C\uC740 \uAC00\uC838\uC62C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.");
-  require2(Object.entries(identity).every(([key, value]) => backup2.payload[key] === value), "\uB2E4\uB978 \uAC8C\uC784\xB7\uC5D4\uC9C4 \uB610\uB294 \uBC84\uC804\uC758 \uBC31\uC5C5\uC785\uB2C8\uB2E4.");
-  require2(typeof backup2.payload.createdAt === "string" && Number.isFinite(Date.parse(backup2.payload.createdAt)), "\uBC31\uC5C5 \uB0A0\uC9DC \uC624\uB958");
-  require2(typeof backup2.sha256 === "string" && await digest(JSON.stringify(backup2.payload)) === backup2.sha256, "\uBC31\uC5C5 \uBB34\uACB0\uC131 \uAC80\uC0AC \uC2E4\uD328: \uD30C\uC77C\uC774 \uC190\uC0C1\uB418\uAC70\uB098 \uBCC0\uACBD\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
-  validateEntries(backup2.payload.entries);
-  return backup2.payload;
-}
-async function packBackup(entries) {
-  require2(typeof CompressionStream === "function", "\uC555\uCD95 \uBC31\uC5C5\uC5D0\uB294 iOS 16.4 \uC774\uC0C1\uC758 Safari\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4.");
-  const text = await encodeBackup(entries);
-  const blob = await new Response(new Blob([text]).stream().pipeThrough(new CompressionStream("gzip"))).blob();
-  require2(blob.size <= MAX_BACKUP_BYTES, "\uC555\uCD95 \uBC31\uC5C5\uC774 64 MiB\uB97C \uCD08\uACFC\uD569\uB2C8\uB2E4.");
-  return blob;
-}
-async function unpackBackup(file) {
-  require2(file.size <= MAX_BACKUP_BYTES, "\uD30C\uC77C \uD06C\uAE30\uAC00 64 MiB\uB97C \uCD08\uACFC\uD569\uB2C8\uB2E4.");
-  const head = new Uint8Array(await file.slice(0, 2).arrayBuffer());
-  if (head[0] !== 31 || head[1] !== 139) return decodeBackup(await file.text());
-  require2(typeof DecompressionStream === "function", "\uC555\uCD95 \uBCF5\uC6D0\uC5D0\uB294 iOS 16.4 \uC774\uC0C1\uC758 Safari\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4.");
-  const reader = file.stream().pipeThrough(new DecompressionStream("gzip")).getReader();
-  const chunks = [];
-  let size = 0;
-  try {
-    for (; ; ) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      size += value.byteLength;
-      require2(size <= MAX_JSON_BYTES, "\uC555\uCD95 \uD574\uC81C \uD06C\uAE30\uAC00 256 MiB\uB97C \uCD08\uACFC\uD569\uB2C8\uB2E4.");
-      chunks.push(value);
-    }
-  } catch (error) {
-    await reader.cancel().catch(() => {
+function createBackup(target = DEFAULT_TARGET) {
+  const GAME_DB2 = target.db;
+  const SAVE_LOCK2 = GAME_DB2 + ":session";
+  const identity = { game: target.game, engine: "eraJS", profile: "erajs-json-v1", code: target.code, version: target.version };
+  async function withSaveLock2(operation) {
+    require2(navigator.locks, "\uC800\uC7A5 \uBCF4\uD638\uB97C \uC9C0\uC6D0\uD558\uB294 \uCD5C\uC2E0 Safari/\uBE0C\uB77C\uC6B0\uC800\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4.");
+    return navigator.locks.request(SAVE_LOCK2, { ifAvailable: true }, (lock) => {
+      require2(lock, "\uB2E4\uB978 \uD0ED\uC5D0\uC11C \uAC8C\uC784 \uB610\uB294 \uBC31\uC5C5\uC774 \uC2E4\uD589 \uC911\uC785\uB2C8\uB2E4. \uC800\uC7A5 \uD6C4 \uB2E4\uB978 \uC2E4\uD589\uAE30\uB97C \uB2EB\uC73C\uC138\uC694.");
+      return operation();
     });
-    throw error;
   }
-  return decodeBackup(await new Blob(chunks).text());
+  function validateEntries(entries) {
+    require2(Array.isArray(entries) && entries.length > 0 && entries.length <= 1001, "\uBE44\uC5B4 \uC788\uAC70\uB098 \uC800\uC7A5 \uAC1C\uC218\uAC00 \uC798\uBABB\uB41C \uBC31\uC5C5\uC785\uB2C8\uB2E4.");
+    const seen = /* @__PURE__ */ new Set();
+    for (const entry of entries) {
+      require2(Array.isArray(entry) && entry.length === 2, "\uC800\uC7A5 \uD56D\uBAA9 \uD615\uC2DD \uC624\uB958");
+      const [key, value] = entry;
+      require2(typeof key === "string" && /^(global|save\d{2,6})\.sav$/.test(key) && !seen.has(key), "\uC800\uC7A5 \uD30C\uC77C \uC774\uB984\uC774 \uC798\uBABB\uB418\uC5C8\uAC70\uB098 \uC911\uBCF5\uB429\uB2C8\uB2E4.");
+      seen.add(key);
+      require2(typeof value === "string" && value.length <= MAX_JSON_BYTES, "\uC800\uC7A5 \uB0B4\uC6A9 \uD615\uC2DD \uC624\uB958");
+      let save;
+      try {
+        save = JSON.parse(value);
+      } catch {
+        throw new Error("\uC800\uC7A5 \uB0B4\uC6A9\uC774 \uC190\uC0C1\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
+      }
+      require2(record(save) && save.code === identity.code && save.version === identity.version, "\uB2E4\uB978 \uAC8C\uC784 \uB610\uB294 \uC9C0\uC6D0\uD558\uC9C0 \uC54A\uB294 \uAC8C\uC784 \uBC84\uC804\uC758 \uC800\uC7A5\uC785\uB2C8\uB2E4.");
+      const data = save.data;
+      if (key === "global.sav") {
+        require2(variableMap(data) && Array.isArray(data.GLOBAL) && Array.isArray(data.GLOBALS), "\uACF5\uD1B5 \uC800\uC7A5 \uB0B4\uC6A9 \uD615\uC2DD \uC624\uB958");
+      } else {
+        require2(record(data) && typeof data.comment === "string" && Array.isArray(data.characters) && data.characters.every(variableMap) && variableMap(data.variables), "\uC2AC\uB86F \uC800\uC7A5 \uB0B4\uC6A9 \uD615\uC2DD \uC624\uB958");
+      }
+    }
+    return entries;
+  }
+  async function encodeBackup2(entries) {
+    validateEntries(entries);
+    const payload = { ...identity, createdAt: (/* @__PURE__ */ new Date()).toISOString(), entries };
+    const text = JSON.stringify({ format: "era-web-save-backup", schema: 1, payload, sha256: await digest(JSON.stringify(payload)) });
+    require2(bytes(text).length <= MAX_JSON_BYTES, "\uC555\uCD95 \uC804 \uBC31\uC5C5\uC774 256 MiB\uB97C \uCD08\uACFC\uD569\uB2C8\uB2E4.");
+    return text;
+  }
+  async function decodeBackup2(text) {
+    require2(typeof text === "string" && bytes(text).length <= MAX_JSON_BYTES, "\uC555\uCD95 \uC804 \uBC31\uC5C5\uC774 256 MiB\uB97C \uCD08\uACFC\uD569\uB2C8\uB2E4.");
+    let backup2;
+    try {
+      backup2 = JSON.parse(text);
+    } catch {
+      throw new Error("JSON \uBC31\uC5C5 \uD30C\uC77C\uC774 \uC544\uB2C8\uAC70\uB098 \uC190\uC0C1\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
+    }
+    require2(record(backup2) && backup2.format === "era-web-save-backup" && backup2.schema === 1 && record(backup2.payload), "\uC9C0\uC6D0\uD558\uC9C0 \uC54A\uB294 \uBC31\uC5C5 \uD615\uC2DD\uC785\uB2C8\uB2E4. PC .sav \uD30C\uC77C\uC740 \uAC00\uC838\uC62C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.");
+    require2(Object.entries(identity).every(([key, value]) => backup2.payload[key] === value), "\uB2E4\uB978 \uAC8C\uC784\xB7\uC5D4\uC9C4 \uB610\uB294 \uBC84\uC804\uC758 \uBC31\uC5C5\uC785\uB2C8\uB2E4.");
+    require2(typeof backup2.payload.createdAt === "string" && Number.isFinite(Date.parse(backup2.payload.createdAt)), "\uBC31\uC5C5 \uB0A0\uC9DC \uC624\uB958");
+    require2(typeof backup2.sha256 === "string" && await digest(JSON.stringify(backup2.payload)) === backup2.sha256, "\uBC31\uC5C5 \uBB34\uACB0\uC131 \uAC80\uC0AC \uC2E4\uD328: \uD30C\uC77C\uC774 \uC190\uC0C1\uB418\uAC70\uB098 \uBCC0\uACBD\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
+    validateEntries(backup2.payload.entries);
+    return backup2.payload;
+  }
+  async function packBackup2(entries) {
+    require2(typeof CompressionStream === "function", "\uC555\uCD95 \uBC31\uC5C5\uC5D0\uB294 iOS 16.4 \uC774\uC0C1\uC758 Safari\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4.");
+    const text = await encodeBackup2(entries);
+    const blob = await new Response(new Blob([text]).stream().pipeThrough(new CompressionStream("gzip"))).blob();
+    require2(blob.size <= MAX_BACKUP_BYTES, "\uC555\uCD95 \uBC31\uC5C5\uC774 64 MiB\uB97C \uCD08\uACFC\uD569\uB2C8\uB2E4.");
+    return blob;
+  }
+  async function unpackBackup2(file) {
+    require2(file.size <= MAX_BACKUP_BYTES, "\uD30C\uC77C \uD06C\uAE30\uAC00 64 MiB\uB97C \uCD08\uACFC\uD569\uB2C8\uB2E4.");
+    const head = new Uint8Array(await file.slice(0, 2).arrayBuffer());
+    if (head[0] !== 31 || head[1] !== 139) return decodeBackup2(await file.text());
+    require2(typeof DecompressionStream === "function", "\uC555\uCD95 \uBCF5\uC6D0\uC5D0\uB294 iOS 16.4 \uC774\uC0C1\uC758 Safari\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4.");
+    const reader = file.stream().pipeThrough(new DecompressionStream("gzip")).getReader();
+    const chunks = [];
+    let size = 0;
+    try {
+      for (; ; ) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        size += value.byteLength;
+        require2(size <= MAX_JSON_BYTES, "\uC555\uCD95 \uD574\uC81C \uD06C\uAE30\uAC00 256 MiB\uB97C \uCD08\uACFC\uD569\uB2C8\uB2E4.");
+        chunks.push(value);
+      }
+    } catch (error) {
+      await reader.cancel().catch(() => {
+      });
+      throw error;
+    }
+    return decodeBackup2(await new Blob(chunks).text());
+  }
+  return { target, identity, GAME_DB: GAME_DB2, SAVE_LOCK: SAVE_LOCK2, MAX_BACKUP_BYTES, withSaveLock: withSaveLock2, encodeBackup: encodeBackup2, decodeBackup: decodeBackup2, packBackup: packBackup2, unpackBackup: unpackBackup2 };
 }
+var defaultBackup = createBackup();
+var GAME_DB = defaultBackup.GAME_DB;
+var SAVE_LOCK = defaultBackup.SAVE_LOCK;
+var withSaveLock = defaultBackup.withSaveLock;
+var encodeBackup = defaultBackup.encodeBackup;
+var decodeBackup = defaultBackup.decodeBackup;
+var packBackup = defaultBackup.packBackup;
+var unpackBackup = defaultBackup.unpackBackup;
 
 // browser-store.mjs
 function createStore(name = "era-engine-probe-v1") {
@@ -261,12 +273,36 @@ function createStore(name = "era-engine-probe-v1") {
 function setupBackup(isRunning) {
   const $2 = (selector) => document.querySelector(selector);
   let busy = false, downloadURL, sharedFile;
+  let targets = [DEFAULT_TARGET];
+  const select = $2("#backup-game");
   const message = (text) => {
     $2("#backup-status").textContent = text;
   };
+  function currentTarget() {
+    const id = select?.value;
+    return targets.find((t) => t.id === id) ?? targets[0];
+  }
+  function setGames(games) {
+    if (Array.isArray(games) && games.length) {
+      targets = games.map((g) => ({ id: g.id, game: g.id, label: g.label, db: g.db, code: g.code, version: g.version }));
+    }
+    if (select) {
+      select.replaceChildren();
+      for (const t of targets) {
+        const option = document.createElement("option");
+        option.value = t.id;
+        option.textContent = t.label ?? t.id;
+        select.append(option);
+      }
+      select.hidden = targets.length <= 1;
+    }
+  }
   function update() {
     const disabled = busy || isRunning();
-    for (const id of ["backup-export", "backup-file", "backup-restore"]) $2("#" + id).disabled = disabled;
+    for (const id of ["backup-export", "backup-file", "backup-restore", "backup-game"]) {
+      const el = $2("#" + id);
+      if (el) el.disabled = disabled;
+    }
     for (const id of ["game-start", "start"]) $2("#" + id).disabled = busy;
   }
   async function operation(fn) {
@@ -276,11 +312,13 @@ function setupBackup(isRunning) {
     }
     busy = true;
     update();
+    const target = currentTarget();
+    const backup2 = createBackup(target);
     try {
-      await withSaveLock(async () => {
-        const store = createStore(GAME_DB);
+      await backup2.withSaveLock(async () => {
+        const store = createStore(backup2.GAME_DB);
         try {
-          await fn(store);
+          await fn(store, backup2, target);
         } finally {
           await store.close();
         }
@@ -292,11 +330,11 @@ function setupBackup(isRunning) {
       update();
     }
   }
-  $2("#backup-export").addEventListener("click", () => operation(async (store) => {
-    message("\uBC31\uC5C5 \uC900\uBE44 \uC911\u2026");
-    const blob = await packBackup(await store.entries());
+  $2("#backup-export").addEventListener("click", () => operation(async (store, backup2, target) => {
+    message(`\uBC31\uC5C5 \uC900\uBE44 \uC911\u2026 (${target.label ?? target.id})`);
+    const blob = await backup2.packBackup(await store.entries());
     if (downloadURL) URL.revokeObjectURL(downloadURL);
-    const name = `eraTHYMKR-backup-${(/* @__PURE__ */ new Date()).toISOString().replace(/[:.]/g, "-")}.json.gz`;
+    const name = `${target.id}-backup-${(/* @__PURE__ */ new Date()).toISOString().replace(/[:.]/g, "-")}.json.gz`;
     sharedFile = new File([blob], name, { type: "application/gzip" });
     downloadURL = URL.createObjectURL(sharedFile);
     const link = $2("#backup-download");
@@ -304,33 +342,35 @@ function setupBackup(isRunning) {
     link.download = name;
     link.hidden = false;
     $2("#backup-share").hidden = !navigator.canShare?.({ files: [sharedFile] });
-    message("\uBC31\uC5C5 \uC900\uBE44\uB428. \uC544\uB798 \uD30C\uC77C \uB2E4\uC6B4\uB85C\uB4DC \uB610\uB294 \uACF5\uC720 \u2192 \uD30C\uC77C\uC5D0 \uC800\uC7A5\uC744 \uB204\uB974\uC138\uC694. \uAE30\uAE30\uC5D0 \uD30C\uC77C\uC774 \uC0DD\uACBC\uB294\uC9C0 \uD655\uC778\uD558\uC138\uC694.");
+    message(`\uBC31\uC5C5 \uC900\uBE44\uB428 (${target.label ?? target.id}). \uC544\uB798 \uD30C\uC77C \uB2E4\uC6B4\uB85C\uB4DC \uB610\uB294 \uACF5\uC720 \u2192 \uD30C\uC77C\uC5D0 \uC800\uC7A5\uC744 \uB204\uB974\uC138\uC694. \uAE30\uAE30\uC5D0 \uD30C\uC77C\uC774 \uC0DD\uACBC\uB294\uC9C0 \uD655\uC778\uD558\uC138\uC694.`);
   }));
   $2("#backup-share").addEventListener("click", async () => {
     try {
-      await navigator.share({ files: [sharedFile], title: "eraTHYMKR \uC138\uC774\uBE0C \uBC31\uC5C5" });
+      await navigator.share({ files: [sharedFile], title: (currentTarget().label ?? currentTarget().id) + " \uC138\uC774\uBE0C \uBC31\uC5C5" });
     } catch (error) {
       message(error.name === "AbortError" ? "\uACF5\uC720\uB97C \uCDE8\uC18C\uD588\uC2B5\uB2C8\uB2E4. \uB2E4\uC6B4\uB85C\uB4DC\uB85C \uB2E4\uC2DC \uC800\uC7A5\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4." : "\uACF5\uC720 \uC2E4\uD328. \uD30C\uC77C \uB2E4\uC6B4\uB85C\uB4DC\uB97C \uC774\uC6A9\uD558\uC138\uC694.");
     }
   });
-  $2("#backup-restore").addEventListener("click", () => operation(async (store) => {
+  $2("#backup-restore").addEventListener("click", () => operation(async (store, backup2, target) => {
     const file = $2("#backup-file").files[0];
     if (!file) throw new Error("\uBA3C\uC800 \uBC31\uC5C5 JSON \uD30C\uC77C\uC744 \uC120\uD0DD\uD558\uC138\uC694.");
     if (file.size > MAX_BACKUP_BYTES) throw new Error("\uD30C\uC77C \uD06C\uAE30\uAC00 64 MiB\uB97C \uCD08\uACFC\uD569\uB2C8\uB2E4.");
     message("\uBC31\uC5C5 \uAC80\uC0AC \uC911\u2026");
-    const backup2 = await unpackBackup(file);
-    if (!window.confirm(`\uBC31\uC5C5 \uB0A0\uC9DC: ${backup2.createdAt}
-\uC800\uC7A5 \uD30C\uC77C ${backup2.entries.length}\uAC1C\uB85C \uC774 \uAC8C\uC784\uC758 \uBAA8\uB4E0 \uC2AC\uB86F\uACFC \uACF5\uD1B5 \uC800\uC7A5\uC744 \uAD50\uCCB4\uD569\uB2C8\uB2E4.
+    const data = await backup2.unpackBackup(file);
+    if (!window.confirm(`\uB300\uC0C1 \uAC8C\uC784: ${target.label ?? target.id}
+\uBC31\uC5C5 \uB0A0\uC9DC: ${data.createdAt}
+\uC800\uC7A5 \uD30C\uC77C ${data.entries.length}\uAC1C\uB85C \uC774 \uAC8C\uC784\uC758 \uBAA8\uB4E0 \uC2AC\uB86F\uACFC \uACF5\uD1B5 \uC800\uC7A5\uC744 \uAD50\uCCB4\uD569\uB2C8\uB2E4.
 \uD604\uC7AC \uC800\uC7A5\uC744 \uBA3C\uC800 \uBC31\uC5C5\uD588\uB098\uC694? \uACC4\uC18D\uD560\uAE4C\uC694?`)) {
       message("\uBCF5\uC6D0 \uCDE8\uC18C \u2014 \uAE30\uC874 \uC800\uC7A5\uC744 \uC720\uC9C0\uD588\uC2B5\uB2C8\uB2E4.");
       return;
     }
-    await store.replaceAll(backup2.entries);
+    await store.replaceAll(data.entries);
     $2("#backup-file").value = "";
-    message(`\uBCF5\uC6D0 \uC644\uB8CC: ${backup2.entries.length}\uAC1C. \uC2E4\uC81C \uAC8C\uC784 \uC2DC\uC791 \u2192 \uBD88\uB7EC\uC624\uAE30\uB97C \uC120\uD0DD\uD558\uC138\uC694.`);
+    message(`\uBCF5\uC6D0 \uC644\uB8CC: ${data.entries.length}\uAC1C (${target.label ?? target.id}). \uC2E4\uC81C \uAC8C\uC784 \uC2DC\uC791 \u2192 \uBD88\uB7EC\uC624\uAE30\uB97C \uC120\uD0DD\uD558\uC138\uC694.`);
   }));
+  setGames(targets);
   update();
-  return { update, isBusy: () => busy };
+  return { update, isBusy: () => busy, setGames };
 }
 
 // runtime-trace.mjs
@@ -716,6 +756,7 @@ async function loadGames() {
 loadGames().then((games) => {
   const menu = $("#game-menu");
   if (!games || !menu) return;
+  backup.setGames(games);
   menu.replaceChildren();
   for (const game of games) {
     const button2 = document.createElement("button");

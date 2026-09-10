@@ -19,6 +19,7 @@
 <details id="pwa-help"><summary>iPhone 설치 · 오프라인 안내</summary><p>HTTPS 주소를 Safari로 열고 공유 → 홈 화면에 추가하세요. 홈 화면 앱을 연 뒤 아래 준비 버튼을 누르고 완료를 기다리세요. Safari 탭과 홈 화면 앱의 저장소가 같다고 가정하지 마세요.</p><button id="offline-prepare" disabled>오프라인 준비 / 업데이트 확인</button><p id="pwa-status" role="status">PWA 확인 중</p><p class="muted">iOS가 캐시·저장을 삭제할 수 있습니다. 준비 완료는 영구 보존을 보장하지 않습니다. 업데이트는 모든 실행기 탭/홈 화면 앱을 닫은 후 적용됩니다. 저장 후 닫으세요.</p></details>
 <details id="backup-help"><summary>세이브 백업 · 복원</summary>
 <p>게임 안에서 저장 완료를 확인한 뒤 실행 정보 → 실행 중지를 누르세요. 저장한 슬롯과 공통 데이터를 한 파일로 보관합니다. 저장하지 않은 진행은 포함되지 않습니다.</p>
+<p><label for="backup-game">백업·복원할 게임</label> <select id="backup-game" hidden></select></p>
 <button id="backup-export">백업 파일 만들기</button>
 <a id="backup-download" hidden>백업 파일 다운로드</a><button id="backup-share" hidden>공유 · 파일에 저장</button>
 <p><label for="backup-file">복원할 웹판 백업 .json.gz (최대 64 MiB)</label><br><input id="backup-file" type="file" accept=".gz,.json,application/gzip,application/json" style="max-width:100%"></p>

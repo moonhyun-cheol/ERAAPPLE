@@ -5,14 +5,18 @@
       "label": "eraTHYMKR (원작)",
       "bin": "local-game.bin",
       "db": "era-game-eraTHYMKR-erajs-v1",
-      "count": 1115
+      "count": 1115,
+      "code": 890016222,
+      "version": 3210
     },
     {
       "id": "eramaou128",
       "label": "에라마왕 개조판 1.28",
       "bin": "game-eramaou128.bin",
       "db": "era-game-eramaou128-erajs-v1",
-      "count": 330
+      "count": 330,
+      "code": 0,
+      "version": 920
     }
   ]
 }

@@ -49,6 +49,21 @@ async function loadAltGame(name) {
   for (const top of ['CSV', 'ERB']) await walk(top);
   return { files };
 }
+// Extract the save identity (code/version) the engine writes, from the game's GAMEBASE.CSV.
+// Matches the engine/compat rule: empty コード → 0, otherwise parseInt; version = parseInt(バージョン).
+function gamebaseIdentity(files) {
+  const text = files.get('GAMEBASE.CSV') ?? '';
+  const field = name => {
+    for (const line of text.split(/\r?\n/)) {
+      const comma = line.indexOf(',');
+      if (comma < 0) continue;
+      if (line.slice(0, comma).replace(/^\ufeff/, '').trim() === name) return line.slice(comma + 1).trim();
+    }
+    return '';
+  };
+  const int = value => { const n = Number.parseInt(value, 10); return Number.isFinite(n) ? n : 0; };
+  return { code: int(field('コード')), version: int(field('バージョン')) };
+}
 const assets = new Map();
 for (const name of ['index.html', 'browser.js', 'engine-worker.js', 'eraJS-LICENSE.txt', 'build.json']) {
   assets.set(name, await readFile(new URL('./dist/' + name, import.meta.url)));
@@ -71,7 +86,7 @@ for (const entry of registry) {
   assets.set(entry.bin, gzipSync(Buffer.from(
     [JSON.stringify({ id: entry.id, count: source.files.size }),
       ...[...source.files].map(pair => JSON.stringify(pair))].join('\n') + '\n'), { level: 9 }));
-  games.push({ id: entry.id, label: entry.label, bin: entry.bin, db: `era-game-${entry.id}-erajs-v1`, count: source.files.size });
+  games.push({ id: entry.id, label: entry.label, bin: entry.bin, db: `era-game-${entry.id}-erajs-v1`, count: source.files.size, ...gamebaseIdentity(source.files) });
 }
 assets.set('games.json', Buffer.from(JSON.stringify({ games }, null, 2) + '\n'));
 assets.set('manifest.webmanifest', Buffer.from(JSON.stringify({ id: './', name: 'eraTHYMKR 웹 실행 시험', short_name: 'era 시험', lang: 'ko',
