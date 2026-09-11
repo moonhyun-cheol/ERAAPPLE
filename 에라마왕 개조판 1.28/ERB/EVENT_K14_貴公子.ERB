@@ -4434,10 +4434,10 @@ P = PALAM:8 + UP:8
 IF P > PALAMLV:2 && CFLAG:223 == 0
 	;애정
 	IF TALENT:TARGET:85 == 1
-		PRINTFORMW 
+		PRINTFORMW 「이런… 이 몸이, 이런 낯을 보이다니……」 %SAVESTR:TARGET%는 얼굴을 붉히며 부끄러운 듯 시선을 떨궜다
 	;그외
 	ELSE
-		PRINTFORMW 
+		PRINTFORMW 「크윽… 이 몸에게 이런 수치를 안기다니……」 %SAVESTR:TARGET%는 달아오른 얼굴을 감추려는 듯 고개를 홱 돌렸다
 	ENDIF
 	CFLAG:223 = 1
 ENDIF
@@ -4449,10 +4449,10 @@ P = PALAM:10 + UP:10
 IF P > PALAMLV:2 && CFLAG:224 == 0
 	;애정
 	IF TALENT:TARGET:85 == 1
-		PRINTFORMW 
+		PRINTFORMW 「무, 무섭사옵니다… 이 몸을, 부디 버리지 말아 주시옵소서……」 %SAVESTR:TARGET%는 창백해진 얼굴로 몸을 떨었다
 	;그외
 	ELSE
-		PRINTFORMW 
+		PRINTFORMW 「두렵지… 않다. 이 몸이, 이깟 것에……」 그리 내뱉는 %SAVESTR:TARGET%의 목소리는 가늘게 떨리고 있었다
 	ENDIF
 	CFLAG:224 = 1
 ENDIF
