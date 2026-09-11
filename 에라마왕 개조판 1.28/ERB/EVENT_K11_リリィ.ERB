@@ -12785,13 +12785,13 @@ IF TFLAG:16 == 4
 	PRINTFORMW 
 ;戦闘員化
 ELSEIF TFLAG:16 == 5
-	PRINTFORMW 
+	PRINTFORMW 전투원으로 개조된 %SAVESTR:TARGET%. 자아를 잃은 병사가 되어 마왕군의 말단으로 배치되었다
 ;晒し台刑
 ELSEIF TFLAG:16 == 6
-	PRINTFORMW 
+	PRINTFORMW 효수대에 묶인 %SAVESTR:TARGET%. 오가는 이들의 조롱 속에서도, 여동생을 걱정하는 마음만은 꺾이지 않았다
 ;記憶を消して解放する
 ELSEIF TFLAG:16 == 7
-	PRINTFORMW 
+	PRINTFORMW 기억을 지운 채 해방된 %SAVESTR:TARGET%. 무엇을 위해 이 동굴에 왔는지도 모른 채, 홀가분한 얼굴로 마을로 돌아갔다
 ENDIF
 
 ;-----------------------------------
@@ -12800,31 +12800,31 @@ ENDIF
 ;-----------------------------------
 ;石化
 IF TFLAG:500 == 0
-	PRINTFORMW 
+	PRINTFORMW 「마오… 언니는, 여기서 널 계속 지켜볼게…」 %SAVESTR:TARGET%는 마지막까지 여동생의 이름을 부르며 돌이 되어 굳어갔다
 ;박제化
 ELSEIF TFLAG:500 == 1
-	PRINTFORMW 
+	PRINTFORMW 유리 너머 박제가 된 %SAVESTR:TARGET%. 그 눈동자만은 여전히 누군가를 찾는 듯 애처롭게 빛나고 있었다
 ;밀랍인형化
 ELSEIF TFLAG:500 == 2
-	PRINTFORMW 
+	PRINTFORMW 밀랍으로 굳어버린 %SAVESTR:TARGET%. 온기를 잃은 그 손은 여전히 무언가를 감싸안으려는 모양 그대로였다
 ;人形化(マネキン)
 ELSEIF TFLAG:500 == 3
-	PRINTFORMW 
+	PRINTFORMW 마네킹이 된 %SAVESTR:TARGET%. 진열대 위에서 텅 빈 미소만 지은 채 장식품이 되었다
 ;人形化(球体間接)
 ELSEIF TFLAG:500 == 4
-	PRINTFORMW 
+	PRINTFORMW 구체관절 인형이 된 %SAVESTR:TARGET%. 사각거리는 관절음만을 남긴 채, 스스로는 아무것도 할 수 없는 몸이 되었다
 ;金属化
 ELSEIF TFLAG:500 == 5
-	PRINTFORMW 
+	PRINTFORMW 전신이 금속으로 뒤덮인 %SAVESTR:TARGET%. 차갑게 빛나는 조각상이 되어 영원히 움직이지 않게 되었다
 ;얼음상化
 ELSEIF TFLAG:500 == 6
-	PRINTFORMW 
+	PRINTFORMW 얼음상이 된 %SAVESTR:TARGET%. 투명한 얼음 속에 갇힌 그 표정은 마지막 순간의 다짐을 그대로 간직하고 있었다
 ;宝石化
 ELSEIF TFLAG:500 == 7
-	PRINTFORMW 
+	PRINTFORMW 보석으로 결정화된 %SAVESTR:TARGET%. 영롱하게 빛나는 그 몸은 마왕성의 보물로서 소중히 진열되었다
 ;가구化
 ELSEIF TFLAG:500 == 8
-	PRINTFORMW 
+	PRINTFORMW 가구가 되어버린 %SAVESTR:TARGET%. 이제는 누군가 걸터앉기를 기다리는 도구로서, 말없이 방 한켠을 차지하게 되었다
 ENDIF
 
 ;-----------------------------------
@@ -12833,19 +12833,19 @@ ENDIF
 ;-----------------------------------
 ;追放
 IF TFLAG:510 == 0
-	PRINTFORMW 
+	PRINTFORMW 「…이제, 여기엔 볼일 없어」 마왕성에서 쫓겨난 %SAVESTR:TARGET%는 뒤도 돌아보지 않고 어둠 속으로 사라졌다
 ;男体化
 ELSEIF TFLAG:510 == 1
-	PRINTFORMW 
+	PRINTFORMW 남자의 몸으로 바뀐 채 추방된 %SAVESTR:TARGET%. 낯선 육체에 당혹해하면서도 그 눈빛만은 여전히 여동생을 향하고 있었다
 ;記憶消去
 ELSEIF TFLAG:510 == 2
-	PRINTFORMW 
+	PRINTFORMW 모든 기억을 지운 채 풀려난 %SAVESTR:TARGET%. 자신이 누구를 찾아 이곳에 왔는지조차 잊은 채 마을로 되돌아갔다
 ;小動物化
 ELSEIF TFLAG:510 == 3
-	PRINTFORMW 
+	PRINTFORMW 작은 짐승의 모습이 된 %SAVESTR:TARGET%. 조그만 발로 종종거리며 동굴 밖으로 쫓겨나갔다
 ;元の生活に戻す
 ELSEIF TFLAG:510 == 4
-	PRINTFORMW 
+	PRINTFORMW 원래의 생활로 돌려보내진 %SAVESTR:TARGET%. 마치 아무 일도 없었다는 듯, 다시 마을 처녀의 일상으로 돌아갔다
 ENDIF
 
 ;-----------------------------------
@@ -12857,10 +12857,10 @@ IF TFLAG:520 == 0
 	PRINTFORMW 
 ;絞首刑
 ELSEIF TFLAG:520 == 1
-	PRINTFORMW 
+	PRINTFORMW 교수대에 오른 %SAVESTR:TARGET%. 「마오…부디, 너만은…」 마지막 말을 남기고 조용히 숨을 거두었다
 ;魂粉砕
 ELSEIF TFLAG:520 == 2
-	PRINTFORMW 
+	PRINTFORMW 혼마저 산산이 부서진 %SAVESTR:TARGET%. 여동생을 지키겠다던 그 강한 의지조차 흔적 없이 소멸했다
 ENDIF
 
 ;-----------------------------------
@@ -13030,14 +13030,14 @@ ENDIF
 
 ;아무것도안한다
 IF TFLAG:18 == 0
-	PRINTFORMW 
+	PRINTFORMW 「…봐주는 거야?」 별다른 벌 없이 넘어가자, %SAVESTR:TARGET%는 오히려 경계하듯 마왕을 쳐다보았다
 ;弱電気椅子刑
 ELSEIF TFLAG:18 == 1
 	;マゾっ気Lv3以上
 	IF ABL:A:21 >= 3
-		PRINTFORMW 
+		PRINTFORMW 약한 전류가 흐르는 의자에 앉혀진 %SAVESTR:TARGET%. 찌릿한 자극에 몸을 떨면서도, 어딘가 그것을 견뎌내는 표정이었다
 	ELSE
-		PRINTFORMW 
+		PRINTFORMW 약한 전류가 흐르는 의자에 앉혀진 %SAVESTR:TARGET%. 「윽…!」 저릿한 통증에 이를 악물며 몸을 움츠렸다
 	ENDIF
 ;路上自慰刑
 ELSEIF TFLAG:18 == 2
@@ -13059,9 +13059,9 @@ ELSEIF TFLAG:18 == 3
 ELSEIF TFLAG:18 == 4
 	;マゾっ気Lv3以上
 	IF ABL:A:21 >= 3
-		PRINTFORMW 
+		PRINTFORMW 채찍이 살갗을 때릴 때마다 %SAVESTR:TARGET%는 신음을 삼켰다. 하지만 그 눈빛만은 이상하리만치 흔들리지 않았다
 	ELSE
-		PRINTFORMW 
+		PRINTFORMW 채찍이 내리칠 때마다 %SAVESTR:TARGET%는 이를 악물었다. 「이런 걸로…마오를 포기할 순 없어…」
 	ENDIF 
 ;人間小便器刑
 ELSEIF TFLAG:18 == 5

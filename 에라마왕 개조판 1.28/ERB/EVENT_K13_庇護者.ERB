@@ -5740,13 +5740,13 @@ IF TFLAG:16 == 4
 	PRINTFORMW 「히이, 도와줘……살려줘-!」
 ;戦闘員化
 ELSEIF TFLAG:16 == 5
-	PRINTFORMW 
+	PRINTFORMW 「이제 명령대로 싸우는 몸이 되는군요……네, 따르겠습니다……」
 ;晒し台刑
 ELSEIF TFLAG:16 == 6
-	PRINTFORMW 
+	PRINTFORMW 「모두가 보는 앞에서……부끄럽지만, 당신이 원하니 견뎌 볼게요……」
 ;記憶を消して解放する
 ELSEIF TFLAG:16 == 7
-	PRINTFORMW 
+	PRINTFORMW 「전부 잊고……그래도 가끔은, 당신 꿈을 꿀 것 같은 기분이 들어요」
 ENDIF
 
 ;-----------------------------------
@@ -5755,13 +5755,13 @@ ENDIF
 ;-----------------------------------
 ;石化
 IF TFLAG:500 == 0
-	PRINTFORMW 
+	PRINTFORMW 「어머……몸이 점점 굳어 가……당신, 이런 %SELF_CALL(TARGET)%를 곁에 두고 싶었나요……우후후」
 ;박제化
 ELSEIF TFLAG:500 == 1
-	PRINTFORMW 
+	PRINTFORMW 「%SELF_CALL(TARGET)%를 박제로……무섭지만, 당신이 바란다면 얌전히 있을게요……」
 ;밀랍인형化
 ELSEIF TFLAG:500 == 2
-	PRINTFORMW 
+	PRINTFORMW 「따뜻한 밀랍에 감싸여서……이대로 굳어도, 당신을 계속 지켜볼게요」
 ;人形化(マネキン)
 ELSEIF TFLAG:500 == 3
 	PRINTFORMW 「어머어머、%SELF_CALL(TARGET)%의 그런 모습이 보고 싶다니…곤란하네요」
@@ -5770,19 +5770,19 @@ ELSEIF TFLAG:500 == 4
 	PRINTFORMW 「%SELF_CALL(TARGET)%를 인형으로？…어떻게、그……런………그…」
 ;金属化
 ELSEIF TFLAG:500 == 5
-	PRINTFORMW 
+	PRINTFORMW 「차가운 금속이 되어도……당신을 향한 이 마음만은 식지 않아요」
 ;얼음상化
 ELSEIF TFLAG:500 == 6
-	PRINTFORMW 
+	PRINTFORMW 「얼음 속에서라도……당신을, 계속, 바라볼 수만 있다면……우후후」
 ;宝石化
 ELSEIF TFLAG:500 == 7
-	PRINTFORMW 
+	PRINTFORMW 「보석이라니……당신의 보물이 될 수 있어서, 오히려 기뻐요」
 ;가구化
 ELSEIF TFLAG:500 == 8
-	PRINTFORMW 
+	PRINTFORMW 「가구가 되어도……당신이 매일 어루만져 준다면, 그걸로 충분해요」
 ;회화封印
 ELSEIF TFLAG:500 == 9
-	PRINTFORMW 
+	PRINTFORMW 「그림 속에서라도 당신을 지켜볼 수 있으니……외롭지 않아요, 우후후」
 ENDIF
 
 ;-----------------------------------
@@ -5794,16 +5794,16 @@ IF TFLAG:510 == 0
 	PRINTFORMW 「안녕. 이제 만날 일도 없겠죠……」
 ;男体化
 ELSEIF TFLAG:510 == 1
-	PRINTFORMW 
+	PRINTFORMW 「남자가 되어도……당신을 생각하는 이 마음만은 변하지 않을 거예요」
 ;記憶消去
 ELSEIF TFLAG:510 == 2
-	PRINTFORMW 
+	PRINTFORMW 「전부 잊어도……왠지, 따뜻했던 기억만은 남을 것 같아요……」
 ;小動物化
 ELSEIF TFLAG:510 == 3
-	PRINTFORMW 
+	PRINTFORMW 「이렇게 작은 몸이 되어서는……이제 당신을 품에 안아 줄 수도 없네요……」
 ;元の生活に戻す
 ELSEIF TFLAG:510 == 4
-	PRINTFORMW 
+	PRINTFORMW 「돌아갈 수 있는 건가요……고마워요, 당신. 당신을 잊지 않을게요」
 ENDIF
 
 ;-----------------------------------
@@ -5818,7 +5818,7 @@ ELSEIF TFLAG:520 == 1
 	PRINTFORMW 「아니……죽고 싶……싫어……」
 ;魂粉砕
 ELSEIF TFLAG:520 == 2
-	PRINTFORMW 
+	PRINTFORMW 「영혼까지……아무것도 남지 않는 건가요……아, 당신……」
 ENDIF
 
 ;-----------------------------------
@@ -6000,14 +6000,14 @@ ENDIF
 
 ;아무것도안한다
 IF TFLAG:18 == 0
-	PRINTFORMW 
+	PRINTFORMW 「어머, 오늘은 봐 주시는 건가요……우후후, 상냥하시네요」
 ;弱電気椅子刑
 ELSEIF TFLAG:18 == 1
 	;マゾっ気Lv3以上
 	IF ABL:A:21 >= 3
-		PRINTFORMW 
+		PRINTFORMW 「찌릿찌릿……이런 벌도, 당신이 주시는 거라면 나쁘지 않네요……우후」
 	ELSE
-		PRINTFORMW 
+		PRINTFORMW 「히읏……따끔해요……당신, 조금만 살살 해 주세요……」
 	ENDIF
 ;路上自慰刑
 ELSEIF TFLAG:18 == 2
@@ -6029,9 +6029,9 @@ ELSEIF TFLAG:18 == 3
 ELSEIF TFLAG:18 == 4
 	;マゾっ気Lv3以上
 	IF ABL:A:21 >= 3
-		PRINTFORMW 
+		PRINTFORMW 「우후……더 세게 때리셔도, %SELF_CALL(TARGET)%는 괜찮아요……」
 	ELSE
-		PRINTFORMW 
+		PRINTFORMW 「아파요……하지만 당신을 위해서라면, 참을 수 있어요……」
 	ENDIF 
 ;人間小便器刑
 ELSEIF TFLAG:18 == 5

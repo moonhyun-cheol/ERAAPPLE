@@ -20,9 +20,9 @@
 | 파일 | 캐릭터 | 빈자리 | 비고 |
 |---|---|---:|---|
 | EVENT_K14_貴公子 | 貴公子 | 942→886(실측,이번) | 비성적(MUSEUM/처형/각인/감정) 채움 진행. 나머지는 성묘사 본문 |
-| EVENT_K13_庇護者 | 庇護者 | 547 | 미착수 |
-| EVENT_K12_知的 | 知的 | 310 | 미착수 |
-| EVENT_K11_リリィ | 리리 | 289 | 미착수 |
+| EVENT_K13_庇護者 | 庇護者 | 547→(비성적 19자리 채움) | MUSEUM 8·EXUCUTION 3·BANISHMENT 4·PUBLIC_EXUCUTION 魂粉砕 1·OSIOKI 3 완료. COLOSSEUM/MARKCNG 라벨 없음, PALAMCNG 기존 작성됨. 나머지 성묘사 본문·GROTESQUE는 사용자 |
+| EVENT_K12_知的 | 知的 | 310 | 비성적 11자리 완료(EXUCUTION1·MUSEUM5·BANISHMENT4·PUBLIC_EXUCUTION1); PALAMCNG 기충족·GROTESQUE 보류 |
+| EVENT_K11_リリィ | 리리(마오의 언니, 헌신적 마을 처녀) | 297→273(실측,이번) | 비성적 24자리 완료(MUSEUM 9·EXUCUTION 3[肉便器 제외]·BANISHMENT 5·PUBLIC 2[絞首·魂粉砕]·OSIOKI 5). 나머지 성묘사 본문·GROTESQUE는 사용자 |
 | EVENT_K2_気弱 | 気弱 | 204 | 미착수 |
 | EVENT_K10_クラブ | 클럽 | 196 | 미착수 |
 | EVENT_K7_ハート | 하트 | 196 | 미착수 |
