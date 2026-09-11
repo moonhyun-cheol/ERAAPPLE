@@ -1,0 +1,1871 @@
+﻿;NTR관계
+;CFLAG:1=9 의 경우、당신의 손에서 떠나 있다
+;노예가 용사에가 패배하면 가끔 본국으로 데리고 감
+
+;-----------------------------------------
+@NTR_VIDEO
+;-----------------------------------------
+;광왕님의 메세지를 읽어주세요
+;캐릭터 설정은 TARGET
+
+;TARGET확인
+SIF TARGET < 0 && TARGET > CHARANUM
+	RETURN 0
+;NTR확인
+SIF CFLAG:1 != 9
+	RETURN 0
+
+PRINTL  
+
+;랜덤으로 NTR상태가 해제되어 침공해옴
+;妊娠中は侵攻しない
+IF RAND:6 == 0 && TALENT:153 == 0
+	PRINTFORML 광왕은 %SAVESTR:TARGET%에게 마왕을 봉인하도록 명령했다
+	PRINTFORMW %조사선택(SAVESTR:TARGET, "는")% 던전으로 여행을 떠났습니다
+	CFLAG:1 = 2
+	
+	;침입 계층・침공도・침공 중・재기 포인트 설정
+	CFLAG:501 = 1
+	CFLAG:502 = 0
+	CFLAG:1 = 2
+	CFLAG:508 = 3
+	;카르마가 얼마정도 회복
+	SIF CFLAG:151 < -50
+		CFLAG:151 = -50
+	;호감도가 낮음
+	CFLAG:2 = 20
+	
+	RETURN 0
+ENDIF
+
+CALL NTR_PLAY
+
+;구슬에 따라서는 소질이 성장할 가능성이 있음
+
+;Ｖ감각의 구슬에 의한 여부（I=0:可、I&1:구슬 부족、I&2:경험 부족）
+I = 0
+CALL DECIDE_ABLUP2
+IF I == 0 && RESULT == 1 && ABL:2 < 10
+	ABL:2 += 1
+	JUEL:1 -= A
+	PRINTFORML %ABLNAME:2%의 레벨이 {ABL:2}가 되었습니다
+ENDIF
+
+;Ａ감각의 구슬에 의한 여부（I=0:可、I&1:구슬 부족、I&2:경험 부족）
+I = 0
+CALL DECIDE_ABLUP3
+IF I == 0 && RESULT == 1 && ABL:3 < 10
+	ABL:3 += 1
+	JUEL:2 -= A
+	PRINTFORML %ABLNAME:3%의 레벨이 {ABL:3}이 되었습니다
+ENDIF
+
+;욕정의 구슬에 의한 여부（I=0:可、I&1:구슬 부족、I&2:경험 부족）
+I = 0
+;이상경험이 필요한가
+E = 0
+CALL DECIDE_ABLUP11
+IF I == 0 && RESULT == 1 && ABL:11 < 10
+	ABL:11 += 1
+	JUEL:5 -= A
+	PRINTFORML %ABLNAME:11%의 레벨이 {ABL:11}이 되었습니다
+ENDIF
+
+RETURN 0
+
+
+;------------------------------------------
+@NTR_PLAY
+;------------------------------------------
+;플레이 내용은 P지정。구상용으로
+;형식은 비디오 편지。수정공으로 보내옴
+
+SIF GETBIT(FLAG:8,5)
+	CALL KARMA, TARGET, 10
+
+PRINTW 광왕이 수정구를 하나 보내왔다.
+EXP:피사경험 += 1
+PRINTFORM 수정구에는 
+IF TALENT:TARGET:임신
+	IF CFLAG:TARGET:102 == 1
+		PRINTFORM 마왕의 아이를 임신한 
+	ELSEIF CFLAG:TARGET:102 == 5
+		PRINTFORM 개의 아이를 임신한 
+	ELSEIF CFLAG:TARGET:102 == 7
+		PRINTFORM 광왕의 아이를 임신한 
+	ELSEIF CFLAG:TARGET:1 == 9
+		PRINTFORM 모르는 남자의 아이를 임신한 
+	ELSE
+		PRINTFORM ???의 아이를 임신한 
+	ENDIF
+ELSE
+	PRINT
+ENDIF
+IF TALENT:TARGET:임신 && CFLAG:TARGET:110 - 3 <= DAY
+	PRINT 만삭의 
+ELSE
+	PRINT 
+ENDIF
+PRINTFORM %조사처리(SAVESTR:TARGET,"가")% 
+
+IF ((ABL:욕망 + ABL:순종 >= 22) || RAND:(22 - (ABL:욕망 + ABL:순종)) == 0) && TALENT:남자 == 0 && TALENT:광왕의포로 == 0
+	CALL ARREST_EVENT_1
+ELSE
+	CALL ARREST_EVENT_2
+ENDIF
+
+RETURN 0
+
+;------------------------------------------
+@ARREST_EVENT_1
+;------------------------------------------
+
+;처녀봉인
+IF TALENT:TARGET:처녀봉인
+ARREST = 0
+	PRINTFORML 이상한 문양이 새겨진 작업대 위에 묶여 있었다.
+	IF TALENT:MASTER:마계지식
+		PRINTFORML 마왕은 문양의 패턴을 보고 처녀봉인을 푸는 마법진이란 것을 바로 알아차렸다.
+	ENDIF
+	PRINTFORM 자신에게 어떤 짓을 할지 이미 들어서 알고 있던 %조사선택(SAVESTR:TARGET, "는")% 
+	IF TALENT:음란
+		PRINTFORML 기대하는 듯한 눈빛을 하고 있었다.
+		PRINTFORML 그런 모습에 광왕이 폭소하며 말했다.
+		PRINTFORML 『이런게 용사라니, 차라리 창녀가 더 정숙하겠구나!』
+	ELSEIF TALENT:애정
+		PRINTFORML 싫다는 듯이 온몸을 비틀고 있었다.
+		PRINTFORML 『마왕에게 타락한 용사라니, 그런 용사에게 이런게 필요하진 않겠지?』
+	ELSEIF TALENT:악마의각인
+		PRINTFORML 믿기지 않는다는 눈으로 바라보고 있었다.
+		PRINTFORML 『돈 때문에 마왕에게 굴복하다니, 그런 발칙한 용사에겐 이런건 필요 없겠지?』
+	ELSE
+		PRINTFORML 믿기지 않는다는 눈으로 바라보고 있었다.
+		PRINTFORML 『무엇 때문에 마왕에게 굴복한지 모르겠지만, 대가를 치러야겠지.』
+	ENDIF
+	
+	CALL NTR_KOUJO
+	
+	PRINTFORML 흥미로운 듯이 바라보던 광왕은 %SAVESTR:TARGET%의 하복부를 지긋히 눌러 처녀봉인을 겉으로 드러나게 만들었다.
+	PRINTFORML 그와 동시에 탁자에 새겨진 문양이 빛나기 시작했고, 빛무리가 잦아들자 처녀봉인의 문양도 바스라졌다.
+	PRINTFORMW 봉인이 풀린 것을 본 수정구를 보며 빙긋 웃었고, 그것을 마지막으로 수정구는 꺼졌다…
+	
+	TALENT:TARGET:처녀봉인 == 0
+
+;처녀상실
+ELSEIF TALENT:처녀
+ARREST = 1
+PRINTFORML 광왕에 올라탄 상태였다.
+	IF TALENT:작은체형
+		PRINT 심장에 닿을 정도로 거대한 자지
+	ELSEIF TALENT:장신
+		PRINT 자궁을 꿰뚫을 정도로 거대한 자지
+	ELSE
+		PRINT 온 내장을 헤집을 정도로 거대한 자지
+	ENDIF
+	IF TALENT:음란
+		PRINTFORML 에 정신을 못 차리고 입맛을 다시던 %조사선택(SAVESTR:TARGET, "는")%
+		PRINTFORML 『할 생각이 없는건가? 그럼 무르도록 하지.』
+		PRINTFORML 라는 광왕의 말에 허겁지겁 음부에 맞추고 허리를 내렸다.
+		PRINTFORML 너무 커서 그런지 다 들어가지도 못했는데 한 번 가버린 %조사선택(SAVESTR:TARGET, "는")% 허리를 움직이며 입을 열었다.
+		PRINTFORML 「하읏…♥ 저는 과왕님의 자지를 뿌리까지 박으면 풀려나는… 하앙♥」
+		PRINTFORML 「조건으로♥ 하읏, 광왕님과 내기 중입니다…♥」
+		PRINTFORML 너무 커서 그런지, 아니면 내기에서 이길 생각이 없어서 그런지는 몰라도
+		PRINTFORML 광왕의 위에서 허리를 움직이며 즐기고 있는 것 처럼 보였다.
+		PRINTFORML 그런 낌새를 눈치 챘는지, 광왕은 %SAVESTR:TARGET%의 다리를 잡아 고정시키고 허리를 쳐올렸다.
+	ELSEIF TALENT:애정
+		PRINTFORML 를 보던 %조사선택(SAVESTR:TARGET, "는")% 시선을 돌리고 입을 열었다.
+		PRINTFORML 「지금 이걸 하는 이유가… 광왕의 것을 뿌리까지 받아들이면 절 보내주겠다고 해서…」
+		PRINTFORML 「절대 마왕님을 배신하거나 그러려는건 아니에요…」
+		PRINTFORML 망설이고 있는 %SAVESTR:TARGET%에게 화가 난건지, 광왕이 허리를 붙잡고 밑으로 내려버렸다.
+	ELSEIF TALENT:악마의각인
+		PRINTFORML 를 보며 주춤하는 %SAVESTR:TARGET%에게 광왕이 한 마디 던졌다.
+		PRINTFORML 『돌아가기 싫은것인가? 뭐 나야 상관 없다만…』
+		PRINTFORML 「시, 시끄러! 이런걸 쉽게 넣을 수 없잖아…」
+		PRINTFORML 『이렇게 가다간 밤이 샐 것 같으니, 이 몸이 도와주도록 하지.』
+		PRINTFORML 「자, 잠시익!」
+	ELSE
+		PRINTFORML 를 보며 주춤하는 %SAVESTR:TARGET%에게 광왕이 한 마디 던졌다.
+		PRINTFORML 『돌아가기 싫은것인가? 뭐 나야 상관 없다만…』
+		PRINTFORML 「시, 시끄러! 이런걸 쉽게 넣을 수 없잖아…」
+		PRINTFORML 『이렇게 가다간 밤이 샐 것 같으니, 이 몸이 도와주도록 하지.』
+		PRINTFORML 「자, 잠시익!」
+	ENDIF
+	PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 강제로 자궁구를 뚫고 들어간 자지에 거품물고 기절해 버렸으나
+	PRINTFORML 광왕은 아랑곳 하지 않고 오나홀 사용하듯이 허리를 흔들었다.
+	PRINTFORMW %조사선택(SAVESTR:TARGET, "는")% 거의 임신했다고 생각될 정도로 정액을 받아들였으나 자지를 뺄때까지 정신을 차리지 못하고 신음소리만 내고 있었다…
+
+	EXP:0 += (5 + ABL:욕망)
+	JUEL:1 += 3*200
+	JUEL:5 += 3*250
+	TALENT:처녀 = 0
+	;광왕이 처녀를 땄다는 증거
+	SIF CFLAG:15 == 0
+		CFLAG:15 = 105
+	CFLAG:1 = 1
+	CFLAG:108 = 10
+	CALL NAKADASHI_CHECK, COUNT, 7
+	
+	PRINTFORML 
+	PRINTFORM 이후 %조사선택(SAVESTR:TARGET, "가")% 마왕성으로 돌아왔다.
+	IF TALENT:임신
+		PRINTFORML 
+		PRINTFORMW 하지만 %SAVESTR:TARGET%의 뱃속에는 광왕의 아이가 자라고 있었다……
+	ELSE
+		PRINTFORMW 
+	ENDIF
+
+;광왕의 포로
+ELSE
+	ARREST = 2
+	PRINTFORML 세뇌로 인해 광왕의 포로로 바뀌어버렸다……
+	;하복부 문신
+	CSTR:13 = ◀ 광왕용 육변기 ▶
+	TALENT:광왕의포로 = 1
+ENDIF
+
+
+
+;------------------------------------------
+@ARREST_EVENT_2
+;------------------------------------------
+
+;채찍
+IF RAND:9 == 0
+ARREST = 10
+	PRINTFORML 알몸인 상태로 쇠사슬에 양 팔이 묶인채로 매달려 있었다.
+	PRINTFORM %조사선택(SAVESTR:TARGET, "는")% 
+		IF TALENT:음란
+			PRINTFORML 두려움인지, 기대감인지 모를 눈빛으로 광왕을 바라보았다.
+			PRINTFORM 그런 %SAVESTR:TARGET%의 상태를 알아본 광왕이 
+		ELSE
+			PRINTFORML 두려운 듯이 광왕의 채찍을 바라보고 
+			IF ABL:마조끼 > 9
+				PRINTFORML 있었지만,
+				PRINTFORML 이미 맞는 것에 쾌감을 느끼는 %SAVESTR:TARGET%의 비부에서 애액이 흘러나왔다.
+			ELSEIF ABL:마조끼 > 4
+				PRINTFORML 있었지만,
+				PRINTFORML 어느정도 맞는 것에 익숙해진 %조사선택(SAVESTR:TARGET, "는")% 다리를 꼬기 시작했다.
+			ELSEIF ABL:마조끼 > 0
+				PRINTFORML 있었지만,
+				PRINTFORML 이미 마조끼가 싹튼 %SAVESTR:TARGET%의 육체는 도리어 달아오르고 있었다.
+			ELSE
+				PRINTFORML
+				PRINTFORML 공포에 휩싸여 덜덜 떨고 있었다.
+			ENDIF
+			PRINTFORM 그런 그녀의 상태를 알아본 광왕은 씩 웃으며 
+		ENDIF
+		IF TALENT:임신
+			IF CFLAG:110 - 3 <= DAY
+				PRINT 달덩이처럼 부풀어 오른 배
+			ELSE
+				PRINT 임신하고 있는 아랫배
+			ENDIF
+		ELSEIF TALENT:거유 || TALENT:폭유 || TALENT:초유
+			CALL BREAST_DSC_NTR
+				IF RAND:2 == 0
+					CALL BREAST_B_II_NTR
+				ELSE
+					CALL BREAST_B_I_NTR
+				ENDIF
+		ELSE
+			IF TALENT:작은체형
+				PRINTFORM 자그마한 몸
+			ELSEIF TALENT:하얀피부
+				PRINT 백옥같이 흰 피부
+			ELSEIF TALENT:갈색피부
+				PRINT 건강미 넘치는 갈색 피부
+			ELSEIF TALENT:파란피부
+				PRINT 마족과 같은 푸른 피부
+			ENDIF
+		ENDIF
+		IF TALENT:음란 || ABL:마조끼 > 4
+			PRINTFORML 에 채찍을 내리치자,
+			PRINTFORML 수정구에서 비명이 아닌 신음소리가 흘러나왔다.
+		ELSE
+			PRINTFORML 에 채찍을 내리쳤다.
+		ENDIF
+		IF TALENT:임신
+			PRINT 『임신한 주제에 
+		ELSE
+			PRINT 『
+		ENDIF
+	PRINTFORM 채찍에 맞으면서 
+		IF ABL:욕망 == 7 || ABL:마조끼 == 5
+			PRINTFORM 기뻐하는 
+		ELSE
+			PRINTFORM 가버리는 
+		ENDIF
+	CALL RACE_DSC_NTR
+	PRINTFORML 라니!』
+		IF TALENT:음란
+			IF TALENT:육변기
+				PRINTFORML 『과연 마족들에게 다리를 벌리던 육변기 답구나!』
+			ELSEIF TALENT:신관
+				PRINTFORML 『신관이 아니라 사창가에 내놓아도 되겠구나!』
+			ELSEIF TALENT:기사
+				PRINTFORML 『기사의 긍지는 어디에서도 찾아볼 수 없구나!』
+			ELSEIF TALENT:무녀
+				PRINTFORML 『이런 음란한 몸으로 무녀를 하고 있는것이냐!』
+			ELSE
+				PRINTFORML 『마왕이 아닌 누구라도 네년을 조교해주기만 하면 좋은것이냐!』
+			ENDIF
+		ELSEIF TALENT:애정
+			PRINTFORML 『과연 사랑하는 마왕이 네가 맞으면서 가버리를 모습을 보면 어떤 모습을 보일지 심히 궁금하구나!』
+		ELSEIF TALENT:악마의각인
+			PRINTFORML 『돈에 굴복할 정도로 타락하다니!』
+		ELSE
+			PRINTFORML 『마왕에게 굴복할때도 이렇게 맞아서 굴복한것이냐!』
+		ENDIF
+	CALL NTR_KOUJO		
+	PRINTFORM 광왕은 채찍으로 %SAVESTR:TARGET%의 
+		IF TALENT:하얀피부
+			PRINT 백옥같이 흰 
+		ELSEIF TALENT:갈색피부
+			PRINT 건강미 넘치는 갈색 
+		ELSEIF TALENT:파란피부
+			PRINT 마족과 같은 푸른 
+		ENDIF
+	PRINTFORML 피부에 채찍자국을 남기며 즐거워했고,
+	PRINTFORM %조사선택(SAVESTR:TARGET, "는")% 채찍자국이 하나 늘 때마다 
+		IF ABL:마조끼 > 9
+			PRINTFORM 허리를 튕기며 가버렸다……
+		ELSEIF ABL:마조끼 > 6
+			PRINTFORM 신음소리를 흘리며 홍조를 띄기 시작했다……
+		ELSEIF ABL:마조끼 > 3
+			PRINTFORM 비부에서 애액을 조금씩 흘리기 시작했다……
+		ELSEIF ABL:마조끼 > 0
+			PRINTFORM 비명소리가 예전에 비해 많이 약해져 있었다……
+		ELSE
+			PRINTFORM 고통에 비명을 지르며 몸을 비틀었다……
+		ENDIF
+		
+	IF ABL:마조끼 > 0
+		EXP:절정경험 += ( (ABL:마조끼)+(ABL:욕망)+(RAND:(ABL:마조끼)) )
+		PRINTFORML 펠라경험＋{(ABL:마조끼)+(ABL:욕망)+(RAND:(ABL:마조끼))}
+		IF TALENT:남자
+			EXP:사정경험 += ( (ABL:마조끼)+(ABL:욕망)+(RAND:(ABL:마조끼)) )
+			PRINTFORML 사정경험＋{(ABL:마조끼)+(ABL:욕망)+(RAND:(ABL:마조끼))}
+		ENDIF
+		EXP:피학쾌락경험 += ( ((ABL:마조끼)+(ABL:욕망))*(RAND:(ABL:마조끼)) )
+		PRINTFORML 피학쾌락경험＋{((ABL:마조끼)+(ABL:욕망))*(RAND:(ABL:마조끼))}
+	ENDIF
+	JUEL:온순 += ( ((ABL:마조끼)+(ABL:순종))*((RAND:(ABL:순종+1))*100) )
+	PRINTFORML 온순의 구슬＋{((ABL:마조끼)+(ABL:순종))*((RAND:(ABL:순종+1))*100)}
+	JUEL:욕정 += ( ((ABL:마조끼)+(ABL:욕망))*((RAND:(ABL:욕망+1))*100) )
+	PRINTFORML 욕정의 구슬＋{((ABL:마조끼)+(ABL:욕망))*(RAND:(ABL:욕망+1)*100)}
+	JUEL:굴복 += ( ((ABL:마조끼)+(ABL:순종))*((RAND:(ABL:마조끼+1))*100) )
+	PRINTFORML 굴복의 구슬＋{((ABL:마조끼)+(ABL:순종))*((RAND:(ABL:마조끼+1))*100)}
+	JUEL:고통 += ( ((ABL:마조끼)+(RAND:9)+1)*((RAND:(ABL:마조끼+1))*100) )
+	PRINTFORML 고통의 구슬＋{((ABL:마조끼)+(RAND:9)+1)*((RAND:(ABL:마조끼+1))*100)}
+
+;자위
+ELSEIF RAND:8 == 0
+ARREST = 11
+	IF TALENT:남자
+		PRINTFORMW 광왕이 보는 앞에서 부끄러운 듯이 자위하고 있었다……
+	ELSE
+		PRINTFORM %조사선택(SAVESTR:TARGET, "는")% 
+			IF TALENT:음란 || TALENT:자위광
+				PRINTFORM 음탕한 표정으로 
+			ELSEIF TALENT:프라이드높음 || TALENT:굳건함 || TALENT:반항적 || TALENT:정조관념 || TALENT:보수적
+				PRINTFORM 분하다는 듯이 노려보며 
+			ELSEIF TALENT:무관심 || TALENT:감정부족 || TALENT:정조관부실 || TALENT:수치심없음
+				PRINTFORM 별 신경 안 쓴다는 듯이 
+			ELSE
+				PRINTFORM 부끄러운 듯한 표정으로 
+			ENDIF
+		PRINTFORML 광왕 앞에서 자위하고 있었다.
+			SIF TALENT:음란 == 0 || TALENT:자위광 == 0
+				PRINTFORM 하지만
+		PRINTFORML 이미 개발된 육체는 도리어 달아오르며 찌걱거리는 음란한 소리를 내기 시작했고
+		PRINTFORML 말 없이 바라보는 광왕에 의해 제법 큰 소리가 울려 퍼지자 그 소리에 의해 자신의 처지를 이해하기 시작했다.
+		PRINTFORML 「하읏…♥」
+		PRINTFORML 새어나오는 신음소리를 억지로 막는 모습이 도리어 색기를 띄고 있었고,
+		PRINTFORML 그 사실을 모르는 %조사선택(SAVESTR:TARGET, "는")% 최대한 빨리 가버리기 위해 자위를 계속했다.
+		PRINTFORML 하지만 아직은 어색한 손놀림에 꽤나 오랜 시간 후 절정에 이를 수 있었다.
+		PRINTFORML 「하아아앙♥♥」
+		PRINTFORML 
+		PRINTFORML 광왕의 바로 앞까지 애액을 뿜어낸 %조사선택(SAVESTR:TARGET, "는")% 허리가 빠진듯이 드러누웠다
+			IF TALENT:음란 || TALENT:자위광
+				PRINTL .
+				PRINTFORML 이미 광왕의 명령에 의한 한 번의 절정이 끝났지만, %조사선택(SAVESTR:TARGET, "는")% 다시 비부에 손을 올렸다.
+				PRINTFORML 자위를 다시 시작한 %SAVESTR:TARGET%의 얼굴은 이미 쾌락에 굴복한 암컷의 표정이었다……
+			ELSE
+				PRINTW ……
+			ENDIF
+	;용사는 부끄러운 듯한 표정으로 광왕 앞에서 자위하고 있었다.
+	;하지만 이미 개발된 육체는 도리어 달아오르며 찌걱거리는 음란한 소리를 내기 시작했다.
+	;말 없이 바라보는 광왕에 의해 제법 큰 소리가 울려 퍼졌고, 그 소리에 의해 자신의 처지를 이해하기 시작했다.
+	;「하읏…♥」
+	;새어나오는 신음소리를 억지로 막는 모습이 도리어 색기를 띄고 있었고,
+	;그 사실을 모르는 용사는 최대한 빨리 가버리기 위해 자위를 계속했다.
+	;하지만 아직은 어색한 손놀림에 꽤나 오랜 시간 후 절정에 이를 수 있었다.
+	;하아아앙!
+	;광왕의 바로 앞까지 애액을 뿜어낸 용사는 허리가 빠진듯이 드러누웠다.
+	;광왕이 명령한 한 번의 절정을 끝낸 용사는 다시 비부에 손을 올렸다.
+	;광왕의 명령이 아닌, 자신의 욕망에 따라 자위를 시작한 용사는 이미 이성이 끊어진 상태였다……
+	ENDIF
+	
+
+;펠라
+ELSEIF RAND:7 == 0
+ARREST = 12
+	IF TALENT:남자
+		IF TALENT:음란
+			PRINTFORMW 남자 음란 펠라 구문
+		ELSEIF TALENT:애정
+			PRINTFORMW 남자 애정 펠라 구문
+		ELSE
+			PRINTFORML 싫다는 듯이 이리저리 고개를 저었지만
+			PRINTFORMW 광왕은 억지로 입에 박아넣은 후 오나홀처럼 사용했다.
+		ENDIF
+	ELSE
+		IF RAND:3 == 0
+			PRINTFORML 안달난 모습으로 
+		ELSEIF RAND:2 == 0
+			PRINTFORML 음란한 표정으로
+		ELSE
+			PRINTFORML 암캐처럼 엎드려서 
+		ENDIF
+		PRINT 광왕의 
+		IF FLAG:500 == 1
+			PRINT 성기
+		ELSE
+			CALL PENIS_DSC_NTR
+				IF RAND:2 == 0
+					CALL PENIS_I_NTR
+				ELSE
+					CALL PENIS_II_NTR
+				ENDIF
+		ENDIF
+		PRINT 에 달라붙어 
+			CALL SERVICE_DSC_NTR
+			CALL SERVICE_NTR
+		PRINTW 고 있는 모습이 보여주고 있었다……
+		PRINTFORM %SAVESTR:TARGET%의 얼굴에는 광왕의 
+			CALL SEMEN_DSC_NTR
+				IF RAND:2 == 0
+					CALL SEMEN_I_NTR
+						IF RAND:3 == 0
+							PRINTL 가 흘러내리고 있었다.
+						ELSEIF RAND:2 == 0
+							PRINTL 로 덮여있었다.
+						ELSE
+							PRINTL 로 범벅이었다.
+						ENDIF
+				ELSE
+					CALL SEMEN_II_NTR
+						IF RAND:3 == 0
+							PRINTL 이 흘러내리고 있었다.
+						ELSEIF RAND:2 == 0
+							PRINTL 으로 덮여있었다.
+						ELSE
+							PRINTL 으로 범벅이었다.
+						ENDIF
+				ENDIF
+		ENDIF
+	
+	CALL NTR_KOUJO
+	
+	IF FLAG:500 == 1
+		PRINTFORMW %PALAMNAME:6%의 구슬＋{5*250}
+		JUEL:6 += 5*250
+	ELSE
+		PRINTL 펠라경험+3
+		PRINTL 정액경험+3
+		EXP:22 += 3
+		EXP:20 += 3
+		PRINTFORMW %PALAMNAME:6%의 구슬＋{5*250}
+		JUEL:6 += 5*250
+		;ファーストキス
+		SIF CFLAG:16 == -1
+			CFLAG:16 = 993
+	ENDIF
+
+
+;촉수
+ELSEIF RAND:6 == 0
+ARREST = 13
+	PRINTFORMW 촉수로 희롱당하고 있었다……
+
+;V플레이
+ELSEIF RAND:5 == 0
+ARREST = 14
+	IF TALENT:남자
+		PRINTFORMW 묶여있는 상태로 광왕에게 박히고 있는 모습을 비추고 있었다.
+	ELSE
+		IF TALENT:처녀
+			PRINTFORML 제대로 하지 못하면 처녀를 뺏긴다는 말에
+			PRINTFORMW 필사적으로 광왕에게 봉사하고 있었다……
+		ELSE
+			IF FLAG:500 == 0 || FLAG:500 == 2
+				PRINT 광왕의 
+					CALL PENIS_DSC_NTR
+						IF RAND:2 == 0
+							CALL PENIS_I_NTR
+							PRINT 를 
+						ELSE
+							CALL PENIS_II_NTR
+							PRINT 을 
+						ENDIF
+			ELSE
+				PRINT 거대한 딜도를
+			ENDIF
+			PRINTL 넣어달라고 조르며
+				IF RAND:3 == 0
+					PRINTL 자위하고 있었다.
+					PRINT 광왕이 
+						CALL PENIS_DSC_NTR
+							IF RAND:2 == 0
+								CALL PENIS_I_NTR
+								PRINT 를 
+							ELSE
+								CALL PENIS_II_NTR
+								PRINT 을 
+							ENDIF
+					PRINTFORML %SAVESTR:TARGET%의 코에 드리밀고 뭐라고 속삭이자,
+					PRINTFORML 냄새를 맡으며 자위를 하고 있던 %SAVESTR:TARGET%의 머리가 분명하게 끄덕이는 것을 볼 수 있었다.
+					PRINTFORML 그 모습을 보며 비웃던 광왕은 %조사선택(SAVESTR:TARGET, "를")% 들어올려 들박 자세를 취했다.
+					PRINTFORML 수정구 방향을 향하고 있어 모든 부위가 낱낱이 보여졌지만 %SAVESTR:TARGET%의 시선은
+						CALL PENIS_DSC_NTR
+							IF RAND:2 == 0
+								CALL PENIS_I_NTR
+								PRINT 를 
+							ELSE
+								CALL PENIS_II_NTR
+								PRINT 을 
+							ENDIF
+					PRINTL 향하고 있었다.
+					PRINT 광왕이 
+						CALL AQUA_II_NTR
+					PRINT 으로 흥건한 
+						CALL VAGINA_I_NTR
+					PRINTFORML 에 박기 시작하자, %조사선택(SAVESTR:TARGET, "는")% 
+						IF TALENT:TARGET:작은체형 || TALENT:TARGET:마을처녀Ａ || TALENT:TARGET:314 == 10
+							PRINT 오나홀 
+						ELSE
+							PRINT 장난감 
+						ENDIF
+					PRINTL 취급을 당하는데도 불구하고 기뻐하고 있었다.
+						IF TALENT:TARGET:임신 && CFLAG:TARGET:110 - 3 <= DAY
+							PRINTL 만삭의 배 위로도 튀어나오는게 보일 정도로 
+						ELSEIF TALENT:TARGET:임신
+							PRINTL 아기가 배에 있는 상태에서 배가 튀어나오는게 보일 정도로 
+						ELSE
+							PRINTL 붙잡혀서 꼼짝달싹도 못 하는 상태에서 배가 튀어나오는게 보일 정도로 
+						ENDIF
+						CALL PENIS_DSC_NTR
+							IF RAND:2 == 0
+								CALL PENIS_I_NTR
+							ELSE
+								CALL PENIS_II_NTR
+							ENDIF
+					PRINTFORML 에 박히던 %조사선택(SAVESTR:TARGET, "는")% 눈에 보일 정도로 가버리고 있었다.
+				ELSEIF RAND:2 == 0
+					IF TALENT:TARGET:거유 || TALENT:TARGET:폭유 || TALENT:TARGET:초유
+						CALL BREAST_DSC_NTR
+							IF RAND:2 == 0
+								CALL BREAST_B_II_NTR
+								PRINT 으로 
+							ELSE
+								CALL BREAST_B_I_NTR
+								PRINT 로 
+							ENDIF
+						PRINTL 봉사했다.
+					ELSE
+						PRINT 광왕의 귀두를 
+							CALL SERVICE_DSC_NTR
+							CALL SERVICE_NTR
+						PRINTL 았다.
+					ENDIF
+					PRINTFORML 만족한 광왕이 뭐라고 속삭이자 %조사선택(SAVESTR:TARGET, "는")% 끄덕이며 몸을 수정구 방향으로 돌려 역 기승위 자세를 취했다.
+					PRINT 그래도 
+						CALL PENIS_DSC_NTR
+							IF RAND:2 == 0
+								CALL PENIS_I_NTR
+								PRINT 를 
+							ELSE
+								CALL PENIS_II_NTR
+								PRINT 을 
+							ENDIF
+					PRINTFORML 한 번에 넣기는 무리였는지 천천히 내리고 있었는데, 
+					PRINTFORML 방금 자신이 흘린 애액에 발이 미끄러지며 뿌리 끝까지 삽입되고 말았다.
+						IF TALENT:TARGET:작은체형 || TALENT:TARGET:마을처녀Ａ || TALENT:TARGET:314 == 10
+							PRINT 특히나 작은 몸을 가
+								IF CFLAG:TARGET:110 - 3 <= DAY && TALENT:TARGET:임신
+									PRINT 진 데다가 배까지 부풀어 오른 
+								ELSE
+									PRINT 진 
+								ENDIF
+						ELSE
+							IF TALENT:TARGET:임신 && CFLAG:TARGET:110 - 3 <= DAY
+								PRINT 이미 만삭의 몸을 하고 있던 
+							ELSE
+								PRINT 몇번이고 들어왔던 자지였지만 
+							ENDIF
+						ENDIF
+					PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 견딜 수 없었는지 기절해버리고 말았다. 
+					PRINT 광왕이  
+						CALL BREAST_DSC_NTR
+						IF TALENT:TARGET:거유 || TALENT:TARGET:폭유 || TALENT:TARGET:초유
+							IF RAND:2 == 0
+								CALL BREAST_B_II_NTR
+								PRINT 을 
+							ELSE
+								CALL BREAST_B_I_NTR
+								PRINT 를 
+							ENDIF
+						ELSE
+							CALL BREAST_S_II_NTR
+							PRINT 을 
+						ENDIF
+					PRINTFORML 잡고 비틀자 깨어난 %조사선택(SAVESTR:TARGET, "가")% 허리를 떨며 자세를 잡았다.
+					PRINTFORML 하지만 이미 풀려버린 다리 때문에 몇번이나 균형을 잃고 기절해버리고 말았다……
+				ELSE
+					PRINT 암캐처럼 엎드려 
+						CALL AQUA_II_NTR
+					PRINT 으로 흥건한 
+						CALL VAGINA_I_NTR
+					PRINTL 를 벌렸다.
+					PRINT 광왕은 
+						CALL PENIS_DSC_NTR
+							IF RAND:2 == 0
+								CALL PENIS_I_NTR
+								PRINT 로 
+							ELSE
+								CALL PENIS_II_NTR
+								PRINT 으로 
+							ENDIF
+					PRINTFORM %SAVESTR:TARGET%의 
+						CALL VAGINA_I_NTR
+					PRINTL 를 괴롭히며 뭐라고 속삭였고,
+					PRINT 이미 
+						IF RAND:2 == 0
+							CALL SEMEN_I_NTR
+						ELSE
+							CALL SEMEN_II_NTR
+						ENDIF
+					PRINTFORML 중독으로 변한 %조사선택(SAVESTR:TARGET, "는")% 고개를 끄덕였다.
+						IF TALENT:TARGET:작은체형 || TALENT:TARGET:마을처녀Ａ || TALENT:TARGET:314 == 10
+							PRINTL 허리를 들어올려 위치를 맞춘 후에 그녀의 비부를 꿰뚫자, 
+								IF TALENT:TARGET: 임신
+									PRINT 태아의 생사가 걱정될 정도로 
+								ELSE
+									PRINT 자궁이 짜부라졌다고 생각될 정도로 
+								ENDIF
+						ELSE
+							PRINTL 허리를 잡고 그녀의 비부를 꿰뚫자, 
+							PRINT 육안으로 확인 가능할 정도로
+						ENDIF
+					PRINTFORML %SAVESTR:TARGET%의 배가 튀어나왔다.
+					PRINTFORM 하지만 %조사선택(SAVESTR:TARGET, "는")% 
+						CALL SOUND_DSC_NTR
+							IF RAND:2 == 0
+								CALL SOUND_II_NTR
+								PRINT 을 
+							ELSE
+								CALL SOUND_I_NTR
+								PRINT 를 
+							ENDIF
+					PRINTL 흘리며 기뻐하였고, 
+					PRINT 진짜 암캐처럼 
+						IF RAND:2 == 0
+							CALL SEMEN_II_NTR
+							PRINT 을 
+						ELSE
+							CALL SEMEN_I_NTR
+							PRINT 를 
+						ENDIF
+					PRINTL 갈구하며 허리를 흔들어댔다……
+				ENDIF
+			PRINT
+			PRINTFORML 몇번이나 가버려서 %조사선택(SAVESTR:TARGET, "가")% 기절해버리자, 광왕은 %SAVESTR:TARGET%의 허리를 잡고 힘껏 박아넣었다.
+			IF TALENT:TARGET:임신 && CFLAG:TARGET:110 - 3 <= DAY
+				PRINT 만삭의 배 위로도 자지의 형태가 
+			ELSE
+				PRINT 자궁의 형태가 
+			ENDIF
+			PRINTFORML 보일 정도로 끝까지 찔러넣자 %조사선택(SAVESTR:TARGET, "는")% 또 절정을 하며 깨어났고,
+			PRINTFORML 뭔가 기억이 났는지 더블피스 사인을 하며 수정구를 향해 입을 열었다.
+		ENDIF
+	ENDIF
+	
+	CALL NTR_KOUJO
+		IF TALENT:남자
+		PRINTL A경험+5
+		PRINTL 정액경험+5
+		EXP:1 += 5
+		EXP:20 += 5
+		PRINTFORML %PALAMNAME:2%의 구슬＋{5*200}
+		PRINTFORMW %PALAMNAME:5%의 구슬＋{5*250}
+		JUEL:2 += 5*200
+		JUEL:5 += 5*250
+	ELSE
+		IF TALENT:처녀
+			
+		ELSE
+			IF FLAG:500 == 1
+				PRINTL V경험+5
+				PRINTFORML %EXPNAME:40%+5
+				EXP:0 += 5
+				EXP:40 += 5
+				PRINTFORML %PALAMNAME:1%의 구슬＋{5*200}
+				PRINTFORMW %PALAMNAME:5%의 구슬＋{5*250}
+				JUEL:1 += 5*200
+				JUEL:5 += 5*250
+			ELSE
+				PRINTL V경험+5
+				PRINTL 정액경험+5
+				EXP:0 += 5
+				EXP:20 += 5
+				PRINTFORML %PALAMNAME:1%의 구슬＋{5*200}
+				PRINTFORMW %PALAMNAME:5%의 구슬＋{5*250}
+				JUEL:1 += 5*200
+				JUEL:5 += 5*250
+			ENDIF
+			;妊娠フラグオン
+			SIF FLAG:5 & 4
+			CFLAG:108 = 10
+		ENDIF
+	ENDIF
+	
+	;퍼스트 키스
+		SIF CFLAG:16 == -1
+			CFLAG:16 = 993
+
+;A플레이
+ELSEIF RAND:4 == 0
+ARREST = 15
+	IF TALENT:0 == 1
+		;처녀 애널 플레이
+		PRINTL 이(가) 애널에
+		IF FLAG:500 == 0 || FLAG:500 == 2
+			PRINT 광왕의 거근
+		ELSE
+			PRINT 거대한 딜도
+		ENDIF
+		PRINTW 을(를) 삼키며 기뻐하고 있는 모습이 비쳐지고 있었다…
+		ARREST = 2
+			CALL NTR_KOUJO
+			IF FLAG:500 == 1
+			PRINTL A경험+10
+			PRINTFORML %EXPNAME:40%+10
+			EXP:1 += 10
+			EXP:40 += 5
+			PRINTFORML %PALAMNAME:2%의 구슬＋{10*200}
+			PRINTFORMW %PALAMNAME:5%의 구슬＋{10*250}
+			JUEL:2 += 10*200
+			JUEL:5 += 10*250
+		ELSE
+			PRINTL A경험+10
+			PRINTL 정액경험+10
+			EXP:1 += 10
+			EXP:20 += 10
+			PRINTFORML %PALAMNAME:2%의 구슬＋{10*200}
+			PRINTFORMW %PALAMNAME:5%의 구슬＋{10*250}
+			JUEL:2 += 10*200
+			JUEL:5 += 10*250
+		ENDIF
+	ELSE
+		;비처녀 애널 플레이
+		PRINTL 이(가) 애널에
+		IF FLAG:500 == 0 || FLAG:500 == 2
+			PRINT 광왕의 거근
+		ELSE
+			PRINT 거대한 딜도
+		ENDIF
+		PRINTW 을(를) 삼키며 기뻐하고 있는 모습이 비쳐지고 있었다…
+		ARREST = 2
+			CALL NTR_KOUJO
+			IF FLAG:500 == 1
+			PRINTL A경험+10
+			PRINTFORML %EXPNAME:40%+10
+			EXP:1 += 10
+			EXP:40 += 5
+			PRINTFORML %PALAMNAME:2%의 구슬＋{10*200}
+			PRINTFORMW %PALAMNAME:5%의 구슬＋{10*250}
+			JUEL:2 += 10*200
+			JUEL:5 += 10*250
+		ELSE
+			PRINTL A경험+10
+			PRINTL 정액경험+10
+			EXP:1 += 10
+			EXP:20 += 10
+			PRINTFORML %PALAMNAME:2%의 구슬＋{10*200}
+			PRINTFORMW %PALAMNAME:5%의 구슬＋{10*250}
+			JUEL:2 += 10*200
+			JUEL:5 += 10*250
+		ENDIF
+	ENDIF
+
+;난교
+ELSEIF RAND:3 == 0
+ARREST = 16
+	IF TALENT:남자
+		PRINTFORML 광왕과 메이드 사이에 끼어있었다.
+		PRINTFORML 광왕은 %SAVESTR:TARGET%의 애널에 박아넣고 있었고,
+		PRINTFORMW 메이드는 %SAVESTR:TARGET%의 자지를 받아들이는 모습이 찍혀있었다.
+	ELSE
+		IF TALENT:처녀
+			PRINTFORMW 벌벌 떨면서 눈 앞에 펼쳐진 난교 현장을 보고 있었다…
+		ELSE
+			IF FLAG:500 == 0
+				PRINTL 많은 남자들에게 둘러싸여 
+			ELSE
+				PRINTL 페니스 밴드를 붙인 여자들에게 둘러싸여 
+			ENDIF
+			PRINTL 양쪽 구멍 모두를 범해지고 있는 모습이 비쳐지고 있었다……
+			PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 광왕에게 완전히 충성을 맹세한 듯해서
+			PRINTW 싫어하는 모습도 보이지 않고 교성을 내고 있었다…
+		ENDIF
+	ENDIF
+		CALL NTR_KOUJO
+		IF TALENT:남자
+		PRINTL C경험+10
+		PRINTL A경험+10
+		PRINTL 정액경험+10
+		EXP:34 += 10
+		EXP:1 += 10
+		EXP:20 += 10
+		PRINTFORML %PALAMNAME:0%의 구슬＋{10*200}
+		PRINTFORML %PALAMNAME:2%의 구슬＋{10*200}
+		PRINTFORMW %PALAMNAME:5%의 구슬＋{10*250}
+		JUEL:0 += 10*200
+		JUEL:2 += 10*200
+		JUEL:5 += 10*250
+	ELSE
+		IF TALENT:처녀
+		
+		ELSE
+			IF FLAG:500 == 1
+				PRINTL V경험+10
+				PRINTL A경험+10
+				PRINTFORML %EXPNAME:40%+10
+				EXP:0 += 10
+				EXP:1 += 10
+				EXP:40 += 5
+				PRINTFORML %PALAMNAME:1%의 구슬＋{10*200}
+				PRINTFORML %PALAMNAME:2%의 구슬＋{10*200}
+				PRINTFORMW %PALAMNAME:5%의 구슬＋{10*250}
+				JUEL:1 += 10*200
+				JUEL:2 += 10*200
+				JUEL:5 += 10*250
+			ELSE
+				PRINTL V경험+10
+				PRINTL A경험+10
+				PRINTL 정액경험+10
+				EXP:0 += 10
+				EXP:1 += 10
+				EXP:20 += 10
+				PRINTFORML %PALAMNAME:1%의 구슬＋{10*200}
+				PRINTFORML %PALAMNAME:2%의 구슬＋{10*200}
+				PRINTFORMW %PALAMNAME:5%의 구슬＋{10*250}
+				JUEL:1 += 10*200
+				JUEL:2 += 10*200
+				JUEL:5 += 10*250
+				;妊娠フラグオン
+				SIF FLAG:5 & 4
+					CFLAG:105 = 10
+			ENDIF
+		ENDIF
+	ENDIF
+
+;변기
+ELSEIF RAND:2 == 0
+	ARREST = 17
+		IF TALENT:남자
+		PRINTFORML 벽낌을 당한 상태로 하반신만 내밀어놓고 있었다.
+		PRINTFORML 주위를 지나가던 사람들은 [돈에 마왕의 편에 선 병신의 말로] 라는 표지판을 보고 낄낄거리며
+		PRINTFORMW 주위에 놓아져있는 바이브를 애널에 박아넣었다.
+	ELSE
+		IF TALENT:처녀
+			PRINTFORML 제대로 하지 않으면 처녀막을 뚫어버린다는 협박에
+			PRINTFORMW 눈 앞에 내밀어진 남자들의 자지를 입과 양손을 이용해 봉사하고 있었다……
+		ELSE
+			PRINTW 성처리 변기로 사용되는 모습을 보여주고 있었다.
+			PRINT 몸에는
+			IF CFLAG:TARGET:110 - 3 <= DAY && TALENT:TARGET:임신
+				PRINTL 「좆물 조기교육 중」따위의 낙서나
+			ELSE
+				PRINTL 「보○10G・애널 무료」따위의 낙서나
+			ENDIF
+			PRINTW 성교 회수가 쓰여져 있었다…
+			PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 광왕에게 완정히 충성을 맹세한 듯해서
+			PRINTW 싫어하는 모습도 보이지 않고 변기가 되어 봉사를 하고 있었다…
+		ENDIF
+	ENDIF
+		CALL NTR_KOUJO
+		IF TALENT:남자
+		PRINTL A경험+40
+		EXP:1 += 40
+		PRINTFORML %PALAMNAME:2%의 구슬＋{40*200}
+		PRINTFORMW %PALAMNAME:5%의 구슬＋{20*250}
+		JUEL:2 += 40*200
+		JUEL:5 += 20*250
+	ELSE
+		IF TALENT:처녀
+		
+		ELSE
+			PRINTL V경험+20
+			PRINTL A경험+20
+			PRINTL 정액경험+20
+			EXP:0 += 20
+			EXP:1 += 20
+			EXP:20 += 20
+			PRINTFORML %PALAMNAME:1%의 구슬＋{20*200}
+			PRINTFORML %PALAMNAME:2%의 구슬＋{20*200}
+			PRINTFORMW %PALAMNAME:5%의 구슬＋{20*250}
+			JUEL:1 += 20*200
+			JUEL:2 += 20*200
+			JUEL:5 += 20*250
+			;妊娠フラグオン
+			SIF FLAG:5 & 4
+				CFLAG:105 = 10
+		ENDIF
+	ENDIF
+	
+
+;수간
+ELSE
+ARREST = 18
+	IF TALENT:남자
+		PRINTFORMW 수많은 관객들 앞에서 개에게 범해지고 있었다.
+	ELSE
+		IF TALENT:처녀
+			PRINTFORM 자신의 앞에 있는 개에게
+			PRINTFORM 처녀를 잃지 않기 위해 애널을 벌리고 있었다……
+		ELSE
+			PRINT 수많은 관객들 앞에서 
+				;정상위
+				IF RAND:2 == 0
+					IF RAND:2 == 0
+						PRINTL 양 팔이 묶여있는 모습을 비추고 있었다.
+						PRINT 잠시 후 개가 나타나자, 
+						IF CFLAG:TARGET:110 - 3 <= DAY && TALENT:TARGET:임신
+							PRINTFORML 부풀어 오른 배 때문에 엎드리는 것도 여의치 않은 것을 깨달은 %조사선택(SAVESTR:TARGET, "는")% 
+							PRINTL 다리를 벌리고 박아달라고 애원했다.
+						ELSE
+							PRINTFORML 묶여 있어 엎드리는 것도 여의치 않은 것을 깨달은 %조사선택(SAVESTR:TARGET, "는")% 
+							PRINTL 누워있는 자세 그대로 허리를 들어 개를 유혹했다.
+						ENDIF
+						PRINTFORML 개는 이미 여러번 겪어 봤는지 익숙하게 %조사선택(SAVESTR:TARGET, "와")% 교미를 시작했다.
+					ELSE
+						PRINTL 자위를 하는 모습을 비추고 있었다.
+						PRINTFORML 잠시 후 개가 나타나자 %조사선택(SAVESTR:TARGET, "는")% 음란한 표정을 짓더니 그대로 다리를 벌리고 젖은 비부를 드러냈다.
+						PRINTFORML 잠시 냄새를 맡던 개는 눈 앞에 있는게 암컷 개라고 판단하고 비부에 육봉을 찔러넣었다.
+					ENDIF
+					PRINTFORM %조사선택(SAVESTR:TARGET, "는")% 
+						CALL SOUND_DSC_NTR
+							IF RAND:2 == 0
+								CALL SOUND_II_NTR
+								PRINT 을 
+							ELSE
+								CALL SOUND_I_NTR
+								PRINT 를 
+							ENDIF
+					PRINTFORM 내뱉으며 개의 자지를 받아들
+						IF RAND:2 == 0
+							PRINTL 였지만, 
+								IF CFLAG:TARGET:110 - 3 <= DAY && TALENT:TARGET:임신
+									PRINT 암캐가 임신하고 있는게 
+								ELSE
+									PRINT 개는 뭐가 마음에 
+								ENDIF
+							PRINTFORML 안 드는지 앞발로 %SAVESTR:TARGET%의 목을 누르기 시작했다.
+							PRINTFORML 숨을 쉴 수 없자 %SAVESTR:TARGET%의 질압이 높아지기 시작했고, 그걸 느낀 개는 더 강하게 누르며 속력을 높였다.
+							PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 질식해서 점점 앞이 보이지 않는데도 불구하고 하복부에 느껴지는 엄청난 쾌락에 도리어 기뻐하고 있었다.
+							PRINT 그러다 목의 압박이 사라져 정신을 차린 찰나, 
+						ELSE
+							PRINTL 였다.
+							PRINTFORML 마치 정액을 갈구하듯이 쪼이는 극상품의 암컷을 만난 개는 점점 속력을 높여갔고, 
+							IF TALENT:TARGET:임신 && CFLAG:TARGET:110 - 3 <= DAY
+								PRINT 만삭의 상태로 
+							ELSEIF TALENT:TARGET:임신
+								PRINT 이미 임신을 한 주제에 
+							ELSE
+								PRINT 
+							ENDIF
+							PRINTFORM 그런 개의 자지를 즐기는 %SAVESTR:TARGET%의 얼굴은
+								CALL RACE_DSC_NTR_1
+							PRINTFORML 아닌, 암캐의 표정을 하고 있었다.
+							PRINT 이미 한 마리의 암캐가 된 
+						ENDIF
+					PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 개의 자지가 부풀어 오른 것을 느끼고 
+					PRINT 한 방울도 놓치지 않기 위해 
+						IF RAND:2 == 0
+							PRINT 허리를 들어 
+						ELSE
+							PRINT 다리로 허리를 휘감아
+						ENDIF
+					PRINTL 자궁구를 자지에 밀착시켰다.
+					PRINT 곧바로 쏟아지는 
+						CALL SEMEN_DSC_NTR
+					PRINT 개의 
+						IF RAND:2 == 0
+							CALL SEMEN_II_NTR
+						ELSE
+							CALL SEMEN_I_NTR
+						ENDIF
+					PRINTFORML 에 행복한 표정을 지으며 개와 키스했다.
+					PRINTFORML 질내사정이 끝난 직후 %조사선택(SAVESTR:TARGET, "는")% 허리가 빠져버린 듯이 힘을 잃었고,
+					PRINT 자궁 안에 들어가지 못한 
+						CALL SEMEN_DSC_NTR
+							IF RAND:2 == 0
+								CALL SEMEN_II_NTR
+								PRINT 이 
+							ELSE
+								CALL SEMEN_I_NTR
+								PRINT 가 
+							ENDIF
+					PRINTFORML 꿀럭이며 %SAVESTR:TARGET%의 비부에서 흘러나왔다.
+				;후배위
+				ELSE
+					IF RAND:2 == 0
+						PRINTL 구속대에 묶여있는 모습을 비추고 있었다.
+						PRINTFORML 그러다 보이지 않는 뒤쪽에서 그르렁 거리는 소리가 들리자 본능적으로 엉덩이를 흔들며 교태를 떨었고
+						PRINTFORML 뒤이어 들어온 자지의 형태로 개와 교미하고 있다는 것을 알아차렸다.
+						IF CFLAG:TARGET:110 - 3 <= DAY && TALENT:TARGET:임신
+							PRINTL 관객들은 임신한 주제에 개의 자지에 박히는 거냐며 조롱했지만, 
+						ELSE
+							PRINTL 관객들은 당해보니 어떻냐고 야유했지만, 
+						ENDIF
+							CALL RACE_DSC_NTR_1
+						PRINTFORM 아닌 한 마리의 암캐가 된 %조사선택(SAVESTR:TARGET, "는")% 
+							CALL SOUND_DSC_NTR
+						PRINTFORML 말을 하며 기뻐했다.
+						PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 개의 자지가 부풀어 오른 것을 느끼고 더 박아달라고 외쳤지만
+						PRINT 정액을 갈구하는 자궁의 욱씬거림을 참을 수 없어
+							IF RAND:2 == 0
+								PRINT 땅을 박차서 
+							ELSE
+								PRINT 다리로 허리를 휘감아
+							ENDIF
+						PRINTL 자궁구를 자지에 밀착시켰다.
+						PRINTFORM %조사선택(SAVESTR:TARGET, "는")% 자궁을 가득 채우는 
+							CALL SEMEN_DSC_NTR
+						PRINT 개의 
+							IF RAND:2 == 0
+								CALL SEMEN_II_NTR
+								PRINT 으로 
+							ELSE
+								CALL SEMEN_I_NTR
+								PRINT 로 
+							ENDIF
+						PRINTL 가버렸지만, 
+						PRINTL 경련하는 질의 감촉에 개는 다시 한 번 박기 시작했다.
+						PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 가버리는 도중에 느껴지는 쾌감에 그만 해달라고 소리쳤지만 당연히 멈출 리 없었고,
+						PRINTFORML 묶여있어 아무것도 할 수 없는 %조사선택(SAVESTR:TARGET, "는")% 계속해서 느껴지는 쾌감에 계속 멈춰달라고 외쳤다.
+						PRINTFORM 몇번의 사정 이후, 만족한 개가 육봉을 빼내자 한계를 넘길 정도로 자궁 안에 싸질렀던 
+							CALL SEMEN_DSC_NTR
+							IF RAND:2 == 0
+								CALL SEMEN_II_NTR
+								PRINTL 이 
+							ELSE
+								CALL SEMEN_I_NTR
+								PRINTL 가 
+							ENDIF
+						PRINTFORML 분수처럼 쏟아져 나왔다.
+						PRINT 그리고 관객들은 
+							IF CFLAG:TARGET:110 - 3 <= DAY && TALENT:TARGET:임신
+								PRINT 임신한 주제에 정액을 갈구하며 
+							ELSE
+								PRINT 안 된다고 말하면서도 
+							ENDIF
+							CALL SOUND_DSC_NTR
+						PRINTFORML 암캐의 표정을 짓고 있는 %조사선택(SAVESTR:TARGET, "를")% 보고 비웃었다.
+					ELSE
+						PRINTL 마치 암캐처럼 엎드려 있는 모습을 비추고 있었다.
+						PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 진짜 암캐처럼 개의 자지에 비부를 문지르며 유혹했
+							IF RAND:2 == 0
+								PRINTL 고,
+								PRINTFORML 개는 진짜 암캐라고 생각했는지 앞발로 %SAVESTR:TARGET%의 머리를 누르며 사정없이 찌르기 시작했다.
+								PRINTFORML 아프다고 소리치는 %SAVESTR:TARGET%의 말은 얼마 지나지 않아 더 박아달라는 말로 바뀌었다.
+									IF CFLAG:TARGET:110 - 3 <= DAY && TALENT:TARGET:임신
+										PRINTFORML 그때 광왕이 개를 멈추며 이미 임신했으면서 뭘 더 바라는거냐고 묻자,
+										PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 아이에게 좆물의 맛을 알려주고 싶다고 말하며 허리를 흔들어댔다.
+										PRINTFORML 광왕이 그 말을 듣고 개를 거두려고 하자, %조사선택(SAVESTR:TARGET, "는")% 사실 아이가 아니라 자궁이 좆물을 바란다고 말하며 넣어달라고 계속 애원했다.
+										PRINTFORML 광왕은 그런 %조사선택(SAVESTR:TARGET, "를")% 비웃으며 개를 놔줬고, 멈췄다가 다시 시작한 개의 움직임은 격렬하기 그지 없었고,
+										PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 정말 아이가 어떻게 되도 상관 없는지 그걸 기쁘게 받아들이고 있었다.
+									ELSE
+										PRINTFORML 그때 광왕이 개를 멈추며 사람의 말을 하는 암캐는 필요 없다고 말하자,
+										PRINTFORML 정액을 마시지 않아 하반신의 욱신거림을 참을 수 없던 %조사선택(SAVESTR:TARGET, "는")% 일말의 고민도 없이 
+										PRINTFORML 짖으며 허리를 흔들었고, 광왕이 허락하자 개는 마치 분풀이 하듯이 더 난폭하게 덮쳤다.
+										PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 또 멈출거라고 생각한지 계속 개처럼 짖어댔고, 개는 그 소리에 맞춰 점점 강하게 박기 시작했다.
+									ENDIF						
+							ELSE
+							PRINTL 지만 
+								PRINTFORM 개가 신경쓰지 않고 나가려고 하자 안달난 %조사선택(SAVESTR:TARGET, "는")% 
+									IF RAND:2 == 0
+										PRINTFORML 배를 보이며 복종의 자세를 취하자,
+										PRINTFORML 그제서야 개가 관심을 보이고 %SAVESTR:TARGET%의 비부에 삽입했다.
+										PRINTFORML 체중을 싣은 피스톤질을 무방비로 당하는 %SAVESTR:TARGET%의 얼굴에 환의가 차올랐고,
+										PRINTFORML 마치 더 해달라는 것을 애원하는 듯이 팔로 개의 허리를 감쌌다.
+									ELSE
+										PRINTFORML 개의 자지를 억지로 비부에 집어넣었다.
+										PRINTFORML 잠깐 멈칫한 개가 조금씩 움직이기 시작하더니 속력을 높이기 시작했고,
+										PRINTFORML 개를 유혹하던 %조사선택(SAVESTR:TARGET, "는")% 어느 순간부터 바닥에 머리를 처박고 있었다.
+										PRINTFORML 관객의 외침에 얼굴을 들자, 쾌락에 정신을 못 차리는 %SAVESTR:TARGET%의 표정이 그대로 드러났다.
+									ENDIF
+							ENDIF
+						PRINTFORML 그렇게 정신 없이 박히던 %조사선택(SAVESTR:TARGET, "는")% 개의 자지가 부풀어 오른 것을 느끼고 
+						PRINTL 다리로 휘감아 개의 다리를 지긋히 눌러 자지를 자궁구에 정확히 고정시켰다.
+						PRINT 평소보다 많은 
+							CALL SEMEN_DSC_NTR
+						PRINT 개의 
+							IF RAND:2 == 0
+								CALL SEMEN_II_NTR
+								PRINT 은 
+							ELSE
+								CALL SEMEN_I_NTR
+								PRINT 는 
+							ENDIF
+						PRINTFORML 이미 %SAVESTR:TARGET%의 자궁을 가득 채웠지만
+						PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 사정이 멈출 때 까지 다리를 풀지 않았다.
+						PRINTFORML 이후 사정이 끝나자 %SAVESTR:TARGET%의 다리가 풀렸지만 개는 만족하지 않았다는 듯이 다시 허리를 흔들었다.
+						PRINT 그걸 받아들이며 
+							CALL SOUND_DSC_NTR
+								IF RAND:2 == 0
+									CALL SOUND_II_NTR
+									PRINT 을 
+								ELSE
+									CALL SOUND_I_NTR
+									PRINT 를 
+								ENDIF
+						PRINTFORM 흘리던 %조사선택(SAVESTR:TARGET, "는")% 
+							CALL RACE_DSC_NTR_1
+						PRINTFORML 아닌 한 마리의 암캐에 불과했다.
+					ENDIF
+				ENDIF
+		ENDIF
+	ENDIF
+
+	CALL NTR_KOUJO
+
+	IF TALENT:남자
+		PRINTL A경험+20
+		PRINTL 정액경험+20
+		PRINTL 수간경험+20
+		EXP:1 += 20
+		EXP:20 += 20
+		EXP:56 += 20
+		PRINTFORML %PALAMNAME:2%의 구슬＋{20*200}
+		PRINTFORMW %PALAMNAME:5%의 구슬＋{20*250}
+		JUEL:2 += 20*200
+		JUEL:5 += 20*250
+	ELSE
+		IF TALENT:처녀
+		
+		ELSE
+			PRINTL V경험+20
+			PRINTL 정액경험+20
+			PRINTL 수간경험+20
+			EXP:0 += 20
+			EXP:20 += 20
+			EXP:56 += 20
+			PRINTFORML %PALAMNAME:1%의 구슬＋{20*200}
+			PRINTFORMW %PALAMNAME:5%의 구슬＋{20*250}
+			JUEL:1 += 20*200
+			JUEL:5 += 20*250
+			;妊娠フラグオン
+			SIF FLAG:5 & 4
+				CFLAG:106 = 10
+		ENDIF
+	ENDIF
+	
+ENDIF
+
+
+;------------------------------------------
+@NTR_CHILD_BIRTH
+;------------------------------------------
+PRINTL
+PRINTFORML 광왕에게서 수정구가 도착했다.
+PRINTFORML 수정구에는 %조사선택(SAVESTR:TARGET, "가")% 광왕과 관객들 앞에서 공개 출산하는 모습이 담겨 있었다.
+PRINTFORML 관객들의 야유 속에서 %조사선택(SAVESTR:TARGET, "는")% 몇번이고 가버리면서 아기를 출산했다.
+PRINTFORML 마왕성과 같은 마법이 걸려있는지, 태어난 아이는 순식간에 자라나기 시작했다.
+PRINTFORML 다만 다른 점이 있다면 광왕성에서는 여자아이만 태어난다는 것과
+PRINTFORML 바로 성체로 자라나는 마왕성과는 달리 베란이 시작되는 시기, 즉 임신이 가능한 상태까지만 성장했다.
+PRINTFORM 모든 성장이 끝나자 관객들의 앞에는 
+;아버지가 광왕
+IF CFLAG:102 == 7
+	PRINTFORML %조사선택(SAVESTR:TARGET, "와")% 광왕의 모습이 비슷하게 섞인 여아와 
+	PRINTFORM 출산 절정을 참지 못해 
+		CALL SOUND_DSC_NTR
+	PRINTFORM 표정으로 가버리고 있는 
+		IF TALENT:TARGET:작은체형 || TALENT:TARGET:마을처녀Ａ || TALENT:TARGET:314 == 10
+			PRINT 비슷한 체구인 
+		ELSE
+			PRINT 성숙한 여인인 
+		ENDIF
+	PRINTFORML %조사선택(SAVESTR:TARGET, "가")% 신음소리를 내고 있었다.
+	PRINTFORML 『더러운 몸으로 내 씨앗을 받아서 처리하기 위해 마음껏 굴렸건만 살아남다니……』
+	PRINTFORM 『물론 천한 
+		IF TALENT:TARGET:암캐
+			PRINTFORM 암캐
+		ELSE
+			PRINTFORM 암컷
+		ENDIF
+	PRINTFORML 의 아이를 적자로 삼을 생각 없으니, 얼른 가지고 가버려라.』
+	PRINTFORML 광왕의 말이 끝나자 아이는 관객들의 손아귀에 벗어나려고 엄마를 찾았지만
+	PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 아직도 절정하며 정신을 차리지 못 하고 있었다.
+;아버지가 개
+ELSEIF CFLAG:102 == 5
+	PRINTFORM %조사선택(SAVESTR:TARGET, "와")% 
+		IF TALENT:TARGET:암캐
+			PRINTFORML 비슷하지만 거의 수인에 가깝게 털이 나있는 아이와 
+		ELSEIF TALENT:TARGET:동물귀
+			PRINTFORML 비슷하게 동물 귀를 달고 있는 아이와 
+		ELSE
+			PRINTFORML 전혀 다른 머리색깔을 가진 아이와 
+		ENDIF
+	PRINTFORM 출산 절정을 참지 못해 
+		CALL SOUND_DSC_NTR
+	PRINTFORM 표정으로 가버리고 있는 
+		IF TALENT:TARGET:작은체형 || TALENT:TARGET:마을처녀Ａ || TALENT:TARGET:314 == 10
+			PRINT 비슷한 체구인 
+		ELSE
+			PRINT 성숙한 여인인 
+		ENDIF
+	PRINTFORML %조사선택(SAVESTR:TARGET, "가")% 신음소리를 내고 있었다.
+		IF TALENT:TARGET:암캐
+			PRINTFORML 『뼛속까지 암캐가 되어버렸는지 진짜 암캐를 낳다니, 엄청난 용사로군.』
+			PRINTFORML 『겉모습은 그럴싸한데 과연 정신은 어떨지?』
+		ELSEIF TALENT:TARGET:동물귀
+			PRINTFORML 『어미의 피를 이렇게까지 진하게 이어받다니, 이것도 신기하군.』
+			PRINTFORML 『거의 인간에 가까운 모습이라니… 하지만 과연 내부도 인간일까?』
+		ELSE
+			PRINTFORML 『개가 임신 시켰는데 개가 아닌 인간이 나오다니…?』
+			PRINTFORML 『모습만 인간인지 정신도 인간인지 궁금하군.』
+		ENDIF
+		IF TALENT:TARGET:음란 || TALENT:TARGET:섹스광 || TALENT:TARGET:씨받이
+			PRINTFORM 광왕이 
+				CALL PENIS_DSC_NTR
+					IF RAND:2 == 0
+						CALL PENIS_II_NTR
+						PRINTFORM 을 
+					ELSE
+						CALL PENIS_I_NTR
+						PRINTFORM 를 
+					ENDIF
+			PRINTFORML 코 앞에 들이밀자, 
+			PRINTFORML 잠시 냄새를 맡던 아이가 달라붙어 햝기 시작했다.
+		ELSE
+			PRINTFORML 광왕이 손을 내밀자 아이는 바로 주저앉으며 손을 잡았다.
+		ENDIF
+	PRINTFORML 그 모습을 본 광왕은 널부러져 있는 %조사선택(SAVESTR:TARGET, "를")% 한껏 비웃었고,
+	PRINTFORML 아이에게 개목걸이를 채운 후 관객들에게 넘겨줬다.
+;아버지가 누군지 모름
+ELSEIF CFLAG:102 == 4
+	PRINTFORML %조사선택(SAVESTR:TARGET, "와")% 비슷하면서도 미묘하게 다른 여아와 
+	PRINTFORM 출산 절정을 참지 못해 
+		CALL SOUND_DSC_NTR
+	PRINTFORM 표정으로 가버리고 있는 
+		IF TALENT:TARGET:작은체형 || TALENT:TARGET:마을처녀Ａ || TALENT:TARGET:314 == 10
+			PRINT 비슷한 체구인 
+		ELSE
+			PRINT 성숙한 여인인 
+		ENDIF
+	PRINTFORML %조사선택(SAVESTR:TARGET, "가")% 신음소리를 내고 있었다.
+	PRINTFORM 『마왕에게 
+		IF TALENT:TARGET:애정 || TALENT:TARGET:음란 || TALENT:TARGET:망신
+			PRINTFORM 굴복한 
+		ELSE
+			PRINTFORM 사로잡힌 
+		ENDIF
+		IF TALENT:TARGET:암캐
+			PRINTFORM 암캐
+		ELSEIF TALENT:TARGET:육변기
+			PRINTFORM 육변기
+		ELSE
+			PRINTFORM 암컷
+		ENDIF
+	PRINTFORML 답게 누구것인지도 모르는 씨앗으로 임신하다니…』
+	PRINTFORML 『하지만 성처리 장난감으로는 쓸만해 보이니 너희들에게 하사하마.』
+	PRINTFORML 광왕의 말이 끝나자 아이는 관객들의 손아귀에 벗어나려고 엄마를 찾았지만
+	PRINTFORML %조사선택(SAVESTR:TARGET, "는")% 아직도 절정하며 정신을 차리지 못 하고 있었다.
+;아버지가 노예나 조수
+ELSEIF CFLAG:102 == 2 || CFLAG:102 == 3
+	PRINTFORML %조사선택(SAVESTR:TARGET, "와")% 비슷하면서도 미묘하게 다른 여아와 
+	PRINTFORM 출산 절정을 참지 못해 
+		CALL SOUND_DSC_NTR
+	PRINTFORM 표정으로 가버리고 있는 
+		IF TALENT:TARGET:작은체형 || TALENT:TARGET:마을처녀Ａ || TALENT:TARGET:314 == 10
+			PRINT 비슷한 체구인 
+		ELSE
+			PRINT 성숙한 여인인 
+		ENDIF
+	PRINTFORML %조사선택(SAVESTR:TARGET, "가")% 신음소리를 내고 있었다.
+	PRINTFORML 『토벌하러 가는데 집중하지 않고 이런 것이나 뱃속에 넣고 다니니 마왕따위에게 지는것이다.』
+	PRINTFORML 『어미가 어미이니 너도 좋은 용사는 되지 못할 터, 내가 좋은 곳에 보내주지.』
+	PRINTFORML 광왕이 눈짓하자 관객들이 둘러싸더니 어디론가 대리고 나갔다.
+;아버지가 마왕
+ELSEIF CFLAG:TARGET:102 == 1
+	PRINTFORML %조사선택(SAVESTR:TARGET, "와")% 다르게 검은 머릿결에 붉은 눈동자, 백옥같은 피부를 가진 여아와 
+	PRINTFORM 출산 절정을 참지 못해 
+		CALL SOUND_DSC_NTR
+	PRINTFORM 표정으로 가버리고 있는 
+		IF TALENT:TARGET:작은체형 || TALENT:TARGET:마을처녀Ａ || TALENT:TARGET:314 == 10
+			PRINT 비슷한 체구인 
+		ELSE
+			PRINT 성숙한 여인인 
+		ENDIF
+	PRINTFORML %조사선택(SAVESTR:TARGET, "가")% 신음소리를 내고 있었다.
+	IF CFLAG:PLAYER:999 == 0
+		PRINTFORML 『오호, 설마 마왕이 이렇게 생긴것인가?』
+		PRINTFORML 『이정도로 상등품일줄은 몰랐군. 가능하면 꼭 생포해야겠어.』
+	CFLAG:PLAYER:999 = 1
+	ELSE
+		PRINTFORML 『상등품 육변기를 또 하나 배달해주다니.』
+		PRINTFORML 『어디, 감도를 채크해 볼까?』
+	ENDIF
+	IF (TALENT:TARGET:음란 || TALENT:TARGET:육변기) && TALENT:TARGET:암캐
+		PRINT 마왕의 아이는 
+		IF RAND:3 == 0
+			PRINTFORM %SAVESTR:TARGET%처럼 
+				CALL BREAST_DSC_NTR
+					IF TALENT:TARGET:거유 || TALENT:TARGET:폭유 || TALENT:TARGET:초유
+						IF RAND:2 == 0
+							CALL BREAST_B_II_NTR
+							PRINT 을 
+						ELSE
+							CALL BREAST_B_I_NTR
+							PRINT 를 
+						ENDIF
+					ELSE
+						CALL BREAST_S_II_NTR
+						PRINT 을 
+					ENDIF
+			PRINTFORML 주무르자 몸을 떨면서 달라붙었다.
+		ELSEIF RAND:2 == 0
+			PRINTFORM 엉덩이를 쓰다듬자 자연스럽게 엎드리며 엉덩이를 흔들어댔다.
+		ELSE
+			PRINTFORM 비부에 손을 대자 가볍게 가버리며 주저앉았다.
+		ENDIF
+		PRINTFORML 『어미가 암캐라서 자식도 암캐인건가?』
+		PRINTFORML 『귀와 꼬리만 달려있어도 마왕의 자식이 아니라 개랑 교배했다고 믿겠군.』
+		PRINTFORML 조르는 눈빛을 하고있던 마왕의 아이를 본 광왕은 더럽다는 듯이 발로 밀어냈다.
+	ELSEIF TALENT:TARGET:음란 || TALENT:TARGET:육변기
+		IF RAND:3 == 0
+			PRINTFORM %SAVESTR:TARGET%처럼 
+				CALL BREAST_DSC_NTR
+					IF TALENT:TARGET:거유 || TALENT:TARGET:폭유 || TALENT:TARGET:초유
+						IF RAND:2 == 0
+							CALL BREAST_B_II_NTR
+							PRINT 을 
+						ELSE
+							CALL BREAST_B_I_NTR
+							PRINT 를 
+						ENDIF
+					ELSE
+						CALL BREAST_S_II_NTR
+						PRINT 을 
+					ENDIF
+			PRINTFORML 주무르자 
+		ELSEIF RAND:2 == 0
+			PRINTFORM 엉덩이를 쓰다듬자 
+		ELSE
+			PRINTFORM 비부에 손을 대자 
+		ENDIF
+		PRINTFORML 거부하려던 마왕의 아이는
+		PRINTFORML 음란한 %SAVESTR:TARGET%의 유전자를 더 많이 받은건지 움찔거리며 느끼고 있었다.
+		PRINTFORML 『마왕이 음란한건지, 아니면 마왕의 씨가 암컷에게 밀린건지 궁금하군.』
+		PRINTFORML 『뭐, 어느쪽이든 상관 없지.』
+		PRINTFORML 태어난지 얼마 되지 않아 말도 못 하면서 음란한 것을 본능적으로 받아들이는 아이를 보고
+		PRINTFORML 광왕은 피식 웃으며 관객들에게로 밀어냈다.
+	ELSE
+		IF RAND:3 == 0
+			PRINTFORM %SAVESTR:TARGET%처럼 
+				CALL BREAST_DSC_NTR
+					IF TALENT:TARGET:거유 || TALENT:TARGET:폭유 || TALENT:TARGET:초유
+						IF RAND:2 == 0
+							CALL BREAST_B_II_NTR
+							PRINT 을 
+						ELSE
+							CALL BREAST_B_I_NTR
+							PRINT 를 
+						ENDIF
+					ELSE
+						CALL BREAST_S_II_NTR
+						PRINT 을 
+					ENDIF
+			PRINTFORML 주무르자 
+		ELSEIF RAND:2 == 0
+			PRINTFORM 엉덩이를 쓰다듬자 
+		ELSE
+			PRINTFORM 비부에 손을 대자 
+		ENDIF
+		PRINTFORML 본능적으로 거부감을 느끼던 마왕의 아이는 공격하였으나
+		PRINTFORML 간단하게 광왕의 손아귀에 붙잡히고 말았다.
+		PRINTFORML 『그래, 이정도는 되야 굴복시키는 맛이 있지.』
+		PRINTFORML 광왕은 캑캑거리며 발버둥치고 있는 아이의 비부에 찔러넣었고,
+		PRINTFORML 아이는 거근을 견디지 못했는지 기절하고 말았다.
+	ENDIF
+ELSE
+	PRINTFORMW 수정 공엔 %조사선택(SAVESTR:TARGET, "가")% 광왕와 관객들 앞에서 공개 출산하는 모습이 담겨 있었다。
+	PRINTFORMW 『 더럽혀지단 배에서는 괴물밖에 태어나지 않느냐 』과 주위의 관객들은 조소하고 있다。
+	IF RAND:3 == 0
+		PRINTFORMW 태어난 몬스터는 그 자리에 찔려서 죽고 분열됐다………
+	ELSEIF RAND:2 == 0
+		PRINTFORMW 태어난 몬스터는 광왕에 습격 하였지만 보복 당했다………
+	ELSE
+		PRINTFORMW 태어난 몬스터는 들어올려져 바닥에 몇번 두들겨 죽였다………
+	ENDIF
+ENDIF
+ARREST = 20
+CALL NTR_KOUJO
+ARREST = 0
+
+
+
+
+;
+;
+
+;--------------------------------------------------------------------------------------------------
+;@가슴 구문
+;--------------------------------------------------------------------------------------------------
+
+
+@BREAST_DSC_NTR
+
+;절벽
+IF TALENT:TARGET:절벽
+	IF RAND:3 == 0
+		PRINTFORM 미성숙한 
+	ELSEIF RAND:2 == 0
+		PRINTFORM 남자와 별 다를 것 없는 
+	ELSE
+		PRINTFORM 납작한 
+	ENDIF
+;빈유
+ELSEIF TALENT:TARGET:빈유
+	IF RAND:2 == 0
+		PRINTFORM 살짝 도톰한 
+	ELSE
+		PRINTFORM 한 손에 감싸지는 작은 
+	ENDIF
+;거유
+ELSEIF TALENT:TARGET:거유
+	IF RAND:3 == 0 && (TALENT:TARGET:작은체형 || TALENT:TARGET:마을처녀Ａ)
+		PRINTFORM 유아 체형이라 볼 수 없을 정도로 
+	ELSEIF RAND:2 == 0
+		PRINTFORM 남자의 정욕을 자극하는 
+	ELSE
+		PRINTFORM 여자들도 부러워 하는 
+	ENDIF
+	IF RAND:4 == 0
+		PRINTFORM 야한 
+	ELSEIF RAND:3 == 0
+		PRINTFORM 커다란 
+	ELSEIF RAND:2 == 0
+		PRINTFORM 음란한 
+	ELSE
+		PRINTFORM 풍만한 
+	ENDIF
+;폭유
+ELSEIF TALENT:TARGET:폭유
+	IF RAND:4 == 0
+		PRINTFORM 중량감이 있는 
+	ELSEIF RAND:3 == 0
+		PRINTFORM 손에 다 들어가지도 않을 정도로 
+	ELSEIF RAND:2 == 0
+		PRINTFORM 마계에서도 상급의
+	ELSE
+		PRINTFORM 젖소라고 불리도록 만들어 준 
+	ENDIF
+	IF RAND:4 == 0
+		PRINTFORM 풍만한 
+	ELSEIF RAND:3 == 0
+		PRINTFORM 거대한 
+	ELSEIF RAND:2 == 0
+		PRINTFORM 매혹적인 
+	ELSE
+		PRINTFORM 음탕한 
+	ENDIF
+;초유
+ELSEIF TALENT:TARGET:초유
+	IF RAND:2 == 0
+		PRINTFORM 마계에서도 찾아볼 수 없을 정도로 거대한 
+	ELSE
+		PRINTFORM 생명체의 것이라고 볼 수 없을 정도로 폭발적인 
+	ENDIF
+;평유
+ELSE
+	IF RAND:3 == 0
+		PRINTFORM 형태 좋은 
+	ELSEIF RAND:2 == 0
+		PRINTFORM 잘 익은 
+	ELSE
+		PRINTFORM 아름답게 부풀어 오른 
+	ENDIF
+ENDIF
+
+
+@BREAST_S_II_NTR
+
+IF TALENT:TARGET:절벽 || TALENT:TARGET:빈유
+	PRINTFORM 가슴
+ELSE
+	IF RAND:2 == 0
+		PRINTFORM 가슴
+	ELSE
+		PRINTFORM 유방
+	ENDIF
+ENDIF
+
+
+@BREAST_B_I_NTR
+	
+IF TALENT:TARGET:거유 || TALENT:TARGET:폭유 || TALENT:TARGET:초유
+	IF RAND:2 == 0
+		PRINTFORM 고깃덩이
+	ELSE
+		PRINTFORM 젖탱이
+	ENDIF
+ENDIF
+
+@BREAST_B_II_NTR
+
+IF TALENT:TARGET:거유 || TALENT:TARGET:폭유 || TALENT:TARGET:초유
+	IF RAND:4 == 0
+		PRINTFORM 빨통
+	ELSEIF RAND:3 == 0
+		PRINTFORM 유방
+	ELSEIF RAND:2 == 0
+		PRINTFORM 과육
+	ELSE
+		PRINTFORM 가슴
+	ENDIF
+ENDIF
+
+;--------------------------------------------------------------------------------------------------
+;@자지 구문
+;--------------------------------------------------------------------------------------------------
+
+
+@PENIS_DSC_NTR
+
+IF RAND:8 == 0
+	PRINT 극태 
+ELSEIF RAND:7 == 0
+	PRINT 훌륭한 
+ELSEIF RAND:6 == 0
+	PRINT 단단한 
+ELSEIF RAND:5 == 0
+	PRINT 딱딱한 
+ELSEIF RAND:4 == 0
+	PRINT 우람한 
+ELSEIF RAND:3 == 0
+	PRINT 늠름한 
+ELSEIF RAND:2 == 0
+	PRINT 거대한 
+ELSE
+	PRINT 흉악한 
+ENDIF
+
+
+@PENIS_I_NTR
+
+IF RAND:4 == 0
+	PRINT 생식기
+ELSEIF RAND:3 == 0
+	PRINT 남성기
+ELSEIF RAND:2 == 0
+	PRINT 페니스
+ELSE
+	PRINT 자지
+ENDIF
+
+
+@PENIS_II_NTR
+
+IF RAND:4 == 0
+	PRINT 육봉
+ELSEIF RAND:3 == 0
+	PRINT 음경
+ELSEIF RAND:2 == 0
+	PRINT 거근
+ELSE
+	PRINT 남근
+ENDIF
+
+
+;--------------------------------------------------------------------------------------------------
+;@봉사 구문
+;--------------------------------------------------------------------------------------------------
+
+
+@SERVICE_DSC_NTR
+
+IF RAND:7 == 0
+	PRINT 요염한 모습으로 
+ELSEIF RAND:6 == 0
+	PRINT 음탕하게 
+ELSEIF RAND:5 == 0
+	PRINT 추잡하게 
+ELSEIF RAND:4 == 0
+	PRINT 천박하게 
+ELSEIF RAND:3 == 0
+	PRINT 암컷의 표정으로 
+ELSEIF RAND:2 == 0
+	PRINT 야하게 
+ELSE
+	PRINT 음란하게 
+ENDIF
+
+@SERVICE_NTR
+
+IF RAND:7 == 0
+	PRINT 물
+ELSEIF RAND:6 == 0
+	PRINT 삼키
+ELSEIF RAND:5 == 0
+	PRINT 맛보
+ELSEIF RAND:4 == 0
+	PRINT 착정하
+ELSEIF RAND:3 == 0
+	PRINT 봉사하
+ELSEIF RAND:2 == 0
+	PRINT 햝
+ELSE
+	PRINT 빨
+ENDIF
+
+
+;--------------------------------------------------------------------------------------------------
+;@정액 구문
+;--------------------------------------------------------------------------------------------------
+
+
+@SEMEN_DSC_NTR
+
+IF RAND:8 == 0
+	PRINT 진한 
+ELSEIF RAND:7 == 0
+	PRINT 뜨거운 
+ELSEIF RAND:6 == 0
+	PRINT 농후한 
+ELSEIF RAND:5 == 0
+	PRINT 끈적한 
+ELSEIF RAND:4 == 0
+	PRINT 특농 
+ELSEIF RAND:3 == 0
+	PRINT 걸쭉한 
+ELSEIF RAND:2 == 0
+	PRINT 숙성된 
+ELSE
+	PRINT 묵은 
+ENDIF
+
+
+@SEMEN_I_NTR
+
+IF RAND:4 == 0
+	IF RAND:2 == 0
+		PRINT 쟈지
+	ELSE
+		PRINT 좆물
+	ENDIF
+	PRINT 쥬스
+ELSEIF RAND:3 == 0
+	PRINT 자지 밀크 
+ELSEIF RAND:2 == 0
+	PRINT 아기씨
+ELSE
+	PRINT 정자
+ENDIF
+
+
+@SEMEN_II_NTR
+
+IF RAND:5 == 0
+	IF RAND:4 == 0
+		PRINT 아기
+	ELSEIF RAND:3 == 0
+		PRINT 자지
+	ELSEIF RAND:2 == 0
+		PRINT 교배
+	ELSE
+		PRINT 임신
+	ENDIF
+	PRINT 즙
+ELSEIF RAND:4 == 0
+	PRINT 백탁액
+ELSEIF RAND:3 == 0
+	PRINT 씨앗
+ELSEIF RAND:2 == 0
+	PRINT 정액
+ELSE
+	PRINT 좆물
+ENDIF
+
+
+
+;--------------------------------------------------------------------------------------------------
+;@애액 구문
+;--------------------------------------------------------------------------------------------------
+
+
+;@AQUA_I_NTR
+
+
+@AQUA_II_NTR
+
+IF RAND:5 == 0
+	IF RAND:3 == 0
+		PRINT 야한 
+	ELSEIF RAND:2 == 0
+		PRINT 진심
+	ELSE
+		PRINT 암컷
+	ENDIF
+	PRINT 즙
+ELSEIF RAND:4 == 0
+	PRINT 암컷국물
+ELSEIF RAND:3 == 0
+	PRINT 보짓물
+ELSEIF RAND:2 == 0
+	PRINT 씹물
+ELSE
+	PRINT 애액
+ENDIF
+
+
+
+;--------------------------------------------------------------------------------------------------
+;@보지 구문
+;--------------------------------------------------------------------------------------------------
+
+
+@VAGINA_I_NTR
+
+IF RAND:5 == 0
+	PRINT 가랑이
+ELSEIF RAND:4 == 0
+	PRINT 음부
+ELSEIF RAND:3 == 0
+	PRINT 균열
+ELSEIF RAND:2 == 0
+	PRINT 비부
+ELSE
+	PRINT 보지
+ENDIF
+
+
+
+;@VAGINA_II_NTR
+
+
+
+;--------------------------------------------------------------------------------------------------
+;@목소리 구문
+;--------------------------------------------------------------------------------------------------
+
+
+@SOUND_DSC_NTR
+
+IF RAND:8 == 0
+	PRINT 요염한 
+ELSEIF RAND:7 == 0
+	PRINT 색기 넘치는 
+ELSEIF RAND:6 == 0
+	PRINT 농후한 
+ELSEIF RAND:5 == 0
+	PRINT 음탕한 
+ELSEIF RAND:4 == 0
+	PRINT 천박한 
+ELSEIF RAND:3 == 0
+	PRINT 경박한 
+ELSEIF RAND:2 == 0
+	PRINT 야한 
+ELSE
+	PRINT 추잡한 
+ENDIF
+
+
+@SOUND_I_NTR
+
+IF RAND:2 == 0
+	PRINT 신음소리
+ELSE
+	PRINT 목소리
+ENDIF
+
+
+@SOUND_II_NTR
+
+IF RAND:2 == 0
+	PRINT 교성
+ELSE
+	PRINT 비음
+ENDIF
+
+
+
+;--------------------------------------------------------------------------------------------------
+;@인종 구문
+;--------------------------------------------------------------------------------------------------
+
+@RACE_DSC_NTR
+
+IF TALENT:TARGET:314 == 0
+	PRINT 인간이
+ELSEIF TALENT:TARGET:314 == 10
+	PRINT 호빗이
+ELSEIF TALENT:TARGET:314 == 1
+	PRINT 엘프
+ELSEIF TALENT:TARGET:314 == 2
+	PRINT 인랑이
+ELSEIF TALENT:TARGET:314 == 3
+	PRINT 흡혈귀이
+ELSEIF TALENT:TARGET:314 == 4
+	PRINT 듀라한이
+ELSEIF TALENT:TARGET:314 == 5
+	PRINT 드래곤이
+ELSEIF TALENT:TARGET:314 == 6
+	PRINT 천사
+ENDIF
+
+@RACE_DSC_NTR_0
+
+IF TALENT:TARGET:165 || TALENT:TARGET:171
+	PRINT 순진하던 마을 처녀
+ELSEIF TALENT:TARGET:314 == 0
+	PRINT 인간
+ELSEIF TALENT:TARGET:314 == 10
+	PRINT 호빗
+ELSEIF TALENT:TARGET:314 == 1
+	PRINT 숲의 수호자인 엘프
+ELSEIF TALENT:TARGET:314 == 2
+	PRINT 들판의 주인인 인랑
+ELSEIF TALENT:TARGET:314 == 3
+	PRINT 밤의 제왕인 흡혈귀
+ELSEIF TALENT:TARGET:314 == 4
+	PRINT 되살아난 듀라한
+ELSEIF TALENT:TARGET:314 == 5
+	PRINT 최강 종족 드래곤
+ELSEIF TALENT:TARGET:314 == 6
+	PRINT 신의 대리인 천사
+ENDIF
+
+@RACE_DSC_NTR_1
+
+IF TALENT:TARGET:165 || TALENT:TARGET:171
+	PRINT 순진하던 마을 처녀가 
+ELSEIF TALENT:TARGET:314 == 0
+	PRINT 인간이 
+ELSEIF TALENT:TARGET:314 == 10
+	PRINT 호빗이 
+ELSEIF TALENT:TARGET:314 == 1
+	PRINT 숲의 수호자인 엘프가 
+ELSEIF TALENT:TARGET:314 == 2
+	PRINT 들판의 주인인 인랑이 
+ELSEIF TALENT:TARGET:314 == 3
+	PRINT 밤의 제왕인 흡혈귀가 
+ELSEIF TALENT:TARGET:314 == 4
+	PRINT 되살아난 듀라한이 
+ELSEIF TALENT:TARGET:314 == 5
+	PRINT 최강 종족 드래곤이 
+ELSEIF TALENT:TARGET:314 == 6
+	PRINT 신의 대리인 천사가 
+ENDIF

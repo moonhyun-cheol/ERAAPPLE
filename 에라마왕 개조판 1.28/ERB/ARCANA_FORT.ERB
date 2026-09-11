@@ -1,0 +1,493 @@
+﻿;--------------------------------------
+@ARCANA_FORT
+#DIM TMP_ARCANA
+#DIM TMP2_ARCANA
+#DIM Y_ARCANA
+#DIM A_ARCANA
+;1文字変数AとBは戦闘で使うので勘弁してくだち………
+;Y_ARCANAが元勇者 A_ARCANAがアルカナナイト
+;名前を元に戻した時のランダムネーム決定
+;-------------------------------------- 
+;동서남북 요새의 친위대 아르카나 나이트
+;네 거점 공략 후의 종결은 ARCANA_FORT_COMPLETE에서 처리한다.
+;
+;FLAG:92 = 광왕의 보루 침공도 (&1:동 &2:남 &4:서 &8:북)
+;FLAG:97 = 아르카나 종결 기록 (0:미완료, 1:봉인 파괴, 2:봉인 장악)
+;97은 이 이벤트 전용. 기존 93~96 침공 이벤트, 100~ 구상 판정과 분리한다.
+;FLAG:92는 세수 판정에도 쓰이므로 종결 기록으로 덮어쓰지 않는다.
+;동＝블랙다이아 서＝화이트클럽 남＝실버스페이드 북＝골드하트
+IF FLAG:92
+	IF FLAG:92 == 15
+		CALL ARCANA_FORT_COMPLETE
+		RETURN 0
+	;포획 ３명
+	ELSEIF FLAG:92 == 14 || FLAG:92 == 13 ||FLAG:92 == 11 || FLAG:92 == 7
+		PRINT 남은 아르카나나이트는 
+		SIF (FLAG:92 & 1) == 0
+			PRINT 블랙다이아몬드 
+		SIF (FLAG:92 & 2) == 0
+			PRINT 실버스페이드 
+		SIF (FLAG:92 & 4) == 0
+			PRINT 화이트클럽 
+		SIF (FLAG:92 & 8) == 0
+			PRINT 골드하트 
+		PRINTW 남은 건 한 명 뿐이다, 결전의 때가 가까워졌다………
+	;포획 2명
+	ELSEIF FLAG:92 == 3 ||FLAG:92 == 5 ||FLAG:92 == 9 ||FLAG:92 == 6  ||FLAG:92 == 10 || FLAG:92 == 12
+		PRINTW 아르카나 나이트를 둘 쓰러뜨렸으니 남은 거점은 두 개가 되었다………
+	;포획 1명
+	ELSEIF FLAG:92 == 1 ||FLAG:92 == 2 ||FLAG:92 == 4 ||FLAG:92 == 8
+		PRINT 당신의 용사는 아르카나 나이트 
+		SIF FLAG:92 == 1 
+			PRINT 블랙다이아를 
+		SIF FLAG:92 == 2
+			PRINT 실버스페이드를 
+		SIF FLAG:92 == 4
+			PRINT 화이트클럽을 
+		SIF FLAG:92 == 8
+			PRINT 골드하트를 
+		PRINTW 쓰러뜨렸다. 남은 아르카나 나이트는 세 명이다………
+	ENDIF
+ELSE
+	PRINTW 포로의 이야기에 따르면 광왕의 친위대인「아르카나 나이트」가 당신을 쓰러뜨리기 위해 동서남북에 위치한 광왕군의 거점에서 특별 훈련을 하고 있다는 것 같다.
+	PRINTW 또 다른 포로의 이야기에 따르면「아르카나 나이트」는 당신을 봉인하기 위한 의식을 행하고 있다고 한다.
+	PRINTW 그 외에도 여러가지 이야기를 털어놓았지만 공통되는 것은「거점에 아르카나 나이트가 있다」라는 것.
+	PRINTW 척 봐도 의도적으로 흘린 소문이란 걸 알 수 있었다.
+	TMP2_ARCANA = -1
+	REPEAT CHARANUM
+		SIF (CFLAG:COUNT:1 == 0 || CFLAG:COUNT:1 == 7) && (TALENT:COUNT:85 == 1 || TALENT:COUNT:76 == 1) && CFLAG:COUNT:0 == 2 && COUNT != 0
+			TMP2_ARCANA = COUNT
+	REND
+	IF TMP2_ARCANA > 0
+		PRINTW 하지만, 오히려 이를 기회로 여긴 당신은 부하인 「전(前) 용사」들에게 아르카나 나이트를 쓰러뜨릴 것을 명했다………
+	ELSE
+		PRINTW 아르카나 나이트는 일기당천의 강력한 전사들이다. 현재 보유중인 괴물들은 상대도 안 될 것이다.
+		PRINTW 그렇다면 잡은 용사들을 조교하여 함락시킨 후 자객으로 보내야 한다………
+		RETURN 0
+	ENDIF
+ENDIF
+
+;동서남북의 문
+;FLAG:92 = 요새 침공도 (&1:동 &2:남 &4:서 &8:북)
+DRAWLINE
+PRINTW 당신은 하나의 거점을 선택하여 용사를 보내 아르카나 나이트를 쓰러트려야 한다.
+
+IF FLAG:92 & 1 
+	PRINTL [*] - 동쪽 거점(이미 공략 완료되어 있습니다.)
+ELSE
+	PRINTL [0] - 동쪽 거점
+ENDIF
+
+IF FLAG:92 & 4
+	PRINTL [*] - 서쪽 거점(이미 공략 완료되어 있습니다.)
+ELSE
+	PRINTL [1] - 서쪽 거점
+ENDIF
+
+IF FLAG:92 & 2
+	PRINTL [*] - 남쪽 거점(이미 공략 완료되어 있습니다.)
+ELSE
+	PRINTL [2] - 남쪽 거점
+ENDIF
+
+IF FLAG:92 & 8
+	PRINTL [*] - 북쪽 거점(이미 공략 완료되어 있습니다.)
+ELSE
+	PRINTL [3] - 북쪽 거점
+ENDIF
+PRINTL [4] - 철수한다.
+
+$INPUT_LOOP
+INPUT
+IF RESULT == 4
+	RETURN 0
+ELSEIF RESULT >= 5
+	GOTO INPUT_LOOP
+ELSEIF RESULT < 0
+	GOTO INPUT_LOOP
+ENDIF
+
+SIF (FLAG:92 & 1) && RESULT == 0
+	GOTO INPUT_LOOP
+SIF (FLAG:92 & 4) && RESULT == 1
+	GOTO INPUT_LOOP
+SIF (FLAG:92 & 2) && RESULT == 2
+	GOTO INPUT_LOOP
+SIF (FLAG:92 & 8) && RESULT == 3
+	GOTO INPUT_LOOP
+
+;TMP_ARCANAに保存、最後まで使う
+TMP_ARCANA = RESULT
+
+;용사 선택
+TMP2_ARCANA = 0
+
+;妊娠出撃可
+IF GETBIT(FLAG:5,10)
+	REPEAT CHARANUM
+		;조수でなおかつ愛か淫乱がついてないと攻撃不可。
+		IF (CFLAG:COUNT:1 == 0 || CFLAG:COUNT:1 == 7) && (TALENT:COUNT:85 == 1 || TALENT:COUNT:76 == 1) && CFLAG:COUNT:0 == 2 && COUNT != 0
+			PRINTFORM [{TMP2_ARCANA}] %SAVESTR:COUNT% {CFLAG:COUNT:9}LV
+			TMP2_ARCANA += 1
+			SIF CFLAG:COUNT:0 > 1 && COUNT != 0
+			PRINT [공격가능]
+			PRINTL  
+		ENDIF
+	REND
+
+	IF TMP2_ARCANA == 0
+		PRINTW *침공 가능한 용사가 없습니다*
+		RETURN 0
+	ENDIF
+
+	PRINTL  
+	PRINTL [100] 돌아온다
+	DRAWLINE
+
+	$INPUT_LOOP1
+	INPUT
+		IF RESULT < 0
+			GOTO INPUT_LOOP1
+		ELSEIF RESULT >= TMP2_ARCANA && RESULT != 100
+			GOTO INPUT_LOOP1
+		ENDIF
+	SIF RESULT == 100
+		RETURN 0
+
+	TMP2_ARCANA = RESULT
+	Y_ARCANA = 0
+	REPEAT CHARANUM
+		IF (CFLAG:COUNT:1 == 0 || CFLAG:COUNT:1 == 7) && (TALENT:COUNT:85 == 1 || TALENT:COUNT:76 == 1) && CFLAG:COUNT:0 == 2 && COUNT != 0 && TMP2_ARCANA == Y_ARCANA
+			Y_ARCANA = COUNT
+			BREAK
+		ENDIF
+		SIF (CFLAG:COUNT:1 == 0 || CFLAG:COUNT:1 == 7) && (TALENT:COUNT:85 == 1 || TALENT:COUNT:76 == 1) && COUNT != 0 && CFLAG:COUNT:0 == 2
+			Y_ARCANA += 1
+	REND
+ELSE
+	REPEAT CHARANUM
+		;조수でなおかつ愛か淫乱がついてないと攻撃不可、妊婦は出撃不可。
+		IF (CFLAG:COUNT:1 == 0 || CFLAG:COUNT:1 == 7) && (TALENT:COUNT:85 == 1 || TALENT:COUNT:76 == 1) && CFLAG:COUNT:0 == 2 && COUNT != 0 && TALENT:COUNT:153 == 0
+			PRINTFORM [{TMP2_ARCANA}] %SAVESTR:COUNT% {CFLAG:COUNT:9}LV
+			TMP2_ARCANA += 1
+			SIF CFLAG:COUNT:0 > 1 && COUNT != 0
+			PRINT [공격가능]
+			PRINTL  
+		ENDIF
+	REND
+
+	IF TMP2_ARCANA == 0
+		PRINTW *침공 가능한 용사가 없습니다*
+		RETURN 0
+	ENDIF
+
+	PRINTL  
+	PRINTL [100] 돌아온다
+	DRAWLINE
+
+	$INPUT_LOOP2
+	INPUT
+		IF RESULT < 0
+			GOTO INPUT_LOOP2
+		ELSEIF RESULT >= TMP2_ARCANA && RESULT != 100
+			GOTO INPUT_LOOP2
+		ENDIF
+	SIF RESULT == 100
+		RETURN 0
+
+	TMP2_ARCANA = RESULT
+	Y_ARCANA = 0
+	REPEAT CHARANUM
+		IF (CFLAG:COUNT:1 == 0 || CFLAG:COUNT:1 == 7) && (TALENT:COUNT:85 == 1 || TALENT:COUNT:76 == 1) && CFLAG:COUNT:0 == 2 && COUNT != 0 && TMP2_ARCANA == Y_ARCANA  && TALENT:COUNT:153 == 0
+			Y_ARCANA = COUNT
+			BREAK
+		ENDIF
+		SIF (CFLAG:COUNT:1 == 0 || CFLAG:COUNT:1 == 7) && (TALENT:COUNT:85 == 1 || TALENT:COUNT:76 == 1) && COUNT != 0 && CFLAG:COUNT:0 == 2 && TALENT:COUNT:153 == 0
+			Y_ARCANA += 1
+	REND
+ENDIF
+
+;동쪽 요새　블랙다이아 &1
+IF TMP_ARCANA == 0
+	IF TALENT:Y_ARCANA:167 || TALENT:Y_ARCANA:168 || TALENT:Y_ARCANA:169 || TALENT:Y_ARCANA:170
+		PRINTFORMW 동쪽 거점에는 블랙다이아가 있다. 검을 땅에 꽂아둔 채 팔짱을 끼고서 기다리고 있었던 것 같다.
+		PRINTFORMW 블랙다이아는 상대가 예전 동료였던 %SAVESTR:B% 라는 것을 깨닫고는 미간을 찌푸렸다.
+		PRINTFORMW 「그럴 수가, 설마 그대가 마왕의 부하가 돼버릴 줄은……… 어쩔 수 없군. 조금 아플지도 모르겠지만 뭐라고 하지 마라, 각오하도록!」
+		SIF CFLAG:Y_ARCANA:40 == 0
+			PRINTFORMW 「전라로 싸우게 되다니…마왕녀석, 절대로 용서하지 않을 거야」
+		PRINTFORMW 블랙다이아는 순간 망설였으나 묵빛 대검을 휘두르며 덮쳐왔다!
+	ELSE
+		PRINTFORMW 동쪽 거점에는 블랙다이아가 있다. 검을 땅에 꽂아둔 채 팔짱을 끼고서 기다리고 있었던 것 같다.
+		PRINTFORMW 「기다리고 있었다. 아, 불쌍한 사람이군, 용사로서 밝은 미래가 기다리고 있었는데 마왕의 부하로 일하지 않으면 안 된다니!」
+		SIF CFLAG:Y_ARCANA:40 == 0
+			PRINTFORMW 「게다가 전라로 싸우게 되다니, 정말로 동정한다」
+		PRINTFORMW 블랙다이아는 묵빛 대검을 꺼내들며 공격해왔다!!
+	ENDIF
+;서쪽 요새　화이트클럽 &4
+ELSEIF TMP_ARCANA == 1
+	IF TALENT:Y_ARCANA:167 || TALENT:Y_ARCANA:168 || TALENT:Y_ARCANA:169 || TALENT:Y_ARCANA:170
+		PRINTFORMW 서쪽 거점에는 화이트클럽이 있다. 도전자가 찾아왔다는 것을 깨달은 그녀는 읽고 있던 책을 로브 안으로 집어넣었다.
+		PRINTFORMW 화이트클럽은 상대가 이전의 동료였던 %SAVESTR:B% 라는 것을 확인하곤 눈을 조금 크게 떴다.
+		PRINTFORMW 「어머… 당신이 마왕의 노예가 되다니 의외네요, 진작에 혀를 깨물고 죽었을 거라고 생각했는데.」
+		SIF CFLAG:Y_ARCANA:40 == 0
+			PRINTFORMW 「게다가 전라로 싸움이라니… 혹시 조금 후회하고 있지는 않아요? 그렇다고 한다면 행여나 조금 살살해줄지도?」
+		PRINTFORMW 화이트클럽은 졸린 듯한 눈매를 날카롭게 바꾸고는 새하얀 지팡이를 꺼내들고서 주문을 외우기 시작했다.
+	ELSE
+		PRINTFORMW 서쪽 거점에는 화이트클럽이 있다. 도전자가 찾아왔다는 것을 깨달은 그녀는 읽고 있던 책을 로브 안쪽에 집어넣었다.
+		PRINTFORMW 「하아… 여기에 오다니… 빨리 책을 자세히 읽고 싶어서 그러는데, 이대로 돌아가 주지 않을래?… 무리라고? 어쩔 수 없네요」
+		SIF CFLAG:Y_ARCANA:40 == 0
+			PRINTFORMW 「와아… 전라로 싸우는건 깨네… 그 쪽 마왕씨의 취미?」
+		PRINTFORMW 화이트클럽은 나른하다는 듯 새하얀 지팡이를 꺼내어 주문을 외우기 시작했다.
+	ENDIF
+;남쪽 요새　실버스페이드 &2
+ELSEIF TMP_ARCANA == 2
+	IF TALENT:Y_ARCANA:167 || TALENT:Y_ARCANA:168 || TALENT:Y_ARCANA:169 || TALENT:Y_ARCANA:170
+		PRINTFORMW 남쪽 거점에는 실버스페이드가 있다. 검은 복장을 입은 닌자이지만 숨을 생각은 전혀 없는 듯하다.
+		PRINTFORMW 실버스페이드는 상대가 예전 동료였던 %SAVESTR:B% 라는 것을 깨닫곤 기가 막힌다는 듯한 소리를 냈다.
+		PRINTFORMW 「그런가、그대가 적이 될 줄은 생각지도 못했군。그러면 나도 조금은 진심을 내보도록 해 볼까！」
+		SIF CFLAG:Y_ARCANA:40 == 0
+			PRINTFORMW 「그、그대가 알몸이 된 정도로 나의 마음은 흔들리지 않는다!」
+		PRINTFORMW 실버스페이드는 가볍게 스텝을 밟으며 분신술을 사용하며 돌격했다!
+	ELSE
+		PRINTFORMW 남쪽 거점에는 실버스페이드가 있다. 검은 복장을 입은 닌자이지만 숨을 생각은 전혀 없는 듯하다.
+		PRINTFORMW 「휴… 이런 식으로 그대들을 유인하여 포획하는 건 제 성격에 맞지 않는 것이지만… 뭐, 이것도 광왕님의 명령이다, 부하라는 입장은 아무래도 괴로워」
+		SIF CFLAG:Y_ARCANA:40 == 0
+			PRINTFORMW 「아 그래 그래, 네가 알몸이 되어도 방어도는 떨어지지 않는다?」
+		PRINTFORMW 실버스페이드는 분신술을 사용하며 돌격해왔다!!
+	ENDIF
+;북쪽 요새　골드하트 &8
+ELSEIF TMP_ARCANA == 3
+	IF TALENT:Y_ARCANA:167 || TALENT:Y_ARCANA:168 || TALENT:Y_ARCANA:169 || TALENT:Y_ARCANA:170
+		PRINTFORMW 북쪽 거점에는 친위대 대장인 골드하트가 있다. 그 금빛으로 빛나는 갑옷엔 흐릿한 룬 문자의 반짝임이 햇빛에 비쳐보인다.
+		PRINTFORMW 골드하트는 상대방이 과거의 동료였던 %SAVESTR:B% 라는 것을 눈치채곤 한 순간 슬픈 얼굴을 했지만 금방 마음을 다잡은 것 같다.
+		PRINTFORMW 「어머 어머, 곤란하네요~ 저도 옛 동료와 싸우고 싶지 않습니다만… 이것도 광왕님의 명령이기 때문에~」
+		SIF CFLAG:Y_ARCANA:40 == 0
+			PRINTFORMW 「후후 일부러 알몸으로 싸움을 걸다니 범해지려고 온 것일까나?」
+		PRINTFORMW 골드하트는 생긋 웃으며 레이피어를 꺼내들고는 한 점의 자비도 없는 찌르기를 날렸다.
+	ELSE
+		PRINTFORMW 북쪽 거점에는 친위대 대장인 골드하트가 있다. 그 금빛으로 빛나는 갑옷엔 흐릿한 룬 문자의 반짝임이 햇빛에 비쳐보인다.
+		PRINTFORMW 「잘 오셨습니다아~ 불쌍한 마왕의 노예씨♪ 부디 저를 즐기게 해주세요?」
+		SIF CFLAG:Y_ARCANA:40 == 0
+			PRINTFORMW 「일부러 알몸으로 오다니 변태인걸까? 그 부드러운 살갗을 잘게 찢어주겠어요」
+		PRINTFORMW 골드하트는 레이피어를 꺼내들곤 자비 없는 찌르기를 날렸다.
+	ENDIF
+ENDIF
+
+;케릭터 추가
+;동쪽 요새　블랙다이아 &1
+IF TMP_ARCANA == 0
+	ADDCHARA 22
+	A_ARCANA = CHARANUM - 1
+	SAVESTR:A_ARCANA = %NAME:A_ARCANA%
+	CSTR:A_ARCANA:1 = %NAME:A_ARCANA%
+	;초기 장비：소드
+	CFLAG:A_ARCANA:550 = 40
+	;초기 장비：強度
+	CFLAG:A_ARCANA:550 += 9000
+	;초기 장비 접두어：다크
+	CFLAG:A_ARCANA:550 += 900000
+	;名前決定
+	CFLAG:A_ARCANA:6 = RAND:80
+;서쪽 요새　화이트클럽 &4
+ELSEIF TMP_ARCANA == 1
+	ADDCHARA 23
+	A_ARCANA = CHARANUM - 1
+	SAVESTR:(A_ARCANA) = %NAME:A_ARCANA%
+	CSTR:A_ARCANA:1 = %NAME:A_ARCANA%
+	ABL:A_ARCANA:31 = 1
+	EXP:A_ARCANA:10 = 30
+	;초기 장비：스태프
+	CFLAG:A_ARCANA:550 = 41
+	;초기 장비：強度
+	CFLAG:A_ARCANA:550 += 9000
+	;초기 장비 접두어：아이스
+	CFLAG:A_ARCANA:550 += 600000
+	;名前決定
+	CFLAG:A_ARCANA:6 = RAND:80
+;남쪽 요새　실버스페이드 &2
+ELSEIF TMP_ARCANA == 2
+	ADDCHARA 21
+	A_ARCANA = CHARANUM - 1
+	SAVESTR:A_ARCANA = %NAME:A_ARCANA%
+	CSTR:A_ARCANA:1 = %NAME:A_ARCANA%
+	EXP:A_ARCANA:10 = 10
+	;초기 장비：수리검
+	CFLAG:A_ARCANA:550 = 44
+	;초기 장비：強度
+	CFLAG:A_ARCANA:550 += 9000
+	;초기 장비 접두어：데스
+	CFLAG:A_ARCANA:550 += 300000
+	;名前決定
+	CFLAG:A_ARCANA:6 = RAND:80
+;북쪽 요새　골드하트 &8
+ELSEIF TMP_ARCANA == 3
+	ADDCHARA 20
+	A_ARCANA = CHARANUM - 1
+	SAVESTR:A_ARCANA = %NAME:A_ARCANA%
+	CSTR:A_ARCANA:1 = %NAME:A_ARCANA%
+	EXP:A_ARCANA:0 = 20
+	;광왕이 남자거나 후타나리라면 정액경험
+	SIF FLAG:500 == 0 || FLAG:500 == 2
+		EXP:A_ARCANA:5 = EXP:A_ARCANA:0
+	;첫 경험의 상대는 광왕
+	CFLAG:A_ARCANA:15 = 105
+	;초기 장비：검
+	CFLAG:A_ARCANA:550 = 50
+	;초기 장비：強度
+	CFLAG:A_ARCANA:550 += 10000
+	;초기장비 접두어：슬래쉬
+	CFLAG:A_ARCANA:550 += 400000
+	;名前決定
+	CFLAG:A_ARCANA:6 = RAND:80
+ENDIF
+
+;衣装全装備
+TARGET = A_ARCANA
+CALL WEARING_CLOTH_ABLE
+
+;レベルアップ処理
+IF FLAG:60 > 0
+	REPEAT FLAG:60
+		CALL ST_UP, A_ARCANA
+	REND
+ENDIF
+
+BASE:A_ARCANA:0 = MAXBASE:A_ARCANA:0
+BASE:A_ARCANA:1 = MAXBASE:A_ARCANA:1
+
+;전투
+;A가 전 용사 B가 아르카나 나이트
+A = Y_ARCANA
+B = A_ARCANA
+CALL ARCANA_BATTLE
+
+;승리
+IF RESULT == 2
+	DRAWLINE
+	PRINTFORML 아르카나 나이트 %SAVESTR:A_ARCANA%는 패배했다…
+	MONEY += 1000 * CFLAG:A_ARCANA:9
+	PRINTFORMW {1000 * CFLAG:A_ARCANA:9}G를 입수！
+	PRINT 또한
+	;동쪽 요새　블랙다이아 &1
+	IF TMP_ARCANA == 0
+		PRINTW 다이아 에이스 카드를 손에 넣었다.
+		PRINTW 그리고 블랙다이아몬드는 포로가 되어 당신의 던젼으로 끌려왔다………
+		PRINTW 「이 내가 패배할줄이야………」
+		FLAG:92 |= 1
+		CALL CHAR_SIZE_GENERATE, A_ARCANA, 21
+	;서쪽 요새　화이트클럽 &4
+	ELSEIF TMP_ARCANA == 1
+		PRINTW 클럽 에이스 카드를 손에 넣었다.
+		PRINTW 그리고 화이트클럽은 포로가 되어 당신의 던젼으로 끌려왔다………
+		PRINTW 「패배한 내 운명은… 마왕과 만날 때쯤에야 알게 되는걸까………」
+		FLAG:92 |= 4
+		CALL CHAR_SIZE_GENERATE, A_ARCANA, 27
+	;남쪽 요새　실버스페이드 &2
+	ELSEIF TMP_ARCANA == 2
+		PRINTW 스페이드 에이스 카드를 손에 넣었다.
+		PRINTW 그리고 실버스페이드는 포로가 되어 당신의 던젼으로 끌려왔다………
+		PRINTW 「크읏… 노, 놓아라！」
+		FLAG:92 |= 2
+		CALL CHAR_SIZE_GENERATE, A_ARCANA, 24
+	;북쪽 요새　골드하트 &8
+	ELSEIF TMP_ARCANA == 3
+		PRINTW 하트 에이스 카드를 손에 넣었다.
+		PRINTW 그리고 골드하트는 포로가 되어 당신의 던젼으로 끌려왔다………
+		PRINTW 「그런, 이 내가… 도와주세요 광왕니임!」
+		FLAG:92 |= 8
+		CALL CHAR_SIZE_GENERATE, A_ARCANA, 18
+	ENDIF
+	IF GETBIT(FLAG:5,12) || GETBIT(FLAG:5,15)
+		CFLAG:(A_ARCANA):451 = RESULT:0
+		CFLAG:(A_ARCANA):452 = RESULT:1
+		CFLAG:(A_ARCANA):453 = RESULT:2
+		CFLAG:(A_ARCANA):454 = RESULT:3
+		CFLAG:(A_ARCANA):455 = RESULT:4
+		CFLAG:(A_ARCANA):456 = RESULT:5
+		CFLAG:(A_ARCANA):457 = RESULT:6
+	ENDIF
+;패배
+ELSEIF RESULT == 0
+	IF (FLAG:5 & 128)
+		;전회의 조수・조교 대상이었던 경우 플래그를 날려버림
+		SIF FLAG:1 == Y_ARCANA
+			FLAG:1 = -1
+		SIF FLAG:2 == Y_ARCANA
+			FLAG:2 = -1
+	ENDIF
+	A_ARCANA = CHARANUM - 1
+	CALL PARTY_CHAR_DEL, A_ARCANA
+	DELCHARA A_ARCANA
+	CALL NAME_RESET
+ENDIF
+
+A = 0
+B = 0
+
+DRAWLINE
+RETURN 1
+
+; UNIT1_COMPLETION_BEGIN
+;--------------------------------------
+@ARCANA_FORT_COMPLETE
+;정식 진입은 INVASION -> ARCANA_FORT. 직접 호출되어도 선행 조건을 지킨다.
+;기존 세이브의 미사용 FLAG:97은 0이므로 별도 이주/초기화 없이 진입 가능.
+;기존 미완성 안내와 동일하게 RETURN 0: 추가 턴, 자금, 경험치 소모/보상 없음.
+;기사의 현재 소재/생존/관계, 광왕의 전역 상태에는 의존하거나 개입하지 않는다.
+SIF FLAG:82 == 0 || FLAG:92 != 15
+	RETURN 0
+
+DRAWLINE
+IF FLAG:97 == 1
+	PRINTW 네 거점에서 올라온 보고에는 더 이상 봉인의 징조가 없었다.
+	PRINTW 부서진 의식의 자리에 당신의 깃발만이 남아 있다. 당신을 기다리는 감옥은 이제 없다.
+	RETURN 0
+ELSEIF FLAG:97 == 2
+	PRINTW 네 거점의 경계진은 오늘도 당신의 명령에 응답했다.
+	PRINTW 한때 마왕을 가두려던 힘이 이제 마왕의 영토를 지킨다. 당신은 보고를 덮었다.
+	RETURN 0
+ELSEIF FLAG:97 != 0
+	;알 수 없는 확장판 기록은 임의로 초기화하거나 보상을 재실행하지 않는다.
+	PRINTW 네 거점의 기록을 지금은 확인할 수 없다. 당신은 조사를 뒤로 미뤘다.
+	RETURN 0
+ENDIF
+
+PRINTW 아르카나 나이트는 모두 쓰러졌고 네 개의 거점은 모두 함락되었다.
+PRINTW 당신은 전리품인 네 장의 카드를 탁자 위에 펼쳤다. 다이아, 스페이드, 클럽, 하트………
+PRINTW 떨어져 있을 때에는 잠잠하던 문양들이 서로를 향해 가느다란 빛을 뻗었다.
+PRINTW 빛은 탁자의 모서리를 지나 원을 그렸다. 당신에게는 잊을 수 없는 형태였다. 오래전, 당신을 가두었던 봉인.
+PRINTW 거점에 관한 소문은 처음부터 승자의 손에 네 장을 모으기 위한 미끼였던 것이다.
+PRINTW 그러나 네 거점은 이미 당신의 군대에 넘어갔다. 봉인진의 네 끝에서 흘러와야 할 힘도, 명령도 끊겨 있었다.
+PRINTW 당신은 닫히려는 원 위에 손을 얹었다. 주인을 잃은 의식이 떨렸다.
+PRINTW 한번 갇혔던 감옥이다. 이번에는 어느 쪽에서 문을 잠글지 당신이 정한다.
+
+$ARCANA_COMPLETE_CHOICE
+DRAWLINE
+PRINTL [0] - 봉인진을 완전히 부순다
+PRINTL [1] - 봉인진의 지배권을 빼앗는다
+PRINTL [999] - 지금은 결정을 미룬다
+INPUT
+IF RESULT == 999
+	PRINTW 당신은 카드 사이의 빛을 끊고 각각을 봉했다. 결정을 내릴 때까지 의식은 다시 이어지지 않을 것이다.
+	RETURN 0
+ELSEIF RESULT == 0
+	PRINTW 당신은 봉인진의 중심을 움켜쥐었다. 닫히지 못한 원이 검은 불꽃 속에서 안쪽부터 무너졌다.
+	PRINTW 네 장의 카드가 동시에 갈라졌다. 멀리 떨어진 네 거점에서도 오래된 문양이 돌벽에서 벗겨져 내렸다.
+	PRINTW 당신을 다시 봉인하리라던 약속은 이제 재가 되어 바닥에 흩어져 있었다.
+	PRINTW 당신은 부하들에게 그 재까지 거두어 버리라 명했다. 승자의 발밑에 감옥의 흔적을 남겨둘 이유는 없다.
+	FLAG:97 = 1
+ELSEIF RESULT == 1
+	PRINTW 당신은 원의 중심에 자신의 마력을 흘려 넣었다. 마왕을 거부하던 문양이 버티다가, 하나씩 방향을 바꾸었다.
+	PRINTW 네 거점의 경계진이 새 주인을 알아보았다. 갇혀야 할 자의 이름이 명령을 내리는 자의 이름으로 새겨졌다.
+	PRINTW 네 장의 카드에서 빛이 사라졌다. 봉인이 풀린 것은 아니었다. 주인이 바뀌었을 뿐이었다.
+	PRINTW 당신은 카드를 거두었다. 네 요새는 이제 같은 명령을 기다리고 있었다.
+	FLAG:97 = 2
+ELSE
+	PRINTL 표시된 번호를 선택해 주십시오.
+	GOTO ARCANA_COMPLETE_CHOICE
+ENDIF
+
+DRAWLINE
+PRINTW 당신은 네 거점의 공략 기록에 마지막 명령을 남겼다. 이 싸움은 마왕의 승리로 끝났다.
+RETURN 0
+

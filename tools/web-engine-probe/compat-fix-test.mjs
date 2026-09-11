@@ -26,6 +26,18 @@ ENDSELECT
   assert.match(textOf(events), /GOT:fallback/);
 });
 
+test('REDRAW 0 (suppress redraw) executes instead of throwing the range error', async () => {
+  // REDRAW 0 (draw off) must not throw the range error; re-enable draw then print.
+  const source = new Map([['PROBE.ERB', `@SYSTEM_TITLE
+REDRAW 0
+REDRAW 1
+PRINTL DREW
+QUIT
+`]]);
+  const { events } = await execute(compile, source);
+  assert.match(textOf(events), /DREW/);
+});
+
 test('a runtime string index is resolved through the variable CSV name table', async () => {
   const source = new Map([
     ['FLAG.CSV', '0,알파\n1,베타\n2,감마\n'],

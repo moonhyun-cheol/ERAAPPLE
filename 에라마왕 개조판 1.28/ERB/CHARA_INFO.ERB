@@ -1,0 +1,746 @@
+﻿;[101]能力の表示以下の処理
+
+;-----------------------------------------------
+@CHARA_INFO
+#DIM TMP_TARGET
+#DIM SORT_SELECT
+
+#DIM PAGE
+#DIM MAXPAGE
+;-----------------------------------------------
+;キャラ情報一覧の処理。ここ→個別キャラ→コマンドと選択していく。
+;関数USERSHOPからで呼ばれる。
+;リターン1すると戻った先でターン終了する。
+
+
+;보일 페이지 수, 최대 페이지 수
+PAGE = 1
+Maxpage = (CHARANUM-1)/20 + 1
+
+
+
+
+SORT_SELECT = 103
+
+$SELECT_LOOP
+
+;キャラの一覧表示
+
+IF SORT_SELECT == 103
+        CALL SHOW_CHARA_INFO_LIST, PAGE
+ELSEIF SORT_SELECT == 104
+        CALL SHOW_CHARA_MONEY_LIST, PAGE
+ELSEIF SORT_SELECT == 105
+        CALL SHOW_CHARA_DEBT_LIST, PAGE
+ELSE
+        CALL SHOW_CHARA_INFO_LIST
+ENDIF
+PRINTL [100] 돌아온다 [101] 이전페이지 [102] 다음페이지 [103] 번호순 [104] 소지금순 [105] 부채순
+DRAWLINE
+
+;入力
+$INPUT_LOOP3
+INPUT
+
+IF RESULT == 101
+        PAGE -=1
+        IF PAGE == 0
+		PAGE = MAXPAGE
+        ENDIF
+
+
+        GOTO SELECT_LOOP
+ELSEIF RESULT == 102
+        PAGE +=1
+        IF PAGE > MAXPAGE
+		PAGE = 1
+        ENDIF
+
+
+        GOTO SELECT_LOOP
+ELSEIF RESULT > 102 && RESULT < 106
+        ;ランキング入力の場合、並び直して再表示
+        SORT_SELECT = RESULT
+        PAGE = 1
+        GOTO SELECT_LOOP
+;無効な入力を弾く
+ELSEIF (RESULT < 0 || RESULT >= CHARANUM) && (RESULT != 100)
+        GOTO INPUT_LOOP3
+ENDIF
+
+;有効な入力
+IF RESULT == 100
+        ;돌아온다
+        RETURN 0
+ELSE
+        ;個別情報表示へ
+        CALL CHARA_INFO_INDIVIDUAL(RESULT)
+        IF RESULT == 1
+		;もし1が返って来たらターン終了の目印
+		;그외は再び一覧表示する
+		RETURN 1
+        ENDIF
+ENDIF
+RESTART
+
+;-----------------------------------------------
+@SHOW_CHARA_INFO_LIST, PAGE
+#DIM MAX_NUM_LEN = 0
+#DIM MAX_NAME_LEN = 0
+#DIM MAX_LV_LEN = 0
+#DIM MAX_ATK_LEN = 0
+#DIM MAX_DEF_LEN = 0
+
+#DIM PAGE
+;-----------------------------------------------
+;存在するキャラの一覧表示
+;全員出してるので表示人数は{CHARANUM}人となる
+
+;キャラの番号、名前の文字数、レベル、攻撃、防御の最大桁数をそれぞれ取得
+MAX_NUM_LEN = STRLENS(TOSTR(CHARANUM));番号
+FOR COUNT, 0, CHARANUM
+        MAX_NAME_LEN = MAX(STRLENS(SAVESTR:COUNT), MAX_NAME_LEN);名前
+        MAX_LV_LEN = MAX(STRLENS(TOSTR(CFLAG:COUNT:9)), MAX_LV_LEN);レベル
+        MAX_ATK_LEN = MAX(STRLENS(TOSTR(CFLAG:COUNT:13)), MAX_ATK_LEN);攻撃
+        MAX_DEF_LEN = MAX (STRLENS(TOSTR(CFLAG:COUNT:14)), MAX_DEF_LEN);防御
+NEXT
+
+;1列ずつ表示
+;まおーさま
+PRINTFORML %"[0]", MAX_NUM_LEN+2, RIGHT% 　　　　 %NAME:0, MAX_NAME_LEN,LEFT% {CFLAG:0:9, MAX_LV_LEN,RIGHT}LV
+;他の人たち
+
+
+
+FOR COUNT, (PAGE-1)*20 + 1, MIN(PAGE*20+1, CHARANUM)
+        ;番号
+        LOCALS = [{COUNT}]
+        PRINTFORM %LOCALS, MAX_NUM_LEN + 2, RIGHT%
+        ;行動状態
+        CALL SHOW_CHARA_ACT(COUNT)
+        ;名前、レベル
+        PRINTFORM  %SAVESTR:COUNT,MAX_NAME_LEN,LEFT% {CFLAG:COUNT:9,MAX_LV_LEN,RIGHT}LV
+
+        ;攻撃力/防御力、カルマ
+        PRINTFORM  공격{CFLAG:COUNT:13,MAX_ATK_LEN,LEFT}/방어{CFLAG:COUNT:14,MAX_DEF_LEN,LEFT} 카르마{CFLAG:COUNT:151,4,RIGHT}
+        ;体力・気力バー
+        PRINTFORM  HP%BARSTR(BASE:COUNT:0,MAXBASE:COUNT:0,8)% 기력%BARSTR(BASE:COUNT:1,MAXBASE:COUNT:1,8)%
+        ;애정、음란
+        IF TALENT:COUNT:애정
+		SETCOLOR 255,100,100
+		PRINT <애정>
+		RESETCOLOR
+        ELSEIF TALENT:COUNT:음란
+		SETCOLOR 255,100,100
+		PRINT <음란>
+		RESETCOLOR
+        ELSE
+		SETCOLOR 100,100,100
+		PRINT <미함락>
+		RESETCOLOR
+        ENDIF
+        ;パーティフラグ
+        ;パーティメンバー
+        IF CFLAG:COUNT:533 > 0 && CFLAG:COUNT:531 == 0 && CFLAG:COUNT:532 == 0 && CFLAG:COUNT:533 != COUNT
+		SETCOLOR 255,100,100
+		PRINTFORM  PM<{CFLAG:COUNT:533}>
+		RESETCOLOR
+        ;パーティリーダー
+        ELSEIF CFLAG:COUNT:533 > 0
+		SETCOLOR 255,100,100
+		PRINTFORM  PL<{CFLAG:COUNT:533}>
+		RESETCOLOR
+        ENDIF
+        ;帰還フラグ
+        IF CFLAG:COUNT:507 == 1
+		SETCOLOR 200,200,100
+		PRINTFORM 《귀환중》
+		RESETCOLOR
+        ENDIF
+        ;お気に入り
+        IF CFLAG:COUNT:700 == 1
+			PRINT [☆]
+		ELSEIF CFLAG:COUNT:700 == 2
+			PRINT [★]
+		ELSEIF CFLAG:COUNT:700 == 3
+			PRINT [♡]
+		ELSEIF CFLAG:COUNT:700 == 4
+			PRINT [♥]
+		ENDIF
+        PRINTL
+NEXT
+
+;-----------------------------------------------
+@SHOW_CHARA_MONEY_LIST, PAGE
+#DIM MAX_NUM_LEN = 0
+#DIM MAX_NAME_LEN = 0
+#DIM MAX_RACE_LEN = 0
+#DIM MAX_MIND_LEN = 0
+#DIM MAX_LV_LEN = 0
+#DIM MAX_MONEY_LEN = 0
+#DIM MAX_MONEY
+#DIM MONEY_ID
+#DIM MONEY_SORT,1000
+#DIM RANK_COUNT
+
+#DIM PAGE
+;-----------------------------------------------
+;存在するキャラの所持金順表示
+;全員出してるので表示人数は{CHARANUM}人となる
+
+;キャラの番号、名前の文字数、レベル、所持金の最大桁数をそれぞれ取得
+MAX_NUM_LEN = STRLENS(TOSTR(CHARANUM));番号
+FOR COUNT, 0, CHARANUM
+	MAX_NAME_LEN = MAX(STRLENS(SAVESTR:COUNT), MAX_NAME_LEN);名前
+	MAX_LV_LEN = MAX(STRLENS(TOSTR(CFLAG:COUNT:9)), MAX_LV_LEN);レベル
+	MAX_MONEY_LEN = MAX(STRLENS(TOSTR(CFLAG:COUNT:580)), MAX_MONEY_LEN);소지금
+	MAX_RACE_LEN = MAX(STRLENS(GET_LOOK_INFO(COUNT, "종족")), MAX_RACE_LEN);종족
+	MAX_MIND_LEN = MAX(STRLENS(GET_LOOK_INFO(COUNT, "성격")), MAX_MIND_LEN);성격
+NEXT
+
+;ソート
+;MAX_MONEY = 最大値
+MAX_MONEY = -9999
+
+;最大値を算出
+FOR MONEY_ID, 1, CHARANUM
+	MAX_MONEY = MAX(CFLAG:MONEY_ID:580, MAX_MONEY);소지금
+NEXT
+
+;無限ループ避け
+LOCAL:1 = 0
+
+;最大値の次に大きい数記憶
+LOCAL:2 = -9999
+
+RANK_COUNT = 0
+
+WHILE RANK_COUNT < CHARANUM
+	
+	FOR MONEY_ID, 0, CHARANUM
+		
+		;現在の最大値と同じものを選択
+		IF MAX_MONEY == CFLAG:MONEY_ID:580
+			
+			;リストにIDを記憶
+			MONEY_SORT:RANK_COUNT = MONEY_ID
+			;順位を進める
+			RANK_COUNT++
+			
+		ELSEIF CFLAG:MONEY_ID:580 < MAX_MONEY && CFLAG:MONEY_ID:580 > LOCAL:2
+			
+			;現在の最大値ではない、現在の最大値の次に大きい数記憶
+			LOCAL:2 = CFLAG:MONEY_ID:580
+			
+		ENDIF
+		
+	NEXT
+	
+	;次にソートする最大値をセット
+	MAX_MONEY = LOCAL:2
+	LOCAL:2 = -9999
+	
+	;無限ループ避け
+	LOCAL:1++
+	SIF LOCAL:1 > 1000
+		BREAK
+	
+WEND
+
+
+;1列ずつ表示
+;まおーさま
+PRINTFORML %"[0]", MAX_NUM_LEN+2, RIGHT% 　　　　 %NAME:0, MAX_NAME_LEN,LEFT% {CFLAG:0:9, MAX_LV_LEN,RIGHT}LV
+;他の人たち
+
+
+FOR RANK_COUNT, (PAGE-1)*20 + 1, MIN(PAGE*20+1, CHARANUM)
+	;順位順に引き出す
+	COUNT = MONEY_SORT:RANK_COUNT
+	;魔王様の重複表示を避ける
+	;逆に表示したい時はコメントアウトする
+	SIF COUNT == 0
+		CONTINUE
+	
+	;番号
+	LOCALS = [{COUNT}]
+	PRINTFORM %LOCALS, MAX_NUM_LEN + 2, RIGHT% 
+	;行動状態
+	CALL SHOW_CHARA_ACT(COUNT)
+	;名前、レベル
+	PRINTFORM  %SAVESTR:COUNT,MAX_NAME_LEN,LEFT% {CFLAG:COUNT:9,MAX_LV_LEN,RIGHT}LV
+	
+	;種族と성격
+	PRINTFORM  %GET_LOOK_INFO(COUNT, "종족"),MAX_RACE_LEN,LEFT% - %GET_LOOK_INFO(COUNT, "성격"),MAX_MIND_LEN,LEFT%
+	
+	;소지금
+	PRINTFORM  소지금{CFLAG:COUNT:580,MAX_MONEY_LEN,RIGHT} 
+	
+	;애정、음란
+	IF TALENT:COUNT:애정
+		SETCOLOR 255,100,100
+		PRINT <애정>
+		RESETCOLOR
+	ELSEIF TALENT:COUNT:음란
+		SETCOLOR 255,100,100
+		PRINT <음란>
+		RESETCOLOR
+	ELSE
+		SETCOLOR 100,100,100
+		PRINT <미함락>
+		RESETCOLOR
+	ENDIF
+	;パーティフラグ
+	;パーティメンバー
+	IF CFLAG:COUNT:533 > 0 && CFLAG:COUNT:531 == 0 && CFLAG:COUNT:532 == 0 && CFLAG:COUNT:533 != COUNT
+		SETCOLOR 255,100,100
+		PRINTFORM  PM<{CFLAG:COUNT:533}>
+		RESETCOLOR
+	;パーティリーダー
+	ELSEIF CFLAG:COUNT:533 > 0
+		SETCOLOR 255,100,100
+		PRINTFORM  PL<{CFLAG:COUNT:533}>
+		RESETCOLOR
+	ENDIF
+	;帰還フラグ
+	IF CFLAG:COUNT:507 == 1
+		SETCOLOR 200,200,100
+		PRINTFORM 《귀환중》
+		RESETCOLOR
+	ENDIF
+	;お気に入り
+	IF CFLAG:COUNT:700 == 1
+		PRINT [☆]
+	ELSEIF CFLAG:COUNT:700 == 2
+		PRINT [★]
+	ELSEIF CFLAG:COUNT:700 == 3
+		PRINT [♡]
+	ELSEIF CFLAG:COUNT:700 == 4
+		PRINT [♥]
+	ENDIF
+	PRINTL 
+NEXT
+
+;-----------------------------------------------
+@SHOW_CHARA_DEBT_LIST, PAGE
+#DIM MAX_NUM_LEN = 0
+#DIM MAX_NAME_LEN = 0
+#DIM MAX_LV_LEN = 0
+#DIM MAX_RACE_LEN = 0
+#DIM MAX_MIND_LEN = 0
+#DIM MAX_DEBT_LEN = 0
+#DIM MAX_DEBT
+#DIM DEBT_ID
+#DIM DEBT_SORT,1000
+#DIM RANK_COUNT
+
+#DIM PAGE
+;-----------------------------------------------
+;存在するキャラの所持金順表示
+;全員出してるので表示人数は{CHARANUM}人となる
+
+;キャラの番号、名前の文字数、レベル、所持金の最大桁数をそれぞれ取得
+MAX_NUM_LEN = STRLENS(TOSTR(CHARANUM));番号
+FOR COUNT, 0, CHARANUM
+	MAX_NAME_LEN = MAX(STRLENS(SAVESTR:COUNT), MAX_NAME_LEN);名前
+	MAX_LV_LEN = MAX(STRLENS(TOSTR(CFLAG:COUNT:9)), MAX_LV_LEN);レベル
+	MAX_DEBT_LEN = MAX(STRLENS(TOSTR(CFLAG:COUNT:582)), MAX_DEBT_LEN);빚
+	MAX_RACE_LEN = MAX(STRLENS(GET_LOOK_INFO(COUNT, "종족")), MAX_RACE_LEN);종족
+	MAX_MIND_LEN = MAX(STRLENS(GET_LOOK_INFO(COUNT, "성격")), MAX_MIND_LEN);성격
+NEXT
+
+;ソート
+;MAX_DEBT = 最小値
+MAX_DEBT = 9999
+
+;最大値を算出
+FOR DEBT_ID, 1, CHARANUM
+	MAX_DEBT = MIN(CFLAG:DEBT_ID:582, MAX_DEBT);빚
+NEXT
+
+;無限ループ避け
+LOCAL:1 = 0
+
+;最大値の次に大きい数記憶
+LOCAL:2 = 9999
+
+RANK_COUNT = 0
+
+WHILE RANK_COUNT < CHARANUM
+	
+	FOR DEBT_ID, 0, CHARANUM
+		
+		;現在の最小値と同じものを選択
+		IF MAX_DEBT == CFLAG:DEBT_ID:582
+			
+			;リストにIDを記憶
+			DEBT_SORT:RANK_COUNT = DEBT_ID
+			;順位を進める
+			RANK_COUNT++
+			
+		ELSEIF CFLAG:DEBT_ID:582 > MAX_DEBT && CFLAG:DEBT_ID:582 < LOCAL:2
+			
+			;現在の最小値ではない、現在の最小値の次に小さい数記憶
+			LOCAL:2 = CFLAG:DEBT_ID:582
+			
+		ENDIF
+		
+	NEXT
+	
+	;次にソートする最大値をセット
+	MAX_DEBT = LOCAL:2
+	LOCAL:2 = 9999
+	
+	;無限ループ避け
+	LOCAL:1++
+	SIF LOCAL:1 > 1000
+		BREAK
+	
+WEND
+
+
+;1列ずつ表示
+;まおーさま
+PRINTFORML %"[0]", MAX_NUM_LEN+2, RIGHT% 　　　　 %NAME:0, MAX_NAME_LEN,LEFT% {CFLAG:0:9, MAX_LV_LEN,RIGHT}LV
+;他の人たち
+
+
+FOR RANK_COUNT, (PAGE-1)*20 + 1, MIN(PAGE*20+1, CHARANUM)
+	;順位順に引き出す
+	COUNT = DEBT_SORT:RANK_COUNT
+	;魔王様の重複表示を避ける
+	;逆に表示したい時はコメントアウトする
+	SIF COUNT == 0
+		CONTINUE
+	
+	;番号
+	LOCALS = [{COUNT}]
+	PRINTFORM %LOCALS, MAX_NUM_LEN + 2, RIGHT% 
+	;行動状態
+	CALL SHOW_CHARA_ACT(COUNT)
+	;名前、レベル
+	PRINTFORM  %SAVESTR:COUNT,MAX_NAME_LEN,LEFT% {CFLAG:COUNT:9,MAX_LV_LEN,RIGHT}LV
+	
+	;種族と성격
+	PRINTFORM  %GET_LOOK_INFO(COUNT, "종족"),MAX_RACE_LEN,LEFT% - %GET_LOOK_INFO(COUNT, "성격"),MAX_MIND_LEN,LEFT%
+	
+	;소지금
+	PRINTFORM  빚{CFLAG:COUNT:582,MAX_DEBT_LEN,RIGHT} 
+	
+	;애정、음란
+	IF TALENT:COUNT:애정
+		SETCOLOR 255,100,100
+		PRINT <애정>
+		RESETCOLOR
+	ELSEIF TALENT:COUNT:음란
+		SETCOLOR 255,100,100
+		PRINT <음란>
+		RESETCOLOR
+	ELSE
+		SETCOLOR 100,100,100
+		PRINT <미함락>
+		RESETCOLOR
+	ENDIF
+	;パーティフラグ
+	;パーティメンバー
+	IF CFLAG:COUNT:533 > 0 && CFLAG:COUNT:531 == 0 && CFLAG:COUNT:532 == 0 && CFLAG:COUNT:533 != COUNT
+		SETCOLOR 255,100,100
+		PRINTFORM  PM<{CFLAG:COUNT:533}>
+		RESETCOLOR
+	;パーティリーダー
+	ELSEIF CFLAG:COUNT:533 > 0
+		SETCOLOR 255,100,100
+		PRINTFORM  PL<{CFLAG:COUNT:533}>
+		RESETCOLOR
+	ENDIF
+	;帰還フラグ
+	IF CFLAG:COUNT:507 == 1
+		SETCOLOR 200,200,100
+		PRINTFORM 《귀환중》
+		RESETCOLOR
+	ENDIF
+	;お気に入り
+	IF CFLAG:COUNT:700 == 1
+		PRINT [☆]
+	ELSEIF CFLAG:COUNT:700 == 2
+		PRINT [★]
+	ELSEIF CFLAG:COUNT:700 == 3
+		PRINT [♡]
+	ELSEIF CFLAG:COUNT:700 == 4
+		PRINT [♥]
+	ENDIF
+	PRINTL 
+NEXT
+
+
+;-----------------------------------------------
+@SHOW_CHARA_ACT(ARG)
+;-----------------------------------------------
+;ARG番のキャラの状態（侵攻中とか）を表示する
+;CHARA_INFOで使用
+IF CFLAG:ARG:1 == 2
+	SETCOLOR 255,100,100
+	PRINTFORM {CFLAG:COUNT:501}F침공중
+ELSEIF CFLAG:COUNT:1 == 3
+	SETCOLOR 100,255,255
+	PRINTFORM {CFLAG:COUNT:501}F요격중
+ELSEIF CFLAG:ARG:1 == 0
+	SETCOLOR 100,100,255
+	PRINT [조교가능]
+ELSEIF CFLAG:ARG:1 == 7
+	SETCOLOR 100,255,100
+	PRINT [ 씨받이 ]
+ELSEIF CFLAG:ARG:1 == 8
+	SETCOLOR 100,255,100
+	PRINT [노출대]
+ELSEIF CFLAG:ARG:1 == 9
+	SETCOLOR 255,0,0
+	PRINT  [NTR중]
+ELSEIF CFLAG:ARG:1 == 10
+	SETCOLOR 100,255,100
+	PRINT [육아실]
+ELSE
+	PRINT -F　―　
+ENDIF
+RESETCOLOR
+
+;-----------------------------------------------
+@CHARA_INFO_INDIVIDUAL(ARG)
+#DIM IS_ABLE_TO_CHANGE_NAME = 0
+#DIM IS_ABLE_TO_CHANGE_JOB = 0
+#DIM IS_ABLE_TO_MARRIAGE = 0
+#DIM IS_ABLE_TO_TEMPTATION = 0
+;-----------------------------------------------
+;ARG番のキャラ情報とコマンドを表示
+
+;キャラ情報表示
+CALL SHOW_CHARA_INFO(ARG)
+
+;コマンドボタンを表示
+CALL SHOW_BUTTON_NAME_EDIT(0,ARG,0) ;名前を変える
+CALL SHOW_BUTTON_NAME_EDIT(1,ARG,1) ;名前を戻す
+CALL SHOW_BUTTON_JOB_CHANGE(2,ARG) ;転職
+CALL SHOW_BUTTON_MARRIAGE(4,ARG) ;결혼
+CALL SHOW_BUTTON_TEMPTATION(3,ARG) ;魔の誘惑
+CALL SHOW_BUTTON_CHILD_CARE(5,ARG) ;育児室の訪問
+CALL SHOW_BUTTON_FAVORITES(6,ARG) ;즐겨찾기
+;7番は1人称変更
+CALL SHOW_BUTTON_EQUIP(8,ARG) ;装備の確認
+PRINTL  
+CALL SHOW_BUTTON_BICH_LEVEL(9,ARG) ;売春積極性
+CALL SHOW_BUTTON_CHARA_PILLORY(10,ARG)
+CALL SHOW_BUTTON_RETURN_CHARA(11,ARG)
+
+PRINTL [999] 돌아온다
+
+;入力処理
+$INPUT_LOOP
+INPUT
+;[999]ならリターン0
+;그외は入力に対応する関数に送る
+IF RESULT == 999
+	RETURN 0
+ELSEIF RESULT == 0
+	; 名前変更
+	CALL CHARA_INFO_NAME_EDIT(ARG,0)
+ELSEIF RESULT == 1
+	; 名前のリセット
+	CALL CHARA_INFO_NAME_EDIT(ARG,1)
+ELSEIF RESULT == 2
+	; 転職
+	CALL CHARA_INFO_JOB_CHANGE(ARG)
+ELSEIF RESULT == 3
+	; 魔の誘惑
+	CALL TEMPTATION(ARG)
+ELSEIF RESULT == 4
+	; 결혼
+	CALL MARRIAGE(ARG)
+ELSEIF RESULT == 5
+	; 育児室
+	CALL CHILD_CARE_CHARA(ARG)
+ELSEIF RESULT == 6
+	CALL SET_FAVORITES, ARG
+ELSEIF RESULT == 7
+	CALL RANDOM_SELF_CALL, ARG
+ELSEIF RESULT == 8
+	CALL EQUIP_ST_SHOW, ARG
+ELSEIF RESULT == 9
+	CALL SET_BICH_LEVEL, ARG
+ELSEIF RESULT == 10
+	CALL SET_CHARA_PILLORY, ARG
+ELSEIF RESULT == 11
+	CALL SET_RETURN_CHARA, ARG
+ENDIF
+
+;返り値による処理
+;一応、0なら再度一覧表示、1ならターンエンド、2なら再入力となるようにしてある
+IF RESULT == 0 || RESULT == 1
+	RETURN RESULT
+ENDIF
+GOTO INPUT_LOOP
+
+
+;-----------------------------------------------
+@SHOW_BUTTON_CHARA_PILLORY(NUM, ARG)
+#DIM NUM
+;-----------------------------------------------
+
+IF CFLAG:ARG:1 != 8
+	SETCOLOR 0x646464
+ENDIF
+PRINTFORM [{NUM}] 노출대해제 
+RESETCOLOR
+RETURN 0
+
+;-----------------------------------------------
+@SET_CHARA_PILLORY(ARG)
+;-----------------------------------------------
+
+PRINTL
+DRAWLINE 
+IF CFLAG:ARG:1 == 8
+	PRINTFORMW %조사선택(SAVESTR:ARG, "를")% 풀어주시겠습니까?
+	PRINTL [0]- 풀어준다
+	PRINTL [1]- 그대로 둔다
+	$INPUT_LOOP4
+	INPUT
+	IF RESULT == 0
+		PRINTL
+		PRINTFORMW %조사선택(SAVESTR:ARG, "를")% 흥미로운 눈으로 바라보던 당신은 
+			IF TALENT:ARG:남자
+				PRINT 그
+			ELSE
+				PRINT 그녀
+			ENDIF
+			PRINTW 를 풀어주라고 명했다.
+		PRINTW *노출대에서 해제합니다*
+		CFLAG:ARG:661 = 0
+		CFLAG:ARG:662 = 0
+		CFLAG:ARG:663 = 0
+		CFLAG:ARG:664 = 0
+		CFLAG:ARG:665 = 0
+		CFLAG:ARG:1 = 0
+	ELSEIF RESULT == 1
+		PRINTL
+		PRINTFORMW 아직 형벌을 끝내기에는 이르다고 생각한 당신은 그대로 몸을 돌렸다.
+	ELSEIF RESULT < 0 || RESULT > 1
+		GOTO INPUT_LOOP4
+	ENDIF
+ELSE
+	PRINTFORMW %조사선택(SAVESTR:ARG, "는")% 노출대에 묶여있지 않습니다!
+ENDIF
+DRAWLINE
+PRINTL
+RETURN 0
+
+;-----------------------------------------------
+@SHOW_BUTTON_RETURN_CHARA(NUM, ARG)
+#DIM NUM
+;-----------------------------------------------
+
+IF CFLAG:ARG:1 != 3
+	SETCOLOR 0x646464
+ENDIF
+PRINTFORM [{NUM}] 복귀시키기 
+RESETCOLOR
+RETURN 0
+
+;-----------------------------------------------
+@SET_RETURN_CHARA(ARG)
+;-----------------------------------------------
+
+A = ARG
+
+PRINTL
+DRAWLINE 
+IF CFLAG:ARG:1 == 3
+	IF CFLAG:A:505 > 0
+		IF CFLAG:(ARG:0):514 < 3
+			PRINTFORML %조사선택(SAVESTR:A, "는")% 용사를 더 타락시키지 못한 채 귀환 마법으로 복귀했다……
+			PRINTFORMW 다음부터는 %조사선택(SAVESTR:A, "를")% 요격 보낼 때 3일 이내에 복귀하지 않도록 하자……
+		ELSE
+			PRINTFORML %조사선택(SAVESTR:A, "가")% 용사들을 몇명이나 붙잡게 한 공로를 치하하기 위해 불러들이기로 결심했다.
+			PRINTFORMW %조사선택(SAVESTR:A, "는")% 귀환 마법으로 복귀했다……
+			CALL GOHOUBI
+		ENDIF
+		CFLAG:A:1 = 0
+	ELSE
+		IF CFLAG:(ARG:0):514 < 3
+			PRINTFORML %조사선택(SAVESTR:A, "는")% 아무것도 하지 못한 채 귀환 마법으로 복귀했다……
+			PRINTFORMW 다음부터는 %조사선택(SAVESTR:A, "를")% 요격 보낼 때 3일 이내에 복귀하지 않도록 하자……
+		ELSE
+			PRINTFORML %SAVESTR:ARG%의 모습이 못마땅하던 당신은 그녀를 돌아오게 하기로 결정했다.
+			PRINTFORMW %조사선택(SAVESTR:A, "는")% 귀환 마법으로 복귀했다……
+			CALL OSIOKI
+		ENDIF
+		CFLAG:A:1 = 0
+	ENDIF
+	CFLAG:A:531 = 0
+	CFLAG:A:532 = 0
+	CFLAG:A:533 = 0
+	CFLAG:A:514 = 0
+	CFLAG:A:505 = 0
+ELSE
+	PRINTFORMW %조사선택(SAVESTR:A, "는")% 요격중이 아닙니다!
+ENDIF
+DRAWLINE
+PRINTL
+RETURN 0
+
+;-----------------------------------------------
+@SHOW_BUTTON_FAVORITES(NUM, ARG)
+#DIM NUM
+;-----------------------------------------------
+IF CFLAG:ARG:700 == 0
+	PRINTFORM [{NUM}] 즐겨찾기 등록 
+ELSE
+	PRINTFORM [{NUM}] 즐겨찾기 해제 
+ENDIF
+
+RETURN 0
+
+
+;-----------------------------------------------
+@SET_FAVORITES(ARG)
+;-----------------------------------------------
+
+PRINTL
+DRAWLINE 
+IF CFLAG:ARG:700 == 0
+	PRINTFORMW 어떤 표시를 하시겠습니까?
+	PRINTL [1]- ☆
+	PRINTL [2]- ★
+	PRINTL [3]- ♡
+	PRINTL [4]- ♥
+	PRINTL [9]- 하지 않는다
+	$INPUT_LOOP5
+	INPUT
+	IF RESULT == 1
+		PRINTL
+		PRINTFORMW %조사선택(SAVESTR:ARG, "를")% 즐겨찾기에 등록했습니다.
+		CFLAG:ARG:700 = 1
+	ELSEIF RESULT == 2
+		PRINTL
+		PRINTFORMW %조사선택(SAVESTR:ARG, "를")% 즐겨찾기에 등록했습니다.
+		CFLAG:ARG:700 = 2
+	ELSEIF RESULT == 3
+		PRINTL
+		PRINTFORMW %조사선택(SAVESTR:ARG, "를")% 즐겨찾기에 등록했습니다.
+		CFLAG:ARG:700 = 3
+	ELSEIF RESULT == 4
+		PRINTL
+		PRINTFORMW %조사선택(SAVESTR:ARG, "를")% 즐겨찾기에 등록했습니다.
+		CFLAG:ARG:700 = 4
+	ELSEIF RESULT == 9
+		PRINTL
+		PRINTFORMW %조사선택(SAVESTR:ARG, "를")% 즐겨찾기에 등록하지 않았습니다.
+	ELSE
+		GOTO INPUT_LOOP5
+	ENDIF
+ELSE
+	PRINTFORMW %조사선택(SAVESTR:ARG, "를")% 즐겨찾기에서 삭제했습니다.
+	CFLAG:ARG:700 = 0
+ENDIF
+DRAWLINE
+PRINTL
+RETURN 0

@@ -1,0 +1,593 @@
+﻿@EVENTTURNEND
+#LATER
+;엔딩체크
+
+;グッドエンド
+@ENDING_1
+
+DRAWLINE
+PRINTL ┌────────────────────────────┐
+PRINTL ｜　　　　　마침내 마왕은 세계를 다시 장악했다　	 　	　　　｜
+PRINTL ｜　　　       그리고 마왕은 인간 측에 제안을 했다 	  		 　　　   ｜
+PRINTL ｜    용사를 마왕을 쓰러뜨리기 위해 던전으로 가도록 시키면		   ｜	
+PRINTL ｜　　　그것은 용사가 아닌 제물로서 보내지는 거라고…			   ｜
+PRINTL └────────────────────────────┘
+
+WAIT
+DRAWLINE
+PRINTL 게임을 계속합니까？
+
+PRINTL [0] - 네
+PRINTL [1] - 아니요
+$INPUT_LOOP
+INPUT
+IF RESULT == 1
+	QUIT
+ELSEIF RESULT != 0
+	GOTO INPUT_LOOP
+ENDIF
+FLAG:82 = 1
+RETURN 0
+
+;魔王城함락
+@ENDING_2
+
+DRAWLINE
+PRINTL ┌────────────────────────────┐
+PRINTL ｜     마침내 마왕의 던전은 새로운 여자용사의 손에 함락됐다        ｜
+PRINTL ｜        마왕은 자신을 쓰러트린 용사의 얼굴을 눈에 새기며 　　　｜
+PRINTL ｜          만족한 얼굴로 또다시 깊은 봉인으로 잠들었다………　   　｜
+PRINTL └────────────────────────────┘
+
+PRINTFORMW *용사%조사선택(SAVESTR:TARGET, "는")% 마왕을 봉인해, 전설의 용사로서 칭송받았다*
+PRINTL  
+PRINTL -------------------------------GAMEOVER---------------------------------
+PRINTL  
+
+;エルフの領域を制覇
+@ENDING_3
+DRAWLINE
+PRINTL ┌────────────────────────────┐
+PRINTL ｜　　　　　마침내 마왕은 엘프의 영역을 정복했다		　　　　｜
+PRINTL ｜　　　　그리고 마왕은 엘프의 일족에게 제안을 했다	　 　　   ｜
+PRINTL ｜　　　　일족의 비장의 엘프 아가씨를 내놓으라고………　		   ｜
+PRINTL └────────────────────────────┘
+
+WAIT
+DRAWLINE
+
+FLAG:87 = 1
+CALL CHAR_GIFT, 1, "엘프"
+
+RETURN 0
+
+;ドラゴンの山を制覇
+@ENDING_4
+DRAWLINE
+PRINTL ┌────────────────────────────┐
+PRINTL ｜　　　　　마침내 마왕은 드래곤의 산맥을 정복했다      　　 　｜
+PRINTL ｜　　　   그리고 마왕은 드래곤의 장로에게 제안을 했다　   　　｜
+PRINTL ｜　　　　　　   드래곤의 숫쳐녀를 바치라고………　          　　   ｜
+PRINTL └────────────────────────────┘
+
+WAIT
+DRAWLINE
+
+FLAG:89 = 1
+CALL CHAR_GIFT, 5, "드래곤"
+
+RETURN 0
+
+
+
+;天界の領域を制覇
+@ENDING_5
+DRAWLINE
+PRINTL ┌────────────────────────────┐
+PRINTL ｜　　　　　　　마침내 마왕은 천계를 정복했다 　　　　　　   ｜
+PRINTL ｜　　　　　      그리고 마왕은 천계에 제안을 했다 　　　　　　｜
+PRINTL ｜　　　　       차세대의 주신이 될 천사를 바치라고……       		   ｜
+PRINTL └────────────────────────────┘
+
+WAIT
+DRAWLINE
+
+FLAG:91 = 1
+CALL CHAR_GIFT, 6, "천사"
+
+RETURN 0
+
+;광왕의 포로에게 잡힌 경우
+@ENDING_10
+
+DRAWLINE
+PRINTFORMW 
+PRINTFORMW 마왕이 다시 부활한 후, 한동안 시끄럽던 세상은 다시 조용해졌다.
+PRINTFORMW 미궁으로 다시 들어가봤자 예전에 마왕이 있었다는 것을 증명하는 것 처럼
+PRINTFORMW 반쯤 부숴진 함정들과 썩어가는 마물의 시체만 있을 뿐이었다.
+PRINTFORMW 사라진 마왕이 어디로 갔는지 누구도 알지 못했으나
+PRINTFORMW 그와 동시에 광왕의 미친짓도 멈춰 많은 사람들은 여신에게 감사하다며 기도를 올릴 뿐이었다.
+PRINTFORMW 
+PRINTFORMW ………
+PRINTFORMW ……
+PRINTFORMW …
+PRINTFORMW 
+PRINTFORMW 세간의 평가와는 다르게 광왕의 행동은 조금도 달라지지 않았다.
+PRINTFORMW 단지 광왕의 주위에는 각양각색의 여인들이 아닌, 모두 흑발적안으로 통일되어 있었다.
+PRINTFORMW 무대에서 개에게 범해지고 있는 여인부터 육변기로 사용되는 여인까지 모두 같은 색깔이었다.
+PRINTFORMW 광왕은 자신 밑에서 봉사하고 있는 여아의 머리를 쓰다듬으며 중얼거렸다.
+PRINTFORMW 
+PRINTFORMW 『참 신기하군. 분명히 피가 옅어질만큼 옅어졌건만… 외모만큼은 변하지 않는구나.』
+PRINTFORMW 
+PRINTFORMW 광왕의 손길에 그녀는 기분 좋다는 듯이 얼굴을 싱긋 웃었다.
+PRINTFORM 그런 그녀의 모습은
+	IF TALENT:MASTER:남자
+		PRINTFORMW 마왕이 여아가 됬다면 이러지 않을까 싶을 정도로 비슷했다.
+	ELSEIF TALENT:MASTER:작은체형
+		PRINTFORMW 마왕과 비슷했으나 전체적인 느낌이 달랐다.
+	ELSE
+		PRINTFORMW 마왕의 어린시절이라고 해도 믿을 정도로 비슷했다.
+	ENDIF
+PRINTFORMW 
+PRINTFORMW 한동안 그녀를 보며 가만히 있던 광왕은 머리를 잡고 입에 박아넣었다.
+PRINTFORMW 마치 오나홀 쓰듯이 거칠게 쑤시던 후 몰려오는 사정감에 그냥 싸버렸다.
+PRINTFORMW 숨도 못 쉬고 정액을 싸는대로 받아들이는 여아의 배가 부풀어 올랐지만
+PRINTFORMW 여아는 도리어 기분이 좋은듯이 조수를 뿜으며 가버렸다.
+PRINTFORMW 
+PRINTFORMW 「죽여버릴거야… 꼭… 죽여버릴거야…」
+PRINTFORMW 
+PRINTFORMW 사정의 만족감에 잠시 멈춘 광왕의 귓가에 누군가의 목소리가 들렸다.
+PRINTFORMW 거의 모두가 흡사한 목소리를 지닌 이 곳에서 유일하게 다른 목소리를 가진 여인의 목소리에
+PRINTFORMW 광왕은 씩 웃으며 그녀에게로 발걸음을 옮겼다.
+PRINTFORMW 개에게 몇번이나 싸질러졌는지 배가 꽤나 부풀어오른채 머리를 박고있는 여인의 앞에서
+PRINTFORMW 신기하다는 듯이 웃으며 말했다.
+PRINTFORMW 
+PRINTFORMW 『게다가 마왕과 성격이 가장 닮은 네가 외모로는 가장 다르다는게 신기해.』
+PRINTFORMW 
+PRINTFORM 광왕이 얼굴을 억지로 들어올리자, 
+	IF FLAG:500 == 0
+		PRINTFORMW 광왕과 닮은 외모의 흑발적안의 여인이 드러났다.
+	ELSE
+		PRINTFORMW 흑발 적안만 제외하면 거울에 비춰보이는 것이라고 볼 수 있을 정도로 똑같은 얼굴이 드러났다.
+	ENDIF
+PRINTFORMW 그녀는 광왕의 손에서 벗어나려고 몸부림 쳤으나 자궁에 계속해서 박고있는 개의 자지때문에
+PRINTFORMW 비음만 흘렸고, 그런 그녀의 모습에 광왕은 사랑스럽다는 듯이 중얼거렸다.
+PRINTFORMW 
+PRINTFORMW 『너는 제발 빨리 망가지지 말거라.』
+PRINTFORMW 
+PRINTFORMW 그녀는 얼굴을 놓고 뒤돌아서는 광왕을 향해 발악적으로 소리쳤다.
+PRINTFORMW 
+PRINTFORM 「마왕님은 꼭 돌아올거야! 돌아와서 네
+	IF FLAG:500 == 0
+		PRINTFORM 놈
+	ELSE
+		PRINTFORM 년
+	ENDIF
+PRINTFORMW 을 가만두지 않을거야!」
+PRINTFORMW 
+PRINTFORMW 그 말에 잠시 멈춰선 광왕은 참을 수 없다는 듯이 큭큭거리며 무대 구석을 바라봤다.
+PRINTFORMW 그곳에는 팔다리가 잘린채로 공공 육변기로 사용되는 한 여인이 쾌락에 소리를 지르고 있었다.
+PRINTFORMW 광왕의 허락이 없어도 누구나 사용 가능하여 하인들까지 이용하는 육변기가 
+PRINTFORMW 그녀가 그렇게 바라는 마왕이라는 것을 언제 눈치챌지 상상해보며, 그녀에게 이렇게 말했다.
+PRINTFORMW 
+PRINTFORMW 『제발 그런 날이 오기를 바라지.』
+PRINTFORMW 
+PRINTL  
+PRINTL -------------------------------GAMEOVER---------------------------------
+PRINTL  
+
+
+;광왕의 포로에게 잡힌 경우 - 조형왕
+@ENDING_11
+
+DRAWLINE
+PRINTFORMW 
+PRINTFORMW 마왕이 다시 부활한 후, 한동안 시끄럽던 세상은 다시 조용해졌다.
+PRINTFORMW 미궁으로 다시 들어가봤자 예전에 마왕이 있었다는 것을 증명하는 것 처럼
+PRINTFORMW 반쯤 부숴진 함정들과 썩어가는 마물의 시체만 있을 뿐이었다.
+PRINTFORMW 사라진 마왕이 어디로 갔는지 누구도 알지 못했으나
+PRINTFORMW 그와 동시에 광왕의 미친짓도 멈춰 많은 사람들은 여신에게 감사하다며 기도를 올릴 뿐이었다.
+PRINTFORMW 
+PRINTFORMW ………
+PRINTFORMW ……
+PRINTFORMW …
+PRINTFORMW 
+PRINTFORMW 한동안 조용하던 그들의 광왕이 자신의 비밀처소에 부르던 귀족들을 다시 부르자,
+PRINTFORMW 그들은 정상으로 돌아왔다고 알려진 광왕의 치부를 아는 사람을 죽일거라고 생각하였지만
+PRINTFORMW 도망갈수도 없기에 부르는 곳으로 발걸음을 옮겼다.
+PRINTFORMW 그렇게 만난 광왕의 눈동자에는 예전과 비교할수도 없는 광기에 물들어 있었다.
+PRINTFORMW 
+PRINTFORMW 『자, 어서오게!』
+PRINTFORMW 
+PRINTFORMW 너무나도 반갑게 반기는 광왕의 모습에 모두 등골이 오싹함을 느끼며 그를 따라갔다.
+PRINTFORM 광왕을 따라가 그들이 도착한 곳은 
+	IF FLAG:84 >= 1000
+		PRINTFORM 셀수없이 많은 
+	ELSEIF FLAG:84 >= 100
+		PRINTFORM 수백의 
+	ELSEIF FLAG:84 >= 100
+		PRINTFORM 백여개의 
+	ELSE
+		PRINTFORM 수십개의 
+	ENDIF
+PRINTFORMW 전시품들이 늘어서 있었다.
+PRINTFORMW 조각품부터 회화까지, 모두 다른 여인의 모습을 묘사해놓은 장식품들을 모두 멍하니 바라보다가
+PRINTFORMW 그 중 한명이 뭔가 생각났다는 듯이 입을 열었다.
+PRINTFORMW 
+PRINTFORMW 「광왕님, 설마…?」
+PRINTFORMW 
+PRINTFORMW 『알면서 뭘 물어보나?』
+PRINTFORMW 
+PRINTFORMW 그 말에 하나둘씩 이게 어디에서 나온 것인지 알 수 있었다.
+PRINTFORMW 조형왕이라고 알려진 마왕의 미궁에서 가져온 것이라고…
+PRINTFORMW 전시품 중 몇몇은 보자마자 누군지 알 수 있을 정도로 유명한 용사도 있었으므로
+PRINTFORMW 사람들은 점점 이게 진품이라는 것을 알 수 있을 정도였다.
+PRINTFORMW 
+PRINTFORMW 그렇게 확인하다가 중앙에 있는, 뭔가 묘한 모습의 전시품이 눈에 띄었다.
+PRINTFORMW 팔다리는 구체관절 인형과 같은 형태였으나, 몸은 묘하게 자연스러웠다.
+PRINTFORMW 광왕은 그런 그의 생각을 알고 있다는 듯이 씩 웃으며 말했다.
+PRINTFORMW 
+PRINTFORMW 『멋지지 않는가? 이건 내가 만든 걸작이라네.』
+PRINTFORMW 
+PRINTFORMW 광왕이 사랑스럽다는 듯이 비부에 손가락을 집어넣자, 몸체 부분이 약간이나마 떨리기 시작했다.
+PRINTFORMW 아니, 떨리기만 하는 것이 아니라 점점 손가락이 젖어가는 것을 보며,
+PRINTFORMW 그들은 어떤 뜻으로 걸작이라고 말했는지 이해가기 시작했다.
+PRINTFORMW 찌걱거리는 음란한 소리와 함께 허리를 튕기며 가버리자 만족한듯한 표정의 광왕이 주위를 둘러봤다.
+PRINTFORMW 
+PRINTFORMW 『자, 이제 시작하게.』
+PRINTFORMW 
+PRINTFORMW 「네…?」
+PRINTFORMW 
+PRINTFORMW 모인 사람 중 한 명이 얼빠진 목소리로 말하자, 광왕은 그를 보고 미소지었다.
+PRINTFORMW 
+PRINTFORMW 『그동안 쌓이지 않았는가? 그대들의 육욕을 채우려면 쉽지 않았을텐데?』
+PRINTFORMW 
+PRINTFORMW 그 말에 모두 눈을 반짝이며 관절인형을 바라봤다.
+PRINTFORMW 광왕이 언급한대로 가문 안에서 그들의 체면을 지키며 삐뚤어진 성욕을 풀기란 불가능했고,
+PRINTFORMW 한동안 자제하며 살아왔으나 그들을 부른 이유가 예전과 같다면 굳이 참을 이유가 없었다.
+PRINTFORMW 그렇게 수많은 남자들에게 둘러쌓인 관절인형, 아니 마왕을 바라보던 광왕은 씩 웃으며 뒤돌아섰다.
+PRINTFORMW 
+PRINTFORMW 『과연 임신도 가능할지 나중에 와서 확인해주마.』
+PRINTFORMW 
+PRINTL  
+PRINTL -------------------------------GAMEOVER---------------------------------
+PRINTL  
+
+
+;광왕의 포로에게 잡힌 경우 - 변기왕
+@ENDING_12
+
+DRAWLINE
+PRINTFORMW 
+PRINTFORMW 마왕이 다시 부활한 후, 한동안 시끄럽던 세상은 다시 조용해졌다.
+PRINTFORMW 미궁으로 다시 들어가봤자 예전에 마왕이 있었다는 것을 증명하는 것 처럼
+PRINTFORMW 반쯤 부숴진 함정들과 썩어가는 마물의 시체만 있을 뿐이었다.
+PRINTFORMW 사라진 마왕이 어디로 갔는지 누구도 알지 못했으나
+PRINTFORMW 그와 동시에 광왕의 미친짓도 멈춰 많은 사람들은 여신에게 감사하다며 기도를 올릴 뿐이었다.
+PRINTFORMW 
+PRINTFORMW ………
+PRINTFORMW ……
+PRINTFORMW …
+PRINTFORMW 
+PRINTFORMW 이후 공짜 변소라는 이름의 건물들이 설치되기 시작하였다.
+PRINTFORMW 마치 벽에 오나홀을 박아놓은 듯한 형태였는데,
+PRINTFORMW 처음 사용해본 사람은 마치 진짜같다고 언급하였다.
+PRINTFORMW 이런 식으로 소문이 퍼지자 의외로 많은 사람들이 이용하기 시작했다.
+PRINTFORMW 그러다 보니 의외로 성범죄 관련된 일이 줄어들어 사람들은 광왕을 칭송하기 시작하였다.
+PRINTFORMW 
+PRINTFORMW 다만, 일정 주기로 오나홀이 폐기되고 새로운 오나홀로 바뀌었는데
+PRINTFORMW 사람들이 그걸 줄 수 없나고 물어도 관리자는 안된다는 말만 반복할 뿐이었고,
+PRINTFORMW 그걸 들을 사람들은 입맛만 다실 뿐이었다.
+PRINTFORMW 
+PRINTFORMW … 물론 진실을 아는 사람은 절대로 가지고 싶다는 생각을 하지 않았다.
+PRINTFORMW 육변기화 된 용사들의 하반신을 부분워프 시켜서 고정한 것이기 때문이었다.
+PRINTFORMW 또한 그걸 관리하는 자는 그 용사와 관련된, 혈육이나 지인의 위주로 배치하였다.
+PRINTFORMW 만약 할 수 없다고 하는 즉시 남자든 여자는 바로 육변기로 바꿔버렸다.
+PRINTFORMW 처음에는 저항하더라도, 나중에는 상반신만 남은 상태로 신음소리 낼 수 있었다.
+PRINTFORMW 그 모습을 본 사람들은 저항에 대한 의지를 꺾을수 밖에 없었다.
+PRINTFORMW 
+PRINTFORMW 그리고 그 육변기들 사이에는 누구인지 알 수 없는 검은 머리의 여자도 하나 끼어 있었다.
+PRINTFORMW 모든 용사가 명확한 과거사를 가지고 있는 것은 아니었기에 사람들도 신경쓰지 않았고,
+PRINTFORMW 그런 분위기를 읽은 마왕은 치욕을 참고 어떻게든 도망치겠다고 다짐했다.
+PRINTFORMW 
+PRINTFORMW 『제발 그렇게 해주길.』
+PRINTFORMW 
+PRINTFORMW 광왕은 아직도 의지를 불태우고 있는 그녀를 비웃으며 바라봤다.
+PRINTFORMW 
+PRINTL  
+PRINTL -------------------------------GAMEOVER---------------------------------
+PRINTL  
+
+
+;광왕의 포로에게 잡힌 경우 - 처형왕
+@ENDING_13
+
+DRAWLINE
+PRINTFORMW 
+PRINTFORMW 마왕이 다시 부활한 후, 한동안 시끄럽던 세상은 다시 조용해졌다.
+PRINTFORMW 미궁으로 다시 들어가봤자 예전에 마왕이 있었다는 것을 증명하는 것 처럼
+PRINTFORMW 반쯤 부숴진 함정들과 썩어가는 마물의 시체만 있을 뿐이었다.
+PRINTFORMW 사라진 마왕이 어디로 갔는지 누구도 알지 못했으나
+PRINTFORMW 그와 동시에 광왕의 미친짓도 멈춰 많은 사람들은 여신에게 감사하다며 기도를 올릴 뿐이었다.
+PRINTFORMW 
+PRINTFORMW ………
+PRINTFORMW ……
+PRINTFORMW …
+PRINTFORMW 
+PRINTFORMW 광왕이 매우 기분 좋은 듯이 방 안에 들어가자, 썩어가는 팔다리와 내장들이 그
+	IF FLAG:500 != 0
+		PRINT 녀
+	ENDIF
+PRINTFORMW 를 반겼다.
+PRINTFORMW 검붉은 핏자국 중앙에 위치한 마왕을 본 광왕은 광기어린 미소를 지으며 다가갔다.
+PRINTFORMW 
+PRINTFORMW 『매일같이 비슷한 것만 하니까 슬슬 지루하지?』
+PRINTFORMW 『내장 꺼내기라든지, 팔다리 자르기라든지, 산채로 불태우기는 많이 해봤잖아?』
+PRINTFORMW 『그러니 이번에는 좀 새로운걸 해볼거야.』
+PRINTFORMW 
+PRINTFORMW 마치 오래된 친구를 보는 듯이 친근하게 말하던 광왕은 한 구석에 처박혀 있던 단두대를 끌고 왔다.
+PRINTFORMW 이미 고통에 정신이 나간 마왕을 단두대에 묶으며, 말을 계속했다.
+PRINTFORMW 
+PRINTFORMW 『이제까지 이걸 못 한 이유는 너도 잘 알잖아.』
+PRINTFORMW 『치유를 잘못 하다간 네가 죽을수도 있으니.』
+PRINTFORMW 『근데 네가 슬슬 내성이 생겨서 반응이 없으니 어쩔 수 없지.』
+PRINTFORMW 『만약 죽어도 걱정 하지 마. 듀라한으로라도 살려서 계속 할거니까.』
+PRINTFORMW 
+PRINTFORMW 다 묶은 후, 마왕을 바라보던 광왕은 싱긋 웃으며 덧붙여 말했다.
+PRINTFORMW 
+PRINTFORMW 『그럼, 또 보자.』
+PRINTFORMW 
+PRINTL  
+PRINTL -------------------------------GAMEOVER---------------------------------
+PRINTL  
+
+
+;광왕의 포로에게 잡힌 경우 - 평화왕
+@ENDING_14
+
+DRAWLINE
+PRINTFORMW 
+PRINTFORMW 마왕이 부활했다는 소문이 돌았으나, 어느때와 다름없는 나날이 지나갔다.
+PRINTFORMW 도리어 광왕의 광증이 도지기 시작하며 마왕의 소문은 사그라들었다.
+PRINTFORMW 그래서 마왕이 잡혔다는 소문은 멀리 퍼지지도 못하고 가라앉았다.
+PRINTFORMW 
+PRINTFORMW ………
+PRINTFORMW ……
+PRINTFORMW …
+PRINTFORMW 
+PRINTFORMW 어두컴컴한 방 안에는 광왕과 한 사람만이 있었다.
+PRINTFORM 광왕은 시체에 가까울 정도로 온 몸에 상처가 있는 그
+	IF TALENT:MASTER:남자 == 0
+		PRINT 녀
+	ENDIF
+PRINTFORMW 를 노려보며 입을 열었다.
+PRINTFORMW 
+PRINTFORMW 『왜 그랬지?』
+PRINTFORMW 
+PRINTFORMW 광왕은 미동도 하지 않는 그자에게 채찍을 휘둘렀다.
+PRINTFORMW 이미 몸에 피가 거의 남아있지 않아 살점만 튀겼지만 광왕은 신경쓰지 않고 계속 내리쳤다.
+PRINTFORMW 
+PRINTFORMW 『내가 도와줬잖아?』
+PRINTFORMW 『용사라고 불리기도 힘든 어중이 떠중이를 보냈잖아?』
+PRINTFORMW 『군대도 마왕의 침공을 대비하기 위해서라는 어이없는 이유로 묶어놨었어.』
+PRINTFORMW 『어디를 침공하든 신경 안 썼다고!』
+PRINTFORMW 『아르카나 나이트에게 요격은 절대 금지라고 말까지 해놨어!』
+PRINTFORMW 『심지어 네 편으로 돌아선 녀석들도 다시 돌려보냈잖아!』
+PRINTFORMW 
+PRINTFORMW 여기까지 말한 광왕은 채찍질을 멈추고 잠시 숨을 골랐다.
+PRINTFORMW 
+PRINTFORMW 『그런데 왜?』
+PRINTFORMW 『왜 그런 녀석들에게 잡혀온거지?』
+	SETCOLOR 225, 0, 12
+PRINTFORMW 『왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜? 왜?』
+	 RESETCOLOR
+PRINTFORMW 
+PRINTFORMW 손가락을 움직일 힘도 없는 마왕은 광왕의 광기어린 질문에 답할 수 없었다.
+PRINTFORMW 아니, 이미 말하였으나 어떤 말로도 광왕은 이해하지 못했었다.
+PRINTFORMW 미동도 없는 마왕을 보던 광왕은 옆에 세워둔 검을 쥐었다.
+PRINTFORMW 
+PRINTFORMW 『이렇게까지 했는데 말 하지 않는구나…』
+PRINTFORMW 『그럼, 잘가라.』
+PRINTFORMW 
+PRINTFORMW 그렇게 말하는 광왕의 표정은 마치…
+PRINTFORMW 
+PRINTL  
+PRINTL -------------------------------GAMEOVER---------------------------------
+PRINTL  
+
+
+
+;---------------------------------------------------------
+@CHAR_GIFT, ARG, ARGS
+#DIM CHARA, 1
+#DIM PERSONAL
+#DIM MOTHER
+#DIM MON_ID
+#DIM MOTHER_TYPE
+#DIM MOTHER_RACE
+;---------------------------------------------------------
+;ARG = 指定種族（100以上は指定母体）
+;ARGS = 贈呈元
+
+;母親フラグ
+MOTHER = -1
+MOTHER_RACE = -1
+MON_ID = 0
+MOTHER_TYPE = 0
+PERSONAL = 160
+
+IF ARG > 100
+	MOTHER = ARG - 100
+	ARG = 9
+	MON_ID = CFLAG:MOTHER:112
+	IF MON_ID == 171
+		;듀라한
+		ARG = 4
+	ELSEIF MON_ID == 172
+		;ヴァンパイアは吸血鬼
+		ARG = 3
+	ELSEIF MON_ID == 114 || MON_ID == 141
+		;좀비하운드・ヘルハウンドは人狼
+		ARG = 2
+	ELSEIF MON_ID == 193
+		;カオスドラゴンはドラゴン
+		ARG = 5
+	ELSEIF MON_ID == 191
+		;ダークメサイアは타천사
+		ARG = 8
+	ENDIF
+	
+	;母親の性格記憶
+	FOR LOCAL,160,199
+		IF TALENT:MOTHER:LOCAL == 1
+			;モンスターIDと区別するため, 1000を追加する
+			MOTHER_TYPE = LOCAL + 1000
+			BREAK
+		ENDIF
+	NEXT
+	
+	MOTHER_RACE = TALENT:MOTHER:314
+	
+ENDIF
+
+;キャラのNOを選定
+$INPUT_LOOP_1
+CHARA = RAND(1, 17)
+;出産の場合, 特殊キャラ呼び出し
+SIF MOTHER >= 0
+	CHARA = 100
+ADDCHARA CHARA
+A = CHARANUM - 1
+
+TALENT:A:300 = LOCAL:300
+SIF TALENT:A:300 == 0
+	TALENT:A:300 = 1
+
+$INPUT_LOOP_2
+PRINTL 취향의 성격과 머리카락색을 설정해 주세요. 
+PRINTFORML [0] 성격 ： %TALENTNAME:PERSONAL%
+PRINT [1] 머리 색깔 ： 
+
+IF TALENT:A:300 == 1
+	PRINTL 금발
+ELSEIF TALENT:A:300 == 2
+	PRINTL 갈색
+ELSEIF TALENT:A:300 == 3
+	PRINTL 흑발
+ELSEIF TALENT:A:300 == 4
+	PRINTL 적발
+ELSEIF TALENT:A:300 == 5
+	PRINTL 은발
+ELSEIF TALENT:A:300 == 6
+	PRINTL 청발
+ELSEIF TALENT:A:300 == 7
+	PRINTL 녹발
+ENDIF
+
+DRAWLINE
+PRINTL [100] 결정
+
+INPUT
+
+IF RESULT == 0
+	PRINTL 취향의 성격을 선택해 주세요. 
+	PRINTL [0] - 자애로움　　[1] - 자신만만　[2] - 기가약함　　
+	PRINTL [3] - 고귀함　	　[4] - 냉철함　　[5] - 악녀　　
+	PRINTL [6] - 두뇌명석　　[7] - 비호자　
+	INPUT
+	IF RESULT >= 8
+		PERSONAL = 160
+		GOTO INPUT_LOOP_2
+	ELSEIF RESULT == 0
+		PERSONAL = 160
+	ELSEIF RESULT == 1
+		PERSONAL = 161
+	ELSEIF RESULT == 2
+		PERSONAL = 162
+	ELSEIF RESULT == 3
+		PERSONAL = 163
+	ELSEIF RESULT == 4
+		PERSONAL = 164
+	ELSEIF RESULT == 5
+		PERSONAL = 166
+	ELSEIF RESULT == 6
+		PERSONAL = 172
+	ELSEIF RESULT == 7
+		PERSONAL = 173
+	ELSEIF RESULT < 0
+		PERSONAL = 160
+		GOTO INPUT_LOOP_2
+	ENDIF
+	GOTO INPUT_LOOP_2
+
+ELSEIF RESULT == 1
+	PRINTL 좋아하는 머리색을 골라주세요. 
+	PRINTL [1] 금발  [2]갈색  [3]흑발  [4]적발  [5]은발  [6]청발  [7]녹발
+	INPUT
+	IF RESULT >= 1 && RESULT <= 7
+		TALENT:A:300 = RESULT
+		LOCAL:300 = RESULT
+	ENDIF
+	GOTO INPUT_LOOP_2
+ELSEIF RESULT == 100
+ELSE
+	GOTO INPUT_LOOP_2
+ENDIF
+
+CALL CHAR_MAKE, PERSONAL, ARG
+CFLAG:RESULT:1 = 0
+A = RESULT
+
+;種族年齢再設定
+IF GETBIT(FLAG:5,12) || GETBIT(FLAG:5,13)
+	CALL RACE_AGE_GENERATE, CFLAG:A:451, TALENT:A:314
+	CFLAG:A:452 = RESULT
+ENDIF
+
+;父親と母親記憶
+;貢物の場合, 0が入る
+SIF MOTHER_RACE > -1
+	TALENT:A:321 = MOTHER_RACE
+TALENT:A:322 = MON_ID
+TALENT:A:323 = MON_ID
+TALENT:A:324 = MOTHER_TYPE
+
+PRINTL *****************************************
+IF MOTHER >= 0
+	PRINT 예언의 마법이 소녀인
+	PRINTS SAVESTR:A
+	PRINTL 의 미래를 암시한다……
+ELSE
+	PRINTFORM %ARGS%의 
+	PRINTS SAVESTR:A
+	PRINT 가
+	SIF ARG == 1
+		PRINT 엘프왕
+	SIF ARG == 5
+		PRINT 드래곤의 장로
+	SIF ARG == 6
+		PRINT 천계
+	PRINTL (으)로부터 보내져 왔습니다………
+ENDIF
+PRINTL *****************************************
+;FLAG:87 = 2
+PRINTW
+CALL SHOW_CHARA_INFO, A
+IF MOTHER >= 0
+	PRINTL 이 미래를 부정합니까？
+ELSE
+	PRINTL 반환합니까？
+ENDIF
+PRINTL [1] 네  [2] 아니오
+INPUT
+IF RESULT == 1
+	A = CHARANUM - 1
+	CALL PARTY_CHAR_DEL, A
+	DELCHARA A
+	CALL NAME_RESET
+	GOTO INPUT_LOOP_1
+ELSE
+ENDIF
+
+
+RETURN 0

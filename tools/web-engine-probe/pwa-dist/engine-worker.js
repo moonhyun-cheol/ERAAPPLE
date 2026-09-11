@@ -6924,7 +6924,7 @@ var Redraw = class extends Statement {
   async *run(vm2) {
     const value = await this.arg.get().reduce(vm2);
     bigint(value, "Argument of REDRAW must be a number");
-    cond(value > 0 && value <= 3, "Argument of REDRAW must be between 0 and 3");
+    cond(value >= 0 && value <= 3, "Argument of REDRAW must be between 0 and 3");
     switch (value) {
       case 0n:
         vm2.printer.draw = false;

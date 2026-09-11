@@ -1,2 +1,11 @@
 # Prebuilt PWA hashes must survive Git checkout unchanged on every platform.
 /tools/web-engine-probe/pwa-dist/** -text
+
+# Game source is UTF-8 (BOM) + CRLF. Freeze EOL so checkout is byte-exact
+# on every platform (protects original-integrity invariant) while staying diffable.
+*.ERB text eol=crlf
+*.ERH text eol=crlf
+*.CSV text eol=crlf
+*.erb text eol=crlf
+*.erh text eol=crlf
+*.csv text eol=crlf

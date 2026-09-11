@@ -42,6 +42,13 @@
 //      savedata comment CHKDATA reads, rendered as printer-auto-detected [n]
 //      buttons; selecting a slot runs SAVEDATA (save) or LOADDATA -> DATALOADED
 //      (load). Cancel returns to the natural caller (SHOP for save, TITLE for load).
+//
+//   7. REDRAW's argument guard was `value > 0 && value <= 3`, rejecting REDRAW 0
+//      even though the command's own switch has an explicit `case 0n` (draw off).
+//      An off-by-one typo left `case 0n` dead and made every `REDRAW 0` throw
+//      "Argument of REDRAW must be between 0 and 3". '에라마왕 개조판 1.28'
+//      DUNGEON_INFO2 (reached via USERSHOP) uses REDRAW 0, so its dungeon info
+//      screen crashed on entry. We relax the guard to `value >= 0` (range 0..3).
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -54,6 +61,7 @@ const indexHash = 'c80f7eff1a62dcb6b57949a1a337437443ca2b0b316e92b38fc7f8766fd32
 const dimHash = 'ad6796e361d6f5be9749a95f4244f258f16c04c3ad735e32d78d81a36dcf263e';
 const sceneHash = '074903852ba7a8dc24c89fbfc46f5b157f1c54435c9be3d592002e92dcb9154c';
 const vmHash = '18fe5bb4ebe0d48a588a410f71472d5d629bfd95c54c200e09b4d36b960779f1';
+const redrawHash = '70235a17b2e8fb3224b1d9858bf63e16870d0a9a5814af7c7aa1f21fbca6792e';
 
 // Manual save/load scenes appended to scene.js (see fix #6). Kept as a literal so
 // the generated source stays plain concatenation (no nested template/backticks)
@@ -347,6 +355,23 @@ export function transformVmSource(source) {
   return r.result();
 }
 
+export function transformRedrawSource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== redrawHash) throw new Error(`Compat fix source fingerprint mismatch: redraw.js (${digest})`);
+  const r = makeReplace('Compat redraw.js', source);
+  // Fix #7: REDRAW's argument guard rejected 0 (`value > 0`), but the switch below
+  // has an explicit `case 0n` (REDRAW 0 = suppress redraw, a valid Emuera mode).
+  // The guard is an off-by-one typo: 0 is in-range, so the dead case never ran and
+  // any `REDRAW 0` (e.g. '에라마왕 개조판 1.28' DUNGEON_INFO2 line 12, reached via
+  // USERSHOP) threw "Argument of REDRAW must be between 0 and 3". Relax to `>= 0`
+  // so the range matches the switch (0..3).
+  r.apply(
+    'assert.cond(value > 0 && value <= 3, "Argument of REDRAW must be between 0 and 3");',
+    'assert.cond(value >= 0 && value <= 3, "Argument of REDRAW must be between 0 and 3");');
+  return r.result();
+}
+
 export function transformGamebaseSource(source) {
   source = source.replaceAll('\r\n', '\n');
   const digest = createHash('sha256').update(source).digest('hex');
@@ -457,6 +482,10 @@ export function compatFixPlugin(engine) {
     }));
     build.onLoad({ filter: /[\\/]build[\\/]vm\.js$/ }, async args => ({
       contents: transformVmSource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]redraw\.js$/ }, async args => ({
+      contents: transformRedrawSource(await readFile(args.path, 'utf8')),
       loader: 'js', resolveDir: path.dirname(args.path)
     }));
   } };
