@@ -28,24 +28,40 @@ has_crlf = b"\r\n" in orig_bytes
 orig_lines = orig_bytes.decode("utf-8-sig").split("\n")
 
 # 테스트용 xlsx 복사 + 대상 파일의 앞쪽 슬롯 3개에 더미 대사 기입
+INPUT_HEADER = "작성할 대사 ← 여기에 입력"
 test_xlsx = os.path.join(tmp, "test.xlsx")
 shutil.copy2(XLSX, test_xlsx)
 wb = load_workbook(test_xlsx)
-ws = wb["작성필요"]
-header = [c.value for c in ws[1]]
-c_file = header.index("파일") + 1
-c_input = header.index("작성할 대사 ← 여기에 입력") + 1
-c_line = header.index("_line") + 1
 
+
+def find_header(ws):
+    for r in range(1, min(ws.max_row, 60) + 1):
+        vals = [c.value for c in ws[r]]
+        if INPUT_HEADER in vals:
+            idx = {v.strip(): i + 1 for i, v in enumerate(vals) if isinstance(v, str) and v.strip()}
+            return r, idx
+    return None, None
+
+
+# 캐릭터별 시트에서 TEST_FILE 을 담은 시트를 찾는다
 targets = []
-for r in range(2, ws.max_row + 1):
-    if ws.cell(r, c_file).value == TEST_FILE:
-        line = int(ws.cell(r, c_line).value)
-        marker = f"[[TESTMARK {len(targets)} 마オ테스트]]"
-        ws.cell(r, c_input).value = marker
-        targets.append((line, marker))
-        if len(targets) == 3:
-            break
+for ws in wb.worksheets:
+    if ws.title in ("안내", "요약"):
+        continue
+    hr, idx = find_header(ws)
+    if not idx or "파일" not in idx:
+        continue
+    c_file, c_input, c_line = idx["파일"], idx[INPUT_HEADER], idx["_line"]
+    for r in range(hr + 1, ws.max_row + 1):
+        if ws.cell(r, c_file).value == TEST_FILE:
+            line = int(ws.cell(r, c_line).value)
+            marker = f"[[TESTMARK {len(targets)} 마オ테스트]]"
+            ws.cell(r, c_input).value = marker
+            targets.append((line, marker))
+            if len(targets) == 3:
+                break
+    if targets:
+        break
 wb.save(test_xlsx)
 assert targets, "테스트 대상 슬롯을 찾지 못함"
 
