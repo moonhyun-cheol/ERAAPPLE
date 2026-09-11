@@ -11,6 +11,9 @@ debug/
 # === Local upstream checkout used by development probes ===
 .my_agent_remote/
 
+# === Agent internal checkpoints (not project content) ===
+.cqr-pa/
+
 # === Third-party binaries & archives (not tracked: redistributable/regenerable) ===
 *.exe
 *.7z

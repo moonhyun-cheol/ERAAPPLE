@@ -1,0 +1,153 @@
+{
+  "passed": true,
+  "day16LiveForcedGcMiB": 287.591,
+  "characters": 2,
+  "staticScopes": 297,
+  "fullTopConstructors": [
+    {
+      "name": "_CompactSlice",
+      "count": 734600
+    },
+    {
+      "name": "Array",
+      "count": 590121
+    },
+    {
+      "name": "CompactLabelMap",
+      "count": 330666
+    },
+    {
+      "name": "Thunk",
+      "count": 330666
+    },
+    {
+      "name": "Lazy",
+      "count": 309560
+    },
+    {
+      "name": "PrintForm",
+      "count": 306841
+    },
+    {
+      "name": "Assign",
+      "count": 109513
+    },
+    {
+      "name": "_If",
+      "count": 109098
+    },
+    {
+      "name": "Print",
+      "count": 31664
+    },
+    {
+      "name": "Return",
+      "count": 30252
+    },
+    {
+      "name": "Times",
+      "count": 19969
+    },
+    {
+      "name": "_Fn",
+      "count": 16860
+    }
+  ],
+  "fullStringCodeUnitsMiBApprox": 87.557,
+  "fullArraySlots": 12869578,
+  "storage": {
+    "global": {
+      "maps": 1,
+      "cells": 783,
+      "deferredCells": 0,
+      "allocatedCells": 117,
+      "arrays": 94857,
+      "slots": 11426198,
+      "nonDefaultSlots": 2586
+    },
+    "static": {
+      "maps": 297,
+      "cells": 593,
+      "deferredCells": 526,
+      "allocatedCells": 66,
+      "arrays": 66,
+      "slots": 54112,
+      "nonDefaultSlots": 113
+    },
+    "characters": {
+      "maps": 2,
+      "cells": 56,
+      "deferredCells": 0,
+      "allocatedCells": 44,
+      "arrays": 44,
+      "slots": 33600,
+      "nonDefaultSlots": 57
+    }
+  },
+  "roots": {
+    "characterList": {
+      "objects": 147,
+      "strings": 376,
+      "stringCodeUnits": 969,
+      "arraySlots": 33644,
+      "mapEntries": 56
+    },
+    "staticMap": {
+      "objects": 1253,
+      "strings": 3182,
+      "stringCodeUnits": 14365,
+      "arraySlots": 54408,
+      "mapEntries": 890
+    },
+    "globalMap": {
+      "objects": 95725,
+      "strings": 83462,
+      "stringCodeUnits": 24469,
+      "arraySlots": 11426312,
+      "mapEntries": 783
+    },
+    "printer": {
+      "objects": 4,
+      "strings": 7,
+      "stringCodeUnits": 34,
+      "arraySlots": 0,
+      "mapEntries": 0
+    },
+    "code": {
+      "objects": 2879445,
+      "strings": 1520975,
+      "stringCodeUnits": 45505961,
+      "arraySlots": 1353721,
+      "mapEntries": 10960
+    },
+    "fnMap": {
+      "objects": 2731554,
+      "strings": 1443631,
+      "stringCodeUnits": 42975207,
+      "arraySlots": 1266772,
+      "mapEntries": 18190
+    },
+    "eventMap": {
+      "objects": 142918,
+      "strings": 89231,
+      "stringCodeUnits": 2851156,
+      "arraySlots": 69539,
+      "mapEntries": 335
+    },
+    "templateMap": {
+      "objects": 2713,
+      "strings": 1637,
+      "stringCodeUnits": 5524,
+      "arraySlots": 0,
+      "mapEntries": 6995
+    },
+    "contextStack": {
+      "objects": 14,
+      "strings": 108,
+      "stringCodeUnits": 39,
+      "arraySlots": 1102,
+      "mapEntries": 2
+    }
+  },
+  "result": "C:\\Users\\Temp\\Desktop\\현철\\코딩연습\\eraTHYMKR-master\\tools\\web-engine-probe\\results\\day16-ownership-profile.json"
+}

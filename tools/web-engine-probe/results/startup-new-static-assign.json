@@ -1,0 +1,9 @@
+{
+  "engine": "chromium",
+  "label": "new-static-assign",
+  "startupMs": 4518,
+  "reloadMs": 4439,
+  "firstStatus": "입력 대기",
+  "firstError": "",
+  "pageErrors": []
+}

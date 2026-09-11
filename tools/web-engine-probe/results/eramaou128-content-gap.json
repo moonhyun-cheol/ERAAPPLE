@@ -1,0 +1,5277 @@
+{
+  "game": "에라마왕 개조판 1.28",
+  "phase": "ok",
+  "readOnly": true,
+  "erbCount": 274,
+  "functionCount": 2019,
+  "duplicateDefinitions": [
+    {
+      "name": "DUNGEON_BITCH",
+      "first": {
+        "file": "ERB/DUNGEON_BITCH.ERB",
+        "line": 3
+      },
+      "dup": {
+        "file": "ERB/DUNGEON_BITCH.ERB",
+        "line": 1176
+      }
+    },
+    {
+      "name": "HEROINE_BITCH",
+      "first": {
+        "file": "ERB/DUNGEON_BITCH.ERB",
+        "line": 52
+      },
+      "dup": {
+        "file": "ERB/DUNGEON_BITCH.ERB",
+        "line": 1222
+      }
+    },
+    {
+      "name": "DUNGEON_ANIMAL",
+      "first": {
+        "file": "ERB/DUNGEON_BITCH.ERB",
+        "line": 503
+      },
+      "dup": {
+        "file": "ERB/DUNGEON_BITCH.ERB",
+        "line": 1945
+      }
+    },
+    {
+      "name": "DUNGEON_WORK",
+      "first": {
+        "file": "ERB/DUNGEON_BITCH.ERB",
+        "line": 481
+      },
+      "dup": {
+        "file": "ERB/DUNGEON_BITCH.ERB",
+        "line": 2082
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 87
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 601
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K10_クラブ.ERB",
+        "line": 62
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K10_クラブ.ERB",
+        "line": 68
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K10_クラブ.ERB",
+        "line": 76
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K10_クラブ.ERB",
+        "line": 813
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K11_リリィ.ERB",
+        "line": 100
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K11_リリィ.ERB",
+        "line": 106
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K11_リリィ.ERB",
+        "line": 114
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K11_リリィ.ERB",
+        "line": 652
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K12_知的.ERB",
+        "line": 67
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K12_知的.ERB",
+        "line": 73
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K12_知的.ERB",
+        "line": 81
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K12_知的.ERB",
+        "line": 312
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K13_庇護者.ERB",
+        "line": 71
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K13_庇護者.ERB",
+        "line": 77
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K13_庇護者.ERB",
+        "line": 85
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K13_庇護者.ERB",
+        "line": 428
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K14_貴公子.ERB",
+        "line": 39
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K14_貴公子.ERB",
+        "line": 45
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K14_貴公子.ERB",
+        "line": 53
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K14_貴公子.ERB",
+        "line": 500
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K1_自信家.ERB",
+        "line": 84
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K1_自信家.ERB",
+        "line": 90
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K1_自信家.ERB",
+        "line": 98
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K1_自信家.ERB",
+        "line": 870
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K2_気弱.ERB",
+        "line": 80
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K2_気弱.ERB",
+        "line": 86
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K2_気弱.ERB",
+        "line": 94
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K2_気弱.ERB",
+        "line": 740
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K3_高貴.ERB",
+        "line": 81
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K3_高貴.ERB",
+        "line": 87
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K3_高貴.ERB",
+        "line": 95
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K3_高貴.ERB",
+        "line": 790
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K4_冷徹.ERB",
+        "line": 61
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K4_冷徹.ERB",
+        "line": 67
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K4_冷徹.ERB",
+        "line": 75
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K4_冷徹.ERB",
+        "line": 456
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K5_マオ.ERB",
+        "line": 80
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K5_マオ.ERB",
+        "line": 86
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K5_マオ.ERB",
+        "line": 94
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K5_マオ.ERB",
+        "line": 695
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K6_悪女.ERB",
+        "line": 73
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K6_悪女.ERB",
+        "line": 79
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K6_悪女.ERB",
+        "line": 87
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K6_悪女.ERB",
+        "line": 585
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K7_ハート.ERB",
+        "line": 62
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K7_ハート.ERB",
+        "line": 68
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K7_ハート.ERB",
+        "line": 75
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K7_ハート.ERB",
+        "line": 825
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K8_スペード.ERB",
+        "line": 61
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K8_スペード.ERB",
+        "line": 67
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K8_スペード.ERB",
+        "line": 75
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K8_スペード.ERB",
+        "line": 813
+      }
+    },
+    {
+      "name": "EVENTTRAIN",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 73
+      },
+      "dup": {
+        "file": "ERB/EVENT_K9_ダイヤ.ERB",
+        "line": 54
+      }
+    },
+    {
+      "name": "EVENTEND",
+      "first": {
+        "file": "ERB/EVENT_K0_慈愛.ERB",
+        "line": 79
+      },
+      "dup": {
+        "file": "ERB/EVENT_K9_ダイヤ.ERB",
+        "line": 60
+      }
+    }
+  ],
+  "dynamicDispatchUses": {
+    "callform": 3,
+    "jumpform": 0,
+    "callf": 0
+  },
+  "undefinedCallJumpCount": 0,
+  "undefinedCallJump": [],
+  "deadLabelCount": 0,
+  "deadLabels": [],
+  "orphanFunctionCount": 740,
+  "orphanFunctions": [
+    {
+      "name": "USERABLUP",
+      "file": "ERB/ABL.ERB",
+      "line": 178
+    },
+    {
+      "name": "ABLUP5",
+      "file": "ERB/ABLUP5.ERB",
+      "line": 2
+    },
+    {
+      "name": "ABLUP6",
+      "file": "ERB/ABLUP6.ERB",
+      "line": 3
+    },
+    {
+      "name": "ABLUP7",
+      "file": "ERB/ABLUP7.ERB",
+      "line": 2
+    },
+    {
+      "name": "ABLUP8",
+      "file": "ERB/ABLUP8.ERB",
+      "line": 2
+    },
+    {
+      "name": "ABLUP9",
+      "file": "ERB/ABLUP9.ERB",
+      "line": 2
+    },
+    {
+      "name": "CAMPAIGN_EXIST_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 51
+    },
+    {
+      "name": "CAMPAIGN_SET_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 59
+    },
+    {
+      "name": "CAMPAIGN_ROOM_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 81
+    },
+    {
+      "name": "CAMPAIGN_ROOM_EXTRA_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 95
+    },
+    {
+      "name": "CAMPAIGN_TRAP_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 112
+    },
+    {
+      "name": "CAMPAIGN_EQUIP_SELECT_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 168
+    },
+    {
+      "name": "CAMPAIGN_MONSTER_LIST_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 189
+    },
+    {
+      "name": "CAMPAIGN_MONSTER_EXTRA_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 258
+    },
+    {
+      "name": "CAMPAIGN_DUNGEON_LV_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 275
+    },
+    {
+      "name": "CAMPAIGN_QUEST_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 281
+    },
+    {
+      "name": "CAMPAIGN_STORY_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 307
+    },
+    {
+      "name": "CAMPAIGN_ENDING_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 357
+    },
+    {
+      "name": "CAMPAIGN_MONSTER_EXTRA",
+      "file": "ERB/CAMPAIGN_EVENT.ERB",
+      "line": 218
+    },
+    {
+      "name": "EQUIP_COM200",
+      "file": "ERB/COMF200_コロシアム.ERB",
+      "line": 40
+    },
+    {
+      "name": "CONFIRM_LOST_VIRGIN_YOU",
+      "file": "ERB/COMF_VAGINASEX.ERB",
+      "line": 21
+    },
+    {
+      "name": "CALLTRAINEND",
+      "file": "ERB/COM_REGISTER.ERB",
+      "line": 205
+    },
+    {
+      "name": "LOG_BITCH_HAND",
+      "file": "ERB/DUNGEON_BITCH_LOG.ERB",
+      "line": 410
+    },
+    {
+      "name": "LOG_BITCH_ORAL",
+      "file": "ERB/DUNGEON_BITCH_LOG.ERB",
+      "line": 583
+    },
+    {
+      "name": "LOG_BITCH_LES",
+      "file": "ERB/DUNGEON_BITCH_LOG.ERB",
+      "line": 749
+    },
+    {
+      "name": "LOG_BITCH_ANAL",
+      "file": "ERB/DUNGEON_BITCH_LOG.ERB",
+      "line": 962
+    },
+    {
+      "name": "LOG_BITCH_SEX",
+      "file": "ERB/DUNGEON_BITCH_LOG.ERB",
+      "line": 1244
+    },
+    {
+      "name": "ORC_RYOU_YUSYA",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 3108
+    },
+    {
+      "name": "INSECT_RYOU_YUSYA",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 3129
+    },
+    {
+      "name": "IVY_RYOU_YUSYA",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 3133
+    },
+    {
+      "name": "SYOKUSYU_RYOU_YUSYA",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 3137
+    },
+    {
+      "name": "FAILY_RYOU_YUSYA",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 3141
+    },
+    {
+      "name": "GIANT_RYOU_YUSYA",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 3145
+    },
+    {
+      "name": "MAN_RYOU_YUSYA",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 3149
+    },
+    {
+      "name": "BEAST_RYOU_YUSYA",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 3170
+    },
+    {
+      "name": "BRAIN_RYOU_YUSYA",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 3174
+    },
+    {
+      "name": "HORSE_RYOU_YUSYA",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 3178
+    },
+    {
+      "name": "DUNGEON_INFO",
+      "file": "ERB/DUNGEON_SETUP.ERB",
+      "line": 5
+    },
+    {
+      "name": "LOVE_GAS_TRAP_FAIL",
+      "file": "ERB/DUNGEON_TRAP.ERB",
+      "line": 1286
+    },
+    {
+      "name": "LOVE_GAS_TRAP_SUCCESS",
+      "file": "ERB/DUNGEON_TRAP.ERB",
+      "line": 1290
+    },
+    {
+      "name": "LOVE_GAS_TRAP_SELF",
+      "file": "ERB/DUNGEON_TRAP.ERB",
+      "line": 1294
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_MASTER",
+      "file": "ERB/EVENT_K.ERB",
+      "line": 24
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_ASSI",
+      "file": "ERB/EVENT_K.ERB",
+      "line": 44
+    },
+    {
+      "name": "KOJO_MESSAGE_PLAYERCHANGE",
+      "file": "ERB/EVENT_K.ERB",
+      "line": 68
+    },
+    {
+      "name": "KOJO_EVENT_COM",
+      "file": "ERB/EVENT_K.ERB",
+      "line": 273
+    },
+    {
+      "name": "LOOK_VIDEO",
+      "file": "ERB/EVENT_K.ERB",
+      "line": 394
+    },
+    {
+      "name": "SINGLE_ENDING",
+      "file": "ERB/EVENT_K.ERB",
+      "line": 416
+    },
+    {
+      "name": "KOJO_LUNCH",
+      "file": "ERB/EVENT_K.ERB",
+      "line": 428
+    },
+    {
+      "name": "KOJO_LUNCH_EXERCISE",
+      "file": "ERB/EVENT_K.ERB",
+      "line": 440
+    },
+    {
+      "name": "SLAVE_ENDING",
+      "file": "ERB/EVENT_K.ERB",
+      "line": 452
+    },
+    {
+      "name": "ATTACK_KOUJO_B",
+      "file": "ERB/EVENT_K.ERB",
+      "line": 752
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 674
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 6309
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 6558
+    },
+    {
+      "name": "SELF_KOJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 6634
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7026
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7092
+    },
+    {
+      "name": "DUNGEON_VICTORY_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7151
+    },
+    {
+      "name": "BENKI_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7205
+    },
+    {
+      "name": "DUNGEON_ATTACK_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7427
+    },
+    {
+      "name": "NTR_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7656
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7736
+    },
+    {
+      "name": "MUSEUM_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7753
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7788
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_KX1",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7809
+    },
+    {
+      "name": "GROTESQUE_KOUJO_KX1",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7824
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7851
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7914
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7953
+    },
+    {
+      "name": "OSIOKI_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 8030
+    },
+    {
+      "name": "GOBI_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 8091
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 897
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 5646
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 5941
+    },
+    {
+      "name": "SELF_KOJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6023
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6471
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6489
+    },
+    {
+      "name": "DUNGEON_VICTORY_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6549
+    },
+    {
+      "name": "DUNGEON_ATTACK_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6573
+    },
+    {
+      "name": "BENKI_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6603
+    },
+    {
+      "name": "NTR_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6845
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6956
+    },
+    {
+      "name": "MUSEUM_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6973
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 7008
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 7029
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 7044
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 7071
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 7085
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 7129
+    },
+    {
+      "name": "OSIOKI_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 7205
+    },
+    {
+      "name": "GOBI_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 7267
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 750
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 11458
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 11795
+    },
+    {
+      "name": "SELF_KOJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 11882
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12263
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12281
+    },
+    {
+      "name": "BENKI_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12340
+    },
+    {
+      "name": "DUNGEON_VICTORY_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12440
+    },
+    {
+      "name": "DUNGEON_ATTACK_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12464
+    },
+    {
+      "name": "NTR_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12598
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12780
+    },
+    {
+      "name": "MUSEUM_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12798
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12831
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12852
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12867
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12894
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12908
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12946
+    },
+    {
+      "name": "OSIOKI_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 13026
+    },
+    {
+      "name": "GOBI_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 13470
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 401
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 4351
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 4546
+    },
+    {
+      "name": "SELF_KOJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 4609
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 4955
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5045
+    },
+    {
+      "name": "BENKI_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5109
+    },
+    {
+      "name": "DUNGEON_VICTORY_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5345
+    },
+    {
+      "name": "DUNGEON_ATTACK_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5399
+    },
+    {
+      "name": "NTR_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5593
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5670
+    },
+    {
+      "name": "MUSEUM_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5688
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5724
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5745
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5760
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5787
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5805
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5851
+    },
+    {
+      "name": "OSIOKI_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5931
+    },
+    {
+      "name": "GOBI_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5994
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 526
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 4425
+    },
+    {
+      "name": "KOJO_MESSAGE_SYASEI_13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 4620
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 4667
+    },
+    {
+      "name": "SELF_KOJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 4730
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5100
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5190
+    },
+    {
+      "name": "BENKI_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5255
+    },
+    {
+      "name": "DUNGEON_VICTORY_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5353
+    },
+    {
+      "name": "DUNGEON_ATTACK_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5407
+    },
+    {
+      "name": "NTR_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5601
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5735
+    },
+    {
+      "name": "MUSEUM_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5753
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5789
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5810
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5825
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5852
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5870
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5916
+    },
+    {
+      "name": "OSIOKI_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5996
+    },
+    {
+      "name": "GOBI_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 6059
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 600
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 4365
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 4560
+    },
+    {
+      "name": "SELF_KOJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 4623
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 4881
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 4971
+    },
+    {
+      "name": "BENKI_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5036
+    },
+    {
+      "name": "DUNGEON_VICTORY_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5267
+    },
+    {
+      "name": "DUNGEON_ATTACK_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5321
+    },
+    {
+      "name": "NTR_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5515
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5592
+    },
+    {
+      "name": "MUSEUM_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5610
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5646
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5664
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5679
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5706
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5724
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5762
+    },
+    {
+      "name": "OSIOKI_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5842
+    },
+    {
+      "name": "GOBI_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5905
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 981
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 6472
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 6717
+    },
+    {
+      "name": "SELF_KOJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 6793
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 7407
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 7473
+    },
+    {
+      "name": "BENKI_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 7527
+    },
+    {
+      "name": "DUNGEON_VICTORY_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 7650
+    },
+    {
+      "name": "DUNGEON_ATTACK_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 7704
+    },
+    {
+      "name": "NTR_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 7927
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8011
+    },
+    {
+      "name": "MUSEUM_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8028
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8064
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8085
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8100
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8127
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8145
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8183
+    },
+    {
+      "name": "OSIOKI_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8261
+    },
+    {
+      "name": "GOBI_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8324
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 844
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 5517
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 5765
+    },
+    {
+      "name": "SELF_KOJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 5844
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 6306
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 6372
+    },
+    {
+      "name": "BENKI_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 6426
+    },
+    {
+      "name": "DUNGEON_VICTORY_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 6610
+    },
+    {
+      "name": "DUNGEON_ATTACK_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 6664
+    },
+    {
+      "name": "NTR_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 6899
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 6982
+    },
+    {
+      "name": "MUSEUM_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 6999
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 7034
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 7055
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 7070
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 7097
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 7115
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 7153
+    },
+    {
+      "name": "OSIOKI_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 7233
+    },
+    {
+      "name": "GOBI_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 7296
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 887
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 7066
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 7405
+    },
+    {
+      "name": "SELF_KOJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 7483
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 7971
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8061
+    },
+    {
+      "name": "BENKI_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8125
+    },
+    {
+      "name": "DUNGEON_VICTORY_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8354
+    },
+    {
+      "name": "DUNGEON_ATTACK_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8408
+    },
+    {
+      "name": "NTR_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8642
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8725
+    },
+    {
+      "name": "MUSEUM_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8742
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8777
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8798
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8813
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8840
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8858
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8896
+    },
+    {
+      "name": "OSIOKI_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8974
+    },
+    {
+      "name": "GOBI_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 9037
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 521
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 3905
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 4109
+    },
+    {
+      "name": "SELF_KOJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 4172
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 4451
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 4541
+    },
+    {
+      "name": "BENKI_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 4607
+    },
+    {
+      "name": "DUNGEON_VICTORY_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 4745
+    },
+    {
+      "name": "DUNGEON_ATTACK_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 4800
+    },
+    {
+      "name": "NTR_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5025
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5106
+    },
+    {
+      "name": "MUSEUM_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5123
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5158
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5179
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5194
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5221
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5238
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5275
+    },
+    {
+      "name": "OSIOKI_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5353
+    },
+    {
+      "name": "GOBI_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5416
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 801
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 5779
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 6095
+    },
+    {
+      "name": "SELF_KOJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 6185
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7131
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7154
+    },
+    {
+      "name": "BENKI_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7209
+    },
+    {
+      "name": "DUNGEON_VICTORY_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7310
+    },
+    {
+      "name": "DUNGEON_ATTACK_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7365
+    },
+    {
+      "name": "NTR_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7534
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7790
+    },
+    {
+      "name": "MUSEUM_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7807
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7842
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7863
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7878
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7905
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7916
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7952
+    },
+    {
+      "name": "OSIOKI_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8030
+    },
+    {
+      "name": "GOBI_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8094
+    },
+    {
+      "name": "YUNHWAL_MAO",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8267
+    },
+    {
+      "name": "PENIS_DSC_MAO",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8306
+    },
+    {
+      "name": "PENIS_I_MAO",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8327
+    },
+    {
+      "name": "PENIS_II_MAO",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8340
+    },
+    {
+      "name": "SERVICE_DSC_MAO",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8358
+    },
+    {
+      "name": "SERVICE_MAO",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8376
+    },
+    {
+      "name": "AQUA_II_MAO",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8472
+    },
+    {
+      "name": "VAGINA_I_MAO",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8500
+    },
+    {
+      "name": "SOUND_DSC_MAO",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8525
+    },
+    {
+      "name": "SOUND_I_MAO",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8546
+    },
+    {
+      "name": "SOUND_II_MAO",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 8555
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 678
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 6108
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 6383
+    },
+    {
+      "name": "SELF_KOJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 6455
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7013
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7103
+    },
+    {
+      "name": "BENKI_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7168
+    },
+    {
+      "name": "DUNGEON_VICTORY_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7348
+    },
+    {
+      "name": "DUNGEON_ATTACK_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7420
+    },
+    {
+      "name": "NTR_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7648
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7731
+    },
+    {
+      "name": "MUSEUM_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7748
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7785
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7806
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7821
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7848
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7867
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7905
+    },
+    {
+      "name": "OSIOKI_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7981
+    },
+    {
+      "name": "GOBI_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 8043
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 908
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 7086
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 7463
+    },
+    {
+      "name": "SELF_KOJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 7544
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 7975
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 7993
+    },
+    {
+      "name": "BENKI_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8049
+    },
+    {
+      "name": "DUNGEON_VICTORY_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8150
+    },
+    {
+      "name": "DUNGEON_ATTACK_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8174
+    },
+    {
+      "name": "NTR_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8350
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8539
+    },
+    {
+      "name": "MUSEUM_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8556
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8591
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8616
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8631
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8658
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8672
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8715
+    },
+    {
+      "name": "OSIOKI_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8793
+    },
+    {
+      "name": "GOBI_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8858
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 891
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 6250
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 6568
+    },
+    {
+      "name": "SELF_KOJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 6649
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7073
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7093
+    },
+    {
+      "name": "DUNGEON_VICTORY_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7145
+    },
+    {
+      "name": "DUNGEON_ATTACK_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7170
+    },
+    {
+      "name": "BENKI_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7198
+    },
+    {
+      "name": "NTR_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7446
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7605
+    },
+    {
+      "name": "MUSEUM_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7622
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7657
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7678
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7693
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7720
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7734
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7779
+    },
+    {
+      "name": "OSIOKI_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7856
+    },
+    {
+      "name": "GOBI_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7917
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 877
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 6015
+    },
+    {
+      "name": "KOJO_MESSAGE_MARKCNG_9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 6308
+    },
+    {
+      "name": "SELF_KOJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 6396
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 6800
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 6818
+    },
+    {
+      "name": "DUNGEON_VICTORY_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 6876
+    },
+    {
+      "name": "DUNGEON_ATTACK_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 6903
+    },
+    {
+      "name": "BENKI_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 6933
+    },
+    {
+      "name": "NTR_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7177
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7277
+    },
+    {
+      "name": "MUSEUM_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7294
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7329
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7350
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7365
+    },
+    {
+      "name": "ENTERENEMY_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7392
+    },
+    {
+      "name": "GOHOUBI_REQUEST_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7406
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7448
+    },
+    {
+      "name": "OSIOKI_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7524
+    },
+    {
+      "name": "GOBI_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7585
+    },
+    {
+      "name": "RUNNING_COST",
+      "file": "ERB/EVENT_NEXTDAY.ERB",
+      "line": 240
+    },
+    {
+      "name": "SOMETIMES_SHE_COMES_BACK",
+      "file": "ERB/EVENT_NEXTDAY.ERB",
+      "line": 481
+    },
+    {
+      "name": "WASHING_CLOTH",
+      "file": "ERB/FUNC_CLOTH.ERB",
+      "line": 405
+    },
+    {
+      "name": "UNIT_MOVE",
+      "file": "ERB/LABO_DUNGEON_MAP.ERB",
+      "line": 10
+    },
+    {
+      "name": "LOOK_CLEAR",
+      "file": "ERB/LOOK.ERB",
+      "line": 705
+    },
+    {
+      "name": "HERO_TOILET",
+      "file": "ERB/LOVERS.ERB",
+      "line": 2225
+    },
+    {
+      "name": "HERO_VA",
+      "file": "ERB/LOVERS.ERB",
+      "line": 2241
+    },
+    {
+      "name": "HERO_ANIMAL",
+      "file": "ERB/LOVERS.ERB",
+      "line": 2284
+    },
+    {
+      "name": "HERO_TOY",
+      "file": "ERB/LOVERS.ERB",
+      "line": 2299
+    },
+    {
+      "name": "MAOUDIC_ITEM_0",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 120
+    },
+    {
+      "name": "MAOUDIC_ITEM_1",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 126
+    },
+    {
+      "name": "MAOUDIC_ITEM_2",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 134
+    },
+    {
+      "name": "MAOUDIC_ITEM_3",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 142
+    },
+    {
+      "name": "MAOUDIC_ITEM_4",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 151
+    },
+    {
+      "name": "MAOUDIC_ITEM_5",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 159
+    },
+    {
+      "name": "MAOUDIC_ITEM_6",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 166
+    },
+    {
+      "name": "MAOUDIC_ITEM_7",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 173
+    },
+    {
+      "name": "MAOUDIC_ITEM_8",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 180
+    },
+    {
+      "name": "MAOUDIC_ITEM_9",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 187
+    },
+    {
+      "name": "MAOUDIC_ITEM_10",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 193
+    },
+    {
+      "name": "MAOUDIC_ITEM_11",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 200
+    },
+    {
+      "name": "MAOUDIC_ITEM_12",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 206
+    },
+    {
+      "name": "MAOUDIC_ITEM_13",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 215
+    },
+    {
+      "name": "MAOUDIC_ITEM_14",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 222
+    },
+    {
+      "name": "MAOUDIC_ITEM_15",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 229
+    },
+    {
+      "name": "MAOUDIC_ITEM_16",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 235
+    },
+    {
+      "name": "MAOUDIC_ITEM_17",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 243
+    },
+    {
+      "name": "MAOUDIC_ITEM_18",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 251
+    },
+    {
+      "name": "MAOUDIC_ITEM_19",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 258
+    },
+    {
+      "name": "MAOUDIC_ITEM_20",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 265
+    },
+    {
+      "name": "MAOUDIC_ITEM_21",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 272
+    },
+    {
+      "name": "MAOUDIC_ITEM_22",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 278
+    },
+    {
+      "name": "MAOUDIC_ITEM_23",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 286
+    },
+    {
+      "name": "MAOUDIC_ITEM_24",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 293
+    },
+    {
+      "name": "MAOUDIC_ITEM_25",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 300
+    },
+    {
+      "name": "MAOUDIC_ITEM_26",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 306
+    },
+    {
+      "name": "MAOUDIC_ITEM_27",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 313
+    },
+    {
+      "name": "MAOUDIC_ITEM_28",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 320
+    },
+    {
+      "name": "MAOUDIC_ITEM_29",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 327
+    },
+    {
+      "name": "MAOUDIC_ITEM_30",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 333
+    },
+    {
+      "name": "MAOUDIC_ITEM_31",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 340
+    },
+    {
+      "name": "MAOUDIC_ITEM_33",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 347
+    },
+    {
+      "name": "MAOUDIC_ITEM_34",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 354
+    },
+    {
+      "name": "MAOUDIC_ITEM_35",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 360
+    },
+    {
+      "name": "MAOUDIC_ITEM_37",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 367
+    },
+    {
+      "name": "MAOUDIC_ITEM_38",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 374
+    },
+    {
+      "name": "MAOUDIC_ITEM_39",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 381
+    },
+    {
+      "name": "MAOUDIC_ITEM_40",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 389
+    },
+    {
+      "name": "MAOUDIC_ITEM_41",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 396
+    },
+    {
+      "name": "MAOUDIC_ITEM_42",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 403
+    },
+    {
+      "name": "MAOUDIC_ITEM_52",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 410
+    },
+    {
+      "name": "MAOUDIC_ITEM_53",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 417
+    },
+    {
+      "name": "MAOUDIC_TRAP_54",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 496
+    },
+    {
+      "name": "MAOUDIC_TRAP_55",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 503
+    },
+    {
+      "name": "MAOUDIC_TRAP_56",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 510
+    },
+    {
+      "name": "MAOUDIC_TRAP_60",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 517
+    },
+    {
+      "name": "MAOUDIC_TRAP_61",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 528
+    },
+    {
+      "name": "MAOUDIC_TRAP_62",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 538
+    },
+    {
+      "name": "MAOUDIC_TRAP_63",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 550
+    },
+    {
+      "name": "MAOUDIC_TRAP_64",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 561
+    },
+    {
+      "name": "MAOUDIC_TRAP_65",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 571
+    },
+    {
+      "name": "MAOUDIC_TRAP_66",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 581
+    },
+    {
+      "name": "MAOUDIC_TRAP_67",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 592
+    },
+    {
+      "name": "MAOUDIC_TRAP_68",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 601
+    },
+    {
+      "name": "MAOUDIC_TRAP_69",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 613
+    },
+    {
+      "name": "MAOUDIC_TRAP_70",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 624
+    },
+    {
+      "name": "MAOUDIC_TRAP_71",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 634
+    },
+    {
+      "name": "MAOUDIC_TRAP_72",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 646
+    },
+    {
+      "name": "MAOUDIC_TRAP_73",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 657
+    },
+    {
+      "name": "MAOUDIC_TRAP_74",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 666
+    },
+    {
+      "name": "MAOUDIC_TRAP_75",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 676
+    },
+    {
+      "name": "MAOUDIC_TRAP_76",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 685
+    },
+    {
+      "name": "MAOUDIC_TRAP_77",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 695
+    },
+    {
+      "name": "MAOUDIC_TRAP_78",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 704
+    },
+    {
+      "name": "MAOUDIC_TRAP_79",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 713
+    },
+    {
+      "name": "MAOUDIC_TRAP_80",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 724
+    },
+    {
+      "name": "MAOUDIC_TRAP_81",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 734
+    },
+    {
+      "name": "MAOUDIC_TRAP_82",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 744
+    },
+    {
+      "name": "MAOUDIC_TRAP_83",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 754
+    },
+    {
+      "name": "MAOUDIC_TRAP_84",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 764
+    },
+    {
+      "name": "MAOUDIC_TRAP_85",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 774
+    },
+    {
+      "name": "MAOUDIC_TRAP_91",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 784
+    },
+    {
+      "name": "MAOUDIC_RING_0",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 855
+    },
+    {
+      "name": "MAOUDIC_RING_1",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 872
+    },
+    {
+      "name": "MAOUDIC_RING_2",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 881
+    },
+    {
+      "name": "MAOUDIC_RING_3",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 891
+    },
+    {
+      "name": "MAOUDIC_RING_4",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 900
+    },
+    {
+      "name": "MAOUDIC_RING_5",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 910
+    },
+    {
+      "name": "MAOUDIC_RING_6",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 920
+    },
+    {
+      "name": "MAOUDIC_RING_7",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 931
+    },
+    {
+      "name": "MAOUDIC_RING_8",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 940
+    },
+    {
+      "name": "MAOUDIC_RING_9",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 949
+    },
+    {
+      "name": "MAOUDIC_RING_10",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 958
+    },
+    {
+      "name": "MAOUDIC_RING_11",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 969
+    },
+    {
+      "name": "MAOUDIC_RING_12",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 979
+    },
+    {
+      "name": "MAOUDIC_RING_13",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 990
+    },
+    {
+      "name": "MAOUDIC_RING_14",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1001
+    },
+    {
+      "name": "MAOUDIC_RING_15",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1012
+    },
+    {
+      "name": "MAOUDIC_RING_16",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1023
+    },
+    {
+      "name": "MAOUDIC_RING_17",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1034
+    },
+    {
+      "name": "MAOUDIC_RING_18",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1047
+    },
+    {
+      "name": "MAOUDIC_RING_19",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1057
+    },
+    {
+      "name": "MAOUDIC_RING_20",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1068
+    },
+    {
+      "name": "MAOUDIC_ROOM_0",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1132
+    },
+    {
+      "name": "MAOUDIC_ROOM_1",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1143
+    },
+    {
+      "name": "MAOUDIC_ROOM_2",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1153
+    },
+    {
+      "name": "MAOUDIC_ROOM_3",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1163
+    },
+    {
+      "name": "MAOUDIC_ROOM_4",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1172
+    },
+    {
+      "name": "MAOUDIC_ROOM_5",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1181
+    },
+    {
+      "name": "MAOUDIC_ROOM_6",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1192
+    },
+    {
+      "name": "MAOUDIC_ROOM_7",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1202
+    },
+    {
+      "name": "MAOUDIC_ROOM_8",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1213
+    },
+    {
+      "name": "MAOUDIC_TALENT_0",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1536
+    },
+    {
+      "name": "MAOUDIC_TALENT_1",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1547
+    },
+    {
+      "name": "MAOUDIC_TALENT_2",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1556
+    },
+    {
+      "name": "MAOUDIC_TALENT_3",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1568
+    },
+    {
+      "name": "MAOUDIC_TALENT_4",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1579
+    },
+    {
+      "name": "MAOUDIC_TALENT_5",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1591
+    },
+    {
+      "name": "MAOUDIC_TALENT_6",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1604
+    },
+    {
+      "name": "MAOUDIC_TALENT_7",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1616
+    },
+    {
+      "name": "MAOUDIC_TALENT_8",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1627
+    },
+    {
+      "name": "MAOUDIC_TALENT_9",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1640
+    },
+    {
+      "name": "MAOUDIC_TALENT_10",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1652
+    },
+    {
+      "name": "MAOUDIC_TALENT_11",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1664
+    },
+    {
+      "name": "MAOUDIC_TALENT_12",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1675
+    },
+    {
+      "name": "MAOUDIC_TALENT_13",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1688
+    },
+    {
+      "name": "MAOUDIC_TALENT_14",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1700
+    },
+    {
+      "name": "MAOUDIC_TALENT_15",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1712
+    },
+    {
+      "name": "MAOUDIC_TALENT_16",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1724
+    },
+    {
+      "name": "MAOUDIC_TALENT_17",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1737
+    },
+    {
+      "name": "MAOUDIC_TALENT_18",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1748
+    },
+    {
+      "name": "MAOUDIC_TALENT_19",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1759
+    },
+    {
+      "name": "MAOUDIC_TALENT_20",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1771
+    },
+    {
+      "name": "MAOUDIC_TALENT_21",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1784
+    },
+    {
+      "name": "MAOUDIC_TALENT_22",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1797
+    },
+    {
+      "name": "MAOUDIC_TALENT_23",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1809
+    },
+    {
+      "name": "MAOUDIC_TALENT_24",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1822
+    },
+    {
+      "name": "MAOUDIC_TALENT_25",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1835
+    },
+    {
+      "name": "MAOUDIC_TALENT_26",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1848
+    },
+    {
+      "name": "MAOUDIC_TALENT_27",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1860
+    },
+    {
+      "name": "MAOUDIC_TALENT_28",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1871
+    },
+    {
+      "name": "MAOUDIC_TALENT_29",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1882
+    },
+    {
+      "name": "MAOUDIC_TALENT_30",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1894
+    },
+    {
+      "name": "MAOUDIC_TALENT_31",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1905
+    },
+    {
+      "name": "MAOUDIC_TALENT_32",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1917
+    },
+    {
+      "name": "MAOUDIC_TALENT_33",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1928
+    },
+    {
+      "name": "MAOUDIC_TALENT_34",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1937
+    },
+    {
+      "name": "MAOUDIC_TALENT_35",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1946
+    },
+    {
+      "name": "MAOUDIC_TALENT_36",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1959
+    },
+    {
+      "name": "MAOUDIC_TALENT_37",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1970
+    },
+    {
+      "name": "MAOUDIC_TALENT_38",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1980
+    },
+    {
+      "name": "MAOUDIC_TALENT_39",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 1992
+    },
+    {
+      "name": "MAOUDIC_TALENT_40",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2004
+    },
+    {
+      "name": "MAOUDIC_TALENT_41",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2010
+    },
+    {
+      "name": "MAOUDIC_TALENT_42",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2016
+    },
+    {
+      "name": "MAOUDIC_TALENT_43",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2022
+    },
+    {
+      "name": "MAOUDIC_TALENT_44",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2028
+    },
+    {
+      "name": "MAOUDIC_TALENT_45",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2034
+    },
+    {
+      "name": "MAOUDIC_TALENT_46",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2040
+    },
+    {
+      "name": "MAOUDIC_TALENT_47",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2046
+    },
+    {
+      "name": "MAOUDIC_TALENT_48",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2052
+    },
+    {
+      "name": "MAOUDIC_TALENT_49",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2058
+    },
+    {
+      "name": "MAOUDIC_TALENT_50",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2064
+    },
+    {
+      "name": "MAOUDIC_TALENT_51",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2070
+    },
+    {
+      "name": "MAOUDIC_TALENT_52",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2076
+    },
+    {
+      "name": "MAOUDIC_TALENT_53",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2082
+    },
+    {
+      "name": "MAOUDIC_TALENT_54",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2088
+    },
+    {
+      "name": "MAOUDIC_TALENT_55",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2094
+    },
+    {
+      "name": "MAOUDIC_TALENT_56",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2100
+    },
+    {
+      "name": "MAOUDIC_TALENT_57",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2106
+    },
+    {
+      "name": "MAOUDIC_TALENT_58",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2112
+    },
+    {
+      "name": "MAOUDIC_TALENT_59",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2118
+    },
+    {
+      "name": "MAOUDIC_TALENT_60",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2124
+    },
+    {
+      "name": "MAOUDIC_TALENT_61",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2130
+    },
+    {
+      "name": "MAOUDIC_TALENT_62",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2136
+    },
+    {
+      "name": "MAOUDIC_TALENT_63",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2142
+    },
+    {
+      "name": "MAOUDIC_TALENT_64",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2148
+    },
+    {
+      "name": "MAOUDIC_TALENT_65",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2154
+    },
+    {
+      "name": "MAOUDIC_TALENT_66",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2160
+    },
+    {
+      "name": "MAOUDIC_TALENT_67",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2166
+    },
+    {
+      "name": "MAOUDIC_TALENT_68",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2172
+    },
+    {
+      "name": "MAOUDIC_TALENT_69",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2178
+    },
+    {
+      "name": "MAOUDIC_TALENT_70",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2184
+    },
+    {
+      "name": "MAOUDIC_TALENT_71",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2190
+    },
+    {
+      "name": "MAOUDIC_TALENT_72",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2196
+    },
+    {
+      "name": "MAOUDIC_TALENT_73",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2202
+    },
+    {
+      "name": "MAOUDIC_TALENT_74",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2208
+    },
+    {
+      "name": "MAOUDIC_TALENT_75",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2214
+    },
+    {
+      "name": "MAOUDIC_TALENT_76",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2220
+    },
+    {
+      "name": "MAOUDIC_TALENT_77",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2226
+    },
+    {
+      "name": "MAOUDIC_TALENT_78",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2232
+    },
+    {
+      "name": "MAOUDIC_TALENT_79",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2238
+    },
+    {
+      "name": "MAOUDIC_TALENT_80",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2244
+    },
+    {
+      "name": "MAOUDIC_TALENT_81",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2250
+    },
+    {
+      "name": "MAOUDIC_TALENT_82",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2256
+    },
+    {
+      "name": "MAOUDIC_TALENT_83",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2262
+    },
+    {
+      "name": "MAOUDIC_TALENT_84",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2268
+    },
+    {
+      "name": "MAOUDIC_TALENT_85",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2274
+    },
+    {
+      "name": "MAOUDIC_TALENT_86",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2280
+    },
+    {
+      "name": "MAOUDIC_TALENT_87",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2286
+    },
+    {
+      "name": "MAOUDIC_TALENT_88",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2292
+    },
+    {
+      "name": "MAOUDIC_TALENT_89",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2298
+    },
+    {
+      "name": "MAOUDIC_TALENT_90",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2304
+    },
+    {
+      "name": "MAOUDIC_TALENT_91",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2310
+    },
+    {
+      "name": "MAOUDIC_TALENT_92",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2316
+    },
+    {
+      "name": "MAOUDIC_TALENT_93",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2322
+    },
+    {
+      "name": "MAOUDIC_TALENT_94",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2328
+    },
+    {
+      "name": "MAOUDIC_TALENT_95",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2334
+    },
+    {
+      "name": "MAOUDIC_TALENT_96",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2340
+    },
+    {
+      "name": "MAOUDIC_TALENT_97",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2346
+    },
+    {
+      "name": "MAOUDIC_TALENT_98",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2352
+    },
+    {
+      "name": "MAOUDIC_TALENT_99",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2358
+    },
+    {
+      "name": "MAOUDIC_TALENT_100",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2364
+    },
+    {
+      "name": "MAOUDIC_TALENT_101",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2370
+    },
+    {
+      "name": "MAOUDIC_TALENT_102",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2376
+    },
+    {
+      "name": "MAOUDIC_TALENT_103",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2382
+    },
+    {
+      "name": "MAOUDIC_TALENT_104",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2388
+    },
+    {
+      "name": "MAOUDIC_TALENT_105",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2394
+    },
+    {
+      "name": "MAOUDIC_TALENT_106",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2400
+    },
+    {
+      "name": "MAOUDIC_TALENT_107",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2406
+    },
+    {
+      "name": "MAOUDIC_TALENT_108",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2412
+    },
+    {
+      "name": "MAOUDIC_TALENT_109",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2418
+    },
+    {
+      "name": "MAOUDIC_TALENT_110",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2424
+    },
+    {
+      "name": "MAOUDIC_TALENT_111",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2430
+    },
+    {
+      "name": "MAOUDIC_TALENT_112",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2436
+    },
+    {
+      "name": "MAOUDIC_TALENT_113",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2442
+    },
+    {
+      "name": "MAOUDIC_TALENT_114",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2448
+    },
+    {
+      "name": "MAOUDIC_TALENT_115",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2454
+    },
+    {
+      "name": "MAOUDIC_TALENT_116",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2460
+    },
+    {
+      "name": "MAOUDIC_TALENT_117",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2466
+    },
+    {
+      "name": "MAOUDIC_TALENT_118",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2472
+    },
+    {
+      "name": "MAOUDIC_TALENT_119",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2478
+    },
+    {
+      "name": "MAOUDIC_TALENT_120",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2484
+    },
+    {
+      "name": "MAOUDIC_TALENT_121",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2490
+    },
+    {
+      "name": "MAOUDIC_TALENT_122",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2496
+    },
+    {
+      "name": "MAOUDIC_TALENT_123",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2502
+    },
+    {
+      "name": "MAOUDIC_TALENT_124",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2508
+    },
+    {
+      "name": "MAOUDIC_TALENT_125",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2514
+    },
+    {
+      "name": "MAOUDIC_TALENT_126",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2520
+    },
+    {
+      "name": "MAOUDIC_TALENT_127",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2526
+    },
+    {
+      "name": "MAOUDIC_TALENT_128",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2532
+    },
+    {
+      "name": "MAOUDIC_TALENT_129",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2538
+    },
+    {
+      "name": "MAOUDIC_TALENT_130",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2544
+    },
+    {
+      "name": "MAOUDIC_TALENT_131",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2550
+    },
+    {
+      "name": "MAOUDIC_TALENT_132",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2556
+    },
+    {
+      "name": "MAOUDIC_TALENT_133",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2562
+    },
+    {
+      "name": "MAOUDIC_TALENT_134",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2568
+    },
+    {
+      "name": "MAOUDIC_TALENT_135",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2574
+    },
+    {
+      "name": "MAOUDIC_TALENT_136",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2580
+    },
+    {
+      "name": "MAOUDIC_TALENT_137",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2586
+    },
+    {
+      "name": "MAOUDIC_TALENT_138",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2592
+    },
+    {
+      "name": "MAOUDIC_TALENT_139",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2598
+    },
+    {
+      "name": "MAOUDIC_TALENT_140",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2604
+    },
+    {
+      "name": "MAOUDIC_TALENT_141",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2610
+    },
+    {
+      "name": "MAOUDIC_TALENT_142",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2616
+    },
+    {
+      "name": "MAOUDIC_TALENT_143",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2622
+    },
+    {
+      "name": "MAOUDIC_TALENT_144",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2628
+    },
+    {
+      "name": "MAOUDIC_TALENT_145",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2634
+    },
+    {
+      "name": "MAOUDIC_TALENT_146",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2640
+    },
+    {
+      "name": "MAOUDIC_TALENT_147",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2646
+    },
+    {
+      "name": "MAOUDIC_TALENT_148",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2652
+    },
+    {
+      "name": "MAOUDIC_TALENT_149",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2658
+    },
+    {
+      "name": "MAOUDIC_TALENT_150",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2664
+    },
+    {
+      "name": "MAOUDIC_TALENT_151",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2670
+    },
+    {
+      "name": "MAOUDIC_TALENT_152",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2676
+    },
+    {
+      "name": "MAOUDIC_TALENT_153",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2682
+    },
+    {
+      "name": "MAOUDIC_TALENT_154",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2688
+    },
+    {
+      "name": "MAOUDIC_TALENT_155",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2694
+    },
+    {
+      "name": "MAOUDIC_TALENT_156",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2700
+    },
+    {
+      "name": "MAOUDIC_TALENT_157",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2706
+    },
+    {
+      "name": "MAOUDIC_TALENT_158",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2712
+    },
+    {
+      "name": "MAOUDIC_TALENT_159",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2718
+    },
+    {
+      "name": "MAOUDIC_TALENT_160",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2724
+    },
+    {
+      "name": "MAOUDIC_TALENT_161",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2730
+    },
+    {
+      "name": "MAOUDIC_TALENT_162",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2736
+    },
+    {
+      "name": "MAOUDIC_TALENT_163",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2742
+    },
+    {
+      "name": "MAOUDIC_TALENT_164",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2748
+    },
+    {
+      "name": "MAOUDIC_TALENT_165",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2754
+    },
+    {
+      "name": "MAOUDIC_TALENT_166",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2760
+    },
+    {
+      "name": "MAOUDIC_TALENT_167",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2766
+    },
+    {
+      "name": "MAOUDIC_TALENT_168",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2772
+    },
+    {
+      "name": "MAOUDIC_TALENT_169",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2778
+    },
+    {
+      "name": "MAOUDIC_TALENT_170",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2784
+    },
+    {
+      "name": "MAOUDIC_TALENT_171",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2790
+    },
+    {
+      "name": "MAOUDIC_TALENT_172",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2796
+    },
+    {
+      "name": "MAOUDIC_TALENT_173",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2802
+    },
+    {
+      "name": "MAOUDIC_TALENT_174",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2808
+    },
+    {
+      "name": "MAOUDIC_TALENT_175",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2814
+    },
+    {
+      "name": "MAOUDIC_TALENT_176",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2820
+    },
+    {
+      "name": "MAOUDIC_TALENT_177",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2826
+    },
+    {
+      "name": "MAOUDIC_TALENT_178",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2832
+    },
+    {
+      "name": "MAOUDIC_TALENT_179",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2838
+    },
+    {
+      "name": "MAOUDIC_TALENT_180",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2844
+    },
+    {
+      "name": "MAOUDIC_TALENT_181",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2850
+    },
+    {
+      "name": "MAOUDIC_TALENT_182",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2856
+    },
+    {
+      "name": "MAOUDIC_TALENT_183",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2862
+    },
+    {
+      "name": "MAOUDIC_TALENT_184",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2868
+    },
+    {
+      "name": "MAOUDIC_TALENT_185",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2874
+    },
+    {
+      "name": "MAOUDIC_TALENT_186",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2880
+    },
+    {
+      "name": "MAOUDIC_TALENT_187",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2886
+    },
+    {
+      "name": "MAOUDIC_TALENT_188",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2892
+    },
+    {
+      "name": "MAOUDIC_TALENT_189",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2898
+    },
+    {
+      "name": "MAOUDIC_TALENT_190",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2904
+    },
+    {
+      "name": "MAOUDIC_TALENT_191",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2910
+    },
+    {
+      "name": "MAOUDIC_TALENT_192",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2916
+    },
+    {
+      "name": "MAOUDIC_TALENT_193",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2922
+    },
+    {
+      "name": "MAOUDIC_TALENT_194",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2928
+    },
+    {
+      "name": "MAOUDIC_TALENT_195",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2934
+    },
+    {
+      "name": "MAOUDIC_TALENT_196",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2940
+    },
+    {
+      "name": "MAOUDIC_TALENT_197",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2946
+    },
+    {
+      "name": "MAOUDIC_TALENT_198",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2952
+    },
+    {
+      "name": "MAOUDIC_TALENT_199",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2958
+    },
+    {
+      "name": "MAOUDIC_TALENT_200",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2964
+    },
+    {
+      "name": "MAOUDIC_TALENT_201",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2970
+    },
+    {
+      "name": "MAOUDIC_TALENT_202",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2976
+    },
+    {
+      "name": "MAOUDIC_TALENT_203",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2982
+    },
+    {
+      "name": "MAOUDIC_TALENT_204",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2988
+    },
+    {
+      "name": "MAOUDIC_TALENT_205",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2994
+    },
+    {
+      "name": "MAOUDIC_TALENT_206",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3000
+    },
+    {
+      "name": "MAOUDIC_TALENT_207",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3006
+    },
+    {
+      "name": "MAOUDIC_TALENT_208",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3012
+    },
+    {
+      "name": "MAOUDIC_TALENT_209",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3018
+    },
+    {
+      "name": "MAOUDIC_TALENT_210",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3024
+    },
+    {
+      "name": "MAOUDIC_TALENT_211",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3030
+    },
+    {
+      "name": "MAOUDIC_TALENT_212",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3036
+    },
+    {
+      "name": "MAOUDIC_TALENT_213",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3042
+    },
+    {
+      "name": "MAOUDIC_TALENT_214",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3048
+    },
+    {
+      "name": "MAOUDIC_TALENT_215",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3054
+    },
+    {
+      "name": "MAOUDIC_TALENT_216",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3060
+    },
+    {
+      "name": "MAOUDIC_TALENT_217",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3066
+    },
+    {
+      "name": "MAOUDIC_TALENT_218",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3072
+    },
+    {
+      "name": "MAOUDIC_TALENT_219",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3078
+    },
+    {
+      "name": "MAOUDIC_TALENT_220",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3084
+    },
+    {
+      "name": "MAOUDIC_TALENT_221",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3090
+    },
+    {
+      "name": "MAOUDIC_TALENT_222",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3096
+    },
+    {
+      "name": "MAOUDIC_TALENT_223",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3102
+    },
+    {
+      "name": "MAOUDIC_TALENT_224",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3108
+    },
+    {
+      "name": "MAOUDIC_TALENT_225",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3114
+    },
+    {
+      "name": "MAOUDIC_TALENT_226",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3120
+    },
+    {
+      "name": "MAOUDIC_TALENT_227",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3126
+    },
+    {
+      "name": "MAOUDIC_TALENT_228",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3132
+    },
+    {
+      "name": "MAOUDIC_TALENT_229",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3138
+    },
+    {
+      "name": "MAOUDIC_TALENT_230",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3144
+    },
+    {
+      "name": "MAOUDIC_TALENT_231",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3150
+    },
+    {
+      "name": "MAOUDIC_TALENT_232",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3156
+    },
+    {
+      "name": "MAOUDIC_TALENT_233",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3162
+    },
+    {
+      "name": "MAOUDIC_TALENT_234",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3168
+    },
+    {
+      "name": "MAOUDIC_TALENT_235",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3174
+    },
+    {
+      "name": "MAOUDIC_TALENT_236",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3180
+    },
+    {
+      "name": "MAOUDIC_TALENT_237",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3186
+    },
+    {
+      "name": "MAOUDIC_TALENT_238",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3192
+    },
+    {
+      "name": "MAOUDIC_TALENT_239",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3198
+    },
+    {
+      "name": "MAOUDIC_TALENT_240",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3204
+    },
+    {
+      "name": "MAOUDIC_TALENT_241",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3210
+    },
+    {
+      "name": "MAOUDIC_TALENT_242",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3216
+    },
+    {
+      "name": "MAOUDIC_TALENT_243",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3222
+    },
+    {
+      "name": "MAOUDIC_TALENT_244",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3228
+    },
+    {
+      "name": "MAOUDIC_TALENT_245",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3234
+    },
+    {
+      "name": "MAOUDIC_TALENT_246",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3240
+    },
+    {
+      "name": "MAOUDIC_TALENT_247",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3246
+    },
+    {
+      "name": "MAOUDIC_TALENT_248",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3252
+    },
+    {
+      "name": "MAOUDIC_TALENT_249",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3258
+    },
+    {
+      "name": "MAOUDIC_TALENT_250",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3264
+    },
+    {
+      "name": "MAOUDIC_TALENT_251",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3270
+    },
+    {
+      "name": "MAOUDIC_TALENT_252",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3276
+    },
+    {
+      "name": "MAOUDIC_TALENT_253",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3282
+    },
+    {
+      "name": "MAOUDIC_TALENT_254",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3288
+    },
+    {
+      "name": "MAOUDIC_TALENT_255",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3294
+    },
+    {
+      "name": "MAOUDIC_TALENT_256",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3300
+    },
+    {
+      "name": "MAOUDIC_TALENT_257",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 3306
+    },
+    {
+      "name": "RACE_DSC_NTR_0",
+      "file": "ERB/NTR.ERB",
+      "line": 1829
+    },
+    {
+      "name": "TECHNIQUE_OF_MASTER",
+      "file": "ERB/SHOP_ITEM.ERB",
+      "line": 624
+    },
+    {
+      "name": "PALAM_MESSAGE_MINI",
+      "file": "ERB/SYSTEM_SOURCE.ERB",
+      "line": 2344
+    },
+    {
+      "name": "FIGURE_INDENT_SLASH",
+      "file": "ERB/TRAIN_MAIN.ERB",
+      "line": 669
+    },
+    {
+      "name": "PRINT_COLORBAR",
+      "file": "ERB/_DRAW_EXT_COMM.ERB",
+      "line": 22
+    },
+    {
+      "name": "PRINT_COLORBAR2",
+      "file": "ERB/_DRAW_EXT_COMM.ERB",
+      "line": 54
+    },
+    {
+      "name": "BARCOLORSET",
+      "file": "ERB/_DRAW_EXT_COMM.ERB",
+      "line": 76
+    }
+  ],
+  "orphansByFile": {
+    "ERB/MAOUDIC.ERB": [
+      "MAOUDIC_ITEM_0",
+      "MAOUDIC_ITEM_1",
+      "MAOUDIC_ITEM_2",
+      "MAOUDIC_ITEM_3",
+      "MAOUDIC_ITEM_4",
+      "MAOUDIC_ITEM_5",
+      "MAOUDIC_ITEM_6",
+      "MAOUDIC_ITEM_7",
+      "MAOUDIC_ITEM_8",
+      "MAOUDIC_ITEM_9",
+      "MAOUDIC_ITEM_10",
+      "MAOUDIC_ITEM_11",
+      "MAOUDIC_ITEM_12",
+      "MAOUDIC_ITEM_13",
+      "MAOUDIC_ITEM_14",
+      "MAOUDIC_ITEM_15",
+      "MAOUDIC_ITEM_16",
+      "MAOUDIC_ITEM_17",
+      "MAOUDIC_ITEM_18",
+      "MAOUDIC_ITEM_19",
+      "MAOUDIC_ITEM_20",
+      "MAOUDIC_ITEM_21",
+      "MAOUDIC_ITEM_22",
+      "MAOUDIC_ITEM_23",
+      "MAOUDIC_ITEM_24",
+      "MAOUDIC_ITEM_25",
+      "MAOUDIC_ITEM_26",
+      "MAOUDIC_ITEM_27",
+      "MAOUDIC_ITEM_28",
+      "MAOUDIC_ITEM_29",
+      "MAOUDIC_ITEM_30",
+      "MAOUDIC_ITEM_31",
+      "MAOUDIC_ITEM_33",
+      "MAOUDIC_ITEM_34",
+      "MAOUDIC_ITEM_35",
+      "MAOUDIC_ITEM_37",
+      "MAOUDIC_ITEM_38",
+      "MAOUDIC_ITEM_39",
+      "MAOUDIC_ITEM_40",
+      "MAOUDIC_ITEM_41",
+      "MAOUDIC_ITEM_42",
+      "MAOUDIC_ITEM_52",
+      "MAOUDIC_ITEM_53",
+      "MAOUDIC_TRAP_54",
+      "MAOUDIC_TRAP_55",
+      "MAOUDIC_TRAP_56",
+      "MAOUDIC_TRAP_60",
+      "MAOUDIC_TRAP_61",
+      "MAOUDIC_TRAP_62",
+      "MAOUDIC_TRAP_63",
+      "MAOUDIC_TRAP_64",
+      "MAOUDIC_TRAP_65",
+      "MAOUDIC_TRAP_66",
+      "MAOUDIC_TRAP_67",
+      "MAOUDIC_TRAP_68",
+      "MAOUDIC_TRAP_69",
+      "MAOUDIC_TRAP_70",
+      "MAOUDIC_TRAP_71",
+      "MAOUDIC_TRAP_72",
+      "MAOUDIC_TRAP_73",
+      "MAOUDIC_TRAP_74",
+      "MAOUDIC_TRAP_75",
+      "MAOUDIC_TRAP_76",
+      "MAOUDIC_TRAP_77",
+      "MAOUDIC_TRAP_78",
+      "MAOUDIC_TRAP_79",
+      "MAOUDIC_TRAP_80",
+      "MAOUDIC_TRAP_81",
+      "MAOUDIC_TRAP_82",
+      "MAOUDIC_TRAP_83",
+      "MAOUDIC_TRAP_84",
+      "MAOUDIC_TRAP_85",
+      "MAOUDIC_TRAP_91",
+      "MAOUDIC_RING_0",
+      "MAOUDIC_RING_1",
+      "MAOUDIC_RING_2",
+      "MAOUDIC_RING_3",
+      "MAOUDIC_RING_4",
+      "MAOUDIC_RING_5",
+      "MAOUDIC_RING_6",
+      "MAOUDIC_RING_7",
+      "MAOUDIC_RING_8",
+      "MAOUDIC_RING_9",
+      "MAOUDIC_RING_10",
+      "MAOUDIC_RING_11",
+      "MAOUDIC_RING_12",
+      "MAOUDIC_RING_13",
+      "MAOUDIC_RING_14",
+      "MAOUDIC_RING_15",
+      "MAOUDIC_RING_16",
+      "MAOUDIC_RING_17",
+      "MAOUDIC_RING_18",
+      "MAOUDIC_RING_19",
+      "MAOUDIC_RING_20",
+      "MAOUDIC_ROOM_0",
+      "MAOUDIC_ROOM_1",
+      "MAOUDIC_ROOM_2",
+      "MAOUDIC_ROOM_3",
+      "MAOUDIC_ROOM_4",
+      "MAOUDIC_ROOM_5",
+      "MAOUDIC_ROOM_6",
+      "MAOUDIC_ROOM_7",
+      "MAOUDIC_ROOM_8",
+      "MAOUDIC_TALENT_0",
+      "MAOUDIC_TALENT_1",
+      "MAOUDIC_TALENT_2",
+      "MAOUDIC_TALENT_3",
+      "MAOUDIC_TALENT_4",
+      "MAOUDIC_TALENT_5",
+      "MAOUDIC_TALENT_6",
+      "MAOUDIC_TALENT_7",
+      "MAOUDIC_TALENT_8",
+      "MAOUDIC_TALENT_9",
+      "MAOUDIC_TALENT_10",
+      "MAOUDIC_TALENT_11",
+      "MAOUDIC_TALENT_12",
+      "MAOUDIC_TALENT_13",
+      "MAOUDIC_TALENT_14",
+      "MAOUDIC_TALENT_15",
+      "MAOUDIC_TALENT_16",
+      "MAOUDIC_TALENT_17",
+      "MAOUDIC_TALENT_18",
+      "MAOUDIC_TALENT_19",
+      "MAOUDIC_TALENT_20",
+      "MAOUDIC_TALENT_21",
+      "MAOUDIC_TALENT_22",
+      "MAOUDIC_TALENT_23",
+      "MAOUDIC_TALENT_24",
+      "MAOUDIC_TALENT_25",
+      "MAOUDIC_TALENT_26",
+      "MAOUDIC_TALENT_27",
+      "MAOUDIC_TALENT_28",
+      "MAOUDIC_TALENT_29",
+      "MAOUDIC_TALENT_30",
+      "MAOUDIC_TALENT_31",
+      "MAOUDIC_TALENT_32",
+      "MAOUDIC_TALENT_33",
+      "MAOUDIC_TALENT_34",
+      "MAOUDIC_TALENT_35",
+      "MAOUDIC_TALENT_36",
+      "MAOUDIC_TALENT_37",
+      "MAOUDIC_TALENT_38",
+      "MAOUDIC_TALENT_39",
+      "MAOUDIC_TALENT_40",
+      "MAOUDIC_TALENT_41",
+      "MAOUDIC_TALENT_42",
+      "MAOUDIC_TALENT_43",
+      "MAOUDIC_TALENT_44",
+      "MAOUDIC_TALENT_45",
+      "MAOUDIC_TALENT_46",
+      "MAOUDIC_TALENT_47",
+      "MAOUDIC_TALENT_48",
+      "MAOUDIC_TALENT_49",
+      "MAOUDIC_TALENT_50",
+      "MAOUDIC_TALENT_51",
+      "MAOUDIC_TALENT_52",
+      "MAOUDIC_TALENT_53",
+      "MAOUDIC_TALENT_54",
+      "MAOUDIC_TALENT_55",
+      "MAOUDIC_TALENT_56",
+      "MAOUDIC_TALENT_57",
+      "MAOUDIC_TALENT_58",
+      "MAOUDIC_TALENT_59",
+      "MAOUDIC_TALENT_60",
+      "MAOUDIC_TALENT_61",
+      "MAOUDIC_TALENT_62",
+      "MAOUDIC_TALENT_63",
+      "MAOUDIC_TALENT_64",
+      "MAOUDIC_TALENT_65",
+      "MAOUDIC_TALENT_66",
+      "MAOUDIC_TALENT_67",
+      "MAOUDIC_TALENT_68",
+      "MAOUDIC_TALENT_69",
+      "MAOUDIC_TALENT_70",
+      "MAOUDIC_TALENT_71",
+      "MAOUDIC_TALENT_72",
+      "MAOUDIC_TALENT_73",
+      "MAOUDIC_TALENT_74",
+      "MAOUDIC_TALENT_75",
+      "MAOUDIC_TALENT_76",
+      "MAOUDIC_TALENT_77",
+      "MAOUDIC_TALENT_78",
+      "MAOUDIC_TALENT_79",
+      "MAOUDIC_TALENT_80",
+      "MAOUDIC_TALENT_81",
+      "MAOUDIC_TALENT_82",
+      "MAOUDIC_TALENT_83",
+      "MAOUDIC_TALENT_84",
+      "MAOUDIC_TALENT_85",
+      "MAOUDIC_TALENT_86",
+      "MAOUDIC_TALENT_87",
+      "MAOUDIC_TALENT_88",
+      "MAOUDIC_TALENT_89",
+      "MAOUDIC_TALENT_90",
+      "MAOUDIC_TALENT_91",
+      "MAOUDIC_TALENT_92",
+      "MAOUDIC_TALENT_93",
+      "MAOUDIC_TALENT_94",
+      "MAOUDIC_TALENT_95",
+      "MAOUDIC_TALENT_96",
+      "MAOUDIC_TALENT_97",
+      "MAOUDIC_TALENT_98",
+      "MAOUDIC_TALENT_99",
+      "MAOUDIC_TALENT_100",
+      "MAOUDIC_TALENT_101",
+      "MAOUDIC_TALENT_102",
+      "MAOUDIC_TALENT_103",
+      "MAOUDIC_TALENT_104",
+      "MAOUDIC_TALENT_105",
+      "MAOUDIC_TALENT_106",
+      "MAOUDIC_TALENT_107",
+      "MAOUDIC_TALENT_108",
+      "MAOUDIC_TALENT_109",
+      "MAOUDIC_TALENT_110",
+      "MAOUDIC_TALENT_111",
+      "MAOUDIC_TALENT_112",
+      "MAOUDIC_TALENT_113",
+      "MAOUDIC_TALENT_114",
+      "MAOUDIC_TALENT_115",
+      "MAOUDIC_TALENT_116",
+      "MAOUDIC_TALENT_117",
+      "MAOUDIC_TALENT_118",
+      "MAOUDIC_TALENT_119",
+      "MAOUDIC_TALENT_120",
+      "MAOUDIC_TALENT_121",
+      "MAOUDIC_TALENT_122",
+      "MAOUDIC_TALENT_123",
+      "MAOUDIC_TALENT_124",
+      "MAOUDIC_TALENT_125",
+      "MAOUDIC_TALENT_126",
+      "MAOUDIC_TALENT_127",
+      "MAOUDIC_TALENT_128",
+      "MAOUDIC_TALENT_129",
+      "MAOUDIC_TALENT_130",
+      "MAOUDIC_TALENT_131",
+      "MAOUDIC_TALENT_132",
+      "MAOUDIC_TALENT_133",
+      "MAOUDIC_TALENT_134",
+      "MAOUDIC_TALENT_135",
+      "MAOUDIC_TALENT_136",
+      "MAOUDIC_TALENT_137",
+      "MAOUDIC_TALENT_138",
+      "MAOUDIC_TALENT_139",
+      "MAOUDIC_TALENT_140",
+      "MAOUDIC_TALENT_141",
+      "MAOUDIC_TALENT_142",
+      "MAOUDIC_TALENT_143",
+      "MAOUDIC_TALENT_144",
+      "MAOUDIC_TALENT_145",
+      "MAOUDIC_TALENT_146",
+      "MAOUDIC_TALENT_147",
+      "MAOUDIC_TALENT_148",
+      "MAOUDIC_TALENT_149",
+      "MAOUDIC_TALENT_150",
+      "MAOUDIC_TALENT_151",
+      "MAOUDIC_TALENT_152",
+      "MAOUDIC_TALENT_153",
+      "MAOUDIC_TALENT_154",
+      "MAOUDIC_TALENT_155",
+      "MAOUDIC_TALENT_156",
+      "MAOUDIC_TALENT_157",
+      "MAOUDIC_TALENT_158",
+      "MAOUDIC_TALENT_159",
+      "MAOUDIC_TALENT_160",
+      "MAOUDIC_TALENT_161",
+      "MAOUDIC_TALENT_162",
+      "MAOUDIC_TALENT_163",
+      "MAOUDIC_TALENT_164",
+      "MAOUDIC_TALENT_165",
+      "MAOUDIC_TALENT_166",
+      "MAOUDIC_TALENT_167",
+      "MAOUDIC_TALENT_168",
+      "MAOUDIC_TALENT_169",
+      "MAOUDIC_TALENT_170",
+      "MAOUDIC_TALENT_171",
+      "MAOUDIC_TALENT_172",
+      "MAOUDIC_TALENT_173",
+      "MAOUDIC_TALENT_174",
+      "MAOUDIC_TALENT_175",
+      "MAOUDIC_TALENT_176",
+      "MAOUDIC_TALENT_177",
+      "MAOUDIC_TALENT_178",
+      "MAOUDIC_TALENT_179",
+      "MAOUDIC_TALENT_180",
+      "MAOUDIC_TALENT_181",
+      "MAOUDIC_TALENT_182",
+      "MAOUDIC_TALENT_183",
+      "MAOUDIC_TALENT_184",
+      "MAOUDIC_TALENT_185",
+      "MAOUDIC_TALENT_186",
+      "MAOUDIC_TALENT_187",
+      "MAOUDIC_TALENT_188",
+      "MAOUDIC_TALENT_189",
+      "MAOUDIC_TALENT_190",
+      "MAOUDIC_TALENT_191",
+      "MAOUDIC_TALENT_192",
+      "MAOUDIC_TALENT_193",
+      "MAOUDIC_TALENT_194",
+      "MAOUDIC_TALENT_195",
+      "MAOUDIC_TALENT_196",
+      "MAOUDIC_TALENT_197",
+      "MAOUDIC_TALENT_198",
+      "MAOUDIC_TALENT_199",
+      "MAOUDIC_TALENT_200",
+      "MAOUDIC_TALENT_201",
+      "MAOUDIC_TALENT_202",
+      "MAOUDIC_TALENT_203",
+      "MAOUDIC_TALENT_204",
+      "MAOUDIC_TALENT_205",
+      "MAOUDIC_TALENT_206",
+      "MAOUDIC_TALENT_207",
+      "MAOUDIC_TALENT_208",
+      "MAOUDIC_TALENT_209",
+      "MAOUDIC_TALENT_210",
+      "MAOUDIC_TALENT_211",
+      "MAOUDIC_TALENT_212",
+      "MAOUDIC_TALENT_213",
+      "MAOUDIC_TALENT_214",
+      "MAOUDIC_TALENT_215",
+      "MAOUDIC_TALENT_216",
+      "MAOUDIC_TALENT_217",
+      "MAOUDIC_TALENT_218",
+      "MAOUDIC_TALENT_219",
+      "MAOUDIC_TALENT_220",
+      "MAOUDIC_TALENT_221",
+      "MAOUDIC_TALENT_222",
+      "MAOUDIC_TALENT_223",
+      "MAOUDIC_TALENT_224",
+      "MAOUDIC_TALENT_225",
+      "MAOUDIC_TALENT_226",
+      "MAOUDIC_TALENT_227",
+      "MAOUDIC_TALENT_228",
+      "MAOUDIC_TALENT_229",
+      "MAOUDIC_TALENT_230",
+      "MAOUDIC_TALENT_231",
+      "MAOUDIC_TALENT_232",
+      "MAOUDIC_TALENT_233",
+      "MAOUDIC_TALENT_234",
+      "MAOUDIC_TALENT_235",
+      "MAOUDIC_TALENT_236",
+      "MAOUDIC_TALENT_237",
+      "MAOUDIC_TALENT_238",
+      "MAOUDIC_TALENT_239",
+      "MAOUDIC_TALENT_240",
+      "MAOUDIC_TALENT_241",
+      "MAOUDIC_TALENT_242",
+      "MAOUDIC_TALENT_243",
+      "MAOUDIC_TALENT_244",
+      "MAOUDIC_TALENT_245",
+      "MAOUDIC_TALENT_246",
+      "MAOUDIC_TALENT_247",
+      "MAOUDIC_TALENT_248",
+      "MAOUDIC_TALENT_249",
+      "MAOUDIC_TALENT_250",
+      "MAOUDIC_TALENT_251",
+      "MAOUDIC_TALENT_252",
+      "MAOUDIC_TALENT_253",
+      "MAOUDIC_TALENT_254",
+      "MAOUDIC_TALENT_255",
+      "MAOUDIC_TALENT_256",
+      "MAOUDIC_TALENT_257"
+    ],
+    "ERB/EVENT_K5_マオ.ERB": [
+      "KOJO_MESSAGE_COM_5",
+      "KOJO_MESSAGE_PALAMCNG_5",
+      "KOJO_MESSAGE_MARKCNG_5",
+      "SELF_KOJO_K5",
+      "DUNGEON_RYOUZYOKU_K5",
+      "DUNGEON_RYOUZYOKU_AFTER_K5",
+      "BENKI_KOUJO_K5",
+      "DUNGEON_VICTORY_K5",
+      "DUNGEON_ATTACK_K5",
+      "NTR_KOUJO_K5",
+      "EXUCUTION_KOUJO_K5",
+      "MUSEUM_KOUJO_K5",
+      "BANISHMENT_KOUJO_K5",
+      "PUBLIC_EXUCUTION_KOUJO_K5",
+      "GROTESQUE_KOUJO_K5",
+      "ENTERENEMY_KOUJO_K5",
+      "GOHOUBI_REQUEST_KOUJO_K5",
+      "GOHOUBI_AFTER_KOUJO_K5",
+      "OSIOKI_KOUJO_K5",
+      "GOBI_KOUJO_K5",
+      "YUNHWAL_MAO",
+      "PENIS_DSC_MAO",
+      "PENIS_I_MAO",
+      "PENIS_II_MAO",
+      "SERVICE_DSC_MAO",
+      "SERVICE_MAO",
+      "AQUA_II_MAO",
+      "VAGINA_I_MAO",
+      "SOUND_DSC_MAO",
+      "SOUND_I_MAO",
+      "SOUND_II_MAO"
+    ],
+    "ERB/EVENT_K13_庇護者.ERB": [
+      "KOJO_MESSAGE_COM_13",
+      "KOJO_MESSAGE_PALAMCNG_13",
+      "KOJO_MESSAGE_SYASEI_13",
+      "KOJO_MESSAGE_MARKCNG_13",
+      "SELF_KOJO_K13",
+      "DUNGEON_RYOUZYOKU_K13",
+      "DUNGEON_RYOUZYOKU_AFTER_K13",
+      "BENKI_KOUJO_K13",
+      "DUNGEON_VICTORY_K13",
+      "DUNGEON_ATTACK_K13",
+      "NTR_KOUJO_K13",
+      "EXUCUTION_KOUJO_K13",
+      "MUSEUM_KOUJO_K13",
+      "BANISHMENT_KOUJO_K13",
+      "PUBLIC_EXUCUTION_KOUJO_K13",
+      "GROTESQUE_KOUJO_K13",
+      "ENTERENEMY_KOUJO_K13",
+      "GOHOUBI_REQUEST_KOUJO_K13",
+      "GOHOUBI_AFTER_KOUJO_K13",
+      "OSIOKI_KOUJO_K13",
+      "GOBI_KOUJO_K13"
+    ],
+    "ERB/EVENT_K0_慈愛.ERB": [
+      "KOJO_MESSAGE_COM_0",
+      "KOJO_MESSAGE_PALAMCNG_0",
+      "KOJO_MESSAGE_MARKCNG_0",
+      "SELF_KOJO_K0",
+      "DUNGEON_RYOUZYOKU_K0",
+      "DUNGEON_RYOUZYOKU_AFTER_K0",
+      "DUNGEON_VICTORY_K0",
+      "BENKI_KOUJO_K0",
+      "DUNGEON_ATTACK_K0",
+      "NTR_KOUJO_K0",
+      "EXUCUTION_KOUJO_K0",
+      "MUSEUM_KOUJO_K0",
+      "BANISHMENT_KOUJO_K0",
+      "PUBLIC_EXUCUTION_KOUJO_KX1",
+      "GROTESQUE_KOUJO_KX1",
+      "ENTERENEMY_KOUJO_K0",
+      "GOHOUBI_REQUEST_KOUJO_K0",
+      "GOHOUBI_AFTER_KOUJO_K0",
+      "OSIOKI_KOUJO_K0",
+      "GOBI_KOUJO_K0"
+    ],
+    "ERB/EVENT_K10_クラブ.ERB": [
+      "KOJO_MESSAGE_COM_10",
+      "KOJO_MESSAGE_PALAMCNG_10",
+      "KOJO_MESSAGE_MARKCNG_10",
+      "SELF_KOJO_K10",
+      "DUNGEON_RYOUZYOKU_K10",
+      "DUNGEON_RYOUZYOKU_AFTER_K10",
+      "DUNGEON_VICTORY_K10",
+      "DUNGEON_ATTACK_K10",
+      "BENKI_KOUJO_K10",
+      "NTR_KOUJO_K10",
+      "EXUCUTION_KOUJO_K10",
+      "MUSEUM_KOUJO_K10",
+      "BANISHMENT_KOUJO_K10",
+      "PUBLIC_EXUCUTION_KOUJO_K10",
+      "GROTESQUE_KOUJO_K10",
+      "ENTERENEMY_KOUJO_K10",
+      "GOHOUBI_REQUEST_KOUJO_K10",
+      "GOHOUBI_AFTER_KOUJO_K10",
+      "OSIOKI_KOUJO_K10",
+      "GOBI_KOUJO_K10"
+    ],
+    "ERB/EVENT_K11_リリィ.ERB": [
+      "KOJO_MESSAGE_COM_11",
+      "KOJO_MESSAGE_PALAMCNG_11",
+      "KOJO_MESSAGE_MARKCNG_11",
+      "SELF_KOJO_K11",
+      "DUNGEON_RYOUZYOKU_K11",
+      "DUNGEON_RYOUZYOKU_AFTER_K11",
+      "BENKI_KOUJO_K11",
+      "DUNGEON_VICTORY_K11",
+      "DUNGEON_ATTACK_K11",
+      "NTR_KOUJO_K11",
+      "EXUCUTION_KOUJO_K11",
+      "MUSEUM_KOUJO_K11",
+      "BANISHMENT_KOUJO_K11",
+      "PUBLIC_EXUCUTION_KOUJO_K11",
+      "GROTESQUE_KOUJO_K11",
+      "ENTERENEMY_KOUJO_K11",
+      "GOHOUBI_REQUEST_KOUJO_K11",
+      "GOHOUBI_AFTER_KOUJO_K11",
+      "OSIOKI_KOUJO_K11",
+      "GOBI_KOUJO_K11"
+    ],
+    "ERB/EVENT_K12_知的.ERB": [
+      "KOJO_MESSAGE_COM_12",
+      "KOJO_MESSAGE_PALAMCNG_12",
+      "KOJO_MESSAGE_MARKCNG_12",
+      "SELF_KOJO_K12",
+      "DUNGEON_RYOUZYOKU_K12",
+      "DUNGEON_RYOUZYOKU_AFTER_K12",
+      "BENKI_KOUJO_K12",
+      "DUNGEON_VICTORY_K12",
+      "DUNGEON_ATTACK_K12",
+      "NTR_KOUJO_K12",
+      "EXUCUTION_KOUJO_K12",
+      "MUSEUM_KOUJO_K12",
+      "BANISHMENT_KOUJO_K12",
+      "PUBLIC_EXUCUTION_KOUJO_K12",
+      "GROTESQUE_KOUJO_K12",
+      "ENTERENEMY_KOUJO_K12",
+      "GOHOUBI_REQUEST_KOUJO_K12",
+      "GOHOUBI_AFTER_KOUJO_K12",
+      "OSIOKI_KOUJO_K12",
+      "GOBI_KOUJO_K12"
+    ],
+    "ERB/EVENT_K14_貴公子.ERB": [
+      "KOJO_MESSAGE_COM_14",
+      "KOJO_MESSAGE_PALAMCNG_14",
+      "KOJO_MESSAGE_MARKCNG_14",
+      "SELF_KOJO_K14",
+      "DUNGEON_RYOUZYOKU_K14",
+      "DUNGEON_RYOUZYOKU_AFTER_K14",
+      "BENKI_KOUJO_K14",
+      "DUNGEON_VICTORY_K14",
+      "DUNGEON_ATTACK_K14",
+      "NTR_KOUJO_K14",
+      "EXUCUTION_KOUJO_K14",
+      "MUSEUM_KOUJO_K14",
+      "BANISHMENT_KOUJO_K14",
+      "PUBLIC_EXUCUTION_KOUJO_K14",
+      "GROTESQUE_KOUJO_K14",
+      "ENTERENEMY_KOUJO_K14",
+      "GOHOUBI_REQUEST_KOUJO_K14",
+      "GOHOUBI_AFTER_KOUJO_K14",
+      "OSIOKI_KOUJO_K14",
+      "GOBI_KOUJO_K14"
+    ],
+    "ERB/EVENT_K1_自信家.ERB": [
+      "KOJO_MESSAGE_COM_1",
+      "KOJO_MESSAGE_PALAMCNG_1",
+      "KOJO_MESSAGE_MARKCNG_1",
+      "SELF_KOJO_K1",
+      "DUNGEON_RYOUZYOKU_K1",
+      "DUNGEON_RYOUZYOKU_AFTER_K1",
+      "BENKI_KOUJO_K1",
+      "DUNGEON_VICTORY_K1",
+      "DUNGEON_ATTACK_K1",
+      "NTR_KOUJO_K1",
+      "EXUCUTION_KOUJO_K1",
+      "MUSEUM_KOUJO_K1",
+      "BANISHMENT_KOUJO_K1",
+      "PUBLIC_EXUCUTION_KOUJO_K1",
+      "GROTESQUE_KOUJO_K1",
+      "ENTERENEMY_KOUJO_K1",
+      "GOHOUBI_REQUEST_KOUJO_K1",
+      "GOHOUBI_AFTER_KOUJO_K1",
+      "OSIOKI_KOUJO_K1",
+      "GOBI_KOUJO_K1"
+    ],
+    "ERB/EVENT_K2_気弱.ERB": [
+      "KOJO_MESSAGE_COM_2",
+      "KOJO_MESSAGE_PALAMCNG_2",
+      "KOJO_MESSAGE_MARKCNG_2",
+      "SELF_KOJO_K2",
+      "DUNGEON_RYOUZYOKU_K2",
+      "DUNGEON_RYOUZYOKU_AFTER_K2",
+      "BENKI_KOUJO_K2",
+      "DUNGEON_VICTORY_K2",
+      "DUNGEON_ATTACK_K2",
+      "NTR_KOUJO_K2",
+      "EXUCUTION_KOUJO_K2",
+      "MUSEUM_KOUJO_K2",
+      "BANISHMENT_KOUJO_K2",
+      "PUBLIC_EXUCUTION_KOUJO_K2",
+      "GROTESQUE_KOUJO_K2",
+      "ENTERENEMY_KOUJO_K2",
+      "GOHOUBI_REQUEST_KOUJO_K2",
+      "GOHOUBI_AFTER_KOUJO_K2",
+      "OSIOKI_KOUJO_K2",
+      "GOBI_KOUJO_K2"
+    ],
+    "ERB/EVENT_K3_高貴.ERB": [
+      "KOJO_MESSAGE_COM_3",
+      "KOJO_MESSAGE_PALAMCNG_3",
+      "KOJO_MESSAGE_MARKCNG_3",
+      "SELF_KOJO_K3",
+      "DUNGEON_RYOUZYOKU_K3",
+      "DUNGEON_RYOUZYOKU_AFTER_K3",
+      "BENKI_KOUJO_K3",
+      "DUNGEON_VICTORY_K3",
+      "DUNGEON_ATTACK_K3",
+      "NTR_KOUJO_K3",
+      "EXUCUTION_KOUJO_K3",
+      "MUSEUM_KOUJO_K3",
+      "BANISHMENT_KOUJO_K3",
+      "PUBLIC_EXUCUTION_KOUJO_K3",
+      "GROTESQUE_KOUJO_K3",
+      "ENTERENEMY_KOUJO_K3",
+      "GOHOUBI_REQUEST_KOUJO_K3",
+      "GOHOUBI_AFTER_KOUJO_K3",
+      "OSIOKI_KOUJO_K3",
+      "GOBI_KOUJO_K3"
+    ],
+    "ERB/EVENT_K4_冷徹.ERB": [
+      "KOJO_MESSAGE_COM_4",
+      "KOJO_MESSAGE_PALAMCNG_4",
+      "KOJO_MESSAGE_MARKCNG_4",
+      "SELF_KOJO_K4",
+      "DUNGEON_RYOUZYOKU_K4",
+      "DUNGEON_RYOUZYOKU_AFTER_K4",
+      "BENKI_KOUJO_K4",
+      "DUNGEON_VICTORY_K4",
+      "DUNGEON_ATTACK_K4",
+      "NTR_KOUJO_K4",
+      "EXUCUTION_KOUJO_K4",
+      "MUSEUM_KOUJO_K4",
+      "BANISHMENT_KOUJO_K4",
+      "PUBLIC_EXUCUTION_KOUJO_K4",
+      "GROTESQUE_KOUJO_K4",
+      "ENTERENEMY_KOUJO_K4",
+      "GOHOUBI_REQUEST_KOUJO_K4",
+      "GOHOUBI_AFTER_KOUJO_K4",
+      "OSIOKI_KOUJO_K4",
+      "GOBI_KOUJO_K4"
+    ],
+    "ERB/EVENT_K6_悪女.ERB": [
+      "KOJO_MESSAGE_COM_6",
+      "KOJO_MESSAGE_PALAMCNG_6",
+      "KOJO_MESSAGE_MARKCNG_6",
+      "SELF_KOJO_K6",
+      "DUNGEON_RYOUZYOKU_K6",
+      "DUNGEON_RYOUZYOKU_AFTER_K6",
+      "BENKI_KOUJO_K6",
+      "DUNGEON_VICTORY_K6",
+      "DUNGEON_ATTACK_K6",
+      "NTR_KOUJO_K6",
+      "EXUCUTION_KOUJO_K6",
+      "MUSEUM_KOUJO_K6",
+      "BANISHMENT_KOUJO_K6",
+      "PUBLIC_EXUCUTION_KOUJO_K6",
+      "GROTESQUE_KOUJO_K6",
+      "ENTERENEMY_KOUJO_K6",
+      "GOHOUBI_REQUEST_KOUJO_K6",
+      "GOHOUBI_AFTER_KOUJO_K6",
+      "OSIOKI_KOUJO_K6",
+      "GOBI_KOUJO_K6"
+    ],
+    "ERB/EVENT_K7_ハート.ERB": [
+      "KOJO_MESSAGE_COM_7",
+      "KOJO_MESSAGE_PALAMCNG_7",
+      "KOJO_MESSAGE_MARKCNG_7",
+      "SELF_KOJO_K7",
+      "DUNGEON_RYOUZYOKU_K7",
+      "DUNGEON_RYOUZYOKU_AFTER_K7",
+      "BENKI_KOUJO_K7",
+      "DUNGEON_VICTORY_K7",
+      "DUNGEON_ATTACK_K7",
+      "NTR_KOUJO_K7",
+      "EXUCUTION_KOUJO_K7",
+      "MUSEUM_KOUJO_K7",
+      "BANISHMENT_KOUJO_K7",
+      "PUBLIC_EXUCUTION_KOUJO_K7",
+      "GROTESQUE_KOUJO_K7",
+      "ENTERENEMY_KOUJO_K7",
+      "GOHOUBI_REQUEST_KOUJO_K7",
+      "GOHOUBI_AFTER_KOUJO_K7",
+      "OSIOKI_KOUJO_K7",
+      "GOBI_KOUJO_K7"
+    ],
+    "ERB/EVENT_K8_スペード.ERB": [
+      "KOJO_MESSAGE_COM_8",
+      "KOJO_MESSAGE_PALAMCNG_8",
+      "KOJO_MESSAGE_MARKCNG_8",
+      "SELF_KOJO_K8",
+      "DUNGEON_RYOUZYOKU_K8",
+      "DUNGEON_RYOUZYOKU_AFTER_K8",
+      "DUNGEON_VICTORY_K8",
+      "DUNGEON_ATTACK_K8",
+      "BENKI_KOUJO_K8",
+      "NTR_KOUJO_K8",
+      "EXUCUTION_KOUJO_K8",
+      "MUSEUM_KOUJO_K8",
+      "BANISHMENT_KOUJO_K8",
+      "PUBLIC_EXUCUTION_KOUJO_K8",
+      "GROTESQUE_KOUJO_K8",
+      "ENTERENEMY_KOUJO_K8",
+      "GOHOUBI_REQUEST_KOUJO_K8",
+      "GOHOUBI_AFTER_KOUJO_K8",
+      "OSIOKI_KOUJO_K8",
+      "GOBI_KOUJO_K8"
+    ],
+    "ERB/EVENT_K9_ダイヤ.ERB": [
+      "KOJO_MESSAGE_COM_9",
+      "KOJO_MESSAGE_PALAMCNG_9",
+      "KOJO_MESSAGE_MARKCNG_9",
+      "SELF_KOJO_K9",
+      "DUNGEON_RYOUZYOKU_K9",
+      "DUNGEON_RYOUZYOKU_AFTER_K9",
+      "DUNGEON_VICTORY_K9",
+      "DUNGEON_ATTACK_K9",
+      "BENKI_KOUJO_K9",
+      "NTR_KOUJO_K9",
+      "EXUCUTION_KOUJO_K9",
+      "MUSEUM_KOUJO_K9",
+      "BANISHMENT_KOUJO_K9",
+      "PUBLIC_EXUCUTION_KOUJO_K9",
+      "GROTESQUE_KOUJO_K9",
+      "ENTERENEMY_KOUJO_K9",
+      "GOHOUBI_REQUEST_KOUJO_K9",
+      "GOHOUBI_AFTER_KOUJO_K9",
+      "OSIOKI_KOUJO_K9",
+      "GOBI_KOUJO_K9"
+    ],
+    "ERB/CAMPAIGN_1.ERB": [
+      "CAMPAIGN_EXIST_1",
+      "CAMPAIGN_SET_1",
+      "CAMPAIGN_ROOM_1",
+      "CAMPAIGN_ROOM_EXTRA_1",
+      "CAMPAIGN_TRAP_1",
+      "CAMPAIGN_EQUIP_SELECT_1",
+      "CAMPAIGN_MONSTER_LIST_1",
+      "CAMPAIGN_MONSTER_EXTRA_1",
+      "CAMPAIGN_DUNGEON_LV_1",
+      "CAMPAIGN_QUEST_1",
+      "CAMPAIGN_STORY_1",
+      "CAMPAIGN_ENDING_1"
+    ],
+    "ERB/DUNGEON_RYOUZYOKU.ERB": [
+      "ORC_RYOU_YUSYA",
+      "INSECT_RYOU_YUSYA",
+      "IVY_RYOU_YUSYA",
+      "SYOKUSYU_RYOU_YUSYA",
+      "FAILY_RYOU_YUSYA",
+      "GIANT_RYOU_YUSYA",
+      "MAN_RYOU_YUSYA",
+      "BEAST_RYOU_YUSYA",
+      "BRAIN_RYOU_YUSYA",
+      "HORSE_RYOU_YUSYA"
+    ],
+    "ERB/EVENT_K.ERB": [
+      "KOJO_MESSAGE_COM_MASTER",
+      "KOJO_MESSAGE_COM_ASSI",
+      "KOJO_MESSAGE_PLAYERCHANGE",
+      "KOJO_EVENT_COM",
+      "LOOK_VIDEO",
+      "SINGLE_ENDING",
+      "KOJO_LUNCH",
+      "KOJO_LUNCH_EXERCISE",
+      "SLAVE_ENDING",
+      "ATTACK_KOUJO_B"
+    ],
+    "ERB/DUNGEON_BITCH_LOG.ERB": [
+      "LOG_BITCH_HAND",
+      "LOG_BITCH_ORAL",
+      "LOG_BITCH_LES",
+      "LOG_BITCH_ANAL",
+      "LOG_BITCH_SEX"
+    ],
+    "ERB/LOVERS.ERB": [
+      "HERO_TOILET",
+      "HERO_VA",
+      "HERO_ANIMAL",
+      "HERO_TOY"
+    ],
+    "ERB/DUNGEON_TRAP.ERB": [
+      "LOVE_GAS_TRAP_FAIL",
+      "LOVE_GAS_TRAP_SUCCESS",
+      "LOVE_GAS_TRAP_SELF"
+    ],
+    "ERB/_DRAW_EXT_COMM.ERB": [
+      "PRINT_COLORBAR",
+      "PRINT_COLORBAR2",
+      "BARCOLORSET"
+    ],
+    "ERB/EVENT_NEXTDAY.ERB": [
+      "RUNNING_COST",
+      "SOMETIMES_SHE_COMES_BACK"
+    ],
+    "ERB/ABL.ERB": [
+      "USERABLUP"
+    ],
+    "ERB/ABLUP5.ERB": [
+      "ABLUP5"
+    ],
+    "ERB/ABLUP6.ERB": [
+      "ABLUP6"
+    ],
+    "ERB/ABLUP7.ERB": [
+      "ABLUP7"
+    ],
+    "ERB/ABLUP8.ERB": [
+      "ABLUP8"
+    ],
+    "ERB/ABLUP9.ERB": [
+      "ABLUP9"
+    ],
+    "ERB/CAMPAIGN_EVENT.ERB": [
+      "CAMPAIGN_MONSTER_EXTRA"
+    ],
+    "ERB/COMF200_コロシアム.ERB": [
+      "EQUIP_COM200"
+    ],
+    "ERB/COMF_VAGINASEX.ERB": [
+      "CONFIRM_LOST_VIRGIN_YOU"
+    ],
+    "ERB/COM_REGISTER.ERB": [
+      "CALLTRAINEND"
+    ],
+    "ERB/DUNGEON_SETUP.ERB": [
+      "DUNGEON_INFO"
+    ],
+    "ERB/FUNC_CLOTH.ERB": [
+      "WASHING_CLOTH"
+    ],
+    "ERB/LABO_DUNGEON_MAP.ERB": [
+      "UNIT_MOVE"
+    ],
+    "ERB/LOOK.ERB": [
+      "LOOK_CLEAR"
+    ],
+    "ERB/NTR.ERB": [
+      "RACE_DSC_NTR_0"
+    ],
+    "ERB/SHOP_ITEM.ERB": [
+      "TECHNIQUE_OF_MASTER"
+    ],
+    "ERB/SYSTEM_SOURCE.ERB": [
+      "PALAM_MESSAGE_MINI"
+    ],
+    "ERB/TRAIN_MAIN.ERB": [
+      "FIGURE_INDENT_SLASH"
+    ]
+  },
+  "numberedFamilyGaps": [
+    {
+      "base": "ABLUP",
+      "wired": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        20,
+        21,
+        22,
+        23,
+        30,
+        31,
+        32,
+        33,
+        37,
+        39,
+        40,
+        99
+      ],
+      "unwired": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "base": "EQUIP_COM",
+      "wired": [
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        43,
+        44,
+        45,
+        46,
+        47,
+        49,
+        53,
+        54,
+        57,
+        58,
+        59,
+        89,
+        100,
+        108
+      ],
+      "unwired": [
+        200
+      ]
+    }
+  ],
+  "ok": true
+}

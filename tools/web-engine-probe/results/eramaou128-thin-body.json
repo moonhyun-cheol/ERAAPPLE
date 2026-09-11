@@ -1,0 +1,4006 @@
+{
+  "game": "에라마왕 개조판 1.28",
+  "phase": "ok",
+  "readOnly": true,
+  "perBranchMin": 12,
+  "erbCount": 274,
+  "functionCount": 2210,
+  "totalEmptyPrints": 4058,
+  "unwrittenFunctionCount": 405,
+  "unwrittenFunctions": [
+    {
+      "name": "KOJO_MESSAGE_COM_14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 600,
+      "codeLines": 1955,
+      "printLines": 530,
+      "printedChars": 0,
+      "branchPoints": 738,
+      "calls": 2,
+      "emptyPrints": 530
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 526,
+      "codeLines": 2053,
+      "printLines": 579,
+      "printedChars": 5064,
+      "branchPoints": 781,
+      "calls": 2,
+      "emptyPrints": 298
+    },
+    {
+      "name": "DOG_KOJO_10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 4842,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160
+    },
+    {
+      "name": "DOG_KOJO_11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 10653,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160
+    },
+    {
+      "name": "DOG_KOJO_14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 3560,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160
+    },
+    {
+      "name": "DOG_KOJO_7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 6281,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160
+    },
+    {
+      "name": "DOG_KOJO_8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 5446,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160
+    },
+    {
+      "name": "DOG_KOJO_9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 5211,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160
+    },
+    {
+      "name": "DOG_KOJO_2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 4712,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 103,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 152
+    },
+    {
+      "name": "DOG_KOJO_13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 3620,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 454,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 132
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 401,
+      "codeLines": 2071,
+      "printLines": 583,
+      "printedChars": 11639,
+      "branchPoints": 779,
+      "calls": 2,
+      "emptyPrints": 125
+    },
+    {
+      "name": "DOG_KOJO_12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 3539,
+      "codeLines": 579,
+      "printLines": 168,
+      "printedChars": 1091,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 116
+    },
+    {
+      "name": "DOG_KOJO_6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 5278,
+      "codeLines": 592,
+      "printLines": 174,
+      "printedChars": 1228,
+      "branchPoints": 221,
+      "calls": 0,
+      "emptyPrints": 102
+    },
+    {
+      "name": "DOG_KOJO_1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 5584,
+      "codeLines": 640,
+      "printLines": 205,
+      "printedChars": 2563,
+      "branchPoints": 237,
+      "calls": 0,
+      "emptyPrints": 79
+    },
+    {
+      "name": "BENKI_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5036,
+      "codeLines": 141,
+      "printLines": 61,
+      "printedChars": 174,
+      "branchPoints": 68,
+      "calls": 0,
+      "emptyPrints": 57
+    },
+    {
+      "name": "DOG_KOJO_4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 3084,
+      "codeLines": 586,
+      "printLines": 189,
+      "printedChars": 3117,
+      "branchPoints": 207,
+      "calls": 0,
+      "emptyPrints": 52
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 521,
+      "codeLines": 1674,
+      "printLines": 474,
+      "printedChars": 10307,
+      "branchPoints": 607,
+      "calls": 2,
+      "emptyPrints": 51
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 981,
+      "codeLines": 3467,
+      "printLines": 1566,
+      "printedChars": 41728,
+      "branchPoints": 1089,
+      "calls": 2,
+      "emptyPrints": 42
+    },
+    {
+      "name": "BENKI_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8125,
+      "codeLines": 147,
+      "printLines": 74,
+      "printedChars": 1400,
+      "branchPoints": 60,
+      "calls": 1,
+      "emptyPrints": 40
+    },
+    {
+      "name": "SELF_KOJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 4623,
+      "codeLines": 137,
+      "printLines": 37,
+      "printedChars": 0,
+      "branchPoints": 51,
+      "calls": 1,
+      "emptyPrints": 37
+    },
+    {
+      "name": "SELF_KOJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 4730,
+      "codeLines": 225,
+      "printLines": 76,
+      "printedChars": 873,
+      "branchPoints": 91,
+      "calls": 1,
+      "emptyPrints": 32
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 887,
+      "codeLines": 3746,
+      "printLines": 1667,
+      "printedChars": 46348,
+      "branchPoints": 1167,
+      "calls": 2,
+      "emptyPrints": 30
+    },
+    {
+      "name": "SELF_KOJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 4172,
+      "codeLines": 152,
+      "printLines": 45,
+      "printedChars": 386,
+      "branchPoints": 57,
+      "calls": 1,
+      "emptyPrints": 26
+    },
+    {
+      "name": "BENKI_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12340,
+      "codeLines": 62,
+      "printLines": 24,
+      "printedChars": 0,
+      "branchPoints": 30,
+      "calls": 0,
+      "emptyPrints": 24
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 4365,
+      "codeLines": 111,
+      "printLines": 28,
+      "printedChars": 213,
+      "branchPoints": 44,
+      "calls": 0,
+      "emptyPrints": 23
+    },
+    {
+      "name": "BENKI_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 6426,
+      "codeLines": 112,
+      "printLines": 53,
+      "printedChars": 1579,
+      "branchPoints": 48,
+      "calls": 0,
+      "emptyPrints": 21
+    },
+    {
+      "name": "SELF_KOJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 4609,
+      "codeLines": 207,
+      "printLines": 70,
+      "printedChars": 1073,
+      "branchPoints": 81,
+      "calls": 1,
+      "emptyPrints": 20
+    },
+    {
+      "name": "BENKI_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5255,
+      "codeLines": 61,
+      "printLines": 24,
+      "printedChars": 127,
+      "branchPoints": 29,
+      "calls": 0,
+      "emptyPrints": 20
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 674,
+      "codeLines": 3620,
+      "printLines": 1526,
+      "printedChars": 49717,
+      "branchPoints": 1238,
+      "calls": 2,
+      "emptyPrints": 19
+    },
+    {
+      "name": "ENDING_11",
+      "file": "ERB/ENDING.ERB",
+      "line": 181,
+      "codeLines": 72,
+      "printLines": 66,
+      "printedChars": 1379,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 18
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12946,
+      "codeLines": 54,
+      "printLines": 18,
+      "printedChars": 0,
+      "branchPoints": 26,
+      "calls": 0,
+      "emptyPrints": 18
+    },
+    {
+      "name": "GOHOUBI_AFTER_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5762,
+      "codeLines": 54,
+      "printLines": 18,
+      "printedChars": 0,
+      "branchPoints": 26,
+      "calls": 0,
+      "emptyPrints": 18
+    },
+    {
+      "name": "DUNGEON",
+      "file": "ERB/DUNGEON.ERB",
+      "line": 2,
+      "codeLines": 684,
+      "printLines": 124,
+      "printedChars": 2157,
+      "branchPoints": 198,
+      "calls": 63,
+      "emptyPrints": 17
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 750,
+      "codeLines": 8304,
+      "printLines": 4622,
+      "printedChars": 166761,
+      "branchPoints": 2181,
+      "calls": 2,
+      "emptyPrints": 17
+    },
+    {
+      "name": "COLOSSEUM_KOJO_11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12493,
+      "codeLines": 65,
+      "printLines": 17,
+      "printedChars": 0,
+      "branchPoints": 25,
+      "calls": 0,
+      "emptyPrints": 17
+    },
+    {
+      "name": "BENKI_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5109,
+      "codeLines": 153,
+      "printLines": 76,
+      "printedChars": 1794,
+      "branchPoints": 61,
+      "calls": 4,
+      "emptyPrints": 17
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 801,
+      "codeLines": 3956,
+      "printLines": 1854,
+      "printedChars": 56799,
+      "branchPoints": 1225,
+      "calls": 1,
+      "emptyPrints": 17
+    },
+    {
+      "name": "MUSEUM",
+      "file": "ERB/MUSEUM.ERB",
+      "line": 2,
+      "codeLines": 797,
+      "printLines": 436,
+      "printedChars": 15937,
+      "branchPoints": 237,
+      "calls": 7,
+      "emptyPrints": 17
+    },
+    {
+      "name": "ENDING_10",
+      "file": "ERB/ENDING.ERB",
+      "line": 101,
+      "codeLines": 75,
+      "printLines": 64,
+      "printedChars": 1457,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 16
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 4881,
+      "codeLines": 38,
+      "printLines": 16,
+      "printedChars": 0,
+      "branchPoints": 16,
+      "calls": 0,
+      "emptyPrints": 16
+    },
+    {
+      "name": "NTR_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5515,
+      "codeLines": 59,
+      "printLines": 16,
+      "printedChars": 0,
+      "branchPoints": 25,
+      "calls": 0,
+      "emptyPrints": 16
+    },
+    {
+      "name": "SELF_KOJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 6185,
+      "codeLines": 716,
+      "printLines": 441,
+      "printedChars": 11909,
+      "branchPoints": 178,
+      "calls": 0,
+      "emptyPrints": 16
+    },
+    {
+      "name": "COLOSSEUM_KOJO_13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5496,
+      "codeLines": 65,
+      "printLines": 17,
+      "printedChars": 39,
+      "branchPoints": 25,
+      "calls": 0,
+      "emptyPrints": 15
+    },
+    {
+      "name": "SELF_KOJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 6793,
+      "codeLines": 432,
+      "printLines": 193,
+      "printedChars": 4756,
+      "branchPoints": 165,
+      "calls": 1,
+      "emptyPrints": 15
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 4971,
+      "codeLines": 34,
+      "printLines": 14,
+      "printedChars": 0,
+      "branchPoints": 11,
+      "calls": 0,
+      "emptyPrints": 14
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 897,
+      "codeLines": 3036,
+      "printLines": 1369,
+      "printedChars": 42178,
+      "branchPoints": 879,
+      "calls": 2,
+      "emptyPrints": 13
+    },
+    {
+      "name": "OSIOKI_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 13026,
+      "codeLines": 41,
+      "printLines": 15,
+      "printedChars": 0,
+      "branchPoints": 20,
+      "calls": 0,
+      "emptyPrints": 13
+    },
+    {
+      "name": "COLOSSEUM_KOJO_12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5488,
+      "codeLines": 65,
+      "printLines": 17,
+      "printedChars": 60,
+      "branchPoints": 25,
+      "calls": 0,
+      "emptyPrints": 13
+    },
+    {
+      "name": "OSIOKI_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5996,
+      "codeLines": 41,
+      "printLines": 15,
+      "printedChars": 0,
+      "branchPoints": 20,
+      "calls": 0,
+      "emptyPrints": 13
+    },
+    {
+      "name": "DUNGEON_TOWN_LOVER",
+      "file": "ERB/LOVERS.ERB",
+      "line": 142,
+      "codeLines": 1480,
+      "printLines": 488,
+      "printedChars": 10412,
+      "branchPoints": 525,
+      "calls": 11,
+      "emptyPrints": 13
+    },
+    {
+      "name": "ENDING_14",
+      "file": "ERB/ENDING.ERB",
+      "line": 346,
+      "codeLines": 49,
+      "printLines": 44,
+      "printedChars": 5765,
+      "branchPoints": 1,
+      "calls": 0,
+      "emptyPrints": 12
+    },
+    {
+      "name": "COLOSSEUM_KOJO_14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5410,
+      "codeLines": 65,
+      "printLines": 17,
+      "printedChars": 302,
+      "branchPoints": 25,
+      "calls": 0,
+      "emptyPrints": 11
+    },
+    {
+      "name": "ENDING_12",
+      "file": "ERB/ENDING.ERB",
+      "line": 258,
+      "codeLines": 40,
+      "printLines": 39,
+      "printedChars": 951,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 9
+    },
+    {
+      "name": "ENDING_13",
+      "file": "ERB/ENDING.ERB",
+      "line": 303,
+      "codeLines": 38,
+      "printLines": 35,
+      "printedChars": 711,
+      "branchPoints": 1,
+      "calls": 0,
+      "emptyPrints": 9
+    },
+    {
+      "name": "MUSEUM_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12798,
+      "codeLines": 19,
+      "printLines": 9,
+      "printedChars": 0,
+      "branchPoints": 9,
+      "calls": 0,
+      "emptyPrints": 9
+    },
+    {
+      "name": "BENKI_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 7527,
+      "codeLines": 69,
+      "printLines": 28,
+      "printedChars": 467,
+      "branchPoints": 32,
+      "calls": 0,
+      "emptyPrints": 9
+    },
+    {
+      "name": "OPENING_TUTORIAL",
+      "file": "ERB/SYSTEM.ERB",
+      "line": 812,
+      "codeLines": 59,
+      "printLines": 42,
+      "printedChars": 1363,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 9
+    },
+    {
+      "name": "MUSEUM_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6973,
+      "codeLines": 21,
+      "printLines": 10,
+      "printedChars": 74,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 8
+    },
+    {
+      "name": "NTR_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5601,
+      "codeLines": 110,
+      "printLines": 47,
+      "printedChars": 800,
+      "branchPoints": 38,
+      "calls": 0,
+      "emptyPrints": 8
+    },
+    {
+      "name": "MUSEUM_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5753,
+      "codeLines": 21,
+      "printLines": 10,
+      "printedChars": 51,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 8
+    },
+    {
+      "name": "OSIOKI_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5842,
+      "codeLines": 41,
+      "printLines": 15,
+      "printedChars": 311,
+      "branchPoints": 20,
+      "calls": 0,
+      "emptyPrints": 8
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 844,
+      "codeLines": 2904,
+      "printLines": 1240,
+      "printedChars": 34977,
+      "branchPoints": 900,
+      "calls": 2,
+      "emptyPrints": 8
+    },
+    {
+      "name": "EVENTTRAIN",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 94,
+      "codeLines": 230,
+      "printLines": 133,
+      "printedChars": 4409,
+      "branchPoints": 38,
+      "calls": 4,
+      "emptyPrints": 8
+    },
+    {
+      "name": "MUSEUM_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7807,
+      "codeLines": 21,
+      "printLines": 10,
+      "printedChars": 74,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 8
+    },
+    {
+      "name": "MUSEUM_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8556,
+      "codeLines": 21,
+      "printLines": 10,
+      "printedChars": 67,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 8
+    },
+    {
+      "name": "MUSEUM_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7622,
+      "codeLines": 21,
+      "printLines": 10,
+      "printedChars": 64,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 8
+    },
+    {
+      "name": "MUSEUM_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7294,
+      "codeLines": 21,
+      "printLines": 10,
+      "printedChars": 79,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 8
+    },
+    {
+      "name": "GROTESQUE_KOUJO_KX1",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7824,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 7044,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "SELF_KOJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 11882,
+      "codeLines": 250,
+      "printLines": 118,
+      "printedChars": 3298,
+      "branchPoints": 75,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12867,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5760,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5825,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5679,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8100,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 7070,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8813,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5194,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7878,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7821,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8631,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7693,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "GROTESQUE_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7365,
+      "codeLines": 15,
+      "printLines": 7,
+      "printedChars": 0,
+      "branchPoints": 7,
+      "calls": 0,
+      "emptyPrints": 7
+    },
+    {
+      "name": "SELF_KOJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 6634,
+      "codeLines": 245,
+      "printLines": 94,
+      "printedChars": 2650,
+      "branchPoints": 93,
+      "calls": 1,
+      "emptyPrints": 6
+    },
+    {
+      "name": "MUSEUM_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7753,
+      "codeLines": 21,
+      "printLines": 10,
+      "printedChars": 77,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 6
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 4425,
+      "codeLines": 111,
+      "printLines": 28,
+      "printedChars": 328,
+      "branchPoints": 44,
+      "calls": 0,
+      "emptyPrints": 6
+    },
+    {
+      "name": "MUSEUM_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8028,
+      "codeLines": 22,
+      "printLines": 11,
+      "printedChars": 131,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 6
+    },
+    {
+      "name": "MUSEUM_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 6999,
+      "codeLines": 21,
+      "printLines": 10,
+      "printedChars": 95,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 6
+    },
+    {
+      "name": "MUSEUM_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8742,
+      "codeLines": 21,
+      "printLines": 10,
+      "printedChars": 112,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 6
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 3905,
+      "codeLines": 118,
+      "printLines": 30,
+      "printedChars": 537,
+      "branchPoints": 46,
+      "calls": 0,
+      "emptyPrints": 6
+    },
+    {
+      "name": "MUSEUM_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5123,
+      "codeLines": 21,
+      "printLines": 10,
+      "printedChars": 115,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 6
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 678,
+      "codeLines": 3620,
+      "printLines": 1646,
+      "printedChars": 51153,
+      "branchPoints": 1090,
+      "calls": 2,
+      "emptyPrints": 6
+    },
+    {
+      "name": "MUSEUM_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7748,
+      "codeLines": 23,
+      "printLines": 12,
+      "printedChars": 159,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 6
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 908,
+      "codeLines": 4297,
+      "printLines": 2161,
+      "printedChars": 76275,
+      "branchPoints": 1211,
+      "calls": 2,
+      "emptyPrints": 6
+    },
+    {
+      "name": "PASSOUT_TEXT",
+      "file": "ERB/PASSOUT.ERB",
+      "line": 91,
+      "codeLines": 159,
+      "printLines": 21,
+      "printedChars": 364,
+      "branchPoints": 66,
+      "calls": 1,
+      "emptyPrints": 6
+    },
+    {
+      "name": "EVENTTRAIN",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 114,
+      "codeLines": 318,
+      "printLines": 180,
+      "printedChars": 6229,
+      "branchPoints": 58,
+      "calls": 4,
+      "emptyPrints": 5
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12831,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 0,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 5
+    },
+    {
+      "name": "MUSEUM_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5688,
+      "codeLines": 21,
+      "printLines": 10,
+      "printedChars": 94,
+      "branchPoints": 10,
+      "calls": 0,
+      "emptyPrints": 5
+    },
+    {
+      "name": "SELF_KOJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 7483,
+      "codeLines": 325,
+      "printLines": 144,
+      "printedChars": 3617,
+      "branchPoints": 116,
+      "calls": 1,
+      "emptyPrints": 5
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7788,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 32,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 7008,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 33,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12780,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 0,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5724,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 14,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5789,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 20,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8064,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 31,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "SELF_KOJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 5844,
+      "codeLines": 302,
+      "printLines": 133,
+      "printedChars": 3576,
+      "branchPoints": 108,
+      "calls": 1,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 7034,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 31,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8777,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 24,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5158,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 21,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7842,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 20,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "SELF_KOJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 6455,
+      "codeLines": 381,
+      "printLines": 175,
+      "printedChars": 5277,
+      "branchPoints": 135,
+      "calls": 1,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7785,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 54,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_AFTER_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 7993,
+      "codeLines": 40,
+      "printLines": 22,
+      "printedChars": 615,
+      "branchPoints": 9,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8591,
+      "codeLines": 15,
+      "printLines": 9,
+      "printedChars": 213,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "SELF_KOJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 6649,
+      "codeLines": 286,
+      "printLines": 147,
+      "printedChars": 4736,
+      "branchPoints": 79,
+      "calls": 1,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7657,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 34,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "BANISHMENT_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7329,
+      "codeLines": 11,
+      "printLines": 5,
+      "printedChars": 23,
+      "branchPoints": 5,
+      "calls": 0,
+      "emptyPrints": 4
+    },
+    {
+      "name": "SELL_MATURO_K0",
+      "file": "ERB/SELL_MATURO.ERB",
+      "line": 29,
+      "codeLines": 1699,
+      "printLines": 711,
+      "printedChars": 25111,
+      "branchPoints": 430,
+      "calls": 3,
+      "emptyPrints": 4
+    },
+    {
+      "name": "DUNGEON_INFO2",
+      "file": "ERB/DUNGEON_INFO2.ERB",
+      "line": 2,
+      "codeLines": 436,
+      "printLines": 64,
+      "printedChars": 501,
+      "branchPoints": 127,
+      "calls": 7,
+      "emptyPrints": 3
+    },
+    {
+      "name": "PRITRAIN_MESSAGE",
+      "file": "ERB/EVENT_BEFORETRAIN.ERB",
+      "line": 6,
+      "codeLines": 151,
+      "printLines": 52,
+      "printedChars": 959,
+      "branchPoints": 44,
+      "calls": 8,
+      "emptyPrints": 3
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 12852,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 0,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 3
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5735,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 16,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 3
+    },
+    {
+      "name": "SELF_KOJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 7544,
+      "codeLines": 292,
+      "printLines": 157,
+      "printedChars": 5283,
+      "branchPoints": 77,
+      "calls": 1,
+      "emptyPrints": 3
+    },
+    {
+      "name": "ARREST_EVENT_1",
+      "file": "ERB/NTR.ERB",
+      "line": 120,
+      "codeLines": 90,
+      "printLines": 51,
+      "printedChars": 1439,
+      "branchPoints": 18,
+      "calls": 2,
+      "emptyPrints": 3
+    },
+    {
+      "name": "INSECT_RYOU",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 787,
+      "codeLines": 484,
+      "printLines": 170,
+      "printedChars": 2900,
+      "branchPoints": 116,
+      "calls": 0,
+      "emptyPrints": 2
+    },
+    {
+      "name": "SELF_KOJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6023,
+      "codeLines": 306,
+      "printLines": 161,
+      "printedChars": 5375,
+      "branchPoints": 83,
+      "calls": 1,
+      "emptyPrints": 2
+    },
+    {
+      "name": "EVENTTRAIN",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 95,
+      "codeLines": 359,
+      "printLines": 182,
+      "printedChars": 5535,
+      "branchPoints": 66,
+      "calls": 2,
+      "emptyPrints": 2
+    },
+    {
+      "name": "DUNGEON_VICTORY_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7310,
+      "codeLines": 36,
+      "printLines": 18,
+      "printedChars": 353,
+      "branchPoints": 12,
+      "calls": 0,
+      "emptyPrints": 2
+    },
+    {
+      "name": "EVENTTRAIN",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 75,
+      "codeLines": 415,
+      "printLines": 248,
+      "printedChars": 10087,
+      "branchPoints": 68,
+      "calls": 4,
+      "emptyPrints": 2
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 891,
+      "codeLines": 3613,
+      "printLines": 1832,
+      "printedChars": 59538,
+      "branchPoints": 968,
+      "calls": 2,
+      "emptyPrints": 2
+    },
+    {
+      "name": "KOJO_MESSAGE_COM_9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 877,
+      "codeLines": 3372,
+      "printLines": 1552,
+      "printedChars": 53186,
+      "branchPoints": 1016,
+      "calls": 2,
+      "emptyPrints": 2
+    },
+    {
+      "name": "SELF_KOJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 6396,
+      "codeLines": 272,
+      "printLines": 137,
+      "printedChars": 4206,
+      "branchPoints": 78,
+      "calls": 1,
+      "emptyPrints": 2
+    },
+    {
+      "name": "ARREST_EVENT_2",
+      "file": "ERB/NTR.ERB",
+      "line": 229,
+      "codeLines": 891,
+      "printLines": 387,
+      "printedChars": 5983,
+      "branchPoints": 229,
+      "calls": 85,
+      "emptyPrints": 2
+    },
+    {
+      "name": "SALE_CHARA",
+      "file": "ERB/SELL_CHARA.ERB",
+      "line": 293,
+      "codeLines": 125,
+      "printLines": 57,
+      "printedChars": 294,
+      "branchPoints": 52,
+      "calls": 2,
+      "emptyPrints": 2
+    },
+    {
+      "name": "SELL_MATURO_K1",
+      "file": "ERB/SELL_MATURO_K1.ERB",
+      "line": 25,
+      "codeLines": 1124,
+      "printLines": 473,
+      "printedChars": 15437,
+      "branchPoints": 288,
+      "calls": 1,
+      "emptyPrints": 2
+    },
+    {
+      "name": "SELL_MATURO_K2",
+      "file": "ERB/SELL_MATURO_K2_牝犬.ERB",
+      "line": 9,
+      "codeLines": 137,
+      "printLines": 55,
+      "printedChars": 1857,
+      "branchPoints": 29,
+      "calls": 1,
+      "emptyPrints": 2
+    },
+    {
+      "name": "DRAW_HAVEITEMS",
+      "file": "ERB/_DRAW_MAINMENU.ERB",
+      "line": 287,
+      "codeLines": 53,
+      "printLines": 20,
+      "printedChars": 40,
+      "branchPoints": 14,
+      "calls": 0,
+      "emptyPrints": 2
+    },
+    {
+      "name": "DRAW_DUNGEON_OVERVIEW",
+      "file": "ERB/_DRAW_MAINMENU.ERB",
+      "line": 383,
+      "codeLines": 120,
+      "printLines": 28,
+      "printedChars": 149,
+      "branchPoints": 34,
+      "calls": 0,
+      "emptyPrints": 2
+    },
+    {
+      "name": "BENKI",
+      "file": "ERB/BENKI.ERB",
+      "line": 2,
+      "codeLines": 617,
+      "printLines": 198,
+      "printedChars": 2957,
+      "branchPoints": 207,
+      "calls": 13,
+      "emptyPrints": 1
+    },
+    {
+      "name": "CAMPAIGN_ENDING_1",
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "line": 357,
+      "codeLines": 14,
+      "printLines": 13,
+      "printedChars": 406,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "COM72",
+      "file": "ERB/COMF72_陰毛を剃る.ERB",
+      "line": 3,
+      "codeLines": 70,
+      "printLines": 11,
+      "printedChars": 199,
+      "branchPoints": 24,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "CONFIG_HERO_ATTACK",
+      "file": "ERB/CONFIG.ERB",
+      "line": 119,
+      "codeLines": 159,
+      "printLines": 54,
+      "printedChars": 718,
+      "branchPoints": 53,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "OSIOKI",
+      "file": "ERB/DUNGEON_AFTER.ERB",
+      "line": 281,
+      "codeLines": 146,
+      "printLines": 67,
+      "printedChars": 1444,
+      "branchPoints": 22,
+      "calls": 14,
+      "emptyPrints": 1
+    },
+    {
+      "name": "LOG_BITCH_ANAL",
+      "file": "ERB/DUNGEON_BITCH_LOG.ERB",
+      "line": 962,
+      "codeLines": 248,
+      "printLines": 39,
+      "printedChars": 739,
+      "branchPoints": 55,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "DUNGEON_ICE",
+      "file": "ERB/DUNGEON_ROOM.ERB",
+      "line": 667,
+      "codeLines": 35,
+      "printLines": 5,
+      "printedChars": 20,
+      "branchPoints": 9,
+      "calls": 1,
+      "emptyPrints": 1
+    },
+    {
+      "name": "DUNGEON_HEAT",
+      "file": "ERB/DUNGEON_ROOM.ERB",
+      "line": 722,
+      "codeLines": 41,
+      "printLines": 6,
+      "printedChars": 42,
+      "branchPoints": 11,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "DUNGEON_MASE",
+      "file": "ERB/DUNGEON_ROOM.ERB",
+      "line": 788,
+      "codeLines": 29,
+      "printLines": 3,
+      "printedChars": 0,
+      "branchPoints": 9,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "DUNGEON_MUSEUM",
+      "file": "ERB/DUNGEON_ROOM.ERB",
+      "line": 833,
+      "codeLines": 44,
+      "printLines": 4,
+      "printedChars": 14,
+      "branchPoints": 16,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "ORC_RYOU",
+      "file": "ERB/DUNGEON_RYOUZYOKU.ERB",
+      "line": 127,
+      "codeLines": 423,
+      "printLines": 154,
+      "printedChars": 2331,
+      "branchPoints": 100,
+      "calls": 4,
+      "emptyPrints": 1
+    },
+    {
+      "name": "CHAR_GIFT",
+      "file": "ERB/ENDING.ERB",
+      "line": 401,
+      "codeLines": 156,
+      "printLines": 33,
+      "printedChars": 416,
+      "branchPoints": 43,
+      "calls": 5,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K0",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7736,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 61,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_KX1",
+      "file": "ERB/EVENT_K0_慈愛.ERB",
+      "line": 7809,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 58,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 6956,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 71,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 7029,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 73,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5670,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 37,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5745,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 38,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "OSIOKI_KOUJO_K12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 5931,
+      "codeLines": 41,
+      "printLines": 15,
+      "printedChars": 314,
+      "branchPoints": 20,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 5810,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 29,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "DUNGEON_VICTORY_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5267,
+      "codeLines": 30,
+      "printLines": 11,
+      "printedChars": 110,
+      "branchPoints": 12,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5664,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 122,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "DUNGEON_RYOUZYOKU_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 7407,
+      "codeLines": 38,
+      "printLines": 16,
+      "printedChars": 474,
+      "branchPoints": 16,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8011,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 56,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K1",
+      "file": "ERB/EVENT_K1_自信家.ERB",
+      "line": 8085,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 43,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 6982,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 65,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 7055,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 71,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "KOJO_MESSAGE_PALAMCNG_3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 7066,
+      "codeLines": 235,
+      "printLines": 103,
+      "printedChars": 2856,
+      "branchPoints": 76,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8725,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 65,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K3",
+      "file": "ERB/EVENT_K3_高貴.ERB",
+      "line": 8798,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 53,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5106,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 78,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K4",
+      "file": "ERB/EVENT_K4_冷徹.ERB",
+      "line": 5179,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 71,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7790,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 93,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K5",
+      "file": "ERB/EVENT_K5_マオ.ERB",
+      "line": 7863,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 71,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7731,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 102,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 7806,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 115,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8539,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 92,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 8616,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 70,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7605,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 103,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 7678,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 98,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EXUCUTION_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7277,
+      "codeLines": 9,
+      "printLines": 4,
+      "printedChars": 97,
+      "branchPoints": 4,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "PUBLIC_EXUCUTION_KOUJO_K9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 7350,
+      "codeLines": 7,
+      "printLines": 3,
+      "printedChars": 84,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "EVENT_MAZOKU",
+      "file": "ERB/EVENT_NEXTDAY.ERB",
+      "line": 462,
+      "codeLines": 14,
+      "printLines": 4,
+      "printedChars": 51,
+      "branchPoints": 3,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "DOG_WALK",
+      "file": "ERB/EVENT_NEXTDAY.ERB",
+      "line": 1332,
+      "codeLines": 97,
+      "printLines": 30,
+      "printedChars": 477,
+      "branchPoints": 20,
+      "calls": 1,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_40",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2004,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 13,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_41",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2010,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 14,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_42",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2016,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 14,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_43",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2022,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 14,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_44",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2028,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 14,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_45",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2034,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 14,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_46",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2040,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 14,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_47",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2046,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 13,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_48",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2052,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 14,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_49",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2058,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 15,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_50",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2064,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 15,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_51",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2070,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 16,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_52",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2076,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 14,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_53",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2082,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 13,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_54",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2088,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 13,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_55",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2094,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 12,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_56",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2100,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 13,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    },
+    {
+      "name": "MAOUDIC_TALENT_57",
+      "file": "ERB/MAOUDIC.ERB",
+      "line": 2106,
+      "codeLines": 3,
+      "printLines": 3,
+      "printedChars": 13,
+      "branchPoints": 0,
+      "calls": 0,
+      "emptyPrints": 1
+    }
+  ],
+  "emptyPrintsByFile": {
+    "ERB/EVENT_K14_貴公子.ERB": 899,
+    "ERB/EVENT_K13_庇護者.ERB": 547,
+    "ERB/EVENT_K12_知的.ERB": 310,
+    "ERB/EVENT_K11_リリィ.ERB": 289,
+    "ERB/MAOUDIC.ERB": 218,
+    "ERB/EVENT_K2_気弱.ERB": 204,
+    "ERB/EVENT_K10_クラブ.ERB": 196,
+    "ERB/EVENT_K7_ハート.ERB": 196,
+    "ERB/EVENT_K8_スペード.ERB": 187,
+    "ERB/EVENT_K9_ダイヤ.ERB": 185,
+    "ERB/EVENT_K1_自信家.ERB": 165,
+    "ERB/EVENT_K4_冷徹.ERB": 154,
+    "ERB/EVENT_K6_悪女.ERB": 131,
+    "ERB/EVENT_K3_高貴.ERB": 97,
+    "ERB/ENDING.ERB": 65,
+    "ERB/EVENT_K5_マオ.ERB": 64,
+    "ERB/EVENT_K0_慈愛.ERB": 44,
+    "ERB/DUNGEON.ERB": 17,
+    "ERB/MUSEUM.ERB": 17,
+    "ERB/LOVERS.ERB": 13,
+    "ERB/SYSTEM.ERB": 10,
+    "ERB/PASSOUT.ERB": 6,
+    "ERB/_DRAW_MAINMENU.ERB": 6,
+    "ERB/NTR.ERB": 5,
+    "ERB/SELL_MATURO.ERB": 4,
+    "ERB/DUNGEON_ROOM.ERB": 4,
+    "ERB/DUNGEON_INFO2.ERB": 3,
+    "ERB/EVENT_BEFORETRAIN.ERB": 3,
+    "ERB/DUNGEON_RYOUZYOKU.ERB": 3,
+    "ERB/SELL_CHARA.ERB": 2,
+    "ERB/SELL_MATURO_K1.ERB": 2,
+    "ERB/SELL_MATURO_K2_牝犬.ERB": 2,
+    "ERB/EVENT_NEXTDAY.ERB": 2,
+    "ERB/BENKI.ERB": 1,
+    "ERB/CAMPAIGN_1.ERB": 1,
+    "ERB/COMF72_陰毛を剃る.ERB": 1,
+    "ERB/CONFIG.ERB": 1,
+    "ERB/DUNGEON_AFTER.ERB": 1,
+    "ERB/DUNGEON_BITCH_LOG.ERB": 1,
+    "ERB/PUBLIC_EXECUTION.ERB": 1
+  },
+  "skeletonFunctionCount": 627,
+  "skeletonFunctions": [
+    {
+      "name": "KR_NAME",
+      "file": "ERB/ZNAME.ERB",
+      "line": 120,
+      "codeLines": 1205,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 519,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 6747
+    },
+    {
+      "name": "NAMING",
+      "file": "ERB/CHAR_MAKE.ERB",
+      "line": 1009,
+      "codeLines": 828,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 398,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 5174
+    },
+    {
+      "name": "GET_LOOK_INFO",
+      "file": "ERB/LOOK.ERB",
+      "line": 2714,
+      "codeLines": 729,
+      "printLines": 2,
+      "printedChars": 11,
+      "branchPoints": 352,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 4565
+    },
+    {
+      "name": "ESTIMATE_CHARA",
+      "file": "ERB/SELL_CHARA_ESTIMATE.ERB",
+      "line": 109,
+      "codeLines": 618,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 266,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 3458
+    },
+    {
+      "name": "COM_EJAC_PLAYER_SEX",
+      "file": "ERB/COMF_VAGINASEX.ERB",
+      "line": 40,
+      "codeLines": 545,
+      "printLines": 7,
+      "printedChars": 43,
+      "branchPoints": 251,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 3220
+    },
+    {
+      "name": "SELL_VIDEO",
+      "file": "ERB/SELL_VIDEO.ERB",
+      "line": 7,
+      "codeLines": 827,
+      "printLines": 6,
+      "printedChars": 121,
+      "branchPoints": 250,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 3129
+    },
+    {
+      "name": "DOG_KOJO_10",
+      "file": "ERB/EVENT_K10_クラブ.ERB",
+      "line": 4842,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160,
+      "skeletonScore": 2821
+    },
+    {
+      "name": "DOG_KOJO_11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 10653,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160,
+      "skeletonScore": 2821
+    },
+    {
+      "name": "DOG_KOJO_14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 3560,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160,
+      "skeletonScore": 2821
+    },
+    {
+      "name": "DOG_KOJO_7",
+      "file": "ERB/EVENT_K7_ハート.ERB",
+      "line": 6281,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160,
+      "skeletonScore": 2821
+    },
+    {
+      "name": "DOG_KOJO_8",
+      "file": "ERB/EVENT_K8_スペード.ERB",
+      "line": 5446,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160,
+      "skeletonScore": 2821
+    },
+    {
+      "name": "DOG_KOJO_9",
+      "file": "ERB/EVENT_K9_ダイヤ.ERB",
+      "line": 5211,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 0,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 160,
+      "skeletonScore": 2821
+    },
+    {
+      "name": "DOG_KOJO_2",
+      "file": "ERB/EVENT_K2_気弱.ERB",
+      "line": 4712,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 103,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 152,
+      "skeletonScore": 2718
+    },
+    {
+      "name": "CHARA_FIRST_EXP",
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "line": 2,
+      "codeLines": 479,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 198,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 2574
+    },
+    {
+      "name": "AEGI_K11",
+      "file": "ERB/EVENT_K11_リリィ.ERB",
+      "line": 13091,
+      "codeLines": 374,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 189,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 2457
+    },
+    {
+      "name": "DOG_KOJO_13",
+      "file": "ERB/EVENT_K13_庇護者.ERB",
+      "line": 3620,
+      "codeLines": 571,
+      "printLines": 160,
+      "printedChars": 454,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 132,
+      "skeletonScore": 2367
+    },
+    {
+      "name": "FI_CULC_BITCH",
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "line": 701,
+      "codeLines": 311,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 140,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 1820
+    },
+    {
+      "name": "DOG_KOJO_12",
+      "file": "ERB/EVENT_K12_知的.ERB",
+      "line": 3539,
+      "codeLines": 579,
+      "printLines": 168,
+      "printedChars": 1091,
+      "branchPoints": 217,
+      "calls": 0,
+      "emptyPrints": 116,
+      "skeletonScore": 1730
+    },
+    {
+      "name": "DOG_KOJO_6",
+      "file": "ERB/EVENT_K6_悪女.ERB",
+      "line": 5278,
+      "codeLines": 592,
+      "printLines": 174,
+      "printedChars": 1228,
+      "branchPoints": 221,
+      "calls": 0,
+      "emptyPrints": 102,
+      "skeletonScore": 1645
+    },
+    {
+      "name": "P_C",
+      "file": "ERB/TRAIN_MAIN.ERB",
+      "line": 680,
+      "codeLines": 243,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 121,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 1573
+    },
+    {
+      "name": "COM_EJAC_PLAYER_ANALSEX",
+      "file": "ERB/COMF_ANALSEX.ERB",
+      "line": 6,
+      "codeLines": 250,
+      "printLines": 3,
+      "printedChars": 12,
+      "branchPoints": 111,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 1431
+    },
+    {
+      "name": "B",
+      "file": "ERB/ZNAME.ERB",
+      "line": 1718,
+      "codeLines": 529,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 106,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 1378
+    },
+    {
+      "name": "FS_BITCH",
+      "file": "ERB/DUNGEON_BITCH_LOG.ERB",
+      "line": 71,
+      "codeLines": 206,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 101,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 1313
+    },
+    {
+      "name": "T",
+      "file": "ERB/ZNAME.ERB",
+      "line": 2909,
+      "codeLines": 379,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 76,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 988
+    },
+    {
+      "name": "DECIDE_ABLUP37",
+      "file": "ERB/ABLUP37.ERB",
+      "line": 90,
+      "codeLines": 295,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 71,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 923
+    },
+    {
+      "name": "SEARCH_FAMILY",
+      "file": "ERB/CHARA_FAMILY.ERB",
+      "line": 12,
+      "codeLines": 228,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 71,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 923
+    },
+    {
+      "name": "DECIDE_ABLUP16",
+      "file": "ERB/ABLUP16.ERB",
+      "line": 147,
+      "codeLines": 311,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 68,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 884
+    },
+    {
+      "name": "DECIDE_ABLUP21",
+      "file": "ERB/ABLUP21.ERB",
+      "line": 134,
+      "codeLines": 322,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 62,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 806
+    },
+    {
+      "name": "SELF_CALL",
+      "file": "ERB/SELF_CALL.ERB",
+      "line": 185,
+      "codeLines": 153,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 59,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 767
+    },
+    {
+      "name": "DECIDE_ABLUP17",
+      "file": "ERB/ABLUP17.ERB",
+      "line": 97,
+      "codeLines": 127,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 56,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 728
+    },
+    {
+      "name": "BENKI_KOUJO_K14",
+      "file": "ERB/EVENT_K14_貴公子.ERB",
+      "line": 5036,
+      "codeLines": 141,
+      "printLines": 61,
+      "printedChars": 174,
+      "branchPoints": 68,
+      "calls": 0,
+      "emptyPrints": 57,
+      "skeletonScore": 710
+    },
+    {
+      "name": "DECIDE_ABLUP33",
+      "file": "ERB/ABLUP33.ERB",
+      "line": 95,
+      "codeLines": 215,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 54,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 702
+    },
+    {
+      "name": "DECIDE_ABLUP20",
+      "file": "ERB/ABLUP20.ERB",
+      "line": 86,
+      "codeLines": 180,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 53,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 689
+    },
+    {
+      "name": "DECIDE_ABLUP32",
+      "file": "ERB/ABLUP32.ERB",
+      "line": 121,
+      "codeLines": 200,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 53,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 689
+    },
+    {
+      "name": "DECIDE_ABLUP13",
+      "file": "ERB/ABLUP13.ERB",
+      "line": 73,
+      "codeLines": 127,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 51,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 663
+    },
+    {
+      "name": "DECIDE_ABLUP30",
+      "file": "ERB/ABLUP30.ERB",
+      "line": 110,
+      "codeLines": 197,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 51,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 663
+    },
+    {
+      "name": "DECIDE_ABLUP22",
+      "file": "ERB/ABLUP22.ERB",
+      "line": 120,
+      "codeLines": 199,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 46,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 598
+    },
+    {
+      "name": "EQUIP_DATABASE",
+      "file": "ERB/EQUIP.ERB",
+      "line": 275,
+      "codeLines": 364,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 45,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 585
+    },
+    {
+      "name": "PALAM_MESSAGE_MINI",
+      "file": "ERB/SYSTEM_SOURCE.ERB",
+      "line": 2344,
+      "codeLines": 103,
+      "printLines": 40,
+      "printedChars": 86,
+      "branchPoints": 51,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 577
+    },
+    {
+      "name": "DECIDE_ABLUP15",
+      "file": "ERB/ABLUP15.ERB",
+      "line": 77,
+      "codeLines": 179,
+      "printLines": 0,
+      "printedChars": 0,
+      "branchPoints": 44,
+      "calls": 0,
+      "emptyPrints": 0,
+      "skeletonScore": 572
+    }
+  ],
+  "skeletonByFile": {
+    "ERB/COMABLE.ERB": 118,
+    "ERB/EVENT_K5_マオ.ERB": 24,
+    "ERB/SYSTEM_SOURCE.ERB": 21,
+    "ERB/NTR.ERB": 20,
+    "ERB/EVENT_PREGNANCY.ERB": 16,
+    "ERB/EVENT_K13_庇護者.ERB": 15,
+    "ERB/USE_EX_ITEM.ERB": 15,
+    "ERB/EVENT_K11_リリィ.ERB": 14,
+    "ERB/EVENT_K14_貴公子.ERB": 12,
+    "ERB/SYSTEM_SOURCE_SUB1.ERB": 12,
+    "ERB/COMF110_服の着脱.ERB": 12,
+    "ERB/LOVERS.ERB": 10,
+    "ERB/DUNGEON_BITCH_LOG.ERB": 9,
+    "ERB/EVENT_K2_気弱.ERB": 8,
+    "ERB/DUNGEON_BITCH.ERB": 8,
+    "ERB/EVENT_K12_知的.ERB": 8,
+    "ERB/EVENT_K1_自信家.ERB": 7,
+    "ERB/MAGIC.ERB": 7,
+    "ERB/DUNGEON_ROOM.ERB": 7,
+    "ERB/EVENT_K4_冷徹.ERB": 7,
+    "ERB/COMF111_服を破る.ERB": 7,
+    "ERB/EVENT_K10_クラブ.ERB": 6,
+    "ERB/EVENT_K9_ダイヤ.ERB": 6,
+    "ERB/EQUIP.ERB": 6,
+    "ERB/CHARA_INFO_SHOW.ERB": 6,
+    "ERB/CAMPAIGN_1.ERB": 6,
+    "ERB/EVENT_K3_高貴.ERB": 6,
+    "ERB/EVENT_K0_慈愛.ERB": 6,
+    "ERB/EVENT_K7_ハート.ERB": 5,
+    "ERB/EVENT_K8_スペード.ERB": 5,
+    "ERB/EVENT_K6_悪女.ERB": 5,
+    "ERB/LABO.ERB": 5,
+    "ERB/EVENT_TRAIN_MESSAGE_A.ERB": 5,
+    "ERB/DUNGEON_TOWN.ERB": 5,
+    "ERB/DUNGEON_BATLLE.ERB": 5,
+    "ERB/SHOP_FUNCTION.ERB": 5,
+    "ERB/PASSOUT.ERB": 4,
+    "ERB/DUNGEON_BATLLE2.ERB": 4,
+    "ERB/LABO_MAP.ERB": 4,
+    "ERB/DUNGEON_PARTY.ERB": 4
+  },
+  "emptyCaseCount": 1044,
+  "emptyCases": [
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "0",
+      "line": 1176
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "1",
+      "line": 1179
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "2",
+      "line": 1182
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "4",
+      "line": 1191
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "5",
+      "line": 1193
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "6",
+      "line": 1195
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "9",
+      "line": 1208
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "10",
+      "line": 1210
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "30",
+      "line": 1266
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "32",
+      "line": 1276
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "33",
+      "line": 1280
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "37",
+      "line": 1299
+    },
+    {
+      "file": "ERB/BENKI.ERB",
+      "fn": "GET_EXP_BENKI_MENU",
+      "case": "38",
+      "line": 1303
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "301",
+      "line": 123
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "302",
+      "line": 126
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "303",
+      "line": 129
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "304",
+      "line": 132
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "305",
+      "line": 135
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "312",
+      "line": 140
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "313",
+      "line": 143
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "314",
+      "line": 146
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "315",
+      "line": 149
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "323",
+      "line": 154
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "324",
+      "line": 157
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_TRAP_1",
+      "case": "325",
+      "line": 160
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_EQUIP_SELECT_1",
+      "case": "3",
+      "line": 175
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_EQUIP_SELECT_1",
+      "case": "4",
+      "line": 178
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_EQUIP_SELECT_1",
+      "case": "5",
+      "line": 181
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_MONSTER_LIST_1",
+      "case": "1",
+      "line": 199
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_MONSTER_LIST_1",
+      "case": "2",
+      "line": 208
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_MONSTER_LIST_1",
+      "case": "3",
+      "line": 217
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_MONSTER_LIST_1",
+      "case": "4",
+      "line": 226
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_MONSTER_LIST_1",
+      "case": "5",
+      "line": 235
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_MONSTER_LIST_1",
+      "case": "6",
+      "line": 244
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_MONSTER_EXTRA_1",
+      "case": "607",
+      "line": 264
+    },
+    {
+      "file": "ERB/CAMPAIGN_1.ERB",
+      "fn": "CAMPAIGN_MONSTER_EXTRA_1",
+      "case": "608",
+      "line": 267
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1",
+      "line": 65
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "0,4,8",
+      "line": 68
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1,5,7",
+      "line": 71
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "CASEELSE",
+      "line": 74
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "2",
+      "line": 78
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "0,4,8",
+      "line": 81
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1,5,7",
+      "line": 84
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "CASEELSE",
+      "line": 87
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "3",
+      "line": 91
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "0,4,8",
+      "line": 94
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1,5,7",
+      "line": 97
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "CASEELSE",
+      "line": 100
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "4",
+      "line": 104
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "0,4,8",
+      "line": 107
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1,5,7",
+      "line": 110
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "CASEELSE",
+      "line": 113
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "5",
+      "line": 117
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "0,4,8",
+      "line": 120
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1,5,7",
+      "line": 123
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "CASEELSE",
+      "line": 126
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1",
+      "line": 226
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "3",
+      "line": 237
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "4",
+      "line": 240
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "6",
+      "line": 243
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "8",
+      "line": 246
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "15",
+      "line": 253
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "18",
+      "line": 262
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "19",
+      "line": 265
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "5",
+      "line": 276
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "20",
+      "line": 286
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1",
+      "line": 302
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "3",
+      "line": 313
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "4",
+      "line": 316
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "6",
+      "line": 319
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "8",
+      "line": 322
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "15",
+      "line": 329
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "18",
+      "line": 338
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "19",
+      "line": 341
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "5",
+      "line": 352
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "20",
+      "line": 362
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1",
+      "line": 378
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "3",
+      "line": 389
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "4",
+      "line": 392
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "6",
+      "line": 395
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "8",
+      "line": 398
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "15",
+      "line": 403
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "18",
+      "line": 412
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "19",
+      "line": 415
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "5",
+      "line": 426
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "20",
+      "line": 436
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "0",
+      "line": 463
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1",
+      "line": 465
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "CASEELSE",
+      "line": 467
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "0",
+      "line": 482
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1",
+      "line": 484
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "CASEELSE",
+      "line": 486
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "0",
+      "line": 501
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1",
+      "line": 503
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "CASEELSE",
+      "line": 505
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "0",
+      "line": 531
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1",
+      "line": 533
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "CASEELSE",
+      "line": 535
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "0",
+      "line": 543
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1",
+      "line": 545
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "CASEELSE",
+      "line": 547
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "0",
+      "line": 555
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "1",
+      "line": 557
+    },
+    {
+      "file": "ERB/CHARA_FIRST_EXP.ERB",
+      "fn": "CHARA_FIRST_EXP",
+      "case": "CASEELSE",
+      "line": 559
+    },
+    {
+      "file": "ERB/CHARA_INFO_SHOW.ERB",
+      "fn": "SHOW_TALENT",
+      "case": "101 TO 108, 113, 117, 118, 121, 122, 123, 126, 127, 132, 133, 134, 136",
+      "line": 190
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "5",
+      "line": 128
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "IS >= 75",
+      "line": 130
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "IS >= 50",
+      "line": 132
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "IS >= 25",
+      "line": 134
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "IS >= 10",
+      "line": 136
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "CASEELSE",
+      "line": 138
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "6",
+      "line": 146
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "IS >= 75",
+      "line": 148
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "IS >= 50",
+      "line": 150
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "IS >= 25",
+      "line": 152
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "IS >= 10",
+      "line": 154
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "TEMPTATION_TRY",
+      "case": "CASEELSE",
+      "line": 156
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "PREPARE_TEMPTATION",
+      "case": "IS >= 75",
+      "line": 302
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "PREPARE_TEMPTATION",
+      "case": "IS >= 50",
+      "line": 303
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "PREPARE_TEMPTATION",
+      "case": "IS >= 25",
+      "line": 305
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "PREPARE_TEMPTATION",
+      "case": "IS >= 10",
+      "line": 307
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "PREPARE_TEMPTATION",
+      "case": "CASEELSE",
+      "line": 309
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "PREPARE_TEMPTATION",
+      "case": "IS >= 75",
+      "line": 313
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "PREPARE_TEMPTATION",
+      "case": "IS >= 50",
+      "line": 314
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "PREPARE_TEMPTATION",
+      "case": "IS >= 25",
+      "line": 316
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "PREPARE_TEMPTATION",
+      "case": "IS >= 10",
+      "line": 318
+    },
+    {
+      "file": "ERB/CHARA_TEMPTATION.ERB",
+      "fn": "PREPARE_TEMPTATION",
+      "case": "CASEELSE",
+      "line": 320
+    },
+    {
+      "file": "ERB/COMF_CONDOM.ERB",
+      "fn": "CONDOM_SETTINGS",
+      "case": "9",
+      "line": 23
+    },
+    {
+      "file": "ERB/COMF_CONDOM.ERB",
+      "fn": "CONDOM_SETTINGS",
+      "case": "CASEELSE",
+      "line": 34
+    },
+    {
+      "file": "ERB/COMF_CONDOM.ERB",
+      "fn": "CONFIRM_CONDOM",
+      "case": "1",
+      "line": 97
+    },
+    {
+      "file": "ERB/COMF_CONDOM.ERB",
+      "fn": "CONFIRM_CONDOM",
+      "case": "CASEELSE",
+      "line": 107
+    },
+    {
+      "file": "ERB/COMF_CONDOM.ERB",
+      "fn": "CONFIRM_CONDOM",
+      "case": "0",
+      "line": 147
+    },
+    {
+      "file": "ERB/COMF_CONDOM.ERB",
+      "fn": "CONFIRM_CONDOM",
+      "case": "2",
+      "line": 153
+    },
+    {
+      "file": "ERB/COMF_CONDOM.ERB",
+      "fn": "CONFIRM_CONDOM",
+      "case": "CASEELSE",
+      "line": 155
+    },
+    {
+      "file": "ERB/CONFIG.ERB",
+      "fn": "CONFIG_VIRGIN_CONCEDED_SETTING",
+      "case": "0 TO 2",
+      "line": 60
+    },
+    {
+      "file": "ERB/CONFIG.ERB",
+      "fn": "CONFIG_VIRGIN_CONCEDED_SETTING",
+      "case": "100",
+      "line": 63
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "SELL_BITCH",
+      "case": "1",
+      "line": 169
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "SELL_BITCH",
+      "case": "2",
+      "line": 174
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "EXP_BITCH",
+      "case": "\"HAND\"",
+      "line": 326
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "EXP_BITCH",
+      "case": "\"ORAL\"",
+      "line": 338
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "EXP_BITCH",
+      "case": "\"LES\"",
+      "line": 353
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "EXP_BITCH",
+      "case": "\"ANAL\"",
+      "line": 365
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "EXP_BITCH",
+      "case": "\"SEX\"",
+      "line": 376
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "EXP_BITCH",
+      "case": "\"ANIMAL\"",
+      "line": 387
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "PROFIT_BITCH",
+      "case": "\"ANIMAL\"",
+      "line": 429
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "PROFIT_BITCH",
+      "case": "\"LES\"",
+      "line": 431
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "PROFIT_BITCH",
+      "case": "3",
+      "line": 434
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "PROFIT_BITCH",
+      "case": "4",
+      "line": 436
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "PROFIT_BITCH",
+      "case": "CASEELSE",
+      "line": 439
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "PROFIT_BITCH",
+      "case": "3",
+      "line": 442
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "PROFIT_BITCH",
+      "case": "4",
+      "line": 444
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "PROFIT_BITCH",
+      "case": "\"ANIMAL\"",
+      "line": 470
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "PROFIT_BITCH",
+      "case": "\"LES\"",
+      "line": 472
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "PROFIT_BITCH",
+      "case": "CASEELSE",
+      "line": 474
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "\"SIPPAI\"",
+      "line": 707
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "\"SEIKOU\"",
+      "line": 741
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -40000",
+      "line": 755
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -20000",
+      "line": 757
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -10000",
+      "line": 759
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -5000",
+      "line": 761
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < 0",
+      "line": 763
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < 5000",
+      "line": 765
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < 10000",
+      "line": 767
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "CASEELSE",
+      "line": 769
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -40000",
+      "line": 776
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -20000",
+      "line": 778
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -10000",
+      "line": 780
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -5000",
+      "line": 782
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < 0",
+      "line": 784
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < 5000",
+      "line": 786
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < 10000",
+      "line": 788
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "CASEELSE",
+      "line": 790
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "\"KYAKU\"",
+      "line": 823
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS > 180",
+      "line": 827
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS > 130",
+      "line": 829
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS > 80",
+      "line": 831
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS > 30",
+      "line": 833
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS > -20",
+      "line": 834
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS > -70",
+      "line": 836
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS > -120",
+      "line": 838
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "CASEELSE",
+      "line": 840
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "5",
+      "line": 846
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "7",
+      "line": 849
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "2, 8, 12",
+      "line": 852
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -40000",
+      "line": 881
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -20000",
+      "line": 883
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -10000",
+      "line": 885
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < -5000",
+      "line": 887
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < 0",
+      "line": 889
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < 5000",
+      "line": 891
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "IS < 10000",
+      "line": 893
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "CASEELSE",
+      "line": 895
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "\"ABLE\"",
+      "line": 920
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "\"SELF\"",
+      "line": 931
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "\"HAND\"",
+      "line": 933
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "\"ORAL\",",
+      "line": 935
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "\"LES\"",
+      "line": 940
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "\"ANAL\"",
+      "line": 948
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "\"SEX\"",
+      "line": 950
+    },
+    {
+      "file": "ERB/DUNGEON_BITCH.ERB",
+      "fn": "FI_CULC_BITCH",
+      "case": "\"ANIMAL\"",
+      "line": 962
+    }
+  ],
+  "emptyCasesByFile": {
+    "ERB/LOOK.ERB": 276,
+    "ERB/EVENT_K11_リリィ.ERB": 160,
+    "ERB/TRAIN_MAIN.ERB": 120,
+    "ERB/DUNGEON_BITCH_LOG.ERB": 106,
+    "ERB/DUNGEON_BITCH.ERB": 85,
+    "ERB/CHARA_FIRST_EXP.ERB": 68,
+    "ERB/SELL_VIDEO.ERB": 44,
+    "ERB/LABO.ERB": 41,
+    "ERB/LOVERS.ERB": 27,
+    "ERB/CAMPAIGN_1.ERB": 23,
+    "ERB/CHARA_TEMPTATION.ERB": 22,
+    "ERB/DUNGEON_TOWN.ERB": 16,
+    "ERB/BENKI.ERB": 13,
+    "ERB/_DRAW_EXT_COMM.ERB": 11,
+    "ERB/SHOP_LABO.ERB": 9,
+    "ERB/TATOO.ERB": 8,
+    "ERB/COMF_CONDOM.ERB": 7,
+    "ERB/EVENT_NEXTDAY.ERB": 4,
+    "ERB/CONFIG.ERB": 2,
+    "ERB/CHARA_INFO_SHOW.ERB": 1,
+    "ERB/LABO_MAP.ERB": 1
+  },
+  "ok": true
+}
