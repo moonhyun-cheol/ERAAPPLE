@@ -23,7 +23,7 @@
 | EVENT_K13_庇護者 | 庇護者 | 547→(비성적 19자리 채움) | MUSEUM 8·EXUCUTION 3·BANISHMENT 4·PUBLIC_EXUCUTION 魂粉砕 1·OSIOKI 3 완료. COLOSSEUM/MARKCNG 라벨 없음, PALAMCNG 기존 작성됨. 나머지 성묘사 본문·GROTESQUE는 사용자 |
 | EVENT_K12_知的 | 知的 | 310 | 비성적 11자리 완료(EXUCUTION1·MUSEUM5·BANISHMENT4·PUBLIC_EXUCUTION1); PALAMCNG 기충족·GROTESQUE 보류 |
 | EVENT_K11_リリィ | 리리(마오의 언니, 헌신적 마을 처녀) | 297→273(실측,이번) | 비성적 24자리 완료(MUSEUM 9·EXUCUTION 3[肉便器 제외]·BANISHMENT 5·PUBLIC 2[絞首·魂粉砕]·OSIOKI 5). 나머지 성묘사 본문·GROTESQUE는 사용자 |
-| EVENT_K2_気弱 | 気弱 | 204 | 미착수 |
+| EVENT_K2_気弱 | 気弱(소심·겁많음) | 204 | 비성적 12자리 완료(EXUCUTION 記憶消去1·MUSEUM 6[밀랍/금속/얼음/보석/가구/회화]·BANISHMENT 4·PUBLIC 魂粉砕1). MARKCNG·COLOSSEUM·PALAMCNG 기작성됨. 남은 최상위 빈 PRINTFORMW 7=GROTESQUE(사용자). 나머지 성묘사 본문 사용자 |
 | EVENT_K10_クラブ | 클럽 | 196 | 미착수 |
 | EVENT_K7_ハート | 하트 | 196 | 미착수 |
 | EVENT_K8_スペード | 스페이드 | 187 | 미착수 |
