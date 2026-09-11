@@ -1,0 +1,3310 @@
+﻿;------------------------------------------------------------
+;마계사전
+;------------------------------------------------------------
+
+@MAOUDIC
+#DIM LINE, 1
+LINE = LINECOUNT
+$START
+CLEARLINE LINECOUNT - LINE
+PRINTL [0] 아이템
+PRINTL [1] 함정
+PRINTL [2] 반지
+PRINTL [3] 시설
+PRINTL [4] 특성
+PRINTL [9] 돌아간다
+INPUT
+IF RESULT == 0
+	CALL MAOUDIC_ITEM
+ELSEIF RESULT == 1
+	CALL MAOUDIC_TRAP
+ELSEIF RESULT == 2
+	CALL MAOUDIC_RING
+ELSEIF RESULT == 3
+	CALL MAOUDIC_ROOM
+ELSEIF RESULT == 4
+	CALL MAOUDIC_TALENT
+ELSEIF RESULT == 9
+	RETURN 0
+ENDIF
+GOTO START
+
+
+;------------------------------------------------------------
+;마계사전 아이템
+;------------------------------------------------------------
+
+@MAOUDIC_ITEM
+#DIM LINE, 1
+DRAWLINE
+LOCAL = 0
+$PRINT_LIST
+DRAWLINE
+PRINTL   마계사전 아이템
+PRINTL 
+PRINTL 《조교에 사용하는 아이템을 설명합니다》
+DRAWLINE
+IF LOCAL == 0
+	PRINTL [ 0] 진동하는보석
+	PRINTL [ 1] 꿀단지웜
+	PRINTL [ 2] 진동지팡이
+	PRINTL [ 3] 애널웜
+	PRINTL [ 4] 페니스밴드
+	PRINTL [ 5] 아이마스크
+	PRINTL [ 6] 수정구
+	PRINTL [ 7] 클리캡
+	PRINTL [ 8] 유두캡
+	PRINTL [ 9] 볼개그
+	PRINTL [10] 채찍
+	PRINTL [11] 바늘
+	PRINTL [12] 오나홀
+	PRINTL [13] 플레이매트
+	PRINTL [14] 밧줄
+	PRINTL [15] 관장기＋플러그
+	PRINTL [16] 큰거울
+	PRINTL [17] 착유기
+	PRINTL [18] 개목걸이
+	PRINTL [19] 에이프런
+ELSEIF LOCAL == 1
+	PRINTL [20] 애널비즈
+	PRINTL [21] 전극플러그
+	PRINTL [22] 똥개
+	PRINTL [23] 본디지수트
+	PRINTL [24] 콘돔
+	PRINTL [25] 로션
+	PRINTL [26] 미약
+	PRINTL [27] 이뇨제
+	PRINTL [28] 수정구의마력원
+	PRINTL [29] 구충제
+	PRINTL [30] 영양제
+	PRINTL [31] 향
+	PRINTL [33] WG배터리
+	PRINTL [34] 피어스링
+	PRINTL [35] 관전티켓
+	PRINTL [37] 러브스코프
+	PRINTL [38] 부스터메일
+	PRINTL [39] 【마계지식】
+ELSEIF LOCAL == 2
+	PRINTL [40] 배란유발제
+	PRINTL [41] 강모제
+	PRINTL [42] 【조합지식】
+	PRINTL [52] 【기교Lv】
+	PRINTL [53] 【경험치】
+ENDIF
+DRAWLINE
+PRINTFORMLC \@(LOCAL <= 0) ?  %" " * 18% # [1001] 앞페이지\@
+PRINTLC [1000] 돌아가기
+PRINTFORMLC \@(LOCAL >= 2) ?  %" " * 18% # [1009] 다음페이지\@
+$INPUT_LOOP
+INPUT
+IF RESULT == 1000
+	RETURN 0
+ELSEIF RESULT == 1001 && LOCAL > 0
+	LOCAL -= 1
+ELSEIF RESULT == 1009 && LOCAL < 2
+	LOCAL += 1
+ELSE
+	TRYCCALLFORM MAOUDIC_ITEM_{RESULT}
+	CATCH
+		GOTO INPUT_LOOP
+	ENDCATCH
+ENDIF
+GOTO PRINT_LIST
+
+
+;--------------------------------------------------
+;마계사전 아이템 설명
+;--------------------------------------------------
+
+;진동하는보석
+@MAOUDIC_ITEM_0
+PRINTL 진동하는보석(200pts.)
+PRINTL 
+PRINTW 일정한 마력을 흘려보내면 진동하는 보석.
+
+;꿀단지웜	
+@MAOUDIC_ITEM_1
+PRINTL 꿀단지웜(500pts.)
+PRINTL 
+PRINTL 마계의 온천 바닥의 구멍에서 사는 벌래.
+PRINTL 구멍이 좁으면 몸을 움직여 구멍을 넓히려고 시도하는 버릇이 있다.
+PRINTW 만월에는 산란하는 특징이 있다.
+
+;진동지팡이
+@MAOUDIC_ITEM_2
+PRINTL 진동지팡이(2000pts.)
+PRINTL 
+PRINTL 진동하는보석을 박아넣은 지팡이.
+PRINTL 보석의 진동을 견딜 정도로 강하면서
+PRINTW 부드러운 나무를 사용해서 가격이 확 뛰었다.
+
+;애널웜
+@MAOUDIC_ITEM_3
+PRINTL 애널웜(5000pts.)
+PRINTL 
+PRINTL 꿀단지웜의 아종.
+PRINTL 더러운 곳에서도 살 수 있다는 점을 제외하면
+PRINTL 꿀단지웜과 다를 바 없는 버릇을 가지고 있다.
+PRINTW 만월에는 산란하는 특징이 있다.
+
+;페니스밴드
+@MAOUDIC_ITEM_4
+PRINTL 페니스밴드(2000pts.)
+PRINTL 
+PRINTL 죽은 인간의 자지를 특수 처리하여 만든 페니스밴드.
+PRINTL 고도의 보존 마법을 이용하여 단단함과 온도까지 진짜 자지와 다를 바 없다.
+PRINTW 처형당한 용사의 자지를 재활용 했다는 카더라가 있다……
+
+;아이마스크
+@MAOUDIC_ITEM_5
+PRINTL 아이마스크(4000pts.)
+PRINTL 
+PRINTL 가고일의 가죽을 이용하여 만든 아이마스크.
+PRINTW 착용하고 있는 사람은 직접 벗을 수 없는 저주가 걸려 있다.
+
+;수정구
+@MAOUDIC_ITEM_6
+PRINTL 수정구(7000pts.)
+PRINTL 
+PRINTL 주위의 풍경을 기록할 수 있는 수정구.
+PRINTW 단지 사용하기 위해선 수정구의마력원이 필요하다.
+
+;클리캡
+@MAOUDIC_ITEM_7
+PRINTL 클리캡(2000pts.)
+PRINTL 
+PRINTL 마계 따개비를 이용하여 만든 클리캡.
+PRINTW 애액을 갈구하도록 개량시킨 품종이다.
+
+;유두캡
+@MAOUDIC_ITEM_8
+PRINTL 유두캡(3000pts.)
+PRINTL 
+PRINTL 마계 따개비를 이용하여 만든 클리캡.
+PRINTW 모유를 갈구하도록 개량시킨 품종이다.
+
+;볼개그
+@MAOUDIC_ITEM_9
+PRINTL 볼개그(1000pts.)
+PRINTL 
+PRINTW 나무와 가죽으로 만들어진 원시적인 볼개그.
+
+;채찍
+@MAOUDIC_ITEM_10
+PRINTL 채찍(200pts.)
+PRINTL 
+PRINTL 가죽으로 만들어진 채찍.
+PRINTW 상인은 드래곤스킨이라고 하지만 가격을 생각하면 미심쩍다……
+
+;바늘
+@MAOUDIC_ITEM_11
+PRINTL 바늘(2000pts.)
+PRINTL 
+PRINTW 잘 갈려진 바늘.
+
+;오나홀
+@MAOUDIC_ITEM_12
+PRINTL 오나홀(4000pts.)
+PRINTL 
+PRINTL 죽은 인간의 음부를 특수 처리하여 만든 오나홀.
+PRINTL 고도의 보존 마법을 이용하여 조임까지 재연하였다.
+PRINTL 단, 애액은 나오지 않는다.
+PRINTW 처형당한 용사의 음부를 재활용 했다는 카더라가 있다……
+
+;플레이매트
+@MAOUDIC_ITEM_13
+PRINTL 플레이매트(5000pts.)
+PRINTL 
+PRINTL 안전하게 욕실에서 조교할 수 있도록 만들어주는 매트.
+PRINTW 이걸 사용하면 욕실에서 가능한 행위가 늘어난다.
+
+;밧줄
+@MAOUDIC_ITEM_14
+PRINTL 밧줄(3000pts.)
+PRINTL 
+PRINTL 오우거의 힘줄로 만든 밧줄.
+PRINTW 마법적 처리까지 하여 힘으로 빠져나올 수 없다.
+
+;관장기＋플러그
+@MAOUDIC_ITEM_15
+PRINTL 관장기＋플러그(pts.)
+PRINTL 
+PRINTW 배설물을 먹어치우는 마계 벌래로 만든 관장기＋플러그.
+
+;큰거울
+@MAOUDIC_ITEM_16
+PRINTL 큰거울(30000pts.)
+PRINTL 
+PRINTL 티끌 하나 없는 거대한 거울.
+PRINTL 전신을 비출 수 있을 정도로 고급품이다.
+PRINTW 용사의 치부를 보여주며 괴롭히기 적절해 보인다……
+
+;착유기
+@MAOUDIC_ITEM_17
+PRINTL 착유기(1500pts.)
+PRINTL 
+PRINTL 식인꽃의 아종을 개량시켜 만든 착유기.
+PRINTL 상인은 짜낸 모유는 한 방울도 남김 없이 모두 통에 들어간다고 소개했으나
+PRINTW 왠지 모르게 짜낸 모유의 양이 적다고 느껴진다……
+
+;개목걸이
+@MAOUDIC_ITEM_18
+PRINTL 개목걸이(5000pts.)
+PRINTL 
+PRINTL 목 두께와 상관 없이 조절되는 개목걸이.
+PRINTW 용사에게 걸어주고 야외에서 능욕하는 것도 나쁘지 않을것이다……
+
+;에이프런
+@MAOUDIC_ITEM_19
+PRINTL 에이프런(pts.)
+PRINTL 
+PRINTL 야시시한 스타일의 에이프런.
+PRINTW 순종적인 용사와의 소꿉놀이도 재밌어 보인다……
+
+;애널비즈
+@MAOUDIC_ITEM_20
+PRINTL 애널비즈(7000pts.)
+PRINTL 
+PRINTL 보석으로 이루어진 애널비즈.
+PRINTW 쓸대없이 상급 보석으로 만들어서 비싸다.
+
+;전극플러그
+@MAOUDIC_ITEM_21
+PRINTL 전극플러그(50000pts.)
+PRINTL 
+PRINTW 뇌(雷)속성 마법이 깃들어 있는 플러그.
+
+;똥개
+@MAOUDIC_ITEM_22
+PRINTL 똥개(3000pts.)
+PRINTL 
+PRINTL 거대한 물건을 가진 개.
+PRINTL 상인은 순수혈통의 개라고 주장하나, 아무리 봐도 똥개같다.
+PRINTW 이 개를 이용해서 용사를 암캐처럼 굴려먹으면 좋아 보인다……
+
+;본디지수트
+@MAOUDIC_ITEM_23
+PRINTL 본디지수트(10000pts.)
+PRINTL 
+PRINTL 음부와 가슴을 드러내고 있는 검은 본디지수트.
+PRINTW 왠지 몰라도 이게 있어야 용사가 조수를 하는 듯 하다……
+
+;콘돔
+@MAOUDIC_ITEM_24
+PRINTL 콘돔(100pts.)
+PRINTL 
+PRINTL 마물의 내장으로 만든 콘돔.
+PRINTW 어떤 마물인지는 몰라도 반투명하다.
+
+;로션
+@MAOUDIC_ITEM_25
+PRINTL 로션(200pts.)
+PRINTL 
+PRINTW 슬라임의 체액으로 만든 로션.
+
+;미약
+@MAOUDIC_ITEM_26
+PRINTL 미약(2000pts.)
+PRINTL 
+PRINTL 슬라임의 체액과 서큐버스의 애액, 오크의 정액을 조합하여 만든 미약.
+PRINTW 인간부터 천사까지 모든 존재에게 영향을 끼친다.
+
+;이뇨제
+@MAOUDIC_ITEM_27
+PRINTL 이뇨제(1000pts.)
+PRINTL 
+PRINTL 꽤나 많은 양의 이뇨제.
+PRINTW 양이 양이다보니 그냥 물을 왕창 먹여서 싸게 하는게 아닌지 의심된다……
+
+;수정구의마력원
+@MAOUDIC_ITEM_28
+PRINTL 수정구의마력원(500pts.)
+PRINTL 
+PRINTL 수정구를 작동시키기 위해서 필요한 마력원.
+PRINTW 1회용이라 여러개 필요해 보인다.
+
+;구충제
+@MAOUDIC_ITEM_29
+PRINTL 구충제(500pts.)
+PRINTL 
+PRINTW 몸에 기생하고 있는 벌래를 죽이는 약.
+
+;영양제
+@MAOUDIC_ITEM_30
+PRINTL 영양제(1000pts.)
+PRINTL 
+PRINTL 미묘한 맛의 약.
+PRINTW 사용하면 체력을 300 회복시킬 수 있다.
+
+;향
+@MAOUDIC_ITEM_31
+PRINTL 향(3000pts.)
+PRINTL 
+PRINTL 산뜻한 냄새가 나는 향.
+PRINTW 용사의 부정적인 감정을 반감한다.
+
+;WG배터리
+@MAOUDIC_ITEM_33
+PRINTL WG배터리(100000pts.)
+PRINTL 
+PRINTL 캐릭터의 수명을 연장한다……
+PRINTW 라고 써져있지만, 구현되어 있지 않다.
+
+;피어스링
+@MAOUDIC_ITEM_34
+PRINTL 피어스링(5000pts.)
+PRINTL 
+PRINTW 여러가지 부위에 사용 가능한 피어스링. 
+
+;관전티켓
+@MAOUDIC_ITEM_35
+PRINTL 관전티켓(700pts.)
+PRINTL 
+PRINTL 투기장에 들어가는데 필요한 티켓.
+PRINTW 눈 앞에서 몬스터에게 당하는 용사를 볼 수 있다.
+
+;러브스코프
+@MAOUDIC_ITEM_37
+PRINTL 러브스코프(1000pts.)
+PRINTL 
+PRINTL 용사의 호감도를 알 수 있는 마법 도구.
+PRINTW 용사가 마왕에게 호감도를 가질리 없는데 왜 이런 도구를 만들었는지 모르겠다……
+
+;부스터메일
+@MAOUDIC_ITEM_38
+PRINTL 부스터메일(100000pts.)
+PRINTL 
+PRINTL 매혹을 얻게 해준다……
+PRINTW 라고 하는데 획득 방법을 모르겠으니 아시는 분은 댓글로 제보 부탁드립니다.
+
+;
+@MAOUDIC_ITEM_39
+PRINTL 【마계지식】(100000pts.)
+PRINTL 
+PRINTL 봉인되어 있던 동안의 마계지식.
+PRINTL 이걸 얻으면 실험실을 지을 수 있다.
+PRINTW 또한 비밀지식도 얻을 수 있다.
+
+;배란유발제
+@MAOUDIC_ITEM_40
+PRINTL 배란유발제(2000pts.)
+PRINTL 
+PRINTL 알 수 없는 재료로 만든 약.
+PRINTW 임신할 수 있는 확률을 높여준다.
+
+;강모제
+@MAOUDIC_ITEM_41
+PRINTL 강모제(2000pts.)
+PRINTL 
+PRINTL 늑대인간의 피를 정제하여 만든 약.
+PRINTW 바른 부위에 털이 자라나기 시작한다.
+
+;【조합지식】
+@MAOUDIC_ITEM_42
+PRINTL 【조합지식】(40000pts.)
+PRINTL 
+PRINTL 여러가지 제조 방법을 알 수 있는 지식.
+PRINTW 이 지식을 얻으면 약을 제조 가능하다.
+
+;【기교Lv】
+@MAOUDIC_ITEM_52
+PRINTL 【기교Lv】(5000pts.)
+PRINTL 
+PRINTL 조교할 때 사용하는 스킬들의 숙련도를 올린다.
+PRINTW 의외로 효과가 쏠쏠하다.
+
+;【경험치】
+@MAOUDIC_ITEM_53
+PRINTL 【경험치】(1000pts.)
+PRINTL 
+PRINTL 마왕의 경험치.
+PRINTW 하지만 10밖에 안 올려줘서 정말 쓸대없다.
+
+
+;------------------------------------------------------------
+;마계사전 함정
+;------------------------------------------------------------
+
+@MAOUDIC_TRAP
+#DIM LINE, 1
+DRAWLINE
+LOCAL = 0
+$PRINT_LIST
+DRAWLINE
+PRINTL   마계사전 함정
+PRINTL 
+PRINTL 《던전에 설치 가능한 함정을 설명합니다》
+PRINTL 《효율은 개인적인 의견일 뿐이니 참고만 하시길》
+DRAWLINE
+IF LOCAL == 0
+	PRINTL [54] 【음마지식】
+	PRINTL [55] 【함정Lv】
+	PRINTL [52] 【마충지식】
+	PRINTL [60] 떨어지는함정
+	PRINTL [61] 화살형함정
+	PRINTL [62] 텔레포트형함정
+	PRINTL [63] 일방통행형함정
+	PRINTL [64] 최음가스형함정
+	PRINTL [65] 촉수바닥형함정
+	PRINTL [66] 미약늪형함정
+	PRINTL [67] 자위최면형함정
+	PRINTL [68] 시설의태형함정
+	PRINTL [69] 소환형함정
+ELSEIF LOCAL == 1
+	PRINTL [70] 몽마형함정
+	PRINTL [71] 슬라임방형함정
+	PRINTL [72] 거미줄
+	PRINTL [73] 행상인
+	PRINTL [74] 어둠형함정
+	PRINTL [75] 슛
+	PRINTL [76] 마력확산형함정
+	PRINTL [77] 기름단지형함정
+	PRINTL [78] 화염방사형함정
+	PRINTL [79] 애널웜의함정
+	PRINTL [80] 음충의함정
+	PRINTL [81] 보석의함정
+	PRINTL [82] 공격진지함정
+	PRINTL [83] 방어진지함정
+	PRINTL [84] 마법진지함정
+	PRINTL [85] 팔함정
+ENDIF
+DRAWLINE
+PRINTFORMLC \@(LOCAL <= 0) ?  %" " * 18% # [1001] 앞페이지\@
+PRINTLC [1000] 돌아가기
+PRINTFORMLC \@(LOCAL >= 1) ?  %" " * 18% # [1009] 다음페이지\@
+$INPUT_LOOP
+INPUT
+IF RESULT == 1000
+	RETURN 0
+ELSEIF RESULT == 1001 && LOCAL > 0
+	LOCAL -= 1
+ELSEIF RESULT == 1009 && LOCAL < 1
+	LOCAL += 1
+ELSE
+	TRYCCALLFORM MAOUDIC_TRAP_{RESULT}
+	CATCH
+		GOTO INPUT_LOOP
+	ENDCATCH
+ENDIF
+GOTO PRINT_LIST
+
+;--------------------------------------------------
+;마계사전 함정 설명
+;--------------------------------------------------
+
+;【음마지식】
+@MAOUDIC_TRAP_54
+PRINTL 【음마지식】(100000pts.)
+PRINTL 
+PRINTL 영웅을 성적으로 괴롭히는 함정을 만들기 위해 필요한 지식.
+PRINTW 몇몇 함정은 이 지식을 얻음으로서 강화된다.
+
+;【함정Lv】
+@MAOUDIC_TRAP_55
+PRINTL 【함정Lv】(5000pts.)
+PRINTL 
+PRINTL 함정의 레벨을 올리는데 필요한 것.
+PRINTW 함정 레벨은 던전 레벨 이상으로 올릴 수 없다.
+
+;【마충지식】
+@MAOUDIC_TRAP_56
+PRINTL 【마충지식】(10000pts.)
+PRINTL 
+PRINTL 마계에 있는 벌래를 이용해서 함정을 만들기 위해 필요한 지식.
+PRINTW 몇몇 함정은 이 지식을 얻음으로서 강화된다.
+
+;떨어지는함정
+@MAOUDIC_TRAP_60
+PRINTL 떨어지는함정(10pts.)
+PRINTL 효율 ★★★
+PRINTL 
+PRINTL 간단하게 구멍을 파놓고 어설프게 덮어놓은 함정.
+PRINTL 어린애들의 장난같아 보이지만 의외로 효과가 좋다.
+PRINTL 단지 천사나 타천사, 드래곤 같이 날개가 있는 놈들은 데미지를 입지 않는다.
+PRINTL 【마충지식】을 배운다면 벌래가 서식하여 데미지도 상승한다.
+PRINTW 초반부터 후반까지 자주 사용됨.
+
+;화살형함정
+@MAOUDIC_TRAP_61
+PRINTL 화살형함정(50pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 지나가면 교묘하게 숨겨진 화살이 발사되는 함정.
+PRINTL 단지 데미지가 떨어지는 함정과 비슷하지만 가격이 5배나 된다.
+PRINTL 그래서 떨어지는 함정에 밀려 잘 안 쓰인다.
+PRINTW 천사나 타천사 같은 놈들을 대비해서 사용되는 정도.
+
+;텔레포트형함정
+@MAOUDIC_TRAP_62
+PRINTL 텔레포트형함정(80pts.)
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 밟으면 같은 층의 다른 곳으로 날려버리는 함정.
+PRINTL 하지만 함정이 발동되는 시간이 오래 걸려서
+PRINTL 대다수의 용사들이 피하는 함정이다.
+PRINTL 게다가 워프하는 구간도 랜덤이기 때문에
+PRINTL 도리어 용사를 도와주게 되는 경우도 생긴다.
+PRINTW 거의 안 쓰이는 함정.
+
+;일방통행형함정
+@MAOUDIC_TRAP_63
+PRINTL 일방통행형함정(100pts.)
+PRINTL 효율 ★★★
+PRINTL 
+PRINTL 던전을 간이 미궁처럼 만드는 함정.
+PRINTL 텔레포트형 함정과는 다르게 발동되면 층의 입구로 돌아갈 수 밖에 없어
+PRINTL 용사에게 도움이 되는 경우는 없고, 의외로 잘 걸리는 편이다.
+PRINTL 하지만 되돌아가는 길을 찾을 경우 쓸모가 없어진다.
+PRINTW 떨어지는 함정과 연계해서 사용하면 효율이 좋다.
+
+;최음가스형함정
+@MAOUDIC_TRAP_64
+PRINTL 최음가스형함정(120pts.)
+PRINTL 효율 ★★★
+PRINTL 
+PRINTL 지나가면 최음가스를 뿜는 함정.
+PRINTL 가스가 뿜어져 나올 때 소리가 크기 때문에
+PRINTL 듣기만 하면 피할 수 있다.
+PRINTW 【음마지식】이 필요한 함정이다.
+
+;촉수바닥형함정
+@MAOUDIC_TRAP_65
+PRINTL 촉수바닥형함정(150pts.)
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 바닥의 틈새에 있다가 용사가 다가오면 발동하는 함정.
+PRINTL 촉수가 용사를 묶고 미약을 발라버린다.
+PRINTL 떨어지는 함정과 연계하여 사용하면 효율이 좋다.
+PRINTW 【마충지식】이 필요한 함정이다.
+
+;미약늪형함정
+@MAOUDIC_TRAP_66
+PRINTL 미약늪형함정(170pts.)
+PRINTL 효율 ★★★
+PRINTL 
+PRINTL 늪지대를 미약으로 바꿔놓은 함정.
+PRINTL 범위가 넓어서 무조건 걸릴수밖에 없다.
+PRINTL 용사가 미약에 중독되는 장점도 더불어 가지고 있다.
+PRINTL 떨어지는 함정과 연계하여 사용하면 효율이 좋다.
+PRINTW 【음마지식】이 필요한 함정이다.
+
+;자위최면형함정
+@MAOUDIC_TRAP_67
+PRINTL 자위최면형함정(180pts.)
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 자위를 하게 만드는 안개를 뿌리는 함정.
+PRINTL 정신력으로 어느정도 버틸 수 있는다.
+PRINTW 【음마지식】이 필요한 함정이다.
+
+;시설의태형함정
+@MAOUDIC_TRAP_68
+PRINTL 시설의태형함정(190pts.)
+PRINTL 효율 ★★★
+PRINTL 
+PRINTL 가고일과 미믹의 교배종으로 만든 함정.
+PRINTL 주위에 있는 물품과 비슷하게 의태한 후 가까이 다가오면 삼켜버린다.
+PRINTL 몸 내부에서 촉수와 채액을 이용하여 용사를 능욕한다.
+PRINTL 하지만 움직임이 느리다는 단점이 있다.
+PRINTL 떨어지는 함정과 연계하여 사용하면 효율이 좋다.
+PRINTW 【음마지식】이 필요한 함정이다.
+
+;소환형함정
+@MAOUDIC_TRAP_69
+PRINTL 소환형함정(1000pts.)
+PRINTL 효율 ★★★
+PRINTL 
+PRINTL 밟으면 마계에 있는 몬스터를 소환하는 함정.
+PRINTL 하지만 마법진 자체가 미완성이라 반은 실패한다.
+PRINTL 성공하면 몬스터가 층 곳곳으로 이동되고,
+PRINTL 그 충격파로 인해 용사에게 데미지를 준다.
+PRINTW 비싸지만 꾸준히 사용하면 그만한 값을 한다.
+
+;몽마형함정
+@MAOUDIC_TRAP_70
+PRINTL 몽마형함정(180pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 몽마를 능욕당한 용사로 꾸며놓은 함정.
+PRINTL 눈썰미만 좋으면 알아차릴 수 있을 정도로 허술하지만
+PRINTL 그래도 걸리는 용사가 있다.
+PRINTW 【음마지식】이 필요한 함정이다.
+
+;슬라임방형함정
+@MAOUDIC_TRAP_71
+PRINTL 슬라임방형함정(90pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 개량형 슬라임으로 만든 함정.
+PRINTL 평소에는 벽에 스며들어 있다가
+PRINTL 용사가 들어오면 나와서 덮치는 함정이다.
+PRINTL 미끌미끌한 점액 때문에 의외로 쉽게 발각된다.
+PRINTL 물론 용사를 잡으면 장비를 반쯤 녹여 버린다.
+PRINTW 【음마지식】이 필요한 함정이다.
+
+;거미줄
+@MAOUDIC_TRAP_72
+PRINTL 거미줄(10pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 투명한 거미줄로 만든 함정.
+PRINTL 던전이 워낙 어두워서 무조건 걸리게 된다.
+PRINTL 하지만 데미지를 주지 않아서 별로 쓰이지는 않는다.
+PRINTL 【마충지식】을 배운다면 독거미가 서식하게 되어 데미지를 준다.
+PRINTW 천사와 타천사를 대비해서 떨어지는 함정 대신 사용하곤 한다.
+
+;행상인
+@MAOUDIC_TRAP_73
+PRINTL 행상인(70pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 마왕과 계약을 맺고 용사와 거래를 하는 상인.
+PRINTL 거래 품목에 제한을 두지 않는 대신 상당히 비싼 세금을 지불한다.
+PRINTW 돈을 버는 만큼 용사가 강해진다.
+
+;어둠형함정
+@MAOUDIC_TRAP_74
+PRINTL 어둠형함정(200pts.)
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 어두운 연막을 뿌려 용사 앞을 가리는 함정.
+PRINTL 연막 안에서는 공격력이 반감된다.
+PRINTL 연막의 범위가 애매해서 용사가 벗어나는 경우가 자주 생긴다.
+PRINTW 최루가루로 만들어서 그런지 데미지도 입힌다.
+
+;슛
+@MAOUDIC_TRAP_75
+PRINTL 슛(180pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 다음층으로 떨궈버릴 정도로 깊게 판 함정.
+PRINTL 울퉁불퉁한 구간이 많아서 용사가 아슬아슬하게 빠져나가는 경우가 많다.
+PRINTW 떨어지는 함정과 연계하여 사용하면 효율이 좋다.
+
+;마력확산형함정
+@MAOUDIC_TRAP_76
+PRINTL 마력확산형함정(300pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 마력에 영향을 끼치는 저주가 발동되는 함정.
+PRINTL 용사가 저주에 저항하는 경우가 꽤나 있다.
+PRINTL 저주에 걸린 상태로 마법을 사용하려고 하면 마력이 폭주하여 데미지를 준다.
+PRINTW 효과는 상당히 좋으나 꽤나 비싼게 단점.
+
+;기름단지형함정
+@MAOUDIC_TRAP_77
+PRINTL 기름단지형함정(50pts.)
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 기름단지가 떨어지는 간단한 함정.
+PRINTL 너무 기본적인 함정이라 대부분의 용사가 피할 수 있다.
+PRINTW 가격에 비해 효과가 좋지 않다.
+
+;화염방사형함정
+@MAOUDIC_TRAP_78
+PRINTL 화염방사형함정(110pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 지나가면 불을 뿜어내는 함정.
+PRINTL 순식간에 뿜어져나오긴 하지만 워낙 밝아서 반은 피한다.
+PRINTW 기름에 젖어있으면 추가 데미지를 입는다.
+
+;애널웜의함정
+@MAOUDIC_TRAP_79
+PRINTL 애널웜의함정(80pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 에널웜을 흩뿌려놓은 함정.
+PRINTL 꾸물거리는게 잘 보여서 자주 들킨다.
+PRINTL 가끔 애널에 박히는 경우도 있다.
+PRINTL 떨어지는 함정과 연계하여 사용하면 효율이 좋다.
+PRINTW 【마충지식】이 필요한 함정이다.
+
+;음충의함정
+@MAOUDIC_TRAP_80
+PRINTL 음충의함정(60pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 음충의 둥지를 설치해놓은 함정.
+PRINTL 천사나 타천사는 날아서 피해버린다.
+PRINTL 떨어지는 함정과 연계하여 사용하면 효율이 좋다.
+PRINTW 【마충지식】이 필요한 함정이다.
+
+;보석의함정
+@MAOUDIC_TRAP_81
+PRINTL 보석의함정(20pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 마계에 흔한 돌을 뿌려놓은 함정.
+PRINTL 마력이 스며들어 있어 인간계에서는 보석으로 통하는 듯 하다.
+PRINTL 용사들이 주워서 팔아 소지금을 마련하곤 한다.
+PRINTW 행상인과 연계하면 괜찮지만 자칫하다가는 용사가 손도 못 쓸 정도로 강해진다.
+
+;공격진지함정
+@MAOUDIC_TRAP_82
+PRINTL 공격진지함정(40pts.)
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 용사의 공격력을 낮추는 저주를 내리는 함정.
+PRINTL 반응할 수 없을 정도로 빨라서 피할 수 없다.
+PRINTL 하지만 불안정한 저주라서 내려가는 수치가 랜덤이다.
+PRINTW 퍼센트로 내려가서 후반에 가면 갈수록 좋은 함정이다.
+
+;방어진지함정
+@MAOUDIC_TRAP_83
+PRINTL 방어진지함정(40pts.)
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 용사의 방어력을 낮추는 저주를 내리는 함정.
+PRINTL 반응할 수 없을 정도로 빨라서 피할 수 없다.
+PRINTL 하지만 불안정한 저주라서 내려가는 수치가 랜덤이다.
+PRINTW 퍼센트로 내려가서 후반에 가면 갈수록 좋은 함정이다.
+
+;마법진지함정
+@MAOUDIC_TRAP_84
+PRINTL 마법진지함정(40pts.)
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 용사의 항마력을 낮추는 저주를 내리는 함정.
+PRINTL 반응할 수 없을 정도로 빨라서 피할 수 없다.
+PRINTL 하지만 불안정한 저주라서 내려가는 수치가 랜덤이다.
+PRINTW 퍼센트로 내려가서 후반에 가면 갈수록 좋은 함정이다.
+
+;팔함정
+@MAOUDIC_TRAP_85
+PRINTL 팔함정(100pts.)
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 용사의 공격력과 방어력, 항마력을 낮추는 저주를 내리는 함정.
+PRINTL 반응할 수 없을 정도로 빨라서 피할 수 없다.
+PRINTL 하지만 불안정한 저주라서 내려가는 수치가 랜덤이다.
+PRINTW 3개의 함정을 합친 함정이라고 보면 된다.
+
+;장식의반지
+@MAOUDIC_TRAP_91
+PRINTL 장식의반지
+PRINTL 
+PRINTL 아무런 힘도 없는 반지.
+PRINTW 하루에 최대 10개까지 저주걸린 반지로 바꿀 수 있다.
+
+
+;------------------------------------------------------------
+;마계사전 반지
+;------------------------------------------------------------
+
+@MAOUDIC_RING
+#DIM LINE, 1
+DRAWLINE
+LOCAL = 0
+$PRINT_LIST
+DRAWLINE
+PRINTL   마계사전 반지
+PRINTL 
+PRINTL 《용사나 노예가 장착하는 반지를 설명합니다》
+PRINTL 《위험도는 용사가 사용할 때, 효율은 노예가 사용할 때 기준입니다》
+DRAWLINE
+IF LOCAL == 0
+	PRINTL [ 0] 장식용반지
+	PRINTL [ 1] 파괴의반지
+	PRINTL [ 2] 수호의반지
+	PRINTL [ 3] 가속의반지
+	PRINTL [ 4] 재생의반지
+	PRINTL [ 5] 의사의반지
+	PRINTL [ 6] 욕망의반지
+	PRINTL [ 7] 괴력의반지
+	PRINTL [ 8] 강인함의반지
+	PRINTL [ 9] 지배의반지
+	PRINTL [10] 성장의반지
+	PRINTL [11] 허약함의반지
+	PRINTL [12] 둔중함의반지
+	PRINTL [13] 죽음의반지
+	PRINTL [14] 쇠약의반지
+	PRINTL [15] 세뇌의반지
+	PRINTL [16] 함정회피의반지
+	PRINTL [17] 침공의반지
+	PRINTL [18] 결계의반지
+	PRINTL [19] 시련의반지
+ELSEIF LOCAL == 1
+	PRINTL [20] 불행의반지
+ENDIF
+DRAWLINE
+PRINTFORMLC \@(LOCAL <= 0) ?  %" " * 18% # [1001] 앞페이지\@
+PRINTLC [1000] 돌아가기
+PRINTFORMLC \@(LOCAL >= 1) ?  %" " * 18% # [1009] 다음페이지\@
+$INPUT_LOOP
+INPUT
+IF RESULT == 1000
+	RETURN 0
+ELSEIF RESULT == 1001 && LOCAL > 0
+	LOCAL -= 1
+ELSEIF RESULT == 1009 && LOCAL < 1
+	LOCAL += 1
+ELSE
+	TRYCCALLFORM MAOUDIC_RING_{RESULT}
+	CATCH
+		GOTO INPUT_LOOP
+	ENDCATCH
+ENDIF
+GOTO PRINT_LIST
+
+;--------------------------------------------------
+;마계사전 함정 설명
+;--------------------------------------------------
+
+;장식의반지
+@MAOUDIC_RING_0
+PRINTL 장식의반지(100pts.)
+PRINTL 
+PRINTL 아무런 힘도 없는 반지.
+PRINTL 하루가 끝나면 최대 10개까지 저주걸린 반지로 바꿀 수 있다.
+PRINTL 
+PRINTL 모든 반지는 최대 +10까지 강화 가능하고,
+PRINTL 던전에서 주운 반지는 층수와 같은 강화 레벨로 바뀐다.
+PRINTL 신관과 닌자는 1/4의 확률로, 다른 작업은 1/20의 확률로 저주를 풀 수 있다.
+PRINTL 저주를 푼다면 축복받은 반지로 바뀌고 층수 +1의 강화 레벨로 바뀐다.
+PRINTL 저주받은 반지는 마왕이 직접 빼지 않는 한 뺄 수 없다.
+PRINTL 물론 용사는 장착한 저주받은 반지의 저주를 풀 수 없다.
+PRINTL 
+PRINTL 강화 레벨이 0인 경우 어떤 효과도 발휘하지 않는다.
+PRINTW 노예에게 직접 장착 시킬 경우 강화 +1당 10000포인트를 지불해야 한다.
+
+;파괴의반지
+@MAOUDIC_RING_1
+PRINTL 파괴의반지
+PRINTL 위험도 ★☆☆
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 데미지를 증가시켜주는 축복받은 반지.
+PRINTW 다른 특수 능력을 가진 반지에 비하면 소소한 능력을 가지고 있다.
+
+;수호의반지
+@MAOUDIC_RING_2
+PRINTL 수호의반지
+PRINTL 위험도 ★★☆
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 전투종료 후 공격력과 방어력이 증가하는 축복받은 반지.
+PRINTL 효과가 중첩되면 무시할 수 없는 수치를 보여준다.
+PRINTW 노예에게 영격을 보낼 때 보내면 좋다.
+
+;가속의반지
+@MAOUDIC_RING_3
+PRINTL 가속의반지
+PRINTL 위험도 ★☆☆
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 선공을 쉽게 잡을 수 있게 만들어주는 축복받은 반지.
+PRINTW 다른 특수 능력을 가진 반지에 비하면 소소한 능력을 가지고 있다.
+
+;재생의반지
+@MAOUDIC_RING_4
+PRINTL 재생의반지
+PRINTL 위험도 ★☆☆
+PRINTL 효율 ★★★
+PRINTL 
+PRINTL 체력의 회복량을 증가시켜주는 축복받은 반지.
+PRINTL 용사가 착용하고 있을 때는 별 쓸모 없지만
+PRINTW 노예에게 착용시키고 조교할 매우 좋다.
+
+;의사의반지
+@MAOUDIC_RING_5
+PRINTL 의사의반지
+PRINTL 위험도 ★☆☆
+PRINTL 효율 ★★★
+PRINTL 
+PRINTL 기력의 회복량을 증가시켜주는 축복받은 반지.
+PRINTL 용사가 착용하고 있을 때는 별 쓸모 없지만
+PRINTW 노예에게 착용시키고 조교할 매우 좋다.
+
+;욕망의반지
+@MAOUDIC_RING_6
+PRINTL 욕망의반지
+PRINTL 위험도 ☆☆☆
+PRINTL 효율 ★★★
+PRINTL 
+PRINTL 【즉각함락】을 부여해주는 저주받은 반지.
+PRINTL 용사가 끼든 노예가 끼든 좋은 반지.
+PRINTL 물론 노예가 【즉각함락】을 얻으면 다른 반지로 바꿔끼는게 좋다.
+PRINTW 최소 강화 +1이 되지 않으면 【즉각함락】이 부여되지 않는다.
+
+;괴력의반지
+@MAOUDIC_RING_7
+PRINTL 괴력의반지
+PRINTL 위험도 ★☆☆
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 기본 공격력을 증가시켜주는 축복받은 반지.
+PRINTW 다른 특수 능력을 가진 반지에 비하면 소소한 능력을 가지고 있다.
+
+;강인함의반지
+@MAOUDIC_RING_8
+PRINTL 강인함의반지
+PRINTL 위험도 ★☆☆
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 기본 방어력을 증가시켜주는 축복받은 반지.
+PRINTW 다른 특수 능력을 가진 반지에 비하면 소소한 능력을 가지고 있다.
+
+;지배의반지
+@MAOUDIC_RING_9
+PRINTL 지배의반지
+PRINTL 위험도 ★★★
+PRINTL 효율 ☆☆☆
+PRINTL 
+PRINTL 몬스터를 지배하게 만들어주는 축복받은 반지.
+PRINTW 노예같은 경우는 어차피 몬스터를 다룰 수 있어서 쓸모 없다.
+
+;성장의반지
+@MAOUDIC_RING_10
+PRINTL 성장의반지
+PRINTL 위험도 ★★☆
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 얻는 경험치를 늘려주는 축복받은 반지.
+PRINTL 오랫동안 끼고 있으면 있을수록 강해지는 특성을 가지고 있어
+PRINTL 이 반지를 끼고 있는 용사를 집중 공략하는게 좋다.
+PRINTW 물론 노예가 이 반지를 끼고 용사를 영격을 보내도 된다.
+
+;허약함의반지
+@MAOUDIC_RING_11
+PRINTL 허약함의반지
+PRINTL 위험도 ☆☆☆
+PRINTL 효율 ☆☆☆
+PRINTL 
+PRINTL 전투종료 후 공격력과 방어력이 낮아지는 저주받은 반지.
+PRINTL 효과가 중첩되면 무시할 수 없는 수치를 보여준다.
+PRINTW 이 반지를 노예가 끼지 않도록 주의하자.
+
+;둔중함의반지
+@MAOUDIC_RING_12
+PRINTL 둔중함의반지
+PRINTL 위험도 ☆☆☆
+PRINTL 효율 ☆☆☆
+PRINTL 
+PRINTL 선공을 뺏기게 만드는 저주받은 반지.
+PRINTL 다른 특수 능력을 가진 반지에 비하면 소소한 능력을 가지고 있으나
+PRINTL 그래도 용사가 축복받은 반지를 못 끼게 만들 수 있으니 없는 것보단 낫다.
+PRINTW 이 반지를 노예가 끼지 않도록 주의하자.
+
+;죽음의반지
+@MAOUDIC_RING_13
+PRINTL 죽음의반지
+PRINTL 위험도 ☆☆☆
+PRINTL 효율 ☆☆☆
+PRINTL 
+PRINTL 체력과 기력의 회복량이 낮아지는 저주받은 반지.
+PRINTL 다른 특수 능력을 가진 반지에 비하면 소소한 능력을 가지고 있으나
+PRINTL 그래도 용사가 축복받은 반지를 못 끼게 만들 수 있으니 없는 것보단 낫다.
+PRINTW 이 반지를 노예가 끼지 않도록 주의하자.
+
+;쇠약의반지
+@MAOUDIC_RING_14
+PRINTL 쇠약의반지
+PRINTL 위험도 ☆☆☆
+PRINTL 효율 ☆☆☆
+PRINTL 
+PRINTL 기본 공격력과 방어력이 낮아지는 저주받은 반지.
+PRINTL 다른 특수 능력을 가진 반지에 비하면 소소한 능력을 가지고 있으나
+PRINTL 그래도 용사가 축복받은 반지를 못 끼게 만들 수 있으니 없는 것보단 낫다.
+PRINTW 이 반지를 노예가 끼지 않도록 주의하자.
+
+;세뇌의반지
+@MAOUDIC_RING_15
+PRINTL 세뇌의반지
+PRINTL 위험도 ☆☆☆
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 즉시 투항하게 만드는 저주받은 반지.
+PRINTL 또한 강화 레벨에 따라서 시간에 따라 순종 레벨도 올라가는 준수한 능력을 가지고 있다.
+PRINTL 노예에게 사용하여 순종 레벨을 올리거나 혹시 모를 NTR을 대비하여 지니게 하여도 된다.
+PRINTW 최소 강화 +1이 되지 않으면 투항하지 않는다.
+
+;함정회피의반지
+@MAOUDIC_RING_16
+PRINTL 함정회피의반지
+PRINTL 위험도 ★★★
+PRINTL 효율 ☆☆☆
+PRINTL 
+PRINTL 함정을 알려줘 피하게 해주는 축복받은 반지.
+PRINTL 높은 확률로 함정을 피하게 만들어줘서 위험도가 가장 높은 반지.
+PRINTL 될 수 있으면 이 반지를 장착한 용사를 먼저 공략하는게 좋다.
+PRINTW 노예같은 경우는 어차피 함정에 영향을 받지 않아 쓸모 없다.
+
+;침공의반지
+@MAOUDIC_RING_17
+PRINTL 침공의반지
+PRINTL 위험도 ★★☆
+PRINTL 효율 ?
+PRINTL 
+PRINTL 침공 속도가 상승하게 해주는 축복받은 반지.
+PRINTL 침공 속도가 올라간다는 것만 보면 상당히 위험해보이는 반지지만
+PRINTL 초반에는 침공속도만 빠르게 하다가 도리어 낮은 층에서 잡힐 수도 있는 반지이다.
+PRINTL 하지만 후반부에 강해졌을 때 이 반지를 착용하면 상당히 위험해진다.
+PRINTL 
+PRINTW 노예의 속도가 올라가는지 몰라서 효율은 ?로 처리함.
+
+;결계의반지
+@MAOUDIC_RING_18
+PRINTL 결계의반지
+PRINTL 위험도 ?
+PRINTL 효율 ?
+PRINTL 
+PRINTL 캠핑을 반드시 성공하게 해주는 축복받은 반지.
+PRINTL 
+PRINTW 캠핑의 효과를 잘 몰라서 정확한 효율 작성 불가능함.
+
+;시련의반지
+@MAOUDIC_RING_19
+PRINTL 시련의반지
+PRINTL 위험도 ☆☆☆
+PRINTL 효율 ☆☆☆
+PRINTL 
+PRINTL 침공 속도를 낮추고 캠핑을 할 수 없게 만드는 저주받은 반지.
+PRINTL 캠핑을 제외하더라도 침공 속도를 낮추는 것 자체가 이득이라 
+PRINTL 전반부나 후반부나 고루 쓰이는 만능 반지.
+PRINTW 이 반지를 노예가 끼지 않도록 주의하자.
+
+;불행의반지
+@MAOUDIC_RING_20
+PRINTL 불행의반지
+PRINTL 위험도 ☆☆☆
+PRINTL 효율 ☆☆☆
+PRINTL 
+PRINTL 함정에 걸리는 횟수 증가 및 함정 회피를 할 수 없게 만드는 저주받은 반지.
+PRINTL 가장 효과적으로 용사를 막을 수 있는 반지.
+PRINTL 횟수 증가 + 회피 불가로 연타를 날리는 것이 가능하여
+PRINTL 높은 레벨의 용사에게도 효과적으로 데미지를 입힐 수 있다.
+PRINTW 노예같은 경우는 어차피 함정에 영향을 받지 않아 쓸모 없다.
+
+
+;------------------------------------------------------------
+;마계사전 시설
+;------------------------------------------------------------
+
+@MAOUDIC_ROOM
+#DIM LINE, 1
+DRAWLINE
+LOCAL = 0
+$PRINT_LIST
+DRAWLINE
+PRINTL   마계사전 시설
+PRINTL 
+PRINTL 《던전의 통로에 설치 가능한 시설을 설명합니다》
+PRINTL 《효율은 개인적인 의견일 뿐이니 참고만 하시길》
+DRAWLINE
+IF LOCAL == 0
+	PRINTL [ 0] 통로
+	PRINTL [ 1] 상점가
+	PRINTL [ 2] 습지
+	PRINTL [ 3] 인간목장
+	PRINTL [ 4] 얼음방
+	PRINTL [ 5] 달군모래
+	PRINTL [ 6] 미궁
+	PRINTL [ 7] 박물관
+	PRINTL [ 8] 창관거리
+ENDIF
+DRAWLINE
+PRINTFORMLC \@(LOCAL <= 1) ?  %" " * 18% # [1001] 앞페이지\@
+PRINTLC [1000] 돌아가기
+PRINTFORMLC \@(LOCAL >= 0) ?  %" " * 18% # [1009] 다음페이지\@
+$INPUT_LOOP
+INPUT
+IF RESULT == 1000
+	RETURN 0
+ELSEIF RESULT == 1001 && LOCAL > 1
+	LOCAL -= 1
+ELSEIF RESULT == 1009 && LOCAL < 0
+	LOCAL += 1
+ELSE
+	TRYCCALLFORM MAOUDIC_ROOM_{RESULT}
+	CATCH
+		GOTO INPUT_LOOP
+	ENDCATCH
+ENDIF
+GOTO PRINT_LIST
+
+
+;--------------------------------------------------
+;마계사전 시설 설명
+;--------------------------------------------------
+
+;통로
+@MAOUDIC_ROOM_0
+PRINTL 통로
+PRINTL 효율 ☆☆☆
+PRINTL 
+PRINTL 아무런 능력도 없는 기본적인 통로.
+PRINTL 10000포인트를 지불하고 다른 통로로 바꿀 수 있다.
+PRINTL 통로가 아닌 다른 시설들은 노예가 영격갈 때 
+PRINTL 시설확장을 선택하여 강화시키는게 가능하고, 
+PRINTW 최대 2회까지 강화할 수 있다.
+
+;상점가
+@MAOUDIC_ROOM_1
+PRINTL 상점가
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 행상인과 다르게 마왕의 휘하에 있는 상인이 운영하는 상점가.
+PRINTL 그래서 그런지 용사의 체력을 최대까지 체워주지는 않으나,
+PRINTL 강화하면 무기와 장비를 강화시켜주니 강화는 추천되지 않는다.
+PRINTW 돈이 모자라 설치한다면 강화를 하지 않고 사용하는게 낫다.
+
+;습지
+@MAOUDIC_ROOM_2
+PRINTL 습지
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 통로를 눅눅한 습지로 바꿔버린다.
+PRINTL 워낙 어두워서 잘 보이지 않아 걸려 넘어지는 경우가 많아
+PRINTL 용사에게 데미지를 주는데 용이하다.
+PRINTW 강화하면 독초와 독충이 자생하게 되어 더 높은 데미지를 준다.
+
+;인간목장
+@MAOUDIC_ROOM_3
+PRINTL 인간목장
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 통로에 육변기를 설치해놓은 목장.
+PRINTL 설치하면 매일같이 태어나는 몬스터가 던전의 전력으로 흡수된다.
+PRINTW 단, 용사가 발견하면 풀어주니 주의가 필요하다.
+
+;얼음방
+@MAOUDIC_ROOM_4
+PRINTL 얼음방
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 통로를 빙하구간으로 바꿔버린다.
+PRINTL 용사의 몸을 굳게 만들어 공격력을 낮춘다.
+PRINTW 강화하면 눈보라가 치고 눈이 쌓일 정도로 바뀌어서 기력에도 데미지를 준다.
+
+;달군모래
+@MAOUDIC_ROOM_5
+PRINTL 달군모래
+PRINTL 효율 ★☆☆
+PRINTL 
+PRINTL 통로에 달군 모래를 깔아놓는다.
+PRINTL 열기에 의해 집중력이 떨어져 방어력을 낮춘다.
+PRINTL 강화하면 오아시스와 불기둥이 생기는데,
+PRINTL 오아시스는 기력을 회복시켜주는 동시에 친밀도와 굴복의 구슬을 증가시키고
+PRINTW 불기둥은 용사에게 체력에 데미지를 준다.
+
+;미궁
+@MAOUDIC_ROOM_6
+PRINTL 미궁
+PRINTL 효율 ★★★
+PRINTL 
+PRINTL 통로를 이리저리 꺾어 만든 미로.
+PRINTL 투박하게 만들었는데 의외로 효과가 좋다.
+PRINTL 강화시키면 바닥이 회전하거나 어두워져서 길을 더 헤매게 만든다.
+PRINTW 다른 시설에 비해 안정적으로 사용하는게 가능하다.
+
+;박물관
+@MAOUDIC_ROOM_7
+PRINTL 박물관
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 통로에 용사로 만든 전리품을 전시해놓은 박물관.
+PRINTL 용사들이 전리품들을 보며 두려워하며 기력에 데미지를 입는다.
+PRINTL 강화시키면 전리품으로 만든 골램이 용사에게 공격을 하거나
+PRINTL 진열장 때문에 선제공격을 할 수 없도록 막아버린다.
+PRINTW 전리품이 많으면 많을수록 효과가 좋다.
+
+;창관거리
+@MAOUDIC_ROOM_8
+PRINTL 창관거리
+PRINTL 효율 ★★☆
+PRINTL 
+PRINTL 통로에 음마와 노예를 이용해서 만든 창관.
+PRINTL 상점가와 다르게 용사를 강화시켜주는 디메리트는 없지만
+PRINTL 악에 대한 혐오 때문인지 무시하고 지나가는 용사가 많다.
+PRINTL 강화시키면 할 수 있는 행위가 늘어난다.
+PRINTW 창관을 이용할 때마다 카르마가 줄어든다.
+
+
+;------------------------------------------------------------
+;마계사전 특성
+;------------------------------------------------------------
+
+@MAOUDIC_TALENT
+#DIM LINE, 1
+DRAWLINE
+LOCAL = 0
+$PRINT_LIST
+DRAWLINE
+PRINTL   마계사전 특성
+PRINTL 
+PRINTL 《모든 특성에 대해서 설명합니다》
+DRAWLINE
+IF LOCAL == 0
+	PRINTL [ 0] 처녀
+	PRINTL [ 1] 동정
+	PRINTL [ 2] 붕괴
+	PRINTL [ 3] 겁쟁이
+	PRINTL [ 4] 반항적
+	PRINTL [ 5] 굳건함
+	PRINTL [ 6] 솔직
+	PRINTL [ 7] 얌전함
+	PRINTL [ 8] 프라이드높음
+	PRINTL [ 9] 시건방짐
+	PRINTL [10] 프라이드낮음
+	PRINTL [11] 츤데레
+	PRINTL [12] 자제심
+	PRINTL [13] 무관심
+	PRINTL [14] 감정부족
+	PRINTL [15] 호기심
+	PRINTL [16] 보수적
+	PRINTL [17] 낙관적
+	PRINTL [18] 비관적
+	PRINTL [19] 일선넘지않음
+ELSEIF LOCAL == 1
+	PRINTL [20] 눈에띄고싶어함
+	PRINTL [21] 정조관념
+	PRINTL [22] 정조관부실
+	PRINTL [23] 억압
+	PRINTL [24] 해방
+	PRINTL [25] 저항
+	PRINTL [26] 수줍음
+	PRINTL [27] 수치심없음
+	PRINTL [28] 약점
+	PRINTL [29] 아픔에약함
+	PRINTL [30] 아픔에강함
+	PRINTL [31] 젖기쉬움
+	PRINTL [32] 젖기어려움
+	PRINTL [33] 울보
+	PRINTL [34] 울지않음
+	PRINTL [35] 약물중독
+	PRINTL [36] 정액미각
+	PRINTL [37] 근시
+	PRINTL [38] 습득빠름
+	PRINTL [39] 습득느림
+ELSEIF LOCAL == 2
+	PRINTL [40] 혀놀림
+	PRINTL [41] 조합지식
+	PRINTL [42] 약독내성
+	PRINTL [43] 오줌싸개
+	PRINTL [44] 자위쉬움
+	PRINTL [45] 악취둔감
+	PRINTL [46] 악취민감
+	PRINTL [47] 헌신적
+	PRINTL [48] 불결무시
+	PRINTL [49] 쾌감에솔직
+	PRINTL [50] 쾌감을부정
+	PRINTL [51] 중독되기쉬움
+	PRINTL [52] 즉각함락
+	PRINTL [53] 자위광
+	PRINTL [54] 섹스광
+	PRINTL [55] 음란
+	PRINTL [56] 항문광
+	PRINTL [57] 가슴광
+	PRINTL [58] 선머슴
+	PRINTL [59] 도착적
+ELSEIF LOCAL == 3
+	PRINTL [60] 바이
+	PRINTL [61] 남성혐오
+	PRINTL [62] 새드
+	PRINTL [63] 질투
+	PRINTL [64] 애정
+	PRINTL [65] 망신
+	PRINTL [66] 소악마
+	PRINTL [67] 마조
+	PRINTL [68] 노출광
+	PRINTL [69] 매혹
+	PRINTL [70] 수수께끼의매력
+	PRINTL [71] 위압감
+	PRINTL [72] 장신
+	PRINTL [73] 작은체형
+	PRINTL [74] Ｃ둔감
+	PRINTL [75] Ｃ민감
+	PRINTL [76] Ｖ둔감
+	PRINTL [77] Ｖ민감
+	PRINTL [78] Ａ둔감
+	PRINTL [79] Ａ민감
+ELSEIF LOCAL == 4
+	PRINTL [80] Ｂ둔감
+	PRINTL [81] Ｂ민감
+	PRINTL [82] 빈유
+	PRINTL [83] 거유
+	PRINTL [84] 회복빠름
+	PRINTL [85] 회복느림
+	PRINTL [86] 매력
+	PRINTL [87] 폭유
+	PRINTL [88] 비만
+	PRINTL [89] 절벽
+	PRINTL [90] 치료
+	PRINTL [91] 고무
+	PRINTL [92] 초유
+	PRINTL [93] 후타나리
+	PRINTL [94] 남자
+	PRINTL [95] 광기
+	PRINTL [96] 동물귀
+	PRINTL [97] 백보지
+	PRINTL [98] 인기인
+	PRINTL [99] 역습
+ELSEIF LOCAL == 5
+	PRINTL [100] 모유체질
+	PRINTL [101] 유아퇴행
+	PRINTL [102] 유치
+	PRINTL [103] 조루
+	PRINTL [104] 멘탈약함
+	PRINTL [105] 미숙
+	PRINTL [106] 암캐
+	PRINTL [107] 수인
+	PRINTL [108] 마더콘
+	PRINTL [109] 파더몬
+	PRINTL [110] 로리콘
+	PRINTL [111] 쇼타콘
+	PRINTL [112] 자위안함
+	PRINTL [113] 봉사안함
+	PRINTL [114] 세뇌불가
+	PRINTL [115] 임신
+	PRINTL [116] 육아중
+	PRINTL [117] 모성
+	PRINTL [118] 부성
+	PRINTL [119] 유부녀
+ELSEIF LOCAL == 6
+	PRINTL [120] 동족임신불가
+	PRINTL [121] 자애로움
+	PRINTL [122] 자신만만
+	PRINTL [123] 기가약함
+	PRINTL [124] 고귀함
+	PRINTL [125] 냉철함
+	PRINTL [126] 마을처녀Ａ
+	PRINTL [127] 악녀
+	PRINTL [128] 하트
+	PRINTL [129] 스페이드
+	PRINTL [130] 다이아
+	PRINTL [131] 클럽
+	PRINTL [132] 마을처녀Ｂ
+	PRINTL [133] 두뇌명석
+	PRINTL [134] 비호자
+	PRINTL [135] 귀공자
+	PRINTL [136] 창부
+	PRINTL [137] 경국지색
+	PRINTL [138] 요설스러움
+	PRINTL [139] 단골손님
+ELSEIF LOCAL == 7
+	PRINTL [140] 구애
+	PRINTL [141] 가희
+	PRINTL [142] 무희
+	PRINTL [143] 미희
+	PRINTL [144] 투희
+	PRINTL [145] V산란
+	PRINTL [146] A산란
+	PRINTL [147] V웜
+	PRINTL [148] A웜
+	PRINTL [149] 전사
+	PRINTL [150] 마술사
+	PRINTL [151] 신관
+	PRINTL [152] 도적
+	PRINTL [153] 육변기
+	PRINTL [154] 기사
+	PRINTL [155] 무녀
+	PRINTL [156] 닌자
+	PRINTL [157] 궁수
+	PRINTL [158] 씨받이
+	PRINTL [159] 마계장군
+ELSEIF LOCAL == 8
+	PRINTL [160] 마도신관
+	PRINTL [161] 커맨더
+	PRINTL [162] 음핵
+	PRINTL [163] 음유
+	PRINTL [164] 음호
+	PRINTL [165] 음항
+	PRINTL [166] 전술
+	PRINTL [167] 마술
+	PRINTL [168] 법술
+	PRINTL [169] 기습
+	PRINTL [170] 파란피부
+	PRINTL [171] 악마날개
+	PRINTL [172] 악마꼬리
+	PRINTL [173] 악마안
+	PRINTL [174] 근육질
+	PRINTL [175] 철벽
+	PRINTL [176] 저주술
+	PRINTL [177] 인술
+	PRINTL [178] 선제
+	PRINTL [179] 갈색피부
+ELSEIF LOCAL == 9
+	PRINTL [180] 악마의각인
+	PRINTL [181] 하얀피부
+	PRINTL [182] 허약
+	PRINTL [183] 마법내성
+	PRINTL [184] 걸음빠름
+	PRINTL [185] 애꾸눈
+	PRINTL [186] 이마에눈
+	PRINTL [187] 슬라임
+	PRINTL [188] 촉수
+	PRINTL [189] 소인체형
+	PRINTL [190] 뿔
+	PRINTL [191] 항시발정
+	PRINTL [192] 성호
+	PRINTL [193] 처녀봉인
+	PRINTL [194] 혼박
+	PRINTL [195] 화염의능력자
+	PRINTL [196] 얼음의능력자
+	PRINTL [197] 번개의능력자
+	PRINTL [198] 빛의능력자
+	PRINTL [199] 어둠의능력자
+ELSEIF LOCAL == 10
+	PRINTL [200] 광왕의포로
+	PRINTL [201] 상식변경【전투】
+	PRINTL [202] 신성모독자
+	PRINTL [203] 상식변경【일상】
+	PRINTL [204] 보증인
+	PRINTL [205] 초보자
+	PRINTL [206] 마왕의그림자
+	PRINTL [207] 머리색
+	PRINTL [208] 머리상태
+	PRINTL [209] 머리길이
+	PRINTL [210] 머리컷
+	PRINTL [211] 머리스타일
+	PRINTL [212] 눈
+	PRINTL [213] 눈동자색
+	PRINTL [214] 입술
+	PRINTL [215] 살집
+	PRINTL [216] 유두
+	PRINTL [217] 음모의상태
+	PRINTL [218] 음모생육한계
+	PRINTL [219] 차밍포인트
+ELSEIF LOCAL == 11
+	PRINTL [220] 버릇
+	PRINTL [221] 종족
+	PRINTL [222] 용사가되기이전의생활
+	PRINTL [223] 용사가된동기
+	PRINTL [224] 좋아하는것
+	PRINTL [225] 페니스의상태
+	PRINTL [226] 종족2
+	PRINTL [227] 가족구성
+	PRINTL [228] 원료족
+	PRINTL [229] 서브종족
+	PRINTL [230] 아버지의종족
+	PRINTL [231] 어머니의종족
+	PRINTL [232] 마계지식
+	PRINTL [233] 육아의저주
+	PRINTL [234] 음마지식
+	PRINTL [235] 마충지식
+	PRINTL [236] 조형왕
+	PRINTL [237] 이상임신체질
+	PRINTL [238] 가슴임신
+	PRINTL [239] 정소임신
+ELSEIF LOCAL == 12
+	PRINTL [240] 멸염의주술인
+	PRINTL [241] 광왕
+	PRINTL [242] 없음
+	PRINTL [243] 점액포획
+	PRINTL [244] 함정포획
+	PRINTL [245] 덩굴포획
+	PRINTL [246] 갑옷파괴
+	PRINTL [247] 투명
+	PRINTL [248] 재생
+	PRINTL [249] 의해
+	PRINTL [250] 가속
+	PRINTL [251] 브레스
+	PRINTL [252] 마비가스
+	PRINTL [253] 유혹
+	PRINTL [254] 혼란
+	PRINTL [255] 경험치흡수
+	PRINTL [256] 갑옷파괴브레스
+	PRINTL [257] 마력흡수
+ENDIF
+DRAWLINE
+PRINTFORMLC \@(LOCAL <= 0) ?  %" " * 18% # [1001] 앞페이지\@
+PRINTLC [1000] 돌아가기
+PRINTFORMLC \@(LOCAL >= 12) ?  %" " * 18% # [1009] 다음페이지\@
+$INPUT_LOOP
+INPUT
+IF RESULT == 1000
+	RETURN 0
+ELSEIF RESULT == 1001 && LOCAL > 0
+	LOCAL -= 1
+ELSEIF RESULT == 1009 && LOCAL < 12
+	LOCAL += 1
+ELSE
+	TRYCCALLFORM MAOUDIC_TALENT_{RESULT}
+	CATCH
+		GOTO INPUT_LOOP
+	ENDCATCH
+ENDIF
+GOTO PRINT_LIST
+
+
+;--------------------------------------------------
+;마계사전 특성
+;--------------------------------------------------
+
+;처녀
+@MAOUDIC_TALENT_0
+PRINTL 처녀 (TALENT:0)
+PRINTL 
+PRINTL 순결하다는 증거지만 재생 가능.
+PRINTL 몇몇 이벤트는 처녀가 있어야만 보는것이 가능하다.
+PRINTL 매각시 금액이 상당히 증가한다.
+PRINTL 삽입되면 사라진다.
+PRINTL 
+PRINTW 획득 방법은 실험실에서 얻는다. 
+
+;동정
+@MAOUDIC_TALENT_1
+PRINTL 동정 (TALENT:1)
+PRINTL 
+PRINTL 여자를 겪어본 적이 없다는 증거.
+PRINTL 삽입을 하면 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;붕괴
+@MAOUDIC_TALENT_2
+PRINTL 붕괴 (TALENT:9)
+PRINTL 
+PRINTL 혹독한 경험을 겪고 정신이 나가버린 상태.
+PRINTL 이벤트의 내용이 달라지는 경우가 있다.
+PRINTL 매춘시 만족도가 내려간다.
+PRINTL 매각시 금액이 크게 감소한다.
+PRINTL 현 시점에서 지울 수 있는 방법이 없으나 추후 추가 예정.
+PRINTL 
+PRINTW 획득 방법은 가혹한 조교, 원치 않는 임신, 미약 금단증상으로 얻는다. 
+
+;겁쟁이
+@MAOUDIC_TALENT_3
+PRINTL 겁쟁이 (TALENT:10)
+PRINTL 
+PRINTL 겁이 많은 성격.
+PRINTL 순종을 올리기 쉽고 반감이 느리게 증가한다.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;반항적
+@MAOUDIC_TALENT_4
+PRINTL 반항적 (TALENT:11)
+PRINTL 
+PRINTL 남에게 반발하는 경향이 있는 성격.
+PRINTL 커맨드를 실행하기 어렵다.
+PRINTL 매각시 순종 4 이상이 필요하고 온순 및 욕정이 느리게 증가한다.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 츤데레를 가지고 있고 순종4를 달성하거나 애정을 획득한 경우 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;굳건함
+@MAOUDIC_TALENT_5
+PRINTL 굳건함 (TALENT:12)
+PRINTL 
+PRINTL 능욕에 쉽게 꺾이지 않는 성격.
+PRINTL 커맨드를 실행하기 어렵다.
+PRINTL 매각시 순종 4 이상이 필요함.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 매각시 금액이 약간 증가한다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;솔직
+@MAOUDIC_TALENT_6
+PRINTL 솔직 (TALENT:13)
+PRINTL 
+PRINTL 있는 그대로 말하는 성격.
+PRINTL 커맨드를 실행하기 쉽다. 
+PRINTL 순종과 봉사를 올리기 쉽고 온순이 빠르게 증가한다.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 반항적을 잃을 때 얻는 것이 얻는다. 
+
+;얌전함
+@MAOUDIC_TALENT_7
+PRINTL 얌전함 (TALENT:14)
+PRINTL 
+PRINTL 상당히 조용한 성격.
+PRINTL 반감이 느리게 증가한다.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 얌전함을 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;프라이드높음
+@MAOUDIC_TALENT_8
+PRINTL 프라이드높음 (TALENT:15)
+PRINTL 
+PRINTL 스스로에 대한 자존심이 높은 성격.
+PRINTL 커맨드를 실행하기 어렵다. 
+PRINTL 기교와 봉사정신을 올리기 어렵고 굴복이 느리게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 매각시 금액이 약간 증가한다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;시건방짐
+@MAOUDIC_TALENT_9
+PRINTL 시건방짐 (TALENT:16)
+PRINTL 
+PRINTL 남을 낮추어보는 성격.
+PRINTL 순종과 봉사정신을 올리기 어렵다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 매각시 금액이 약간 증가한다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;프라이드낮음
+@MAOUDIC_TALENT_10
+PRINTL 프라이드낮음 (TALENT:17)
+PRINTL 
+PRINTL 스스로에 대한 자존심이 낮은 성격.
+PRINTL 커맨드를 실행하기 쉽다. 
+PRINTL 봉사정신을 올리기 쉽고 굴복이 빠르게 증가한다.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;츤데레
+@MAOUDIC_TALENT_11
+PRINTL 츤데레 (TALENT:18)
+PRINTL 
+PRINTL 츤츤거리는 성격.
+PRINTL 반항적을 가지고 있고 순종4 이상이 되면 반항적이 솔직으로 바뀐다.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;자제심
+@MAOUDIC_TALENT_12
+PRINTL 자제심 (TALENT:20)
+PRINTL 
+PRINTL 감정이나 욕망을 스스로 억제가 가능함.
+PRINTL 매각시 욕망4 이상 필요함.
+PRINTL 봉사정신을 올리기 어렵고 쾌락계 수치가 느리게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 매각시 금액이 약간 감소한다.
+PRINTL 음란, 애정 혹은 유아퇴행 획득시 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;무관심
+@MAOUDIC_TALENT_13
+PRINTL 무관심 (TALENT:21)
+PRINTL 
+PRINTL 야한것에 대한 관심이 없음.
+PRINTL 봉사정신을 올리기 어렵고 온순, 욕정, 굴복, 공포, 반감이 느리게 증가한다.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 매각시 금액이 약간 감소한다.
+PRINTL 음란, 애정 혹은 유아퇴행 획득시 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;감정부족
+@MAOUDIC_TALENT_14
+PRINTL 감정부족 (TALENT:22)
+PRINTL 
+PRINTL 스스로 느끼는 감정을 잘 모름.
+PRINTL 봉사정신을 올리기 어렵고 수치가 느리게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 매각시 금액이 약간 감소한다.
+PRINTL 유아퇴행 획득시 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;호기심
+@MAOUDIC_TALENT_15
+PRINTL 호기심 (TALENT:23)
+PRINTL 
+PRINTL 야한것에 대한 관심이 많음.
+PRINTL 커맨드를 실행하기 쉽다.
+PRINTL 습득이 빠르게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;보수적
+@MAOUDIC_TALENT_16
+PRINTL 보수적 (TALENT:24)
+PRINTL 
+PRINTL 야한것에 대한 관심이 많음.
+PRINTL 커맨드를 실행하기 어렵다. 
+PRINTL 봉사정신을 올리기 어렵고 습득이 느리게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 매각시 금액이 약간 감소한다.
+PRINTL 유아퇴행 획득시 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;낙관적
+@MAOUDIC_TALENT_17
+PRINTL 낙관적 (TALENT:25)
+PRINTL 
+PRINTL 희망적인 예측을 자주 함.
+PRINTL 봉사정신을 올리기 쉽고 억울이 느리게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;비관적
+@MAOUDIC_TALENT_18
+PRINTL 비관적 (TALENT:26)
+PRINTL 
+PRINTL 절망적인 예측을 자주 함.
+PRINTL 봉사정신을 올리기 쉽고 억울이 빠르게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 유아퇴행 획득시 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;일선넘지않음
+@MAOUDIC_TALENT_19
+PRINTL 일선넘지않음 (TALENT:27)
+PRINTL 
+PRINTL 스스로 결정한 선을 넘지 않음.
+PRINTL 모든 ABL을 올리기 어렵다.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 매각시 금액이 약간 감소한다.
+PRINTL 음란, 애정 혹은 유아퇴행 획득시 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;눈에띄고싶어함
+@MAOUDIC_TALENT_20
+PRINTL 눈에띄고싶어함 (TALENT:28)
+PRINTL 
+PRINTL 다른 사람 앞에 나서길 좋아함.
+PRINTL 커맨드를 실행하기 쉽다.
+PRINTL 노출벽을 올리기 쉽다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+
+;정조관념
+@MAOUDIC_TALENT_21
+PRINTL 정조관념 (TALENT:30)
+PRINTL 
+PRINTL 순결을 지키는 것을 중요하게 여김.
+PRINTL 정애계 조교의 효과가 낮다.
+PRINTL 반감이 빠르게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 유아퇴행 혹은 항시발정 획득시 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+
+;정조관부실
+@MAOUDIC_TALENT_22
+PRINTL 정조관부실 (TALENT:31)
+PRINTL 
+PRINTL 순결을 지키는 것을 신경쓰지 않음.
+PRINTL 정애계 조교의 효과가 낮다.
+PRINTL 반감이 느리게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;억압
+@MAOUDIC_TALENT_23
+PRINTL 억압 (TALENT:32)
+PRINTL 
+PRINTL 스스로의 감정을 억누름.
+PRINTL 커맨드를 실행하기 어렵다.
+PRINTL 매각시 욕망4 이상 필요함.
+PRINTL 욕정이 느리게 증가하고 반감이 빠르게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 음란, 유아퇴행 혹은 항시발정 획득시 및 욕망의 일정량 상승시 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;해방
+@MAOUDIC_TALENT_24
+PRINTL 해방 (TALENT:33)
+PRINTL 
+PRINTL 스스로의 감정을 거리낌없이 드러냄.
+PRINTL 마조끼와 레즈끼를 올리기 쉽다. 
+PRINTL 욕정과 굴복이 빠르게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 매각시 금액이 약간 증가한다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;저항
+@MAOUDIC_TALENT_25
+PRINTL 저항 (TALENT:34)
+PRINTL 
+PRINTL 강제로 당하는 것에 격렬하게 반응함.
+PRINTL 커맨드를 실행하기 어렵다.
+PRINTL 매각시 욕망4 이상 필요함.
+PRINTL 욕정이 느리게 증가하고 반감이 빠르게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;수줍음
+@MAOUDIC_TALENT_26
+PRINTL 수줍음 (TALENT:35)
+PRINTL 
+PRINTL 야한 것에 대해 부끄러워함.
+PRINTL 커맨드를 실행하기 어렵다.
+PRINTL 노출계의 효과가 높다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 유아퇴행 획득시 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;수치심없음
+@MAOUDIC_TALENT_27
+PRINTL 수치심없음 (TALENT:36)
+PRINTL 
+PRINTL 야한것을 부끄러워 하지 않음.
+PRINTL 노출계의 효과가 낮다.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;약점
+@MAOUDIC_TALENT_28
+PRINTL 약점 (TALENT:37)
+PRINTL 
+PRINTL 마왕에게 약점이 잡힘.
+PRINTL 커맨드를 실행하기 쉽다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 유아퇴행 획득시 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없으나 추후 추가할 예정. 
+
+;아픔에약함
+@MAOUDIC_TALENT_29
+PRINTL 아픔에약함 (TALENT:40)
+PRINTL 
+PRINTL 고통에 민감한 체질.
+PRINTL 공포와 반감이 빠르게 증가한다. 
+PRINTL 마조끼가 있다면 SM계 조교로 욕정이 오르기 쉽다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;아픔에강함
+@MAOUDIC_TALENT_30
+PRINTL 아픔에강함 (TALENT:41)
+PRINTL 
+PRINTL 고통에 둔감한 체질.
+PRINTL 공포와 반감이 느리게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;젖기쉬움
+@MAOUDIC_TALENT_31
+PRINTL 젖기쉬움 (TALENT:42)
+PRINTL 
+PRINTL 쉽게 젖는 체질.
+PRINTL 윤활이 빠르게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 매각시 금액이 약간 증가한다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 항시발정 획득시 젖기 어려움이 없다면 얻는다.
+
+;젖기어려움
+@MAOUDIC_TALENT_32
+PRINTL 젖기어려움 (TALENT:43)
+PRINTL 
+PRINTL 쉽게 젖지 않는 체질.
+PRINTL 윤활이 느리게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 항시발정 획득시 사라진다.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;울보
+@MAOUDIC_TALENT_33
+PRINTL 울보 (TALENT:44)
+PRINTL 
+PRINTL 자주 우는 체질. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 
+PRINTW 미구현되어 있는 성격. 획득 루트 자체가 없음.
+
+;울지않음
+@MAOUDIC_TALENT_34
+PRINTL 울지않음 (TALENT:45)
+PRINTL 
+PRINTL 눈물이 없는 체질.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 
+PRINTW 미구현되어 있는 성격. 획득 루트 자체가 없음.
+
+;약물중독
+@MAOUDIC_TALENT_35
+PRINTL 약물중독 (TALENT:46)
+PRINTL 
+PRINTL 미약에 쉽게 빠지는 체질.
+PRINTL 미약 사용시 기력, 체력 소비 경감 및 효과 증대. 
+PRINTL 미약을 사용하지 않을 시 7일 주기로 금단 증상 발생. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 매각시 금액이 크게 감소한다.
+PRINTL 체내 미약 잔류도가 0이 되면 사라진다.
+PRINTL 
+PRINTW 획득 방법은 채네 미약 잔류도가 12 이상일 경우 얻는다.
+
+;정액미각
+@MAOUDIC_TALENT_36
+PRINTL 정액미각 (TALENT:47)
+PRINTL 
+PRINTL 정액을 마시는 것만으로 절정해버리는 체질. 
+PRINTL 정액중독을 올리기 쉽다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;근시	
+@MAOUDIC_TALENT_37
+PRINTL 근시 (TALENT:48)
+PRINTL 
+PRINTL 안경이 잘 어울리는 체질.
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;습득빠름
+@MAOUDIC_TALENT_38
+PRINTL 습득빠름 (TALENT:50)
+PRINTL 
+PRINTL 여러가지를 빠르게 습득함.
+PRINTL 봉사정신을 올리기 쉽다.
+PRINTL 습득이 빠르게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;습득느림
+@MAOUDIC_TALENT_39
+PRINTL 습득느림 (TALENT:51)
+PRINTL 
+PRINTL 뭐든지 느리게 습득함.
+PRINTL 봉사정신을 올리기 어렵다. 
+PRINTL 습득이 느리게 증가한다. 
+PRINTL 이벤트의 대사가 달라지는 경우가 있다.
+PRINTL 현 시점에서 지울 수 있는 방법은 없음.
+PRINTL 
+PRINTW 획득 방법은 없음.
+
+;혀놀림
+@MAOUDIC_TALENT_40
+PRINTL 혀놀림 (TALENT:)
+PRINTL 
+PRINTW 
+
+;조합지식
+@MAOUDIC_TALENT_41
+PRINTL 조합지식 (TALENT:)
+PRINTL 
+PRINTW 
+
+;약독내성
+@MAOUDIC_TALENT_42
+PRINTL 약독내성 (TALENT:)
+PRINTL 
+PRINTW 
+
+;오줌싸개
+@MAOUDIC_TALENT_43
+PRINTL 오줌싸개 (TALENT:)
+PRINTL 
+PRINTW 
+
+;자위쉬움
+@MAOUDIC_TALENT_44
+PRINTL 자위쉬움 (TALENT:)
+PRINTL 
+PRINTW 
+
+;악취둔감
+@MAOUDIC_TALENT_45
+PRINTL 악취둔감 (TALENT:)
+PRINTL 
+PRINTW 
+
+;악취민감
+@MAOUDIC_TALENT_46
+PRINTL 악취민감 (TALENT:)
+PRINTL 
+PRINTW 
+
+;헌신적
+@MAOUDIC_TALENT_47
+PRINTL 헌신적 (TALENT:)
+PRINTL 
+PRINTW 
+
+;불결무시
+@MAOUDIC_TALENT_48
+PRINTL 불결무시 (TALENT:)
+PRINTL 
+PRINTW 
+
+;쾌감에솔직
+@MAOUDIC_TALENT_49
+PRINTL 쾌감에솔직 (TALENT:)
+PRINTL 
+PRINTW 
+
+;쾌감을부정
+@MAOUDIC_TALENT_50
+PRINTL 쾌감을부정 (TALENT:)
+PRINTL 
+PRINTW 
+
+;중독되기쉬움
+@MAOUDIC_TALENT_51
+PRINTL 중독되기쉬움 (TALENT:)
+PRINTL 
+PRINTW 
+
+;즉각함락
+@MAOUDIC_TALENT_52
+PRINTL 즉각함락 (TALENT:)
+PRINTL 
+PRINTW 
+
+;자위광
+@MAOUDIC_TALENT_53
+PRINTL 자위광 (TALENT:)
+PRINTL 
+PRINTW 
+
+;섹스광
+@MAOUDIC_TALENT_54
+PRINTL 섹스광 (TALENT:)
+PRINTL 
+PRINTW 
+
+;음란
+@MAOUDIC_TALENT_55
+PRINTL 음란 (TALENT:)
+PRINTL 
+PRINTW 
+
+;항문광
+@MAOUDIC_TALENT_56
+PRINTL 항문광 (TALENT:)
+PRINTL 
+PRINTW 
+
+;가슴광
+@MAOUDIC_TALENT_57
+PRINTL 가슴광 (TALENT:)
+PRINTL 
+PRINTW 
+
+;선머슴
+@MAOUDIC_TALENT_58
+PRINTL 선머슴 (TALENT:)
+PRINTL 
+PRINTW 
+
+;도착적
+@MAOUDIC_TALENT_59
+PRINTL 도착적 (TALENT:)
+PRINTL 
+PRINTW 
+
+;바이
+@MAOUDIC_TALENT_60
+PRINTL 바이 (TALENT:)
+PRINTL 
+PRINTW 
+
+;남성혐오
+@MAOUDIC_TALENT_61
+PRINTL 남성혐오 (TALENT:)
+PRINTL 
+PRINTW 
+
+;새드
+@MAOUDIC_TALENT_62
+PRINTL 새드 (TALENT:)
+PRINTL 
+PRINTW 
+
+;질투
+@MAOUDIC_TALENT_63
+PRINTL 질투 (TALENT:)
+PRINTL 
+PRINTW 
+
+;애정
+@MAOUDIC_TALENT_64
+PRINTL 애정 (TALENT:)
+PRINTL 
+PRINTW 
+
+;망신
+@MAOUDIC_TALENT_65
+PRINTL 망신 (TALENT:)
+PRINTL 
+PRINTW 
+
+;소악마
+@MAOUDIC_TALENT_66
+PRINTL 소악마 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마조
+@MAOUDIC_TALENT_67
+PRINTL 마조 (TALENT:)
+PRINTL 
+PRINTW 
+
+;노출광
+@MAOUDIC_TALENT_68
+PRINTL 노출광 (TALENT:)
+PRINTL 
+PRINTW 
+
+;매혹
+@MAOUDIC_TALENT_69
+PRINTL 매혹 (TALENT:)
+PRINTL 
+PRINTW 
+
+;수수께끼의매력
+@MAOUDIC_TALENT_70
+PRINTL 수수께끼의매력 (TALENT:)
+PRINTL 
+PRINTW 
+
+;위압감
+@MAOUDIC_TALENT_71
+PRINTL 위압감 (TALENT:)
+PRINTL 
+PRINTW 
+
+;장신
+@MAOUDIC_TALENT_72
+PRINTL 장신 (TALENT:)
+PRINTL 
+PRINTW 
+
+;작은체형
+@MAOUDIC_TALENT_73
+PRINTL 작은체형 (TALENT:)
+PRINTL 
+PRINTW 
+
+;Ｃ둔감
+@MAOUDIC_TALENT_74
+PRINTL Ｃ둔감 (TALENT:)
+PRINTL 
+PRINTW 
+
+;Ｃ민감
+@MAOUDIC_TALENT_75
+PRINTL Ｃ민감 (TALENT:)
+PRINTL 
+PRINTW 
+
+;Ｖ둔감
+@MAOUDIC_TALENT_76
+PRINTL Ｖ둔감 (TALENT:)
+PRINTL 
+PRINTW 
+
+;Ｖ민감
+@MAOUDIC_TALENT_77
+PRINTL Ｖ민감 (TALENT:)
+PRINTL 
+PRINTW 
+
+;Ａ둔감
+@MAOUDIC_TALENT_78
+PRINTL Ａ둔감 (TALENT:)
+PRINTL 
+PRINTW 
+
+;Ａ민감
+@MAOUDIC_TALENT_79
+PRINTL Ａ민감 (TALENT:)
+PRINTL 
+PRINTW 
+
+;Ｂ둔감
+@MAOUDIC_TALENT_80
+PRINTL Ｂ둔감 (TALENT:)
+PRINTL 
+PRINTW 
+
+;Ｂ민감
+@MAOUDIC_TALENT_81
+PRINTL Ｂ민감 (TALENT:)
+PRINTL 
+PRINTW 
+
+;빈유
+@MAOUDIC_TALENT_82
+PRINTL 빈유 (TALENT:)
+PRINTL 
+PRINTW 
+
+;거유
+@MAOUDIC_TALENT_83
+PRINTL 거유 (TALENT:)
+PRINTL 
+PRINTW 
+
+;회복빠름
+@MAOUDIC_TALENT_84
+PRINTL 회복빠름 (TALENT:)
+PRINTL 
+PRINTW 
+
+;회복느림
+@MAOUDIC_TALENT_85
+PRINTL 회복느림 (TALENT:)
+PRINTL 
+PRINTW 
+
+;매력
+@MAOUDIC_TALENT_86
+PRINTL 매력 (TALENT:)
+PRINTL 
+PRINTW 
+
+;폭유
+@MAOUDIC_TALENT_87
+PRINTL 폭유 (TALENT:)
+PRINTL 
+PRINTW 
+
+;비만
+@MAOUDIC_TALENT_88
+PRINTL 절벽 (TALENT:)
+PRINTL 
+PRINTW 
+
+;절벽
+@MAOUDIC_TALENT_89
+PRINTL 절벽 (TALENT:)
+PRINTL 
+PRINTW 
+
+;치료
+@MAOUDIC_TALENT_90
+PRINTL 치료 (TALENT:)
+PRINTL 
+PRINTW 
+
+;고무
+@MAOUDIC_TALENT_91
+PRINTL 고무 (TALENT:)
+PRINTL 
+PRINTW 
+
+;초유
+@MAOUDIC_TALENT_92
+PRINTL 초유 (TALENT:)
+PRINTL 
+PRINTW 
+
+;후타나리
+@MAOUDIC_TALENT_93
+PRINTL 후타나리 (TALENT:)
+PRINTL 
+PRINTW 
+
+;남자
+@MAOUDIC_TALENT_94
+PRINTL 남자 (TALENT:)
+PRINTL 
+PRINTW 
+
+;광기
+@MAOUDIC_TALENT_95
+PRINTL 광기 (TALENT:)
+PRINTL 
+PRINTW 
+
+;동물귀
+@MAOUDIC_TALENT_96
+PRINTL 동물귀 (TALENT:)
+PRINTL 
+PRINTW 
+
+;백보지
+@MAOUDIC_TALENT_97
+PRINTL 백보지 (TALENT:)
+PRINTL 
+PRINTW 
+
+;인기인
+@MAOUDIC_TALENT_98
+PRINTL 인기인 (TALENT:)
+PRINTL 
+PRINTW 
+
+;역습
+@MAOUDIC_TALENT_99
+PRINTL 역습 (TALENT:)
+PRINTL 
+PRINTW 
+
+;모유체질
+@MAOUDIC_TALENT_100
+PRINTL 모유체질 (TALENT:)
+PRINTL 
+PRINTW 
+
+;유아퇴행
+@MAOUDIC_TALENT_101
+PRINTL 유아퇴행 (TALENT:)
+PRINTL 
+PRINTW 
+
+;유치
+@MAOUDIC_TALENT_102
+PRINTL 유치 (TALENT:)
+PRINTL 
+PRINTW 
+
+;조루
+@MAOUDIC_TALENT_103
+PRINTL 조루 (TALENT:)
+PRINTL 
+PRINTW 
+
+;맨탈약함
+@MAOUDIC_TALENT_104
+PRINTL 맨탈약함 (TALENT:)
+PRINTL 
+PRINTW 
+
+;미숙
+@MAOUDIC_TALENT_105
+PRINTL 미숙 (TALENT:)
+PRINTL 
+PRINTW 
+
+;암캐
+@MAOUDIC_TALENT_106
+PRINTL 암캐 (TALENT:)
+PRINTL 
+PRINTW 
+
+;수인
+@MAOUDIC_TALENT_107
+PRINTL 수인 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마더콘
+@MAOUDIC_TALENT_108
+PRINTL 마더콘 (TALENT:)
+PRINTL 
+PRINTW 
+
+;파더콘
+@MAOUDIC_TALENT_109
+PRINTL 파더콘 (TALENT:)
+PRINTL 
+PRINTW 
+
+;로리콘
+@MAOUDIC_TALENT_110
+PRINTL 로리콘 (TALENT:)
+PRINTL 
+PRINTW 
+
+;쇼타콘
+@MAOUDIC_TALENT_111
+PRINTL 쇼타콘 (TALENT:)
+PRINTL 
+PRINTW 
+
+;자위안함
+@MAOUDIC_TALENT_112
+PRINTL 자위안함 (TALENT:)
+PRINTL 
+PRINTW 
+
+;봉사안함
+@MAOUDIC_TALENT_113
+PRINTL 봉사안함 (TALENT:)
+PRINTL 
+PRINTW 
+
+;세뇌불가
+@MAOUDIC_TALENT_114
+PRINTL 세뇌불가 (TALENT:)
+PRINTL 
+PRINTW 
+
+;임신
+@MAOUDIC_TALENT_115
+PRINTL 임신 (TALENT:)
+PRINTL 
+PRINTW 
+
+;육아중
+@MAOUDIC_TALENT_116
+PRINTL 육아중 (TALENT:)
+PRINTL 
+PRINTW 
+
+;모성
+@MAOUDIC_TALENT_117
+PRINTL 모성 (TALENT:)
+PRINTL 
+PRINTW 
+
+;부성
+@MAOUDIC_TALENT_118
+PRINTL 부성 (TALENT:)
+PRINTL 
+PRINTW 
+
+;유부녀
+@MAOUDIC_TALENT_119
+PRINTL 유부녀 (TALENT:)
+PRINTL 
+PRINTW 
+
+;동족임신불가
+@MAOUDIC_TALENT_120
+PRINTL 동족임신불가 (TALENT:)
+PRINTL 
+PRINTW 
+
+;자애로움
+@MAOUDIC_TALENT_121
+PRINTL 자애로움 (TALENT:)
+PRINTL 
+PRINTW 
+
+;자신만만
+@MAOUDIC_TALENT_122
+PRINTL 자신만만 (TALENT:)
+PRINTL 
+PRINTW 
+
+;기가약함
+@MAOUDIC_TALENT_123
+PRINTL 기가약함 (TALENT:)
+PRINTL 
+PRINTW 
+
+;고귀함
+@MAOUDIC_TALENT_124
+PRINTL 고귀함 (TALENT:)
+PRINTL 
+PRINTW 
+
+;냉철함
+@MAOUDIC_TALENT_125
+PRINTL 냉철함 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마을처녀Ａ
+@MAOUDIC_TALENT_126
+PRINTL 마을처녀Ａ (TALENT:)
+PRINTL 
+PRINTW 
+
+;악녀
+@MAOUDIC_TALENT_127
+PRINTL 악녀 (TALENT:)
+PRINTL 
+PRINTW 
+
+;하트
+@MAOUDIC_TALENT_128
+PRINTL 하트 (TALENT:)
+PRINTL 
+PRINTW 
+
+;스페이드
+@MAOUDIC_TALENT_129
+PRINTL 스페이드 (TALENT:)
+PRINTL 
+PRINTW 
+
+;다이아
+@MAOUDIC_TALENT_130
+PRINTL 다이아 (TALENT:)
+PRINTL 
+PRINTW 
+
+;클럽
+@MAOUDIC_TALENT_131
+PRINTL 클럽 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마을처녀Ｂ
+@MAOUDIC_TALENT_132
+PRINTL 마을처녀Ｂ (TALENT:)
+PRINTL 
+PRINTW 
+
+;두뇌명석
+@MAOUDIC_TALENT_133
+PRINTL 두뇌명석 (TALENT:)
+PRINTL 
+PRINTW 
+
+;비호자
+@MAOUDIC_TALENT_134
+PRINTL 비호자 (TALENT:)
+PRINTL 
+PRINTW 
+
+;귀공자
+@MAOUDIC_TALENT_135
+PRINTL 귀공자 (TALENT:)
+PRINTL 
+PRINTW 
+
+;창부
+@MAOUDIC_TALENT_136
+PRINTL 창부 (TALENT:)
+PRINTL 
+PRINTW 
+
+;경국지색
+@MAOUDIC_TALENT_137
+PRINTL 경국지색 (TALENT:)
+PRINTL 
+PRINTW 
+
+;요설스러움
+@MAOUDIC_TALENT_138
+PRINTL 요설스러움 (TALENT:)
+PRINTL 
+PRINTW 
+
+;단골손님
+@MAOUDIC_TALENT_139
+PRINTL 단골손님 (TALENT:)
+PRINTL 
+PRINTW 
+
+;구애
+@MAOUDIC_TALENT_140
+PRINTL 구애 (TALENT:)
+PRINTL 
+PRINTW 
+
+;가희
+@MAOUDIC_TALENT_141
+PRINTL 가희 (TALENT:)
+PRINTL 
+PRINTW 
+
+;무희
+@MAOUDIC_TALENT_142
+PRINTL 무희 (TALENT:)
+PRINTL 
+PRINTW 
+
+;미희
+@MAOUDIC_TALENT_143
+PRINTL 미희 (TALENT:)
+PRINTL 
+PRINTW 
+
+;투희
+@MAOUDIC_TALENT_144
+PRINTL 투희 (TALENT:)
+PRINTL 
+PRINTW 
+
+;V산란
+@MAOUDIC_TALENT_145
+PRINTL V산란 (TALENT:)
+PRINTL 
+PRINTW 
+
+;A산란
+@MAOUDIC_TALENT_146
+PRINTL A산란 (TALENT:)
+PRINTL 
+PRINTW 
+
+;V웜
+@MAOUDIC_TALENT_147
+PRINTL V웜 (TALENT:)
+PRINTL 
+PRINTW 
+
+;A웜
+@MAOUDIC_TALENT_148
+PRINTL A웜 (TALENT:)
+PRINTL 
+PRINTW 
+
+;전사
+@MAOUDIC_TALENT_149
+PRINTL 전사 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마술사
+@MAOUDIC_TALENT_150
+PRINTL 마술사 (TALENT:)
+PRINTL 
+PRINTW 
+
+;신관
+@MAOUDIC_TALENT_151
+PRINTL 신관 (TALENT:)
+PRINTL 
+PRINTW 
+
+;도적
+@MAOUDIC_TALENT_152
+PRINTL 도적 (TALENT:)
+PRINTL 
+PRINTW 
+
+;육변기
+@MAOUDIC_TALENT_153
+PRINTL 육변기 (TALENT:)
+PRINTL 
+PRINTW 
+
+;기사
+@MAOUDIC_TALENT_154
+PRINTL 기사 (TALENT:)
+PRINTL 
+PRINTW 
+
+;무녀
+@MAOUDIC_TALENT_155
+PRINTL 무녀 (TALENT:)
+PRINTL 
+PRINTW 
+
+;닌자
+@MAOUDIC_TALENT_156
+PRINTL 닌자 (TALENT:)
+PRINTL 
+PRINTW 
+
+;궁수
+@MAOUDIC_TALENT_157
+PRINTL 궁수 (TALENT:)
+PRINTL 
+PRINTW 
+
+;씨받이
+@MAOUDIC_TALENT_158
+PRINTL 씨받이 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마계장군
+@MAOUDIC_TALENT_159
+PRINTL 마계장군 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마도신관
+@MAOUDIC_TALENT_160
+PRINTL 마도신관 (TALENT:)
+PRINTL 
+PRINTW 
+
+;커맨더
+@MAOUDIC_TALENT_161
+PRINTL 커맨더 (TALENT:)
+PRINTL 
+PRINTW 
+
+;음핵
+@MAOUDIC_TALENT_162
+PRINTL 음핵 (TALENT:)
+PRINTL 
+PRINTW 
+
+;음유
+@MAOUDIC_TALENT_163
+PRINTL 음유 (TALENT:)
+PRINTL 
+PRINTW 
+
+;음호
+@MAOUDIC_TALENT_164
+PRINTL 음호 (TALENT:)
+PRINTL 
+PRINTW 
+
+;음항
+@MAOUDIC_TALENT_165
+PRINTL 음항 (TALENT:)
+PRINTL 
+PRINTW 
+
+;전술
+@MAOUDIC_TALENT_166
+PRINTL 전술 (TALENT:240)
+PRINTL 
+PRINTW 레벨업 시 스테이터스에 보너스가 붙는다.
+
+;마술
+@MAOUDIC_TALENT_167
+PRINTL 마술 (TALENT:241)
+PRINTL 
+PRINTW 마법을 사용할 수 있다.
+
+;법술
+@MAOUDIC_TALENT_168
+PRINTL 법술 (TALENT:242)
+PRINTL 
+PRINTW 회복 마법을 사용할 수 있다. 또한 신앙의 증표이다.
+
+;기습
+@MAOUDIC_TALENT_169
+PRINTL 기습 (TALENT:243)
+PRINTL 
+PRINTW 선제 확률이 상승하고, 선제 시 공격에 보너스가 붙는다.
+
+;파란피부
+@MAOUDIC_TALENT_170
+PRINTL 파란피부 (TALENT:244)
+PRINTL 
+PRINTW 마법이 강화된다.
+
+;악마날개
+@MAOUDIC_TALENT_171
+PRINTL 악마날개 (TALENT:245)
+PRINTL 
+PRINTW 선제를 잡기 쉬워진다.
+
+;악마꼬리
+@MAOUDIC_TALENT_172
+PRINTL 악마꼬리 (TALENT:246)
+PRINTL 
+PRINTW 데미지가 강화된다.
+
+;악마안
+@MAOUDIC_TALENT_173
+PRINTL 악마안 (TALENT:247)
+PRINTL 
+PRINTW 기력에 데미지를 준다.
+
+;근육질
+@MAOUDIC_TALENT_174
+PRINTL 근육질 (TALENT:248)
+PRINTL 
+PRINTW 레벨업 시 스테이터스에 약간의 보너스가 붙는다.
+
+;철벽
+@MAOUDIC_TALENT_175
+PRINTL 철벽 (TALENT:249)
+PRINTL 
+PRINTW 위기에 처했을 때 스테이터스가 회복된다.
+
+;저주술
+@MAOUDIC_TALENT_176
+PRINTL 저주술 (TALENT:250)
+PRINTL 
+PRINTW 주술계 마법을 사용할 수 있다.
+
+;인술
+@MAOUDIC_TALENT_177
+PRINTL 인술 (TALENT:251)
+PRINTL 
+PRINTW 공격 회피 확률이 상승한다.
+
+;선제
+@MAOUDIC_TALENT_178
+PRINTL 선제 (TALENT:252)
+PRINTL 
+PRINTW 전투 시작 전에 추가 공격을 가한다.
+
+;갈색피부
+@MAOUDIC_TALENT_179
+PRINTL 갈색피부 (TALENT:253)
+PRINTL 
+PRINTW 마법 데미지를 경감한다.
+
+;악마의각인
+@MAOUDIC_TALENT_180
+PRINTL 악마의각인 (TALENT:254)
+PRINTL 
+PRINTW 함락되지 않아도 요격할 수 있다.
+
+;하얀피부
+@MAOUDIC_TALENT_181
+PRINTL 하얀피부 (TALENT:255)
+PRINTL 
+PRINTW 하얀 피부.
+
+;허약
+@MAOUDIC_TALENT_182
+PRINTL 허약 (TALENT:256)
+PRINTL 
+PRINTW HP 회복량이 낮다.
+
+;마법내성
+@MAOUDIC_TALENT_183
+PRINTL 마법내성 (TALENT:257)
+PRINTL 
+PRINTW 마법의 효력을 3할 약화시킨다.
+
+;걸음빠름
+@MAOUDIC_TALENT_184
+PRINTL 걸음빠름 (TALENT:258)
+PRINTL 
+PRINTW 선제를 잡기 쉽다.
+
+;애꾸눈
+@MAOUDIC_TALENT_185
+PRINTL 애꾸눈 (TALENT:259)
+PRINTL 
+PRINTW 공격 미스가 늘어나는 대신 데미지가 강화된다.
+
+;이마에눈
+@MAOUDIC_TALENT_186
+PRINTL 이마에눈 (TALENT:260)
+PRINTL 
+PRINTW 기력 데미지 증가·기력 소비 증가·마법 효과 증가.
+
+;슬라임
+@MAOUDIC_TALENT_187
+PRINTL 슬라임 (TALENT:261)
+PRINTL 
+PRINTW 방어력에 보너스가 붙는다. 미끈미끈. 윤활에 보너스.
+
+;촉수
+@MAOUDIC_TALENT_188
+PRINTL 촉수 (TALENT:262)
+PRINTL 
+PRINTW 공격력에 보너스가 붙는다. 흐늘흐늘. (반쯤 구현)
+
+;소인체형
+@MAOUDIC_TALENT_189
+PRINTL 소인체형 (TALENT:263)
+PRINTL 
+PRINTW 회피에 보너스가 붙지만 능력치에 마이너스 보정이 걸린다. (반쯤 구현)
+
+;뿔
+@MAOUDIC_TALENT_190
+PRINTL 뿔 (TALENT:264)
+PRINTL 
+PRINTW 데미지 강화·기력 소비 증가.
+
+;항시발정
+@MAOUDIC_TALENT_191
+PRINTL 항시발정 (TALENT:)
+PRINTL 
+PRINTW 
+
+;성호
+@MAOUDIC_TALENT_192
+PRINTL 성호 (TALENT:)
+PRINTL 
+PRINTW 
+
+;처녀봉인
+@MAOUDIC_TALENT_193
+PRINTL 처녀봉인 (TALENT:)
+PRINTL 
+PRINTW 
+
+;혼박
+@MAOUDIC_TALENT_194
+PRINTL 혼박 (TALENT:274)
+PRINTL 
+PRINTW 악에 떨어지지 않는다. 카르마가 변동하지 않는다.
+
+;화염의능력자
+@MAOUDIC_TALENT_195
+PRINTL 화염의능력자 (TALENT:275)
+PRINTL 
+PRINTW 화염 속성을 부여한다.
+
+;얼음의능력자
+@MAOUDIC_TALENT_196
+PRINTL 얼음의능력자 (TALENT:276)
+PRINTL 
+PRINTW 냉기 속성을 부여한다.
+
+;번개의능력자
+@MAOUDIC_TALENT_197
+PRINTL 번개의능력자 (TALENT:277)
+PRINTL 
+PRINTW 전격 속성을 부여한다.
+
+;빛의능력자
+@MAOUDIC_TALENT_198
+PRINTL 빛의능력자 (TALENT:278)
+PRINTL 
+PRINTW 기력 회복 효과를 부여한다.
+
+;어둠의능력자
+@MAOUDIC_TALENT_199
+PRINTL 어둠의능력자 (TALENT:279)
+PRINTL 
+PRINTW 기력 데미지 효과를 부여한다.
+
+;광왕의포로
+@MAOUDIC_TALENT_200
+PRINTL 광왕의포로 (TALENT:)
+PRINTL 
+PRINTW 
+
+;상식변경【전투】
+@MAOUDIC_TALENT_201
+PRINTL 상식변경【전투】 (TALENT:)
+PRINTL 
+PRINTW 
+
+;신성모독자
+@MAOUDIC_TALENT_202
+PRINTL 신성모독자 (TALENT:)
+PRINTL 
+PRINTW 
+
+;상식변경【일상】
+@MAOUDIC_TALENT_203
+PRINTL 상식변경【일상】 (TALENT:)
+PRINTL 
+PRINTW 
+
+;보증인
+@MAOUDIC_TALENT_204
+PRINTL 보증인 (TALENT:)
+PRINTL 
+PRINTW 
+
+;초보자
+@MAOUDIC_TALENT_205
+PRINTL 초보자 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마왕의그림자
+@MAOUDIC_TALENT_206
+PRINTL 마왕의그림자 (TALENT:)
+PRINTL 
+PRINTW 
+
+;머리색
+@MAOUDIC_TALENT_207
+PRINTL 머리색 (TALENT:)
+PRINTL 
+PRINTW 
+
+;머리상태
+@MAOUDIC_TALENT_208
+PRINTL 머리상태 (TALENT:)
+PRINTL 
+PRINTW 
+
+;머리길이
+@MAOUDIC_TALENT_209
+PRINTL 머리길이 (TALENT:)
+PRINTL 
+PRINTW 
+
+;머리컷
+@MAOUDIC_TALENT_210
+PRINTL 머리컷 (TALENT:)
+PRINTL 
+PRINTW 
+
+;머리스타일
+@MAOUDIC_TALENT_211
+PRINTL 머리스타일 (TALENT:)
+PRINTL 
+PRINTW 
+
+;눈
+@MAOUDIC_TALENT_212
+PRINTL 눈 (TALENT:)
+PRINTL 
+PRINTW 
+
+;눈동자생
+@MAOUDIC_TALENT_213
+PRINTL 눈동자색 (TALENT:)
+PRINTL 
+PRINTW 
+
+;입술
+@MAOUDIC_TALENT_214
+PRINTL 입술 (TALENT:)
+PRINTL 
+PRINTW 
+
+;살집
+@MAOUDIC_TALENT_215
+PRINTL 살집 (TALENT:)
+PRINTL 
+PRINTW 
+
+;유두
+@MAOUDIC_TALENT_216
+PRINTL 유두 (TALENT:)
+PRINTL 
+PRINTW 
+
+;음모의상태
+@MAOUDIC_TALENT_217
+PRINTL 음모의상태 (TALENT:)
+PRINTL 
+PRINTW 
+
+;음모생육한계
+@MAOUDIC_TALENT_218
+PRINTL 음모생육한계 (TALENT:)
+PRINTL 
+PRINTW 
+
+;차밍포인트
+@MAOUDIC_TALENT_219
+PRINTL 차밍포인트 (TALENT:)
+PRINTL 
+PRINTW 
+
+;버릇
+@MAOUDIC_TALENT_220
+PRINTL 버릇 (TALENT:)
+PRINTL 
+PRINTW 
+
+;종족
+@MAOUDIC_TALENT_221
+PRINTL 종족 (TALENT:)
+PRINTL 
+PRINTW 
+
+;용사가되기이전의생활
+@MAOUDIC_TALENT_222
+PRINTL 용사가되기이전의생활 (TALENT:)
+PRINTL 
+PRINTW 
+
+;용사가된동기
+@MAOUDIC_TALENT_223
+PRINTL 용사가된동기 (TALENT:)
+PRINTL 
+PRINTW 
+
+;좋아하는것
+@MAOUDIC_TALENT_224
+PRINTL 좋아하는것 (TALENT:)
+PRINTL 
+PRINTW 
+
+;페니스의상태
+@MAOUDIC_TALENT_225
+PRINTL 페니스의상태 (TALENT:)
+PRINTL 
+PRINTW 
+
+;종족2
+@MAOUDIC_TALENT_226
+PRINTL 종족2 (TALENT:)
+PRINTL 
+PRINTW 
+
+;가족구성
+@MAOUDIC_TALENT_227
+PRINTL 가족구성 (TALENT:)
+PRINTL 
+PRINTW 
+
+;원료족
+@MAOUDIC_TALENT_228
+PRINTL 원료족 (TALENT:)
+PRINTL 
+PRINTW 
+
+;서브종족
+@MAOUDIC_TALENT_229
+PRINTL 서브종족 (TALENT:)
+PRINTL 
+PRINTW 
+
+;아버지의종족
+@MAOUDIC_TALENT_230
+PRINTL 아버지의종족 (TALENT:)
+PRINTL 
+PRINTW 
+
+;어머니의종족
+@MAOUDIC_TALENT_231
+PRINTL 어머니의종족 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마계지식
+@MAOUDIC_TALENT_232
+PRINTL 마계지식 (TALENT:)
+PRINTL 
+PRINTW 
+
+;육아의저주
+@MAOUDIC_TALENT_233
+PRINTL 육아의저주 (TALENT:)
+PRINTL 
+PRINTW 
+
+;음마지식
+@MAOUDIC_TALENT_234
+PRINTL 음마지식 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마충지식
+@MAOUDIC_TALENT_235
+PRINTL 마충지식 (TALENT:)
+PRINTL 
+PRINTW 
+
+;【조형왕】
+@MAOUDIC_TALENT_236
+PRINTL 【조형왕】 (TALENT:)
+PRINTL 
+PRINTW 
+
+;이상임신체질
+@MAOUDIC_TALENT_237
+PRINTL 이상임신체질 (TALENT:)
+PRINTL 
+PRINTW 
+
+;가슴임신
+@MAOUDIC_TALENT_238
+PRINTL 가슴임신 (TALENT:)
+PRINTL 
+PRINTW 
+
+;정소임신
+@MAOUDIC_TALENT_239
+PRINTL 정소임신 (TALENT:)
+PRINTL 
+PRINTW 
+
+;멸염의주술인
+@MAOUDIC_TALENT_240
+PRINTL 멸염의주술인 (TALENT:)
+PRINTL 
+PRINTW 
+
+;광왕
+@MAOUDIC_TALENT_241
+PRINTL 광왕 (TALENT:)
+PRINTL 
+PRINTW 
+
+;없음
+@MAOUDIC_TALENT_242
+PRINTL 없음 (TALENT:)
+PRINTL 
+PRINTW 
+
+;점액포획
+@MAOUDIC_TALENT_243
+PRINTL 점액포획 (TALENT:)
+PRINTL 
+PRINTW 
+
+;함정포획
+@MAOUDIC_TALENT_244
+PRINTL 함정포획 (TALENT:)
+PRINTL 
+PRINTW 
+
+;덩굴포획
+@MAOUDIC_TALENT_245
+PRINTL 덩굴포획 (TALENT:)
+PRINTL 
+PRINTW 
+
+;갑옷파괴
+@MAOUDIC_TALENT_246
+PRINTL 갑옷파괴 (TALENT:)
+PRINTL 
+PRINTW 
+
+;투명
+@MAOUDIC_TALENT_247
+PRINTL 투명 (TALENT:)
+PRINTL 
+PRINTW 
+
+;재생
+@MAOUDIC_TALENT_248
+PRINTL 재생 (TALENT:)
+PRINTL 
+PRINTW 
+
+;의해
+@MAOUDIC_TALENT_249
+PRINTL 의해 (TALENT:)
+PRINTL 
+PRINTW 
+
+;가속
+@MAOUDIC_TALENT_250
+PRINTL 가속 (TALENT:)
+PRINTL 
+PRINTW 
+
+;브레스
+@MAOUDIC_TALENT_251
+PRINTL 브레스 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마비가스
+@MAOUDIC_TALENT_252
+PRINTL 마비가스 (TALENT:)
+PRINTL 
+PRINTW 
+
+;유혹
+@MAOUDIC_TALENT_253
+PRINTL 유혹 (TALENT:)
+PRINTL 
+PRINTW 
+
+;혼란
+@MAOUDIC_TALENT_254
+PRINTL 혼란 (TALENT:)
+PRINTL 
+PRINTW 
+
+;경험치흡수
+@MAOUDIC_TALENT_255
+PRINTL 경험치흡수 (TALENT:)
+PRINTL 
+PRINTW 
+
+;갑옷파괴브레스
+@MAOUDIC_TALENT_256
+PRINTL 갑옷파괴브레스 (TALENT:)
+PRINTL 
+PRINTW 
+
+;마력흡수
+@MAOUDIC_TALENT_257
+PRINTL 마력흡수 (TALENT:)
+PRINTL 
+PRINTW 
+
