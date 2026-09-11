@@ -24,16 +24,16 @@
 | EVENT_K12_知的 | 知的 | 310 | 비성적 11자리 완료(EXUCUTION1·MUSEUM5·BANISHMENT4·PUBLIC_EXUCUTION1); PALAMCNG 기충족·GROTESQUE 보류 |
 | EVENT_K11_リリィ | 리리(마오의 언니, 헌신적 마을 처녀) | 297→273(실측,이번) | 비성적 24자리 완료(MUSEUM 9·EXUCUTION 3[肉便器 제외]·BANISHMENT 5·PUBLIC 2[絞首·魂粉砕]·OSIOKI 5). 나머지 성묘사 본문·GROTESQUE는 사용자 |
 | EVENT_K2_気弱 | 気弱(소심·겁많음) | 204 | 비성적 12자리 완료(EXUCUTION 記憶消去1·MUSEUM 6[밀랍/금속/얼음/보석/가구/회화]·BANISHMENT 4·PUBLIC 魂粉砕1). MARKCNG·COLOSSEUM·PALAMCNG 기작성됨. 남은 최상위 빈 PRINTFORMW 7=GROTESQUE(사용자). 나머지 성묘사 본문 사용자 |
-| EVENT_K10_クラブ | 클럽 | 196 | 미착수 |
-| EVENT_K7_ハート | 하트 | 196 | 미착수 |
-| EVENT_K8_スペード | 스페이드 | 187 | 미착수 |
-| EVENT_K9_ダイヤ | 다이아 | 185 | 미착수 |
-| EVENT_K1_自信家 | 自信家 | 165 | 미착수 |
-| EVENT_K4_冷徹 | 冷徹 | 154 | 미착수 |
-| EVENT_K6_悪女 | 悪女 | 131 | 미착수 |
-| EVENT_K3_高貴 | 高貴 | 97 | 미착수 |
-| EVENT_K5_マオ | 마오 | 64 | 미착수 |
-| EVENT_K0_慈愛 | 慈愛 | 44 | 미착수 |
+| EVENT_K10_クラブ | 클럽(후타나리 마법사, 조용·和姦, 마술 자부심) | 196 | 비성적 14 완료(EXUCUTION1·MUSEUM8·BANISHMENT4·PUBLIC 魂粉砕1). 잔여=GROTESQUE7(사용자) |
+| EVENT_K7_ハート | 하트(정중한 무대 배우형, "제가/…습니다") | 196 | 비성적 14 완료. 잔여=DUNGEON_RYOUZYOKU4·GROTESQUE7(사용자) |
+| EVENT_K8_スペード | 스페이드(자존심·복수심) | 187 | 비성적 14 완료. 잔여=GROTESQUE7 |
+| EVENT_K9_ダイヤ | 다이아(전사형) | 185 | 비성적 14 완료. 잔여=GROTESQUE7 |
+| EVENT_K1_自信家 | 自信家(오만·부정, SELF_CALL 3인칭) | 165 | 비성적 12 완료(MUSEUM 6슬롯). 잔여=SELF1·GROTESQUE7 |
+| EVENT_K4_冷徹 | 冷徹(냉철·태연) | 154 | 비성적 12 완료. 잔여=SELF1·GROTESQUE7 |
+| EVENT_K6_悪女 | 悪女(악녀·저주, SELF_CALL 3인칭) | 131 | 비성적 12 완료. 잔여=GROTESQUE7 |
+| EVENT_K3_高貴 | 高貴(고귀한 숙녀, "…예요/…어요") | 97 | 비성적 12 완료. 잔여=SELF1·GROTESQUE7 |
+| EVENT_K5_マオ | 마오(유아적, 언니 찾음) | 64 | 비성적 14 완료. 잔여=DUNGEON_VICTORY2·GROTESQUE7 |
+| EVENT_K0_慈愛 | 慈愛(자비·희망) | 44 | 비성적 12 완료. 잔여=SELF1·GROTESQUE7 |
 
 ### 각 K파일 내부 라벨 성격(공통 패턴)
 - `KOJO_MESSAGE_COM_n` — 조교 커맨드별 대사. **성묘사 본문(사용자)**. 최대 덩어리.
@@ -60,6 +60,7 @@ MUSEUM 17 · DUNGEON 17 · LOVERS 13 · SYSTEM 10 · PASSOUT 6 · _DRAW_MAINMENU
 → 상당수 여백 오탐 가능성. 채우기 전 파일별 재검증 필요(ENDING·MAOUDIC 전례).
 
 ## 5. 다음 액션 우선순위
-1. MAOUDIC 남은 비성적 JP 특성 번역 배치(직업·지식·칭호·경우).
-2. K파일 비성적 라벨 이식(K13부터, MUSEUM/처형/각인/감정 패턴).
-3. 시스템 소량 공백 파일별 재검증 후 여백 오탐 제거.
+- **[완료] 전 K파일 비성적 라벨 이식**: K0~K14 15개 전부 MUSEUM/EXUCUTION/BANISHMENT/PUBLIC(+K1x OSIOKI/MARKCNG/COLOSSEUM/PALAMCNG) 비성적 자리 이식 완료. 실측 재검증 결과 각 파일 잔여 최상위 빈 PRINTFORMW는 GROTESQUE·DUNGEON_RYOUZYOKU·SELF·DUNGEON_VICTORY(전부 성/고어=사용자)만 남음.
+- **남은 AI 작업**: MAOUDIC 남은 비성적 JP 특성 번역 배치(직업·지식·칭호·경우) — 3장 참조.
+- **재검증 대기**: 시스템 소량 공백 파일별 여백 오탐 제거(4장).
+- **사용자 담당(대다수)**: KOJO_MESSAGE_COM·DOG_KOJO·BENKI·SELF·RYOUZYOKU·NTR·GROTESQUE 성묘사 본문.
