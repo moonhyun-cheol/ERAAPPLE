@@ -10197,9 +10197,47 @@ function createInputGate(resume, { now = Date.now, schedule = setTimeout, unsche
       if (event.type !== "wait" && event.numeric && (!/^[+-]?\d+$/.test(value) || !Number.isSafeInteger(Number(value)))) return false;
       return finish(event.type === "wait" ? "" : value);
     },
+    // The current unanswered request, or null. Used to re-emit `waiting` (resync) when an input
+    // is rejected (stale id/invalid) or on a foreground wake, so the UI — which disables its
+    // controls optimistically on send — is never left dead when the worker stays silent.
+    peek() {
+      return pending;
+    },
     check,
     cancel
   };
+}
+
+// batch-channel.mjs
+function createBatchChannel(post, { timeout = 8e3, schedule = setTimeout, unschedule = clearTimeout } = {}) {
+  let nextId = 0, current = null;
+  function ack(id) {
+    if (!current || current.id !== id) return false;
+    const settled = current;
+    current = null;
+    unschedule(settled.timer);
+    settled.resolve();
+    return true;
+  }
+  function send(events) {
+    if (!events || !events.length) return Promise.resolve();
+    const id = ++nextId;
+    return new Promise((resolve) => {
+      const fire = () => {
+        post({ type: "events", id, events });
+        if (current) current.timer = schedule(fire, timeout);
+      };
+      current = { id, resolve, timer: null };
+      fire();
+    });
+  }
+  function reset() {
+    if (current) {
+      unschedule(current.timer);
+      current = null;
+    }
+  }
+  return { send, ack, reset, inFlight: () => Boolean(current), lastId: () => nextId };
 }
 
 // runtime-trace.mjs
@@ -10232,11 +10270,10 @@ function createProgressBridge(send, timeoutMs = 1500) {
 
 // engine-worker.mjs
 var progress = createProgressBridge((message) => postMessage(message));
+var channel = createBatchChannel((message) => postMessage(message));
 var vm;
 var generator;
 var busy = false;
-var batchId = 0;
-var rendered;
 var gate = createInputGate((value, id) => {
   busy = true;
   postMessage({ type: "running", id });
@@ -10254,17 +10291,23 @@ function fail(error) {
     trace: error.trace ?? vm?.contextStack.map((c) => c.fn.name) ?? []
   } });
 }
+function resyncWaiting() {
+  const pending = gate.peek();
+  if (pending) postMessage({
+    type: "waiting",
+    id: pending.id,
+    deadline: pending.deadline,
+    event: pending.event,
+    stack: vm?.contextStack.map((c) => c.fn.name) ?? []
+  });
+}
 async function advance(value) {
   let events = [];
   const flush = async () => {
     if (!events.length) return;
-    const id = ++batchId;
-    const ack = new Promise((resolve) => {
-      rendered = { id, resolve };
-    });
-    postMessage({ type: "events", id, events });
+    const batch = events;
     events = [];
-    await ack;
+    await channel.send(batch);
   };
   try {
     for (let n = 0; n < 1e5; n++) {
@@ -10297,20 +10340,17 @@ self.onmessage = async ({ data }) => {
     return;
   }
   if (data.type === "rendered") {
-    if (rendered?.id === data.id) {
-      const { resolve } = rendered;
-      rendered = null;
-      resolve();
-    }
-    return;
-  }
-  if (busy) return;
-  if (data.type === "input") {
-    gate.accept(data.id, data.value);
+    channel.ack(data.id);
     return;
   }
   if (data.type === "resume") {
     gate.check();
+    resyncWaiting();
+    return;
+  }
+  if (busy) return;
+  if (data.type === "input") {
+    if (!gate.accept(data.id, data.value)) resyncWaiting();
     return;
   }
   busy = true;

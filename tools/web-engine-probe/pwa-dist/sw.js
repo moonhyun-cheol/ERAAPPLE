@@ -1,11 +1,11 @@
 /* Replaced by build-pwa.mjs; no remote scripts or user-provided code. */
-const RELEASE = "7f05769bc87d4d62c405";
+const RELEASE = "ed4a659888d1e2db3188";
 const ASSETS = {
-  "index.html": "191b467935d79f424d14b9ebb287db1ab113afd1d7a24d701f0c4f1d5ec4b96e",
-  "browser.js": "00192fd9035ad1e848e6a5c6762b4f946736a06c6785404adf90610a89e7b6c9",
-  "engine-worker.js": "e06ce7091d635759b83a903c1a0753a3cf4ffd7d501b56a1afe1f94f5f79cab7",
+  "index.html": "dab43c0773c50cd7abff5dd1ee47ddc2217cbb60f7495425673ee446865709ef",
+  "browser.js": "2dd8c1fd1db0de1b2a6e00ae3623023f08d4f8d5e795a938529883684fd2cc36",
+  "engine-worker.js": "1f4e2f48c15500b39f813fdee0b7e029fd17780ac8f1f548400ef0f26af03c3b",
   "eraJS-LICENSE.txt": "acbd9f2b463cd3431927837baf8abfc42f9b848e7d8732a5cebfd6cbeaf4c79f",
-  "build.json": "1d4777b1543bcb53efcb9a117904e0b8fce801950e82e408f03ed08607a26c6a",
+  "build.json": "31928aa0d5299c4072b9e8958c74d6c615e19478956855915f7914d744b3a4b8",
   "local-game.bin": "dda7fa32ce4805c144444febe9834166035166efb385855420140c348e1471b5",
   "game-eramaou128.bin": "f5deaf64dabdaea3de7f62c80c1dae12339dacf468743301b119fdcfdb524842",
   "games.json": "8015c3fd2e28329d5edf835fe5b383d6a29c1a717fc6aa6fcf60f64fd933c90c",

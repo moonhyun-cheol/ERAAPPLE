@@ -67,3 +67,17 @@ QUIT
   assert.match(textOf(input.events), /NUMBER:2/);
   assert.match(textOf(input.events), /TEXT:선택/);
 });
+test('peek exposes the pending request for resync and clears once answered', () => {
+  const { gate, resumed } = clock();
+  assert.equal(gate.peek(), null, 'no request pending at rest');
+  const open = gate.open({ type: 'input', numeric: true });
+  assert.equal(gate.peek()?.id, open.id, 'peek returns the open request');
+  // A stale/invalid input is rejected but must NOT clear the pending request, so the worker can
+  // re-emit `waiting` and the optimistically-disabled UI is revived instead of dead-frozen.
+  assert.equal(gate.accept(open.id + 99, '1'), false, 'stale id rejected');
+  assert.equal(gate.accept(open.id, 'x'), false, 'non-integer rejected');
+  assert.equal(gate.peek()?.id, open.id, 'rejected input leaves the request pending');
+  assert.equal(gate.accept(open.id, '7'), true, 'valid input still accepted after rejects');
+  assert.equal(gate.peek(), null, 'answered request no longer pending');
+  assert.deepEqual(resumed.map(r => r.value), ['7']);
+});

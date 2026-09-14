@@ -2,10 +2,12 @@ import { compile } from '../../.my_agent_remote/undercrow__eraJS/build/index.js'
 import { files } from './fixture.mjs';
 import { createStore } from './browser-store.mjs';
 import { createInputGate } from './input-gate.mjs';
+import { createBatchChannel } from './batch-channel.mjs';
 import { createProgressBridge } from './runtime-trace.mjs';
 const progress = createProgressBridge(message => postMessage(message));
+const channel = createBatchChannel(message => postMessage(message));
 
-let vm, generator, busy = false, batchId = 0, rendered;
+let vm, generator, busy = false;
 const gate = createInputGate((value, id) => {
   busy = true;
   postMessage({ type: 'running', id });
@@ -17,15 +19,24 @@ function fail(error) {
     file: error.line?.file ?? null, line: error.line?.line == null ? null : error.line.line + 1,
     trace: error.trace ?? vm?.contextStack.map(c => c.fn.name) ?? [] } });
 }
+// Re-announce the request the engine is still waiting on. The UI disables its buttons/input the
+// instant a choice is sent; if that input is then rejected (a stale request id after a resume or
+// timeout, or an invalid value) the worker would otherwise go silent and leave the screen dead.
+// Re-emitting `waiting` makes the UI re-enable its input path, so no tap can permanently freeze it.
+function resyncWaiting() {
+  const pending = gate.peek();
+  if (pending) postMessage({ type: 'waiting', id: pending.id, deadline: pending.deadline,
+    event: pending.event, stack: vm?.contextStack.map(c => c.fn.name) ?? [] });
+}
 async function advance(value) {
   let events = [];
   const flush = async () => {
     if (!events.length) return;
-    const id = ++batchId;
-    // At most one output batch in flight. Large day-end output cannot flood iOS's UI queue.
-    const ack = new Promise(resolve => { rendered = { id, resolve }; });
-    postMessage({ type: 'events', id, events }); events = [];
-    await ack;
+    const batch = events; events = [];
+    // At most one output batch in flight. It is resent (never skipped) if the UI's render ACK is
+    // lost, so a throttled iOS tab cannot wedge the worker on this await and then swallow every
+    // later input. The single-batch flood guard against iOS's UI queue still holds.
+    await channel.send(batch);
   };
   try {
     for (let n = 0; n < 100000; n++) {
@@ -47,13 +58,14 @@ async function advance(value) {
 }
 self.onmessage = async ({ data }) => {
   if (data.type === 'progress-recorded') { progress.acknowledge(data.id); return; }
-  if (data.type === 'rendered') {
-    if (rendered?.id === data.id) { const { resolve } = rendered; rendered = null; resolve(); }
-    return;
-  }
+  if (data.type === 'rendered') { channel.ack(data.id); return; }
+  // A foreground-wake resume must reach the gate even mid-advance so a throttled timed-input
+  // deadline is re-checked; gate.check never mutates engine state, only the pending input. It
+  // also re-emits the pending `waiting`, so a UI that got stuck with disabled controls (its send
+  // was dropped/rejected) is revived when the tab returns or the user taps recover.
+  if (data.type === 'resume') { gate.check(); resyncWaiting(); return; }
   if (busy) return;
-  if (data.type === 'input') { gate.accept(data.id, data.value); return; }
-  if (data.type === 'resume') { gate.check(); return; }
+  if (data.type === 'input') { if (!gate.accept(data.id, data.value)) resyncWaiting(); return; }
   busy = true;
   try {
     if (data.type === 'start' && !generator) {

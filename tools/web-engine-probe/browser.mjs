@@ -14,7 +14,7 @@ function recordPhase(phase, key) {
 }
 showPrevious();
 const output = $('#output'), input = $('#input'), submit = $('#submit'), status = $('#status');
-let worker, waiting = null, watchdog, countdown, mode;
+let worker, waiting = null, watchdog, countdown, mode, lastBatch = 0, recoverTimer;
 const choiceButtons = new Set();
 // Weak keys do not keep pruned rows alive; no subtree search is needed when trimming.
 const rowButtons = new WeakMap();
@@ -65,7 +65,8 @@ function stop(text = '중지됨 — 저장 중 중지한 경우 마지막 저장
   worker?.terminate(); worker = null; endChoice();
   releaseSession?.(); releaseSession = null;
   backup.update();
-  clearTimeout(watchdog); controls(false); state(text);
+  clearTimeout(watchdog); clearRecover(); controls(false); state(text);
+  lastBatch = 0;
   followNext = false;
   cancelAnimationFrame(scrollFrame); scrollFrame = null;
 }
@@ -86,6 +87,14 @@ function watch() {
   clearTimeout(watchdog);
   watchdog = setTimeout(() => stop('실행 시간 한도 초과 (60초). 세션을 다시 시작하세요.'), 60000);
 }
+// Reveal a manual recovery button only if the run stays busy for a while. On iOS a dropped
+// message can leave the worker mid-advance with no output; tapping nudges it (see #recover).
+function armRecover() {
+  clearTimeout(recoverTimer);
+  $('#recover').hidden = true;
+  recoverTimer = setTimeout(() => { if (worker) $('#recover').hidden = false; }, 8000);
+}
+function clearRecover() { clearTimeout(recoverTimer); $('#recover').hidden = true; }
 function send(value) {
   if (!waiting || !worker) return;
   if (waiting.type === 'wait') value = '';
@@ -97,7 +106,7 @@ function send(value) {
   // A deliberate input advances the view, even after choosing an older/top button.
   followNext = true;
   const id = waiting.id;
-  endChoice(); state('실행 중'); watch();
+  endChoice(); state('실행 중'); watch(); armRecover();
   recordPhase('running');
   worker.postMessage({ type: 'input', id, value });
 }
@@ -208,18 +217,20 @@ function launch(selected, game) {
       watch();
     }
     if (data.type === 'events') {
-      renderBatch(data.events);
+      // A resent batch (id already seen) is re-acknowledged without re-rendering, so a lost ACK
+      // cannot duplicate output. Only a newer batch id is drawn.
+      if (data.id > lastBatch) { renderBatch(data.events); lastBatch = data.id; }
       current.postMessage({ type: 'rendered', id: data.id });
       watch();
     }
     if (data.type === 'running') {
       if (waiting?.id === data.id) { endChoice(); followNext = true; }
-      $('#notice').textContent = ''; state('실행 중'); watch();
+      $('#notice').textContent = ''; state('실행 중'); watch(); armRecover();
       recordPhase('running');
     }
     if (data.type === 'waiting') {
       recordPhase('waiting');
-      clearTimeout(watchdog); clearInterval(countdown);
+      clearTimeout(watchdog); clearRecover(); clearInterval(countdown);
       waiting = { ...data.event, id: data.id, deadline: data.deadline };
       // Buttons emitted since the last input belong to the current choice epoch.
       controls(true); epoch++;
@@ -257,6 +268,16 @@ input.addEventListener('keydown', event => {
   if (event.key === 'Enter' && (event.isComposing || composing || event.keyCode === 229)) event.preventDefault();
 });
 $('#continue').addEventListener('click', () => { if (waiting?.type === 'wait') send(''); });
+$('#recover').addEventListener('click', () => {
+  if (!worker) return;
+  // Last-resort nudge for a stuck run: re-check any timed-input deadline and re-acknowledge the
+  // last batch in case that ACK was the dropped message. The worker resends unacked batches on
+  // its own, so this plus the auto-resend recovers the freeze without ending the session.
+  worker.postMessage({ type: 'resume' });
+  worker.postMessage({ type: 'rendered', id: lastBatch });
+  $('#notice').textContent = '복구를 시도했습니다. 잠시 기다려 주세요.';
+  watch();
+});
 $('#game-start').addEventListener('click', () => start('game'));
 $('#start').addEventListener('click', () => start('fixture'));
 $('#stop').addEventListener('click', () => stop());

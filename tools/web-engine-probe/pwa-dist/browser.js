@@ -450,6 +450,8 @@ var waiting = null;
 var watchdog;
 var countdown;
 var mode;
+var lastBatch = 0;
+var recoverTimer;
 var choiceButtons = /* @__PURE__ */ new Set();
 var rowButtons = /* @__PURE__ */ new WeakMap();
 var starting = false;
@@ -511,8 +513,10 @@ function stop(text = "\uC911\uC9C0\uB428 \u2014 \uC800\uC7A5 \uC911 \uC911\uC9C0
   releaseSession = null;
   backup.update();
   clearTimeout(watchdog);
+  clearRecover();
   controls(false);
   state(text);
+  lastBatch = 0;
   followNext = false;
   cancelAnimationFrame(scrollFrame);
   scrollFrame = null;
@@ -533,6 +537,17 @@ function watch2() {
   clearTimeout(watchdog);
   watchdog = setTimeout(() => stop("\uC2E4\uD589 \uC2DC\uAC04 \uD55C\uB3C4 \uCD08\uACFC (60\uCD08). \uC138\uC158\uC744 \uB2E4\uC2DC \uC2DC\uC791\uD558\uC138\uC694."), 6e4);
 }
+function armRecover() {
+  clearTimeout(recoverTimer);
+  $("#recover").hidden = true;
+  recoverTimer = setTimeout(() => {
+    if (worker) $("#recover").hidden = false;
+  }, 8e3);
+}
+function clearRecover() {
+  clearTimeout(recoverTimer);
+  $("#recover").hidden = true;
+}
 function send(value) {
   if (!waiting || !worker) return;
   if (waiting.type === "wait") value = "";
@@ -546,6 +561,7 @@ function send(value) {
   endChoice();
   state("\uC2E4\uD589 \uC911");
   watch2();
+  armRecover();
   recordPhase("running");
   worker.postMessage({ type: "input", id, value });
 }
@@ -677,7 +693,10 @@ function launch(selected, game) {
       watch2();
     }
     if (data.type === "events") {
-      renderBatch(data.events);
+      if (data.id > lastBatch) {
+        renderBatch(data.events);
+        lastBatch = data.id;
+      }
       current.postMessage({ type: "rendered", id: data.id });
       watch2();
     }
@@ -689,11 +708,13 @@ function launch(selected, game) {
       $("#notice").textContent = "";
       state("\uC2E4\uD589 \uC911");
       watch2();
+      armRecover();
       recordPhase("running");
     }
     if (data.type === "waiting") {
       recordPhase("waiting");
       clearTimeout(watchdog);
+      clearRecover();
       clearInterval(countdown);
       waiting = { ...data.event, id: data.id, deadline: data.deadline };
       controls(true);
@@ -739,6 +760,13 @@ input.addEventListener("keydown", (event) => {
 });
 $("#continue").addEventListener("click", () => {
   if (waiting?.type === "wait") send("");
+});
+$("#recover").addEventListener("click", () => {
+  if (!worker) return;
+  worker.postMessage({ type: "resume" });
+  worker.postMessage({ type: "rendered", id: lastBatch });
+  $("#notice").textContent = "\uBCF5\uAD6C\uB97C \uC2DC\uB3C4\uD588\uC2B5\uB2C8\uB2E4. \uC7A0\uC2DC \uAE30\uB2E4\uB824 \uC8FC\uC138\uC694.";
+  watch2();
 });
 $("#game-start").addEventListener("click", () => start("game"));
 $("#start").addEventListener("click", () => start("fixture"));

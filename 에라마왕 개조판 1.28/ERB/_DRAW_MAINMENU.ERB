@@ -197,13 +197,13 @@ PRINT 　
 IF A > 0
 	PRINTFORM %"[100] 조교한다", 18, LEFT%
 ELSE
-	PRINTFORM %"[---] 　　　　", 18, LEFT%
+	PRINTFORM %"--- 　　　　", 18, LEFT%
 ENDIF
 PRINT 　
 IF CHARANUM >= 1
 	PRINTFORM %"[101] 능력 확인", 18, LEFT%
 ELSE
-	PRINTFORM %"[---] 　　　　　", 18, LEFT%
+	PRINTFORM %"--- 　　　　　", 18, LEFT%
 ENDIF
 PRINT 　
 IF FLAG:502 == 0
@@ -215,25 +215,25 @@ PRINT 　
 IF A > 0
 	PRINTFORM %"[103] 처형", 18, LEFT%
 ELSE
-	PRINTFORM %"[---] 　　", 18, LEFT%
+	PRINTFORM %"--- 　　", 18, LEFT%
 ENDIF
 PRINT 　
 IF A > 0
 	PRINTFORM %"[104] 영격", 18, LEFT%
 ELSE
-	PRINTFORM %"[---] 　　", 18, LEFT%
+	PRINTFORM %"--- 　　", 18, LEFT%
 ENDIF
 PRINT 　
 ;IF A > 0
 	PRINTFORML %"[105] 능력치 업", 18, LEFT%
 ;ELSE
-;	PRINTFORML %"[---] 　　　　　　", 18, LEFT%
+;	PRINTFORML %"--- 　　　　　　", 18, LEFT%
 ;ENDIF
 PRINT 　
 IF B > 0
 	PRINTFORM %"[106] 노예매각", 18, LEFT%
 ELSE
-	PRINTFORM %"[---] 　　　　", 18, LEFT%
+	PRINTFORM %"--- 　　　　", 18, LEFT%
 ENDIF
 PRINT 　
 	PRINTFORM %"[107] 구입", 18, LEFT%
@@ -241,7 +241,7 @@ PRINT 　
 ;IF A > 0 && FLAG:37 == 1
 	PRINTFORML %"[108] 복장・장비", 18, LEFT%
 ;ELSE
-;	PRINTFORML %"[---] 　　　", 18, LEFT%
+;	PRINTFORML %"--- 　　　", 18, LEFT%
 ;ENDIF
 PRINT 　
 	PRINTFORM %"[109] 침공", 18, LEFT%
@@ -249,13 +249,13 @@ PRINT 　
 IF TALENT:0:325 == 1
 	PRINTFORM %"[110] 실험실", 18, LEFT%
 ELSE
-	PRINTFORM %"[---] 　　　", 18, LEFT%
+	PRINTFORM %"--- 　　　", 18, LEFT%
 ENDIF
 PRINT 　
 IF FLAG:83 || FLAG:84
 	PRINTFORML %"[111] 시설・설비", 18, LEFT%
 ELSE
-	PRINTFORML %"[---] 　　　　　", 18, LEFT%
+	PRINTFORML %"--- 　　　　　", 18, LEFT%
 ENDIF
 PRINT 　
 	PRINTFORM %"[199] 휴식", 18, LEFT%

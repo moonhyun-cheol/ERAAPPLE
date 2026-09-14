@@ -33,6 +33,10 @@ export function createInputGate(resume, { now = Date.now, schedule = setTimeout,
       if (event.type !== 'wait' && event.numeric && (!/^[+-]?\d+$/.test(value) || !Number.isSafeInteger(Number(value)))) return false;
       return finish(event.type === 'wait' ? '' : value);
     },
+    // The current unanswered request, or null. Used to re-emit `waiting` (resync) when an input
+    // is rejected (stale id/invalid) or on a foreground wake, so the UI — which disables its
+    // controls optimistically on send — is never left dead when the worker stays silent.
+    peek() { return pending; },
     check, cancel
   };
 }
