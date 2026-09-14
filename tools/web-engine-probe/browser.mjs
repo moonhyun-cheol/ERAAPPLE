@@ -24,6 +24,11 @@ let epoch = 0;
 let composing = false;
 let followNext = false;
 let following = true, scrollFrame = null, composerHeight;
+// First row rendered since the last deliberate input. A long menu (shop / load / equipment)
+// is taller than the viewport; landing at the absolute bottom hides its start above the fold
+// ("pressed but nothing happens; scroll up and the shop is there"). We instead land at the
+// screen's top for such tall screens, while short/streaming output keeps following the bottom.
+let screenTop = null;
 const composer = $('#composer'), main = $('main');
 function nearLatest() {
   return main.getBoundingClientRect().bottom - composer.getBoundingClientRect().top < 80;
@@ -35,6 +40,28 @@ function latest() {
     // ResizeObserver maintains the dock height; don't measure it again for every batch.
     following = true;
     window.scrollTo(0, document.documentElement.scrollHeight);
+  });
+}
+// After a deliberate input, reveal the beginning of the new screen. If that screen is taller
+// than the visible area (a long menu), scroll its first row to the top; otherwise fall back to
+// following the bottom so ordinary dialogue keeps flowing without jumping.
+function scrollNewScreen() {
+  if (scrollFrame !== null) return;
+  scrollFrame = requestAnimationFrame(() => {
+    scrollFrame = null;
+    const doc = document.documentElement;
+    const viewH = window.visualViewport?.height ?? window.innerHeight;
+    const avail = Math.max(0, viewH - (composerHeight || 0));
+    if (screenTop && screenTop.isConnected) {
+      const topAbs = screenTop.getBoundingClientRect().top + window.scrollY;
+      if (doc.scrollHeight - topAbs > avail) {
+        following = false;
+        window.scrollTo(0, Math.max(0, topAbs - 4));
+        return;
+      }
+    }
+    following = true;
+    window.scrollTo(0, doc.scrollHeight);
   });
 }
 function measureComposer() {
@@ -67,7 +94,7 @@ function stop(text = '중지됨 — 저장 중 중지한 경우 마지막 저장
   backup.update();
   clearTimeout(watchdog); clearRecover(); controls(false); state(text);
   lastBatch = 0;
-  followNext = false;
+  followNext = false; screenTop = null;
   cancelAnimationFrame(scrollFrame); scrollFrame = null;
 }
 $('#latest').addEventListener('click', latest);
@@ -105,6 +132,8 @@ function send(value) {
   $('#notice').textContent = '';
   // A deliberate input advances the view, even after choosing an older/top button.
   followNext = true;
+  // The reply opens a new screen; the first row drawn next becomes its top anchor.
+  screenTop = null;
   const id = waiting.id;
   endChoice(); state('실행 중'); watch(); armRecover();
   recordPhase('running');
@@ -136,9 +165,11 @@ function renderBatch(events) {
   }
   const fragment = document.createDocumentFragment();
   for (const event of pending) render(event, fragment);
+  const firstNew = fragment.firstElementChild;
   output.append(fragment);
   while (output.childElementCount > 2000) removeRow(output.firstChild);
-  if (follow) latest();
+  if (firstNew && screenTop === null) screenTop = firstNew;
+  if (follow) { if (followNext) scrollNewScreen(); else latest(); }
 }
 function applyStyle(node, style) {
   style ??= {};
@@ -201,7 +232,7 @@ async function start(selected, game) {
 function launch(selected, game) {
   mode = selected; epoch = 0;
   trace = createRuntimeTrace(undefined, mode); showPrevious(); recordPhase('start');
-  followNext = true; following = true;
+  followNext = true; following = true; screenTop = null;
   output.replaceChildren(); $('#error').textContent = ''; $('#notice').textContent = '';
   $('#saved').textContent = '이번 세션 저장 완료 기록 없음';
   $('#session').textContent = mode === 'game' ? ('실제 게임 · ' + (game?.label ?? 'eraTHYMKR') + ' / eraJS 후보') : '독립 입력·저장 시험';
@@ -224,7 +255,7 @@ function launch(selected, game) {
       watch();
     }
     if (data.type === 'running') {
-      if (waiting?.id === data.id) { endChoice(); followNext = true; }
+      if (waiting?.id === data.id) { endChoice(); followNext = true; screenTop = null; }
       $('#notice').textContent = ''; state('실행 중'); watch(); armRecover();
       recordPhase('running');
     }
@@ -250,7 +281,7 @@ function launch(selected, game) {
         timedNotice();
         if (waiting.countdown) countdown = setInterval(timedNotice, 100);
       }
-      if (followNext) latest();
+      if (followNext) scrollNewScreen();
       followNext = false;
       state('입력 대기');
     }

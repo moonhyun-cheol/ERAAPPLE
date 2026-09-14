@@ -463,6 +463,7 @@ var followNext = false;
 var following = true;
 var scrollFrame = null;
 var composerHeight;
+var screenTop = null;
 var composer = $("#composer");
 var main = $("main");
 function nearLatest() {
@@ -474,6 +475,25 @@ function latest() {
     scrollFrame = null;
     following = true;
     window.scrollTo(0, document.documentElement.scrollHeight);
+  });
+}
+function scrollNewScreen() {
+  if (scrollFrame !== null) return;
+  scrollFrame = requestAnimationFrame(() => {
+    scrollFrame = null;
+    const doc = document.documentElement;
+    const viewH = window.visualViewport?.height ?? window.innerHeight;
+    const avail = Math.max(0, viewH - (composerHeight || 0));
+    if (screenTop && screenTop.isConnected) {
+      const topAbs = screenTop.getBoundingClientRect().top + window.scrollY;
+      if (doc.scrollHeight - topAbs > avail) {
+        following = false;
+        window.scrollTo(0, Math.max(0, topAbs - 4));
+        return;
+      }
+    }
+    following = true;
+    window.scrollTo(0, doc.scrollHeight);
   });
 }
 function measureComposer() {
@@ -518,6 +538,7 @@ function stop(text = "\uC911\uC9C0\uB428 \u2014 \uC800\uC7A5 \uC911 \uC911\uC9C0
   state(text);
   lastBatch = 0;
   followNext = false;
+  screenTop = null;
   cancelAnimationFrame(scrollFrame);
   scrollFrame = null;
 }
@@ -557,6 +578,7 @@ function send(value) {
   }
   $("#notice").textContent = "";
   followNext = true;
+  screenTop = null;
   const id = waiting.id;
   endChoice();
   state("\uC2E4\uD589 \uC911");
@@ -589,9 +611,14 @@ function renderBatch(events) {
   }
   const fragment = document.createDocumentFragment();
   for (const event of pending) render(event, fragment);
+  const firstNew = fragment.firstElementChild;
   output.append(fragment);
   while (output.childElementCount > 2e3) removeRow(output.firstChild);
-  if (follow) latest();
+  if (firstNew && screenTop === null) screenTop = firstNew;
+  if (follow) {
+    if (followNext) scrollNewScreen();
+    else latest();
+  }
 }
 function applyStyle(node, style) {
   style ??= {};
@@ -671,6 +698,7 @@ function launch(selected, game) {
   recordPhase("start");
   followNext = true;
   following = true;
+  screenTop = null;
   output.replaceChildren();
   $("#error").textContent = "";
   $("#notice").textContent = "";
@@ -704,6 +732,7 @@ function launch(selected, game) {
       if (waiting?.id === data.id) {
         endChoice();
         followNext = true;
+        screenTop = null;
       }
       $("#notice").textContent = "";
       state("\uC2E4\uD589 \uC911");
@@ -731,7 +760,7 @@ function launch(selected, game) {
         timedNotice();
         if (waiting.countdown) countdown = setInterval(timedNotice, 100);
       }
-      if (followNext) latest();
+      if (followNext) scrollNewScreen();
       followNext = false;
       state("\uC785\uB825 \uB300\uAE30");
     }
