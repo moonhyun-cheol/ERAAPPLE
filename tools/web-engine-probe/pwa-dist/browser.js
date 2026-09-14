@@ -575,7 +575,6 @@ function removeRow(row) {
   row.remove();
 }
 function renderBatch(events) {
-  const follow = followNext || following;
   const pending = [];
   for (const event of events) {
     if (event.type === "clear") {
@@ -589,9 +588,14 @@ function renderBatch(events) {
   }
   const fragment = document.createDocumentFragment();
   for (const event of pending) render(event, fragment);
+  const firstNew = fragment.firstChild;
   output.append(fragment);
   while (output.childElementCount > 2e3) removeRow(output.firstChild);
-  if (follow) latest();
+  if (followNext && firstNew && firstNew.isConnected) {
+    followNext = false;
+    following = false;
+    firstNew.scrollIntoView({ block: "start" });
+  } else if (following) latest();
 }
 function applyStyle(node, style) {
   style ??= {};
