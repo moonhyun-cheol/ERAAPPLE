@@ -3,18 +3,24 @@ import { files } from './fixture.mjs';
 import { createStore } from './browser-store.mjs';
 import { createInputGate } from './input-gate.mjs';
 import { createBatchChannel } from './batch-channel.mjs';
+import { createWaitingRelay } from './waiting-relay.mjs';
 import { createProgressBridge } from './runtime-trace.mjs';
 const progress = createProgressBridge(message => postMessage(message));
 const channel = createBatchChannel(message => postMessage(message));
+// The `waiting` handoff is resend-protected too: a single dropped announcement otherwise leaves
+// the rendered menu (e.g. 구입/복장·장비) permanently un-clickable. Resent until the UI acks it.
+const waitingRelay = createWaitingRelay(message => postMessage(message));
 
 let vm, generator, busy = false;
 const gate = createInputGate((value, id) => {
   busy = true;
+  waitingRelay.cancel(); // this request is now answered; stop re-announcing it
   postMessage({ type: 'running', id });
   advance(value).finally(() => { busy = false; });
 });
 function fail(error) {
   gate.cancel();
+  waitingRelay.cancel();
   postMessage({ type: 'error', error: { message: error.message, name: error.name,
     file: error.line?.file ?? null, line: error.line?.line == null ? null : error.line.line + 1,
     trace: error.trace ?? vm?.contextStack.map(c => c.fn.name) ?? [] } });
@@ -25,7 +31,7 @@ function fail(error) {
 // Re-emitting `waiting` makes the UI re-enable its input path, so no tap can permanently freeze it.
 function resyncWaiting() {
   const pending = gate.peek();
-  if (pending) postMessage({ type: 'waiting', id: pending.id, deadline: pending.deadline,
+  if (pending) waitingRelay.announce({ type: 'waiting', id: pending.id, deadline: pending.deadline,
     event: pending.event, stack: vm?.contextStack.map(c => c.fn.name) ?? [] });
 }
 async function advance(value) {
@@ -42,12 +48,12 @@ async function advance(value) {
     for (let n = 0; n < 100000; n++) {
       const next = await generator.next(value);
       value = null;
-      if (next.done) { await flush(); postMessage({ type: 'ended' }); return; }
+      if (next.done) { await flush(); waitingRelay.cancel(); postMessage({ type: 'ended' }); return; }
       const event = next.value;
       if (['input', 'wait', 'tinput'].includes(event.type)) {
         await flush();
         const { id, deadline } = gate.open(event);
-        postMessage({ type: 'waiting', id, deadline, event, stack: vm.contextStack.map(c => c.fn.name) });
+        waitingRelay.announce({ type: 'waiting', id, deadline, event, stack: vm.contextStack.map(c => c.fn.name) });
         return;
       }
       events.push(event);
@@ -59,6 +65,8 @@ async function advance(value) {
 self.onmessage = async ({ data }) => {
   if (data.type === 'progress-recorded') { progress.acknowledge(data.id); return; }
   if (data.type === 'rendered') { channel.ack(data.id); return; }
+  // UI confirms it received a `waiting` announcement; stop resending that id.
+  if (data.type === 'waiting-ack') { waitingRelay.ack(data.id); return; }
   // A foreground-wake resume must reach the gate even mid-advance so a throttled timed-input
   // deadline is re-checked; gate.check never mutates engine state, only the pending input. It
   // also re-emits the pending `waiting`, so a UI that got stuck with disabled controls (its send

@@ -10240,6 +10240,33 @@ function createBatchChannel(post, { timeout = 8e3, schedule = setTimeout, unsche
   return { send, ack, reset, inFlight: () => Boolean(current), lastId: () => nextId };
 }
 
+// waiting-relay.mjs
+function createWaitingRelay(post, { timeout = 4e3, schedule = setTimeout, unschedule = clearTimeout } = {}) {
+  let current = null;
+  function cancel() {
+    if (current) {
+      unschedule(current.timer);
+      current = null;
+    }
+  }
+  function announce(payload) {
+    cancel();
+    const fire = () => {
+      post(payload);
+      if (current) current.timer = schedule(fire, timeout);
+    };
+    current = { id: payload.id, timer: null };
+    fire();
+  }
+  function ack(id) {
+    if (!current || current.id !== id) return false;
+    unschedule(current.timer);
+    current = null;
+    return true;
+  }
+  return { announce, ack, cancel, pendingId: () => current?.id ?? null };
+}
+
 // runtime-trace.mjs
 function createProgressBridge(send, timeoutMs = 1500) {
   let sequence = 0;
@@ -10271,11 +10298,13 @@ function createProgressBridge(send, timeoutMs = 1500) {
 // engine-worker.mjs
 var progress = createProgressBridge((message) => postMessage(message));
 var channel = createBatchChannel((message) => postMessage(message));
+var waitingRelay = createWaitingRelay((message) => postMessage(message));
 var vm;
 var generator;
 var busy = false;
 var gate = createInputGate((value, id) => {
   busy = true;
+  waitingRelay.cancel();
   postMessage({ type: "running", id });
   advance(value).finally(() => {
     busy = false;
@@ -10283,6 +10312,7 @@ var gate = createInputGate((value, id) => {
 });
 function fail(error) {
   gate.cancel();
+  waitingRelay.cancel();
   postMessage({ type: "error", error: {
     message: error.message,
     name: error.name,
@@ -10293,7 +10323,7 @@ function fail(error) {
 }
 function resyncWaiting() {
   const pending = gate.peek();
-  if (pending) postMessage({
+  if (pending) waitingRelay.announce({
     type: "waiting",
     id: pending.id,
     deadline: pending.deadline,
@@ -10315,6 +10345,7 @@ async function advance(value) {
       value = null;
       if (next.done) {
         await flush();
+        waitingRelay.cancel();
         postMessage({ type: "ended" });
         return;
       }
@@ -10322,7 +10353,7 @@ async function advance(value) {
       if (["input", "wait", "tinput"].includes(event.type)) {
         await flush();
         const { id, deadline } = gate.open(event);
-        postMessage({ type: "waiting", id, deadline, event, stack: vm.contextStack.map((c) => c.fn.name) });
+        waitingRelay.announce({ type: "waiting", id, deadline, event, stack: vm.contextStack.map((c) => c.fn.name) });
         return;
       }
       events.push(event);
@@ -10341,6 +10372,10 @@ self.onmessage = async ({ data }) => {
   }
   if (data.type === "rendered") {
     channel.ack(data.id);
+    return;
+  }
+  if (data.type === "waiting-ack") {
+    waitingRelay.ack(data.id);
     return;
   }
   if (data.type === "resume") {

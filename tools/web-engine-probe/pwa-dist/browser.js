@@ -712,6 +712,8 @@ function launch(selected, game) {
       recordPhase("running");
     }
     if (data.type === "waiting") {
+      current.postMessage({ type: "waiting-ack", id: data.id });
+      if (waiting && waiting.id === data.id) return;
       recordPhase("waiting");
       clearTimeout(watchdog);
       clearRecover();

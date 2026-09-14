@@ -229,6 +229,12 @@ function launch(selected, game) {
       recordPhase('running');
     }
     if (data.type === 'waiting') {
+      // Acknowledge every announcement so the worker stops resending this id. A pure resend of the
+      // prompt we are already showing is idempotent (skip re-init); but if we had disabled controls
+      // (input sent then rejected -> worker resyncs the same id) `waiting` is null, so we fall
+      // through and re-open the input path — that is exactly the anti-freeze path.
+      current.postMessage({ type: 'waiting-ack', id: data.id });
+      if (waiting && waiting.id === data.id) return;
       recordPhase('waiting');
       clearTimeout(watchdog); clearRecover(); clearInterval(countdown);
       waiting = { ...data.event, id: data.id, deadline: data.deadline };
