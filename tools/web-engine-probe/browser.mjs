@@ -120,6 +120,7 @@ function removeRow(row) {
   row.remove();
 }
 function renderBatch(events) {
+  const follow = followNext || following;
   // Fold temporary output before allocating DOM nodes. CLEARLINE still reaches older
   // batches, and the 2,000-row history limit is applied only after the complete batch.
   const pending = [];
@@ -135,17 +136,9 @@ function renderBatch(events) {
   }
   const fragment = document.createDocumentFragment();
   for (const event of pending) render(event, fragment);
-  const firstNew = fragment.firstChild;
   output.append(fragment);
   while (output.childElementCount > 2000) removeRow(output.firstChild);
-  if (followNext && firstNew && firstNew.isConnected) {
-    // A deliberate input (choice/계속) brings the START of the new screen into view — e.g. a
-    // shop or equipment list — instead of jumping past it to the bottom. On iOS the bottom jump
-    // left the freshly drawn page scrolled off above the fold, which looked like
-    // "pressed a button, no response" even though the screen had actually changed.
-    followNext = false; following = false;
-    firstNew.scrollIntoView({ block: 'start' });
-  } else if (following) latest();
+  if (follow) latest();
 }
 function applyStyle(node, style) {
   style ??= {};

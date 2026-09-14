@@ -1,12 +1,12 @@
 {
-  "release": "88fc79aa815a6c1d527b",
-  "bytes": 13555452,
+  "release": "13e7da50484a8f22a6db",
+  "bytes": 13555292,
   "assets": {
     "index.html": "dab43c0773c50cd7abff5dd1ee47ddc2217cbb60f7495425673ee446865709ef",
-    "browser.js": "a35a82118d69ee1e6fd5a7a1ddbac1fdc8316103e3d01ea0354c1f3de2dcfc70",
+    "browser.js": "c09f2046b4f4c48b904d4a453cf7dbc7de89518d6cc7027c5c5d1faf800a380c",
     "engine-worker.js": "3cf50efabe646e7a4b3014e431155ed242a84f618637f6d9c6994d7f75f9aac8",
     "eraJS-LICENSE.txt": "acbd9f2b463cd3431927837baf8abfc42f9b848e7d8732a5cebfd6cbeaf4c79f",
-    "build.json": "8a48e3d33360e7bded55a8a55fafa6938155c003ff708a13b80f6ec3e8649f36",
+    "build.json": "92b74c28a8a70886adebbbc5618d03227bada3f3f3fafb4b5ec79d778a98c8c6",
     "local-game.bin": "dda7fa32ce4805c144444febe9834166035166efb385855420140c348e1471b5",
     "game-eramaou128.bin": "f5deaf64dabdaea3de7f62c80c1dae12339dacf468743301b119fdcfdb524842",
     "games.json": "8015c3fd2e28329d5edf835fe5b383d6a29c1a717fc6aa6fcf60f64fd933c90c",

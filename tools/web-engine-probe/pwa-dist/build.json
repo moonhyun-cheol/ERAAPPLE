@@ -5,5 +5,5 @@
   "runtimeOptimization": "era-deferred-local-v1 (LOCAL/LOCALS arrays allocated on first access)",
   "workerOptimization": "era-save-memory-v1 (pagedStorage) + era-compact-function-ir-v1 (labels, lazy slice, statements, printform, assign payloads) + era-lazy-static-scope-v1; acceptance-verified replay + full save hash parity with baseline",
   "note": "Pinned upstream release JavaScript with fingerprint-checked local overlays; not an iPhone certification.",
-  "sha256": "a35a82118d69ee1e6fd5a7a1ddbac1fdc8316103e3d01ea0354c1f3de2dcfc70"
+  "sha256": "c09f2046b4f4c48b904d4a453cf7dbc7de89518d6cc7027c5c5d1faf800a380c"
 }
