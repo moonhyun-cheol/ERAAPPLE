@@ -21,7 +21,7 @@ import { createWaitingRelay } from '../tools/web-engine-probe/waiting-relay.mjs'
 export function createEngineSession({
   compile, source, store, post,
   getTime = Date.now, getFont = () => false,
-  schedule, unschedule, budget = 100000
+  schedule, unschedule, budget = 100000, seed
 } = {}) {
   if (typeof compile !== 'function') throw new Error('createEngineSession requires a compile function');
   if (typeof post !== 'function') throw new Error('createEngineSession requires a post callback');
@@ -95,6 +95,10 @@ export function createEngineSession({
   async function begin() {
     if (generator) return;
     vm = compile(source);
+    // Deterministic-replay hook (plan §6, S1): when a seed is supplied, pin the RNG so a scripted
+    // run is byte-reproducible for output/save-hash comparison against the direct probe loop.
+    // Production omits `seed` entirely, so the real (time/entropy-seeded) RNG is untouched.
+    if (seed != null && vm.random) vm.random.state = seed;
     generator = vm.start({
       getSavedata: async key => store.get(key),
       setSavedata: async (key, value) => {
