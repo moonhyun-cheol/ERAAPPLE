@@ -21,3 +21,14 @@ debug/
 # === Transient probe run artifacts (logs only; keep .json result snapshots) ===
 tools/web-engine-probe/*.log
 tools/web-engine-probe/results/*.log
+
+# === Server-authoritative runtime: secrets & runtime state (NEVER commit) ===
+# See docs/web-runtime/server-runtime-plan.md §10–§11. main is the public Pages
+# deploy line, so server secrets/state must never be tracked.
+.env
+.env.*
+!.env.example
+server-config/
+server-data/
+server/**/*.log
+server/logs/
