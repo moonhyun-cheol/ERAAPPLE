@@ -9,8 +9,50 @@
 import http from 'node:http';
 import { randomUUID } from 'node:crypto';
 import { EventEmitter } from 'node:events';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
 import { acceptKey, encodeFrame, decodeFrames, OPCODE } from './ws-frame.mjs';
 import { createEngineSession } from './engine-session.mjs';
+
+// Minimal static file server for the thin client shell (S3). The phone loads index.html + client.mjs
+// from the SAME origin as the WS endpoint so a single tunnel/wss host covers both (no CORS, no mixed
+// content). It serves ONLY files that resolve inside staticDir — a resolved path escaping the root is
+// refused (path-traversal guard) — and only GET/HEAD. The engine stays behind the WS token gate; the
+// shell itself carries no secret, so it is served openly.
+const CONTENT_TYPES = {
+  '.html': 'text/html; charset=utf-8',
+  '.mjs': 'text/javascript; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.webmanifest': 'application/manifest+json; charset=utf-8',
+  '.png': 'image/png',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon',
+  '.txt': 'text/plain; charset=utf-8'
+};
+
+async function serveStatic(staticDir, req, res) {
+  if (req.method !== 'GET' && req.method !== 'HEAD') {
+    res.writeHead(405, { Allow: 'GET, HEAD' }); res.end('Method Not Allowed'); return;
+  }
+  let pathname;
+  try { pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname); }
+  catch { res.writeHead(400); res.end('Bad Request'); return; }
+  if (pathname === '/' || pathname === '') pathname = '/index.html';
+  // Resolve against the root and confirm containment; anything escaping staticDir is a 403.
+  const root = path.resolve(staticDir);
+  const resolved = path.resolve(root, '.' + pathname);
+  if (resolved !== root && !resolved.startsWith(root + path.sep)) {
+    res.writeHead(403); res.end('Forbidden'); return;
+  }
+  let body;
+  try { body = await readFile(resolved); }
+  catch { res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }); res.end('Not Found'); return; }
+  const type = CONTENT_TYPES[path.extname(resolved).toLowerCase()] ?? 'application/octet-stream';
+  res.writeHead(200, { 'Content-Type': type, 'Content-Length': body.length });
+  res.end(req.method === 'HEAD' ? undefined : body);
+}
 
 // Wrap a raw TCP socket (already upgraded) as a tiny text-message channel. Emits 'message' (string)
 // and 'close'; `send(string)` writes a server text frame. Handles ping->pong and fragmentation.
@@ -73,7 +115,7 @@ function wrapSocket(socket) {
 //   config.token        : single-user access token (plan §4/§7); null = local-only
 //   config.sessionTtlMs : grace window before a detached session is disposed (default 30s)
 //   onSession           : optional (session, conn, { id, resumed }) => void  test/inspection hook
-export function createWsServer({ compile, source, createStore, config = {}, onSession, sessionOptions = {} } = {}) {
+export function createWsServer({ compile, source, createStore, config = {}, onSession, sessionOptions = {}, staticDir = null } = {}) {
   if (typeof compile !== 'function') throw new Error('createWsServer requires compile');
   if (typeof createStore !== 'function') throw new Error('createWsServer requires createStore');
   const token = config.token ?? null;
@@ -107,7 +149,9 @@ export function createWsServer({ compile, source, createStore, config = {}, onSe
   }
 
   const server = http.createServer((req, res) => {
-    // Plain HTTP has no role here; the thin client connects only via WS upgrade.
+    // With a staticDir the same origin serves the thin client shell (S3); without one, plain HTTP
+    // has no role and the endpoint speaks WebSocket only (unchanged S1/S2 behaviour).
+    if (staticDir) { serveStatic(staticDir, req, res).catch(() => { try { res.writeHead(500); res.end('Internal Error'); } catch {} }); return; }
     res.writeHead(426, { 'Content-Type': 'text/plain; charset=utf-8', Upgrade: 'websocket' });
     res.end('This endpoint speaks WebSocket only.');
   });
