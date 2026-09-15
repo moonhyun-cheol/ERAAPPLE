@@ -84,15 +84,20 @@ async function startServer(dir) {
 }
 
 // A thin WS client that mirrors the browser device: ACK every batch + waiting, collect output.
-function connect(port) {
-  const ws = new WebSocket(`ws://127.0.0.1:${port}/`);
+// Pass sessionId to reconnect to an existing server-side session (S2).
+function connect(port, sessionId) {
+  const url = sessionId
+    ? `ws://127.0.0.1:${port}/?session=${encodeURIComponent(sessionId)}`
+    : `ws://127.0.0.1:${port}/`;
+  const ws = new WebSocket(url);
   const rendered = [], waits = [], saved = [];
-  let ended = false, error = null, pending = null;
+  let ended = false, error = null, pending = null, session = null;
   const waiters = [];
 
   ws.addEventListener('message', ev => {
     const msg = JSON.parse(ev.data);
     switch (msg.type) {
+      case 'session': session = { id: msg.id, resumed: msg.resumed }; break;
       case 'events':
         rendered.push(...msg.events);
         ws.send(JSON.stringify({ type: 'rendered', id: msg.id }));
@@ -137,6 +142,9 @@ function connect(port) {
       ws.send(JSON.stringify({ type: 'start' }));
       await until(() => waits.length >= 1 || ended || error, 'first waiting');
     },
+    getSession: () => session,
+    resume: () => ws.send(JSON.stringify({ type: 'resume' })),
+    closed: () => once(ws, 'close'),
     close: () => ws.close()
   };
 }
@@ -183,6 +191,81 @@ test('S1 Layer B: play->SAVEDATA writes files, a fresh WS connection reloads the
     await b.until(() => b.isEnded() || b.getError(), 'session B end');
     assert.equal(b.getError(), null);
     assert.match(b.text(), /RESTORED:42:hangul test:77/);
+    b.close();
+  } finally {
+    server.close(); await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test('S2: a dropped socket keeps the in-memory session; reconnect + resume continues mid-game', async () => {
+  const dir = await mkdtemp(path.join(tmpdir(), 'era-s2-'));
+  const { server, port } = await startServer(dir);
+  try {
+    // A plays past the title into the game (integer prompt). This state is in memory only
+    // — nothing has been saved to disk yet, so continuity can only come from the live session.
+    const a = connect(port);
+    await a.opened;
+    await a.until(() => a.getSession(), 'A session hello');
+    const id = a.getSession().id;
+    assert.equal(a.getSession().resumed, false, 'first connect is a fresh session');
+    await a.start();                 // title waiting
+    await a.answer('0');             // [0] 새 시험 -> advances to the integer prompt
+    const midId = a.peek().id;       // the pending waiting mid-game
+    assert.ok(midId, 'a mid-game waiting is pending');
+
+    // The phone's socket drops (background/lock). No dispose — the session survives the grace window.
+    a.close();
+    await a.closed();
+
+    // Reconnect with the SAME id. The server must rebind, not restart.
+    const b = connect(port, id);
+    await b.opened;
+    await b.until(() => b.getSession(), 'B session hello');
+    assert.equal(b.getSession().id, id);
+    assert.equal(b.getSession().resumed, true, 'reconnect rebinds the live session');
+
+    // Without any `start`, resume must re-announce the SAME pending waiting (in-memory VM preserved).
+    b.resume();
+    await b.until(() => b.waits.length >= 1, 'resume re-announcement');
+    assert.equal(b.peek().id, midId, 'the resumed waiting is the same mid-game request');
+
+    // And the game continues from mid-state (not a title restart): answering finishes the run.
+    await b.answer('42');            // 정수
+    await b.answer('hangul test');   // 문자
+    await b.until(() => b.isEnded() || b.getError(), 'session completes after reconnect');
+    assert.equal(b.getError(), null);
+    assert.match(b.text(), /SAVED/);
+    b.close();
+  } finally {
+    server.close(); await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test('S2: after the grace window expires, the same id gets a fresh session', async () => {
+  const dir = await mkdtemp(path.join(tmpdir(), 'era-s2-'));
+  const server = createWsServer({
+    compile, source: files, createStore: () => createSaveStore(dir),
+    sessionOptions: { getTime }, config: { sessionTtlMs: 60 }
+  });
+  server.listen(0, '127.0.0.1');
+  await once(server, 'listening');
+  const port = server.address().port;
+  try {
+    const a = connect(port);
+    await a.opened;
+    await a.until(() => a.getSession(), 'A session hello');
+    const id = a.getSession().id;
+    await a.start();
+    a.close();
+    await a.closed();
+
+    // Wait well past the 60ms grace window so the detached session is disposed.
+    await new Promise(r => setTimeout(r, 250));
+
+    const b = connect(port, id);
+    await b.opened;
+    await b.until(() => b.getSession(), 'B session hello');
+    assert.equal(b.getSession().resumed, false, 'an expired session is not resumable');
     b.close();
   } finally {
     server.close(); await rm(dir, { recursive: true, force: true });
