@@ -49,6 +49,17 @@
 //      "Argument of REDRAW must be between 0 and 3". '에라마왕 개조판 1.28'
 //      DUNGEON_INFO2 (reached via USERSHOP) uses REDRAW 0, so its dungeon info
 //      screen crashed on entry. We relax the guard to `value >= 0` (range 0..3).
+//   8. SHOP MAIN never auto-bought: emuera, after SHOW_SHOP→INPUT, purchases when
+//      RESULT is in 0..(shopItemCount-1) (ITEMSALES≠0 and MONEY≥ITEMPRICE), sets
+//      BOUGHT, ITEM++, MONEY--, calls @EVENTBUY, and skips @USERSHOP. eraJS always
+//      called USERSHOP. '에라마왕 개조판 1.28' relies on that for item numbers while
+//      routing 999/998/997 through USERSHOP — so exit worked and buy did nothing.
+//   9. PRINT_SHOPITEM listed every non-empty ITEMNAME; emuera only lists ITEMSALES≠0.
+//  10. JUMP was implemented as CALL: after the target returned, the caller kept
+//      running. In SHOW_SHOP that meant JUMP ITEM_SHOP still fell through into
+//      DRAW_MAINMENU, stacking the command menu under/over the item shop. Save
+//      (200) then hit USERSHOP's `BOUGHT >= 0 → RETURN 0` and redrawing looked
+//      like "Save sends me back to the shop". Emuera JUMP exits the caller too.
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -62,6 +73,8 @@ const dimHash = 'ad6796e361d6f5be9749a95f4244f258f16c04c3ad735e32d78d81a36dcf263
 const sceneHash = '074903852ba7a8dc24c89fbfc46f5b157f1c54435c9be3d592002e92dcb9154c';
 const vmHash = '18fe5bb4ebe0d48a588a410f71472d5d629bfd95c54c200e09b4d36b960779f1';
 const redrawHash = '70235a17b2e8fb3224b1d9858bf63e16870d0a9a5814af7c7aa1f21fbca6792e';
+const printShopItemHash = 'ee1437554e5bdbcdb5627e7a825976f16f0902439335adf62f9ed63c7a1f2a0f';
+const jumpHash = '44be9d80708a3eaf772cf1c78ef17ab5e009c6e05f2fdaab0cd50138ba6d72c8';
 
 // Manual save/load scenes appended to scene.js (see fix #6). Kept as a literal so
 // the generated source stays plain concatenation (no nested template/backticks)
@@ -327,7 +340,111 @@ const FILE = "BUILTIN.ERB";`,
 import LoadData from "./statement/command/loaddata";
 import { savefile } from "./savedata";
 const FILE = "BUILTIN.ERB";`);
+  // Fix #8: emulate emuera SHOP purchase between INPUT and USERSHOP.
+  // Shop item count defaults to 100 (판매アイテム数 unset in _Replace.csv).
+  r.apply(
+    `function* MAIN() {
+    while (true) {
+        yield new Call(new Slice(FILE, 0, "CALL SHOW_SHOP", "CALL".length));
+        yield new Input(new Slice(FILE, 0, "INPUT", "INPUT".length));
+        yield new Call(new Slice(FILE, 0, "CALL USERSHOP", "CALL".length));
+        // TODO: Check isLineTemp
+    }
+}`,
+    `function shopInputDispatch() {
+    return {
+        raw: new Slice(FILE, 0, "SHOP_INPUT", 0),
+        run: async function* (vm) {
+            const result = Number(vm.getValue("RESULT").get(vm, [0]));
+            const shopItemCount = 100;
+            if (Number.isInteger(result) && result >= 0 && result < shopItemCount) {
+                const sales = vm.getValue("ITEMSALES").get(vm, [result]);
+                const price = vm.getValue("ITEMPRICE").get(vm, [result]);
+                const money = vm.getValue("MONEY").get(vm, []);
+                if (sales !== 0n && money >= price) {
+                    vm.getValue("BOUGHT").set(vm, BigInt(result), []);
+                    const item = vm.getValue("ITEM");
+                    item.set(vm, item.get(vm, [result]) + 1n, [result]);
+                    vm.getValue("MONEY").set(vm, money - price, []);
+                    if (vm.eventMap.has("EVENTBUY")) {
+                        for (const fn of vm.eventMap.get("EVENTBUY") ?? []) {
+                            yield* fn.run(vm, []);
+                        }
+                    } else if (vm.fnMap.has("EVENTBUY")) {
+                        yield* vm.run(new Call(new Slice(FILE, 0, "CALL EVENTBUY", "CALL".length)));
+                    }
+                }
+                return null;
+            }
+            return yield* vm.run(new Call(new Slice(FILE, 0, "CALL USERSHOP", "CALL".length)));
+        },
+    };
+}
+function* MAIN() {
+    while (true) {
+        yield new Call(new Slice(FILE, 0, "CALL SHOW_SHOP", "CALL".length));
+        yield new Input(new Slice(FILE, 0, "INPUT", "INPUT".length));
+        yield shopInputDispatch();
+    }
+}`);
   return r.result() + SAVE_LOAD_SCENES;
+}
+
+export function transformPrintShopItemSource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== printShopItemHash) throw new Error(`Compat fix source fingerprint mismatch: print_shopitem.js (${digest})`);
+  const r = makeReplace('Compat print_shopitem.js', source);
+  // Fix #9: only list items with ITEMSALES ≠ 0 (emuera PRINT_SHOPITEM behavior).
+  r.apply(
+    `        for (let i = 0; i < itemName.length(0); ++i) {
+            const name = itemName.get(vm, [i]);
+            if (name !== "") {
+                validItem.push(i);
+            }
+        }`,
+    `        const itemSales = vm.getValue("ITEMSALES");
+        for (let i = 0; i < itemName.length(0); ++i) {
+            const name = itemName.get(vm, [i]);
+            if (name !== "" && itemSales.get(vm, [i]) !== 0n) {
+                validItem.push(i);
+            }
+        }`);
+  return r.result();
+}
+
+export function transformJumpSource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== jumpHash) throw new Error(`Compat fix source fingerprint mismatch: jump.js (${digest})`);
+  const r = makeReplace('Compat jump.js', source);
+  // Fix #10: JUMP must exit the caller when the target finishes (emuera). eraJS
+  // previously returned the target's result unchanged, so a normal completion
+  // (undefined) let SHOW_SHOP continue into DRAW_MAINMENU after JUMP ITEM_SHOP.
+  r.apply(
+    `        return yield* vm.fnMap.get(realTarget).run(vm, arg);
+    }`,
+    `        const result = yield* vm.fnMap.get(realTarget).run(vm, arg);
+        switch (result?.type) {
+            case "begin": return result;
+            case "goto": return result;
+            case "break": return result;
+            case "continue": return result;
+            case "throw": return result;
+            case "quit": return result;
+            case "return": {
+                for (let i = 0; i < result.value.length; ++i) {
+                    vm.getValue("RESULT").set(vm, result.value[i], [i]);
+                }
+                return result;
+            }
+            case undefined: {
+                vm.getValue("RESULT").set(vm, 0n, [0]);
+                return { type: "return", value: [0n] };
+            }
+        }
+    }`);
+  return r.result();
 }
 
 export function transformVmSource(source) {
@@ -486,6 +603,14 @@ export function compatFixPlugin(engine) {
     }));
     build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]redraw\.js$/ }, async args => ({
       contents: transformRedrawSource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]print_shopitem\.js$/ }, async args => ({
+      contents: transformPrintShopItemSource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]jump\.js$/ }, async args => ({
+      contents: transformJumpSource(await readFile(args.path, 'utf8')),
       loader: 'js', resolveDir: path.dirname(args.path)
     }));
   } };

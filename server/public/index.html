@@ -2,12 +2,11 @@
 <html lang="ko">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!-- connect-src 'self' covers same-origin ws/wss (CSP3). The shell loads only its own module. -->
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'">
 <title>eraTHYMKR — 서버형 단말</title>
 <meta name="theme-color" content="#151821">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="era 단말">
 <style>
 *{box-sizing:border-box}html{background:#151821;color:#eee;scroll-padding-bottom:calc(var(--composer-height,140px) + var(--keyboard,0px) + 16px)}
 body{max-width:65rem;margin:0 auto;padding:env(safe-area-inset-top) max(.6rem,env(safe-area-inset-right)) calc(var(--composer-height,140px) + var(--keyboard,0px) + 16px) max(.6rem,env(safe-area-inset-left));font:16px/1.6 system-ui}
@@ -17,7 +16,10 @@ button{cursor:pointer;color:#eee;background:#252c3a;border:1px solid #657082;bor
 button:disabled{cursor:default;opacity:.55}
 button:focus-visible,input:focus-visible{outline:3px solid #76baff}
 #output{white-space:pre-wrap;overflow-wrap:anywhere;min-height:12rem;padding:.5rem 0;font-family:monospace}
-#output button{background:transparent;border:1px solid #555;text-align:inherit;white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;min-width:44px;line-height:1.4}
+#output button{background:#1a2433;border:1px solid #76baff;text-align:inherit;white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;min-width:44px;line-height:1.4;touch-action:manipulation}
+#output button:disabled{opacity:.4;border-color:#333;background:transparent}
+#banner{background:#c62828;color:#fff;font-weight:700;font-size:1.1rem;padding:.75rem;margin:0 0 .5rem;text-align:center}
+#build{font-size:.85rem;color:#ffe09a;margin:0 0 .4rem}
 #composer{position:fixed;bottom:var(--keyboard,0px);left:0;right:0;z-index:2;max-width:65rem;margin:auto;padding:.25rem max(.6rem,env(safe-area-inset-right)) max(.25rem,env(safe-area-inset-bottom)) max(.6rem,env(safe-area-inset-left));background:#151821;border-top:1px solid #657082}
 #composer-tools{display:flex;align-items:center;gap:.25rem;flex-wrap:wrap}
 #status{flex:1;margin:0;font-size:.85rem;color:#b9c5d4}
@@ -25,12 +27,14 @@ form{display:flex;align-items:center;margin:0}
 form input{min-width:0;width:0;flex:1}
 form label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 #error{white-space:pre-wrap;overflow-wrap:anywhere;color:#ffb5b5}
-#notice{color:#ffe09a;overflow-wrap:anywhere}
+#notice{color:#ffe09a;overflow-wrap:anywhere;min-height:1.4em}
 #notice:empty,#error:empty{display:none}
 .muted{color:#b9c5d4}
 </style>
 <header>
-<h1>eraTHYMKR · 서버형 단말</h1>
+<div id="banner">NEW BUILD tap-fix13 — JUMP fix (shop≠menu stack)</div>
+<h1>eraTHYMKR · server terminal</h1>
+<p id="build">build tap-fix13 · js loading</p>
 <p id="conn" class="muted" role="status">서버 연결 준비 중…</p>
 </header>
 <main>
@@ -42,10 +46,11 @@ form label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inse
 <div id="composer-tools">
   <p id="status" role="status">대기</p>
   <button id="continue" type="button" hidden disabled>계속 ▶</button>
-  <button id="recover" type="button" hidden>반응 없으면 복구</button>
+  <button id="recover" type="button">복구</button>
+  <button id="fresh" type="button">새 세션</button>
   <button id="latest" type="button">최신 출력으로</button>
 </div>
 <form><label for="input">입력</label><input id="input" autocomplete="off" disabled><button id="submit" disabled>전송</button></form>
 </div>
-<script type="module" src="client.mjs"></script>
+<script type="module" src="client.mjs?v=tap-fix13"></script>
 </html>

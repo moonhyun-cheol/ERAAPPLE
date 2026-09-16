@@ -11,9 +11,8 @@
 //
 // If the real game folder is absent (a fresh checkout on another machine), it falls back to the
 // neutral fixture so the host still boots and the thin client can be exercised.
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
-import { compile } from '../tools/web-engine-probe/dist/engine.mjs';
 import { loadConfig } from './config.mjs';
 import { loadGameSource } from './game-source.mjs';
 import { createSaveStore } from './save-store.mjs';
@@ -21,6 +20,12 @@ import { createWsServer } from './ws-server.mjs';
 
 const config = loadConfig();
 const staticDir = fileURLToPath(new URL('./public', import.meta.url));
+
+// Engine build: default is the pre-optimization legacy build. Override with
+// ERA_SERVER_ENGINE=engine.mjs | engine-legacy.mjs | … under tools/web-engine-probe/dist/.
+const engineName = (process.env.ERA_SERVER_ENGINE?.trim() || 'engine-legacy.mjs').replace(/\\/g, '/');
+const enginePath = pathToFileURL(fileURLToPath(new URL(`../tools/web-engine-probe/dist/${path.basename(engineName)}`, import.meta.url))).href;
+const { compile } = await import(enginePath);
 
 // Game directory: explicit env wins; otherwise the tracked '에라마왕 개조판 1.28' beside the repo root.
 const gameDir = process.env.ERA_SERVER_GAME_DIR?.trim()
@@ -54,6 +59,7 @@ const server = createWsServer({
 
 server.listen(config.port, config.host, () => {
   const shown = config.host === '0.0.0.0' ? '<this-host>' : config.host;
+  console.log(`[host] engine: ${path.basename(engineName)}`);
   console.log(`[host] thin client + WS on http://${shown}:${config.port}/`);
   console.log(`[host] saves: ${config.dataDir}`);
   if (!config.token && config.host !== '127.0.0.1')

@@ -50,7 +50,13 @@ async function serveStatic(staticDir, req, res) {
   try { body = await readFile(resolved); }
   catch { res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }); res.end('Not Found'); return; }
   const type = CONTENT_TYPES[path.extname(resolved).toLowerCase()] ?? 'application/octet-stream';
-  res.writeHead(200, { 'Content-Type': type, 'Content-Length': body.length });
+  res.writeHead(200, {
+    'Content-Type': type,
+    'Content-Length': body.length,
+    'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  });
   res.end(req.method === 'HEAD' ? undefined : body);
 }
 

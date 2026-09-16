@@ -33,6 +33,9 @@ export function loadConfig(env = process.env) {
     // Single-user access token (plan §4, §7). Absent = local-only development; a network-reachable
     // deployment must set it (enforced by the gateway in a later layer, not here).
     token: env.ERA_SERVER_TOKEN?.trim() || null,
+    // Phone lock/background drops the socket; keep the in-memory session long enough to come back.
+    // (ws-server default used to be 30s — far too short for real device use.)
+    sessionTtlMs: Number(env.ERA_SERVER_SESSION_TTL_MS ?? 24 * 60 * 60 * 1000),
     dataDir: resolveDir(env.ERA_SERVER_DATA_DIR, 'server-data', base),   // saves (§8-1,4)
     configDir: resolveDir(env.ERA_SERVER_CONFIG_DIR, 'server-config', base),
     gamesDir: resolveDir(env.ERA_SERVER_GAMES_DIR, 'games', base)        // game bin, read locally (§10-4)

@@ -41,11 +41,24 @@ class El {
   remove() {
     if (this.parent) { const i = this.parent.children.indexOf(this); if (i >= 0) this.parent.children.splice(i, 1); this.parent = null; }
   }
+  replaceWith(node) {
+    if (!this.parent) return;
+    const i = this.parent.children.indexOf(this);
+    if (i < 0) return;
+    node.parent = this.parent;
+    this.parent.children[i] = node;
+    this.parent = null;
+  }
   get firstChild() { return this.children[0] || null; }
   get lastChild() { return this.children[this.children.length - 1] || null; }
   get firstElementChild() { return this.children[0] || null; }
   get childElementCount() { return this.children.length; }
   get isConnected() { let n = this; while (n) { if (n === OUTPUT) return true; n = n.parent; } return false; }
+  contains(node) {
+    let n = node;
+    while (n) { if (n === this) return true; n = n.parent; }
+    return false;
+  }
   _walk(acc) { for (const c of this.children) { acc.push(c); c._walk(acc); } return acc; }
   querySelectorAll(sel) {
     const all = this._walk([]);
@@ -63,7 +76,7 @@ class El {
 const registry = {};
 function regEl(sel, tag) { const e = new El(tag); registry[sel] = e; return e; }
 for (const id of ['#output', '#input', '#submit', '#status', '#notice', '#error', '#conn',
-  '#composer', '#continue', '#latest', '#recover']) regEl(id, id === '#input' ? 'input' : 'div');
+  '#composer', '#continue', '#latest', '#recover', '#fresh']) regEl(id, id === '#input' ? 'input' : 'div');
 registry['form'] = new El('form');
 OUTPUT = registry['#output'];
 
