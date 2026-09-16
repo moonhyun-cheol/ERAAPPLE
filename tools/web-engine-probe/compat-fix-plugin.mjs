@@ -60,6 +60,11 @@
 //      DRAW_MAINMENU, stacking the command menu under/over the item shop. Save
 //      (200) then hit USERSHOP's `BOUGHT >= 0 → RETURN 0` and redrawing looked
 //      like "Save sends me back to the shop". Emuera JUMP exits the caller too.
+//      Same fall-through broke TRAIN COM chains (e.g. COM8 JUMP COM84 then still
+//      ran COM8's PRINTL/SOURCE body). JumpForm/TryJump* share Jump.exec.
+//  11. shopInputDispatch must propagate non-return results from EVENTBUY and
+//      USERSHOP (BEGIN SAVEGAME / TRAIN / etc.); discarding `begin` left Save
+//      looking like a no-op that redraw the shop/menu.
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -368,10 +373,12 @@ const FILE = "BUILTIN.ERB";`);
                     vm.getValue("MONEY").set(vm, money - price, []);
                     if (vm.eventMap.has("EVENTBUY")) {
                         for (const fn of vm.eventMap.get("EVENTBUY") ?? []) {
-                            yield* fn.run(vm, []);
+                            const ev = yield* fn.run(vm, []);
+                            if (ev != null && ev.type !== "return") return ev;
                         }
                     } else if (vm.fnMap.has("EVENTBUY")) {
-                        yield* vm.run(new Call(new Slice(FILE, 0, "CALL EVENTBUY", "CALL".length)));
+                        const ev = yield* vm.run(new Call(new Slice(FILE, 0, "CALL EVENTBUY", "CALL".length)));
+                        if (ev != null) return ev;
                     }
                 }
                 return null;

@@ -4,7 +4,7 @@ const output = $('#output'), input = $('#input'), submit = $('#submit');
 const statusEl = $('#status'), notice = $('#notice'), errorEl = $('#error'), conn = $('#conn');
 
 const STORE_KEY = 'era-thin-session';
-const BUILD = 'tap-fix13';
+const BUILD = 'tap-fix14';
 const params = new URLSearchParams(location.search);
 const token = params.get('token') || '';
 const wantFresh = params.has('fresh');

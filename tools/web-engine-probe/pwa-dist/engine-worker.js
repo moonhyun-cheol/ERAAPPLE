@@ -5863,7 +5863,31 @@ var Jump = class _Jump extends Statement {
     for (const a of argExpr) {
       arg.push(await a?.reduce(vm2));
     }
-    return yield* vm2.fnMap.get(realTarget).run(vm2, arg);
+    const result = yield* vm2.fnMap.get(realTarget).run(vm2, arg);
+    switch (result?.type) {
+      case "begin":
+        return result;
+      case "goto":
+        return result;
+      case "break":
+        return result;
+      case "continue":
+        return result;
+      case "throw":
+        return result;
+      case "quit":
+        return result;
+      case "return": {
+        for (let i = 0; i < result.value.length; ++i) {
+          vm2.getValue("RESULT").set(vm2, result.value[i], [i]);
+        }
+        return result;
+      }
+      case void 0: {
+        vm2.getValue("RESULT").set(vm2, 0n, [0]);
+        return { type: "return", value: [0n] };
+      }
+    }
   }
   arg;
   constructor(raw) {
@@ -6820,9 +6844,10 @@ var PrintShopItem = class extends Statement {
     }
     const itemName = vm2.getValue("ITEMNAME");
     const validItem = [];
+    const itemSales = vm2.getValue("ITEMSALES");
     for (let i = 0; i < itemName.length(0); ++i) {
       const name = itemName.get(vm2, [i]);
-      if (name !== "") {
+      if (name !== "" && itemSales.get(vm2, [i]) !== 0n) {
         validItem.push(i);
       }
     }
@@ -9261,11 +9286,42 @@ function* eventStatement(vm2, target) {
     };
   }
 }
+function shopInputDispatch() {
+  return {
+    raw: new CompactSlice(FILE, 0, "SHOP_INPUT", 0),
+    run: async function* (vm2) {
+      const result = Number(vm2.getValue("RESULT").get(vm2, [0]));
+      const shopItemCount = 100;
+      if (Number.isInteger(result) && result >= 0 && result < shopItemCount) {
+        const sales = vm2.getValue("ITEMSALES").get(vm2, [result]);
+        const price = vm2.getValue("ITEMPRICE").get(vm2, [result]);
+        const money = vm2.getValue("MONEY").get(vm2, []);
+        if (sales !== 0n && money >= price) {
+          vm2.getValue("BOUGHT").set(vm2, BigInt(result), []);
+          const item = vm2.getValue("ITEM");
+          item.set(vm2, item.get(vm2, [result]) + 1n, [result]);
+          vm2.getValue("MONEY").set(vm2, money - price, []);
+          if (vm2.eventMap.has("EVENTBUY")) {
+            for (const fn of vm2.eventMap.get("EVENTBUY") ?? []) {
+              const ev = yield* fn.run(vm2, []);
+              if (ev != null && ev.type !== "return") return ev;
+            }
+          } else if (vm2.fnMap.has("EVENTBUY")) {
+            const ev = yield* vm2.run(new Call(new CompactSlice(FILE, 0, "CALL EVENTBUY", "CALL".length)));
+            if (ev != null) return ev;
+          }
+        }
+        return null;
+      }
+      return yield* vm2.run(new Call(new CompactSlice(FILE, 0, "CALL USERSHOP", "CALL".length)));
+    }
+  };
+}
 function* MAIN() {
   while (true) {
     yield new Call(new CompactSlice(FILE, 0, "CALL SHOW_SHOP", "CALL".length));
     yield new Input(new CompactSlice(FILE, 0, "INPUT", "INPUT".length));
-    yield new Call(new CompactSlice(FILE, 0, "CALL USERSHOP", "CALL".length));
+    yield shopInputDispatch();
   }
 }
 async function* SHOP(vm2) {
