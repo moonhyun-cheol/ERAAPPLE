@@ -1,0 +1,12 @@
+{
+  "name": "erathymkr-server-runtime",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test --test-timeout=30000 tools/web-engine-probe/input-gate-test.mjs tools/web-engine-probe/batch-channel-test.mjs tools/web-engine-probe/train-command-state-test.mjs"
+  }
+}
