@@ -96,6 +96,11 @@
 //       existing forced printer wait path. Fix #18 appends a template-less blank
 //       Character for ADDVOIDCHARA; Character already allocates every configured
 //       character variable, then skips template initialization for this one case.
+//    C) TRAIN command work values. eraJS reset NOWEX before a command and SOURCE
+//       afterward, but left UP, DOWN, and LOSEBASE alive. This game's SOURCE_CHECK
+//       subtracts LOSEBASE from BASE, so old HP/stamina costs were charged again on
+//       later commands—even after TURNEND recovery. Fix #19 resets all five work
+//       values before EVENTCOM and COM execution, matching Emuera command boundaries.
 
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
@@ -434,6 +439,24 @@ function* MAIN() {
         yield shopInputDispatch();
     }
 }`);
+  // Fix #19: Emuera clears command work values before each TRAIN command.
+  // SYSTEM_SOURCE subtracts LOSEBASE from BASE itself, so retaining LOSEBASE
+  // causes old HP/stamina costs to accumulate and be charged again after recovery.
+  r.apply(
+    `                if (selectCom >= 0) {
+                    for (const character of vm.characterList) {
+                        character.getValue("NOWEX").reset([]);
+                    }
+                    yield* eventStatement(vm, "EVENTCOM");`,
+    `                if (selectCom >= 0) {
+                    vm.getValue("UP").reset([]);
+                    vm.getValue("DOWN").reset([]);
+                    vm.getValue("LOSEBASE").reset([]);
+                    for (const character of vm.characterList) {
+                        character.getValue("SOURCE").reset([]);
+                        character.getValue("NOWEX").reset([]);
+                    }
+                    yield* eventStatement(vm, "EVENTCOM");`);
   return r.result() + SAVE_LOAD_SCENES;
 }
 

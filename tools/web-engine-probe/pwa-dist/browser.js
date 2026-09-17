@@ -1,4 +1,4 @@
-// tools/web-engine-probe/pwa.mjs
+// pwa.mjs
 var button = document.querySelector("#offline-prepare");
 var status = document.querySelector("#pwa-status");
 var base = new URL("./", location.href).href;
@@ -93,7 +93,7 @@ if (document.documentElement.dataset.pwa !== "true") {
   });
 }
 
-// tools/web-engine-probe/save-backup.mjs
+// save-backup.mjs
 var MAX_BACKUP_BYTES = 64 * 1024 * 1024;
 var MAX_JSON_BYTES = 256 * 1024 * 1024;
 var DEFAULT_TARGET = { id: "eraTHYMKR", game: "eraTHYMKR", db: "era-game-eraTHYMKR-erajs-v1", code: 890016222, version: 3210 };
@@ -211,7 +211,7 @@ var decodeBackup = defaultBackup.decodeBackup;
 var packBackup = defaultBackup.packBackup;
 var unpackBackup = defaultBackup.unpackBackup;
 
-// tools/web-engine-probe/browser-store.mjs
+// browser-store.mjs
 function createStore(name = "era-engine-probe-v1") {
   const dbPromise = new Promise((resolve, reject) => {
     const request = indexedDB.open(name, 1);
@@ -269,7 +269,7 @@ function createStore(name = "era-engine-probe-v1") {
   };
 }
 
-// tools/web-engine-probe/backup-ui.mjs
+// backup-ui.mjs
 function setupBackup(isRunning) {
   const $2 = (selector) => document.querySelector(selector);
   let busy = false, downloadURL, sharedFile;
@@ -373,7 +373,7 @@ function setupBackup(isRunning) {
   return { update, isBusy: () => busy, setGames };
 }
 
-// tools/web-engine-probe/runtime-trace.mjs
+// runtime-trace.mjs
 var TRACE_KEY = "era-runtime-trace-v1:";
 var phases = {
   start: "\uB85C\uB529 / \uCEF4\uD30C\uC77C",
@@ -430,7 +430,7 @@ function describeTrace(record2) {
   return `${when} \xB7 ${phases[record2.phase] ?? "\uC54C \uC218 \uC5C6\uC74C"}` + (save && phases[save.phase] ? ` \xB7 ${String(save.key).slice(0, 40)}: ${phases[save.phase]}` : "");
 }
 
-// tools/web-engine-probe/browser.mjs
+// browser.mjs
 var $ = (selector) => document.querySelector(selector);
 var trace = createRuntimeTrace();
 function showPrevious() {
