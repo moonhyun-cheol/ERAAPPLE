@@ -1,9 +1,9 @@
 /* Replaced by build-pwa.mjs; no remote scripts or user-provided code. */
-const RELEASE = "99ed6512f5b53788e917";
+const RELEASE = "63ada67f1d8da4d4034b";
 const ASSETS = {
   "index.html": "dab43c0773c50cd7abff5dd1ee47ddc2217cbb60f7495425673ee446865709ef",
   "browser.js": "baff34aae7b80ed5abb836bfc836c0c772cf46286c5156d56b71c8d2365f9286",
-  "engine-worker.js": "309608cc62f00dc93d0cdef56536b9d1ae8a952651561e68976a1e0d9c5e443e",
+  "engine-worker.js": "90131826d6c109729eb6a8f40a5a82bb99460c5b2e3ff00a9319a096c5756703",
   "eraJS-LICENSE.txt": "acbd9f2b463cd3431927837baf8abfc42f9b848e7d8732a5cebfd6cbeaf4c79f",
   "build.json": "2b0f55b471425ec83bd526cf5e72d16d01b8f47c8f08559e897629ea8e6eb01b",
   "local-game.bin": "dda7fa32ce4805c144444febe9834166035166efb385855420140c348e1471b5",

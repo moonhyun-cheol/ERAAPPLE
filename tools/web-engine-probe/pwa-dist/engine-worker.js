@@ -9408,6 +9408,7 @@ async function* TRAIN(vm2) {
           vm2.getValue("DOWN").reset([]);
           vm2.getValue("LOSEBASE").reset([]);
           for (const character of vm2.characterList) {
+            character.getValue("DOWNBASE").reset([]);
             character.getValue("SOURCE").reset([]);
             character.getValue("NOWEX").reset([]);
           }
