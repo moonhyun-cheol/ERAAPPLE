@@ -105,7 +105,11 @@ CALL AUTO_BUYING
 TARGET = -1
 ASSI = -1
 
-BEGIN SHOP
+; NOTE: Do NOT BEGIN SHOP here.
+; This @EVENTTURNEND is #PRI. The web runtime (eraJS) returns immediately on BEGIN and
+; skips later EVENTTURNEND handlers — including SYSTEM.ERB's dungeon assault (DUNGEON).
+; That left invading heroes stuck at 침공도 0 with no 「이 계층을 답파했다!」.
+; SYSTEM.ERB's @EVENTTURNEND already ends with BEGIN SHOP after dungeon processing.
 
 ;-------------------------------------------------
 ;アイテムの自動購入処理
