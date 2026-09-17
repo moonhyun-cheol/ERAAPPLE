@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { compile } from './dist/engine.mjs';
+import { compile } from './dist/engine-legacy.mjs';
 import { externalFor } from './fixture.mjs';
 
 const files = new Map([
@@ -8,9 +8,9 @@ const files = new Map([
   ['CHARA0.CSV', '番号,0\n名前,테스트\n呼び名,테스트\n基礎,0,1650\n基礎,1,1000\n'],
   ['HARNESS.ERB', `@SYSTEM_TITLE
 ADDCHARA 0
-; Simulate DOWNBASE persisted from the previous session/save. Without the
-; command-boundary reset, the first action subtracts all 1650 HP immediately.
-DOWNBASE:0:0 = 1650
+; Simulate the accumulated 3410 DOWNBASE observed in the deployed server.
+; Without the command-boundary reset, the first action kills the character.
+DOWNBASE:0:0 = 3410
 BEGIN TRAIN
 
 @SHOW_STATUS

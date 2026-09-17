@@ -1,3 +1,6 @@
 node_modules/
-dist/
+dist/*
+!dist/engine-legacy.mjs
+# The server loads engine-legacy.mjs by default. Keep that exact deploy artifact
+# tracked; all profiling/alternate builds remain local-only.
 # pwa-dist/ is the deploy artifact published to GitHub Pages; keep it tracked.
