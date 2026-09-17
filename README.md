@@ -2,6 +2,21 @@
 
 > This description is written by korean
 
+## 서버 PC 업데이트 (`server` 브랜치)
+
+서버 PC에서 새 변경을 받은 뒤에는 실행 중인 Node 프로세스를 재시작해야 새 엔진이 적용됩니다.
+저장소 루트의 PowerShell에서 아래 두 줄을 실행하세요.
+
+```powershell
+git pull --ff-only origin server
+.\server\scripts\apply-server-update.ps1
+```
+
+두 번째 명령은 서버가 실제 사용하는 엔진의 집중 테스트를 먼저 실행하고, 통과할 때만
+`era-server` 예약 작업을 재시작합니다. 다른 작업 이름이나 수동 실행 방법은
+[`docs/web-runtime/home-deploy-runbook.md`](docs/web-runtime/home-deploy-runbook.md)의
+**서버 코드 업데이트** 절을 참고하세요.
+
 ## 저작권
 
 NOTICE.md를 봐주세요

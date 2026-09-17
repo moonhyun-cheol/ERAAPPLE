@@ -173,19 +173,25 @@ node --test server/*-test.mjs      # 전체 통과 확인(집 PC 최초 셋업 �
 
 서버 기본 엔진 `tools/web-engine-probe/dist/engine-legacy.mjs`는 Git에 포함된다. 업데이트할 때는
 소스만 pull하고 기존 프로세스를 계속 쓰면 안 된다. 실행 중 VM과 이미 import된 엔진은 자동으로
-교체되지 않으므로 다음 순서로 갱신한다.
+교체되지 않는다. 서버 PC의 저장소 루트에서 다음 두 줄을 실행한다.
 
 ```powershell
-Stop-ScheduledTask -TaskName "era-server"
-git checkout server
 git pull --ff-only origin server
-npm test
-Start-ScheduledTask -TaskName "era-server"
+.\server\scripts\apply-server-update.ps1
 ```
 
-수동으로 `node server/run.mjs`를 실행 중이었다면 `Ctrl+C`로 완전히 종료한 뒤 pull/test 후 다시
-실행한다. 기존 브라우저 탭도 새로고침하여 새 WS 세션을 만든다. `npm test`는 서버가 실제로 읽는
-추적 엔진 산출물로 TRAIN 상태 초기화 회귀까지 검사한다.
+`apply-server-update.ps1`는 서버가 실제 읽는 추적 엔진으로 `npm test`를 실행하고, 통과할 때만
+기본 예약 작업 `era-server`를 정지·재시작한다. 다른 작업 이름을 등록했다면 다음처럼 지정한다.
+
+```powershell
+.\server\scripts\apply-server-update.ps1 -TaskName "era-home"
+```
+
+수동으로 `node server/run.mjs`를 실행 중이면 스크립트가 임의로 Node 프로세스를 종료하지 않는다.
+테스트 성공 안내 후 기존 서버 콘솔에서 `Ctrl+C`로 완전히 종료하고 `node server/run.mjs`를 다시
+실행한다. 마지막으로 기존 PC/폰 브라우저를 새로고침하여 새 WS 세션을 만든다.
+
+`npm test`는 서버가 실제로 읽는 추적 엔진 산출물로 TRAIN 상태 초기화 회귀까지 검사한다.
 
 ---
 
