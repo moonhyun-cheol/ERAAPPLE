@@ -24,9 +24,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// node_modules/papaparse/papaparse.min.js
+// tools/web-engine-probe/node_modules/papaparse/papaparse.min.js
 var require_papaparse_min = __commonJS({
-  "node_modules/papaparse/papaparse.min.js"(exports, module) {
+  "tools/web-engine-probe/node_modules/papaparse/papaparse.min.js"(exports, module) {
     ((e, t) => {
       "function" == typeof define && define.amd ? define([], t) : "object" == typeof module && "undefined" != typeof exports ? module.exports = t() : e.Papa = t();
     })(exports, function r() {
@@ -440,9 +440,9 @@ var require_papaparse_min = __commonJS({
   }
 });
 
-// node_modules/parsimmon/build/parsimmon.umd.min.js
+// tools/web-engine-probe/node_modules/parsimmon/build/parsimmon.umd.min.js
 var require_parsimmon_umd_min = __commonJS({
-  "node_modules/parsimmon/build/parsimmon.umd.min.js"(exports, module) {
+  "tools/web-engine-probe/node_modules/parsimmon/build/parsimmon.umd.min.js"(exports, module) {
     !(function(n, t) {
       "object" == typeof exports && "object" == typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define([], t) : "object" == typeof exports ? exports.Parsimmon = t() : n.Parsimmon = t();
     })("undefined" != typeof self ? self : exports, function() {
@@ -1016,9 +1016,9 @@ var require_parsimmon_umd_min = __commonJS({
   }
 });
 
-// node_modules/dayjs/dayjs.min.js
+// tools/web-engine-probe/node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
-  "node_modules/dayjs/dayjs.min.js"(exports, module) {
+  "tools/web-engine-probe/node_modules/dayjs/dayjs.min.js"(exports, module) {
     !(function(t, e) {
       "object" == typeof exports && "undefined" != typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs = e();
     })(exports, (function() {
@@ -1296,10 +1296,10 @@ var require_dayjs_min = __commonJS({
   }
 });
 
-// ../../.my_agent_remote/undercrow__eraJS/build/csv/index.js
+// .my_agent_remote/undercrow__eraJS/build/csv/index.js
 var Papa = __toESM(require_papaparse_min());
 
-// ../../.my_agent_remote/undercrow__eraJS/build/assert.js
+// .my_agent_remote/undercrow__eraJS/build/assert.js
 function cond(value, message) {
   if (!value) {
     throw new Error(message);
@@ -1351,7 +1351,7 @@ function strArray3D(value, message) {
   }
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/csv/character.js
+// .my_agent_remote/undercrow__eraJS/build/csv/character.js
 function parse(fileName, rows) {
   const template = {
     base: /* @__PURE__ */ new Map(),
@@ -1527,7 +1527,7 @@ function parse(fileName, rows) {
   return template;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/csv/gamebase.js
+// .my_agent_remote/undercrow__eraJS/build/csv/gamebase.js
 function parse2(fileName, rows) {
   const result = {};
   for (const row of rows) {
@@ -1565,7 +1565,7 @@ function parse2(fileName, rows) {
   return result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/csv/item.js
+// .my_agent_remote/undercrow__eraJS/build/csv/item.js
 function parse3(fileName, rows) {
   const result = /* @__PURE__ */ new Map();
   for (const row of rows) {
@@ -1579,7 +1579,7 @@ function parse3(fileName, rows) {
   return result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/csv/varsize.js
+// .my_agent_remote/undercrow__eraJS/build/csv/varsize.js
 function parse4(fileName, rows) {
   const result = /* @__PURE__ */ new Map();
   for (const row of rows) {
@@ -1593,7 +1593,7 @@ function parse4(fileName, rows) {
   return result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/csv/index.js
+// .my_agent_remote/undercrow__eraJS/build/csv/index.js
 function parseStringMap(fileName, rows) {
   const result = /* @__PURE__ */ new Map();
   for (const row of rows) {
@@ -1686,10 +1686,10 @@ function parseCSV(content) {
   };
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/parser/erb.js
+// .my_agent_remote/undercrow__eraJS/build/parser/erb.js
 var import_parsimmon14 = __toESM(require_parsimmon_umd_min());
 
-// ../../.my_agent_remote/undercrow__eraJS/build/property/order.js
+// .my_agent_remote/undercrow__eraJS/build/property/order.js
 var Order = class {
   order;
   constructor(order) {
@@ -1697,7 +1697,7 @@ var Order = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/expr/variable.js
+// .my_agent_remote/undercrow__eraJS/build/statement/expr/variable.js
 function resolveNameIndex(vm2, name, key) {
   if (key === "")
     return key;
@@ -1756,7 +1756,7 @@ var Variable = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/fn.js
+// .my_agent_remote/undercrow__eraJS/build/fn.js
 var Fn = class _Fn {
   static START_OF_FN = "@@START";
   name;
@@ -1820,10 +1820,10 @@ var Fn = class _Fn {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/assign/index.js
+// .my_agent_remote/undercrow__eraJS/build/statement/assign/index.js
 var import_parsimmon6 = __toESM(require_parsimmon_umd_min());
 
-// ../../.my_agent_remote/undercrow__eraJS/build/error.js
+// .my_agent_remote/undercrow__eraJS/build/error.js
 var EraJSError = class extends Error {
   line;
   trace;
@@ -1852,7 +1852,7 @@ function internal(message) {
   return new Error(`Unexpected internal error found: ${message}`);
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/parser/const.js
+// .my_agent_remote/undercrow__eraJS/build/parser/const.js
 var import_parsimmon = __toESM(require_parsimmon_umd_min());
 var SPECIAL_CHAR = [
   "+",
@@ -1915,10 +1915,10 @@ function charSeq(...exclude) {
   return char(...exclude).atLeast(1).tie();
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/parser/expr.js
+// .my_agent_remote/undercrow__eraJS/build/parser/expr.js
 var import_parsimmon3 = __toESM(require_parsimmon_umd_min());
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/expr/binary.js
+// .my_agent_remote/undercrow__eraJS/build/statement/expr/binary.js
 var Binary = class {
   left;
   right;
@@ -2036,7 +2036,7 @@ var Binary = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/expr/const.js
+// .my_agent_remote/undercrow__eraJS/build/statement/expr/const.js
 var Const = class {
   value;
   constructor(value) {
@@ -2048,7 +2048,7 @@ var Const = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/expr/form.js
+// .my_agent_remote/undercrow__eraJS/build/statement/expr/form.js
 var Form = class {
   expr;
   constructor(expr2) {
@@ -2095,14 +2095,14 @@ var Form = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/abs.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/abs.js
 async function abs(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   bigint(value, "1st argument of ABS must a be number");
   return value >= 0 ? value : -value;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/barstr.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/barstr.js
 async function barStr(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   bigint(value, "1st argument of BAR must be a number");
@@ -2110,11 +2110,14 @@ async function barStr(vm2, arg) {
   bigint(max2, "2nd argument of BAR must be a number");
   const length = await arg[2].reduce(vm2);
   bigint(length, "3rd argument of BAR must be a number");
-  const filled = length * value / max2;
-  return "[" + "*".repeat(Number(filled)) + ".".repeat(Number(length - filled)) + "]";
+  const safeLength = length < 0n ? 0n : length;
+  let filled = max2 <= 0n ? 0n : safeLength * value / max2;
+  if (filled < 0n) filled = 0n;
+  if (filled > safeLength) filled = safeLength;
+  return "[" + "*".repeat(Number(filled)) + ".".repeat(Number(safeLength - filled)) + "]";
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvabl.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvabl.js
 async function csvAbl(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVABL must be an integer");
@@ -2125,7 +2128,7 @@ async function csvAbl(vm2, arg) {
   return character.abl.get(Number(index)) ?? 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvbase.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvbase.js
 async function csvBase(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVBASE must be an integer");
@@ -2136,7 +2139,7 @@ async function csvBase(vm2, arg) {
   return character.base.get(Number(index)) ?? 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvcallname.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvcallname.js
 async function csvCallname(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVCALLNAME must be an integer");
@@ -2145,7 +2148,7 @@ async function csvCallname(vm2, arg) {
   return character.callname;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvcflag.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvcflag.js
 async function csvCflag(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVCFLAG must be an integer");
@@ -2156,7 +2159,7 @@ async function csvCflag(vm2, arg) {
   return character.cflag.get(Number(index)) ?? 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvcstr.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvcstr.js
 async function csvCstr(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVCSTR must be an integer");
@@ -2167,7 +2170,7 @@ async function csvCstr(vm2, arg) {
   return character.cstr.get(Number(index)) ?? "";
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvequip.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvequip.js
 async function csvEquip(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVEQUIP must be an integer");
@@ -2178,7 +2181,7 @@ async function csvEquip(vm2, arg) {
   return character.equip.get(Number(index)) ?? 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvexp.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvexp.js
 async function csvExp(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVEXP must be an integer");
@@ -2189,7 +2192,7 @@ async function csvExp(vm2, arg) {
   return character.exp.get(Number(index)) ?? 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvjuel.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvjuel.js
 async function csvJuel(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVJUEL must be an integer");
@@ -2200,7 +2203,7 @@ async function csvJuel(vm2, arg) {
   return character.juel.get(Number(index)) ?? 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvmark.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvmark.js
 async function csvMark(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVMARK must be an integer");
@@ -2211,7 +2214,7 @@ async function csvMark(vm2, arg) {
   return character.mark.get(Number(index)) ?? 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvmastername.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvmastername.js
 async function csvMastername(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVMASTERNAME must be an integer");
@@ -2220,7 +2223,7 @@ async function csvMastername(vm2, arg) {
   return character.mastername;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvname.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvname.js
 async function csvName(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVNAME must be an integer");
@@ -2229,7 +2232,7 @@ async function csvName(vm2, arg) {
   return character.name;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvnickname.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvnickname.js
 async function csvNickname(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVNICKNAME must be an integer");
@@ -2238,7 +2241,7 @@ async function csvNickname(vm2, arg) {
   return character.nickname;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvrelation.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvrelation.js
 async function csvRelation(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVRELATION must be an integer");
@@ -2249,7 +2252,7 @@ async function csvRelation(vm2, arg) {
   return character.relation.get(Number(index)) ?? 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/csvtalent.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/csvtalent.js
 async function csvTalent(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of CSVTALENT must be an integer");
@@ -2260,14 +2263,14 @@ async function csvTalent(vm2, arg) {
   return character.talent.get(Number(index)) ?? 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/existcsv.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/existcsv.js
 async function existCsv(vm2, arg) {
   const num = await arg[0].reduce(vm2);
   bigint(num, "1st argument of EXISTCSV should be a number");
   return vm2.templateMap.has(Number(num)) ? 1 : 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/findchara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/findchara.js
 async function findChara(vm2, arg) {
   const target = arg[0];
   cond(target instanceof Variable, "1st argument of FINDCHARA should be a variable");
@@ -2285,7 +2288,7 @@ async function findChara(vm2, arg) {
   return -1n;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/findlastchara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/findlastchara.js
 async function findLastChara(vm2, arg) {
   const target = arg[0];
   cond(target instanceof Variable, "1st argument of FINDLASTCHARA should be a variable");
@@ -2303,12 +2306,12 @@ async function findLastChara(vm2, arg) {
   return -1n;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/getbgcolor.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/getbgcolor.js
 function getBgColor(vm2, _arg) {
   return parseInt(vm2.printer.background, 16);
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/getbit.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/getbit.js
 async function getBit(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   bigint(value, "1st argument of GETBIT should be a number");
@@ -2318,7 +2321,7 @@ async function getBit(vm2, arg) {
   return (value & 1n << index) !== 0n ? 1 : 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/getchara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/getchara.js
 async function getChara(vm2, arg) {
   const id = await arg[0].reduce(vm2);
   bigint(id, "1st argument of GETCHARA should be an integer");
@@ -2330,27 +2333,27 @@ async function getChara(vm2, arg) {
   return -1;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/getcolor.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/getcolor.js
 function getColor(vm2, _arg) {
   return parseInt(vm2.printer.color, 16);
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/getdefbgcolor.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/getdefbgcolor.js
 function getDefBgColor(vm2, _arg) {
   return parseInt(vm2.printer.defaultBackground, 16);
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/getdefcolor.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/getdefcolor.js
 function getDefColor(vm2, _arg) {
   return parseInt(vm2.printer.defaultColor, 16);
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/getfocuscolor.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/getfocuscolor.js
 function getFocusColor(vm2, _arg) {
   return parseInt(vm2.printer.focus, 16);
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/groupmatch.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/groupmatch.js
 async function groupMatch(vm2, arg) {
   cond(arg.length > 0, "1st argument of GROUPMATCH must exist");
   const key = await arg[0].reduce(vm2);
@@ -2361,7 +2364,7 @@ async function groupMatch(vm2, arg) {
   return values.reduce((acc, val) => acc + (val === key ? 1 : 0), 0);
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/inrange.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/inrange.js
 async function inRange(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   bigint(value, "1st argument of INRANGE should be a number");
@@ -2372,7 +2375,7 @@ async function inRange(vm2, arg) {
   return min2 <= value && value <= max2 ? 1 : 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/limit.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/limit.js
 async function limit(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   bigint(value, "1st argument of LIMIT must a be number");
@@ -2389,12 +2392,12 @@ async function limit(vm2, arg) {
   }
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/lineisempty.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/lineisempty.js
 function lineIsEmpty(vm2, _arg) {
   return vm2.printer.chunks.length === 0 ? 1 : 0;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/match.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/match.js
 var LARGE_INT = 2n ** 60n;
 async function match(vm2, arg) {
   const target = arg[0];
@@ -2415,7 +2418,7 @@ async function match(vm2, arg) {
   return result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/max.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/max.js
 async function max(vm2, arg) {
   cond(arg.length > 0, "MAX must have at least 1 argument");
   let result = 0n;
@@ -2427,7 +2430,7 @@ async function max(vm2, arg) {
   return result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/maxarray.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/maxarray.js
 var LARGE_INT2 = 2n ** 60n;
 async function maxArray(vm2, arg) {
   const target = arg[0];
@@ -2447,7 +2450,7 @@ async function maxArray(vm2, arg) {
   return result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/min.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/min.js
 var LARGE_INT3 = 2n ** 60n;
 async function min(vm2, arg) {
   cond(arg.length > 0, "MIN must have at least 1 argument");
@@ -2460,7 +2463,7 @@ async function min(vm2, arg) {
   return result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/minarray.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/minarray.js
 var LARGE_INT4 = 2n ** 60n;
 async function minArray(vm2, arg) {
   const target = arg[0];
@@ -2480,7 +2483,7 @@ async function minArray(vm2, arg) {
   return result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/power.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/power.js
 async function power(vm2, arg) {
   const base = await arg[0].reduce(vm2);
   bigint(base, "1st argument of POWER must be a number");
@@ -2489,7 +2492,7 @@ async function power(vm2, arg) {
   return base ** exponent;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/rand.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/rand.js
 async function rand(vm2, arg) {
   if (arg.length === 0) {
     cond(false, "RAND should have at least 1 argument");
@@ -2506,7 +2509,7 @@ async function rand(vm2, arg) {
   }
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/sign.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/sign.js
 async function sign(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   bigint(value, "1st argument of SIGN must a be number");
@@ -2519,7 +2522,7 @@ async function sign(vm2, arg) {
   }
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/sqrt.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/sqrt.js
 async function sqrt(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   bigint(value, "1st argument of sqrt must be a number");
@@ -2542,21 +2545,21 @@ async function sqrt(vm2, arg) {
   }
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/strlens.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/strlens.js
 async function strLenS(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   string(value, "1st Argument of STRLENS should be a string");
   return value.length;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/strlensu.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/strlensu.js
 async function strLenSU(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   string(value, "1st Argument of STRLENS should be a string");
   return value.length;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/sumarray.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/sumarray.js
 var LARGE_INT5 = 2n ** 60n;
 async function sumArray(vm2, arg) {
   const target = arg[0];
@@ -2575,7 +2578,7 @@ async function sumArray(vm2, arg) {
   return result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/toint.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/toint.js
 async function toInt(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   string(value, "1st Argument of TOINT should be a string");
@@ -2583,14 +2586,14 @@ async function toInt(vm2, arg) {
   return isNaN(result) ? 0 : result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/tostr.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/tostr.js
 async function toStr(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   bigint(value, "1st Argument of TOSTR should be a number");
   return value.toString();
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/varsize.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/varsize.js
 async function varSize(vm2, arg) {
   const name = await arg[0].reduce(vm2);
   string(name, "1st Argument of VARSIZE should be a string");
@@ -2599,14 +2602,14 @@ async function varSize(vm2, arg) {
   return vm2.getValue(name).length(Number(depth));
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/method/unicode.js
+// .my_agent_remote/undercrow__eraJS/build/statement/method/unicode.js
 async function unicode(vm2, arg) {
   const value = await arg[0].reduce(vm2);
   bigint(value, "1st Argument of UNICODE should be a number");
   return String.fromCharCode(Number(value));
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/expr/inline-call.js
+// .my_agent_remote/undercrow__eraJS/build/statement/expr/inline-call.js
 async function runGenerator(gen) {
   while (true) {
     const value = await gen.next();
@@ -2730,7 +2733,7 @@ var InlineCall = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/expr/ternary.js
+// .my_agent_remote/undercrow__eraJS/build/statement/expr/ternary.js
 var Ternary = class {
   condition;
   left;
@@ -2747,7 +2750,7 @@ var Ternary = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/expr/unary.js
+// .my_agent_remote/undercrow__eraJS/build/statement/expr/unary.js
 var Unary = class {
   expr;
   op;
@@ -2772,7 +2775,7 @@ var Unary = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/expr/unary-op.js
+// .my_agent_remote/undercrow__eraJS/build/statement/expr/unary-op.js
 var UnaryOp = class {
   target;
   op;
@@ -2808,7 +2811,7 @@ var UnaryOp = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/parser/util.js
+// .my_agent_remote/undercrow__eraJS/build/parser/util.js
 var import_parsimmon2 = __toESM(require_parsimmon_umd_min());
 function alt(...values) {
   return import_parsimmon2.default.alt(...values.map(import_parsimmon2.default.string));
@@ -2873,7 +2876,7 @@ function tryParse(parser3, raw) {
   }
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/parser/expr.js
+// .my_agent_remote/undercrow__eraJS/build/parser/expr.js
 var language = import_parsimmon3.default.createLanguage({
   Variable: () => import_parsimmon3.default.seqMap(Identifier, optional(import_parsimmon3.default.string("@").then(Identifier)), (name, scope) => new Variable(name, [], scope)),
   Index: (r) => import_parsimmon3.default.alt(UInt.map((value) => new Const(BigInt(value))), r.InlineCall, wrap("(", ")", r.Expr), r.Variable),
@@ -2954,7 +2957,7 @@ var form = {
   "(,": formParser("(,", true)
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/index.js
+// .my_agent_remote/undercrow__eraJS/build/statement/index.js
 var Statement = class {
   raw;
   constructor(raw) {
@@ -2966,7 +2969,7 @@ var Statement = class {
   }
 };
 
-// compact-lazy-slice.mjs
+// tools/web-engine-probe/compact-lazy-slice.mjs
 var RANGE_BASE = 67108864;
 function encodeRange(from, to) {
   return Number.isInteger(from) && Number.isInteger(to) && from >= 0 && to >= 0 && from < RANGE_BASE && to < RANGE_BASE ? from * RANGE_BASE + to : [from, to];
@@ -3030,10 +3033,10 @@ var CompactSlice = class _CompactSlice {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/lazy.js
+// .my_agent_remote/undercrow__eraJS/build/lazy.js
 var lazy_default = createCompactLazy(tryParse);
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/assign/assign-form.js
+// .my_agent_remote/undercrow__eraJS/build/statement/assign/assign-form.js
 var PARSER = sepBy0(",", form[","]);
 var AssignForm = class extends Statement {
   dest;
@@ -3061,7 +3064,7 @@ var AssignForm = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/assign/assign-int.js
+// .my_agent_remote/undercrow__eraJS/build/statement/assign/assign-int.js
 var PARSER2 = sepBy0(",", expr);
 var AssignInt = class extends Statement {
   dest;
@@ -3085,7 +3088,7 @@ var AssignInt = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/assign/assign-op-int.js
+// .my_agent_remote/undercrow__eraJS/build/statement/assign/assign-op-int.js
 var PARSER3 = expr;
 var AssignOpInt = class extends Statement {
   dest;
@@ -3136,7 +3139,7 @@ var AssignOpInt = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/assign/assign-op-str.js
+// .my_agent_remote/undercrow__eraJS/build/statement/assign/assign-op-str.js
 var PARSER4 = expr;
 var AssignOpStr = class extends Statement {
   dest;
@@ -3163,7 +3166,7 @@ var AssignOpStr = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/assign/assign-prefix.js
+// .my_agent_remote/undercrow__eraJS/build/statement/assign/assign-prefix.js
 var import_parsimmon4 = __toESM(require_parsimmon_umd_min());
 var PARSER5 = import_parsimmon4.default.eof;
 var AssignPrefix = class extends Statement {
@@ -3194,7 +3197,7 @@ var AssignPrefix = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/assign/assign-postfix.js
+// .my_agent_remote/undercrow__eraJS/build/statement/assign/assign-postfix.js
 var import_parsimmon5 = __toESM(require_parsimmon_umd_min());
 var PARSER6 = import_parsimmon5.default.eof;
 var AssignPostfix = class extends Statement {
@@ -3225,7 +3228,7 @@ var AssignPostfix = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/assign/assign-str.js
+// .my_agent_remote/undercrow__eraJS/build/statement/assign/assign-str.js
 var PARSER7 = sepBy0(",", expr);
 var AssignStr = class extends Statement {
   dest;
@@ -3249,7 +3252,7 @@ var AssignStr = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/assign/index.js
+// .my_agent_remote/undercrow__eraJS/build/statement/assign/index.js
 var PARSER_PREFIX = import_parsimmon6.default.seq(alt("++", "--").trim(WS0), variable, import_parsimmon6.default.all);
 var PARSER_POSTFIX = import_parsimmon6.default.seq(variable, alt("++", "--").trim(WS0), import_parsimmon6.default.all);
 var PARSER_VAR = import_parsimmon6.default.seq(variable, import_parsimmon6.default.alt(alt("="), alt("'="), alt("*=", "/=", "%=", "+=", "-=", "&=", "|=", "^=")).trim(WS0), import_parsimmon6.default.all);
@@ -3310,7 +3313,7 @@ var Assign = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/int-0d.js
+// .my_agent_remote/undercrow__eraJS/build/value/int-0d.js
 var Int0DValue = class _Int0DValue {
   type = "number";
   name;
@@ -3356,7 +3359,7 @@ var Int0DValue = class _Int0DValue {
   }
 };
 
-// paged-default-array.mjs
+// tools/web-engine-probe/paged-default-array.mjs
 var DEFAULT_PAGE_SIZE = 256;
 var DEFAULT_DENSE_THRESHOLD = 0.75;
 var states = /* @__PURE__ */ new WeakMap();
@@ -3687,7 +3690,7 @@ function pagedDenseBacking(value) {
   return state.denseLeaves.get("") ?? null;
 }
 
-// deferred-local.mjs
+// tools/web-engine-probe/deferred-local.mjs
 function deferLocalArray(cell, size, zero) {
   if (!Number.isInteger(size) || size < 0 || size > 4294967295) {
     cell.value = new Array(size).fill(zero);
@@ -3713,7 +3716,7 @@ function deferLocalArray(cell, size, zero) {
   });
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/int-1d.js
+// .my_agent_remote/undercrow__eraJS/build/value/int-1d.js
 var Int1DValue = class _Int1DValue {
   type = "number";
   name;
@@ -3780,7 +3783,7 @@ var Int1DValue = class _Int1DValue {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/int-char-0d.js
+// .my_agent_remote/undercrow__eraJS/build/value/int-char-0d.js
 var IntChar0DValue = class _IntChar0DValue {
   type = "number";
   name;
@@ -3834,7 +3837,7 @@ var IntChar0DValue = class _IntChar0DValue {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/int-char-1d.js
+// .my_agent_remote/undercrow__eraJS/build/value/int-char-1d.js
 var IntChar1DValue = class _IntChar1DValue {
   type = "number";
   name;
@@ -3902,7 +3905,7 @@ var IntChar1DValue = class _IntChar1DValue {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/str-0d.js
+// .my_agent_remote/undercrow__eraJS/build/value/str-0d.js
 var Str0DValue = class _Str0DValue {
   type = "string";
   name;
@@ -3948,7 +3951,7 @@ var Str0DValue = class _Str0DValue {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/str-1d.js
+// .my_agent_remote/undercrow__eraJS/build/value/str-1d.js
 var Str1DValue = class _Str1DValue {
   type = "string";
   name;
@@ -4014,7 +4017,7 @@ var Str1DValue = class _Str1DValue {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/str-char-0d.js
+// .my_agent_remote/undercrow__eraJS/build/value/str-char-0d.js
 var StrChar0DValue = class _StrChar0DValue {
   type = "string";
   name;
@@ -4068,7 +4071,7 @@ var StrChar0DValue = class _StrChar0DValue {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/str-char-1d.js
+// .my_agent_remote/undercrow__eraJS/build/value/str-char-1d.js
 var StrChar1DValue = class _StrChar1DValue {
   type = "string";
   name;
@@ -4137,7 +4140,7 @@ var StrChar1DValue = class _StrChar1DValue {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/character.js
+// .my_agent_remote/undercrow__eraJS/build/character.js
 var Character = class {
   values;
   constructor(vm2, template) {
@@ -4152,6 +4155,9 @@ var Character = class {
       } else if (value instanceof StrChar1DValue) {
         this.values.set(name, new Str1DValue(name, [value.size]));
       }
+    }
+    if (template == null) {
+      return;
     }
     this.getValue("NO").reset(template.no);
     this.getValue("NAME").reset(template.name);
@@ -4179,7 +4185,7 @@ var Character = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/addchara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/addchara.js
 var PARSER8 = argNR0(expr);
 var AddChara = class extends Statement {
   arg;
@@ -4199,7 +4205,7 @@ var AddChara = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/addcopychara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/addcopychara.js
 var PARSER9 = arg1R1(expr);
 var AddCopyChara = class extends Statement {
   arg;
@@ -4214,7 +4220,7 @@ var AddCopyChara = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/adddefchara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/adddefchara.js
 var PARSER10 = arg0R0();
 var AddDefChara = class extends Statement {
   constructor(raw) {
@@ -4230,7 +4236,7 @@ var AddDefChara = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/addvoidchara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/addvoidchara.js
 var PARSER11 = arg0R0();
 var AddVoidChara = class extends Statement {
   constructor(raw) {
@@ -4238,13 +4244,13 @@ var AddVoidChara = class extends Statement {
     tryParse(PARSER11, raw);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
-  async *run() {
-    throw notImpl("ADDVOIDCHARA");
+  async *run(vm2) {
+    vm2.characterList.push(new Character(vm2, null));
     return null;
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/alignment.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/alignment.js
 var PARSER12 = arg1R1(alt("LEFT", "CENTER", "RIGHT"));
 var Alignment = class extends Statement {
   arg;
@@ -4259,7 +4265,7 @@ var Alignment = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/arrayshift.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/arrayshift.js
 var PARSER13 = arg5R3(variable, expr, expr, expr, expr);
 var ArrayShift = class extends Statement {
   arg;
@@ -4296,7 +4302,7 @@ var ArrayShift = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/bar.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/bar.js
 var PARSER14 = arg3R3(expr, expr, expr);
 var Bar = class extends Statement {
   arg;
@@ -4317,8 +4323,11 @@ var Bar = class extends Statement {
     bigint(max2, "2nd argument of BAR must be a number");
     const length = await lengthExpr.reduce(vm2);
     bigint(length, "3rd argument of BAR must be a number");
-    const filled = length * value / max2;
-    const text = "[" + "*".repeat(Number(filled)) + ".".repeat(Number(length - filled)) + "]";
+    const safeLength = length < 0n ? 0n : length;
+    let filled = max2 <= 0n ? 0n : safeLength * value / max2;
+    if (filled < 0n) filled = 0n;
+    if (filled > safeLength) filled = safeLength;
+    const text = "[" + "*".repeat(Number(filled)) + ".".repeat(Number(safeLength - filled)) + "]";
     yield* vm2.printer.print(text, /* @__PURE__ */ new Set());
     if (this.newline) {
       yield* vm2.printer.newline();
@@ -4327,7 +4336,7 @@ var Bar = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/begin.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/begin.js
 var PARSER15 = arg1R1(Identifier);
 var Begin = class extends Statement {
   arg;
@@ -4344,7 +4353,7 @@ var Begin = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/break.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/break.js
 var PARSER16 = arg0R0();
 var Break = class extends Statement {
   constructor(raw) {
@@ -4359,7 +4368,7 @@ var Break = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/call.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/call.js
 var import_parsimmon7 = __toESM(require_parsimmon_umd_min());
 var Call = class _Call extends Statement {
   static PARSER = import_parsimmon7.default.alt(arg1R1(import_parsimmon7.default.seq(Identifier.skip(WS0), wrap("(", ")", sepBy0(",", optional(expr))))), argNR1(Identifier, optional(expr)).map(([f, ...r]) => [f, r]));
@@ -4407,7 +4416,7 @@ var Call = class _Call extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/callf.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/callf.js
 var CallF = class _CallF extends Statement {
   static async *exec(vm2, target, argExpr) {
     const realTarget = target.toUpperCase();
@@ -4447,7 +4456,7 @@ var CallF = class _CallF extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/callform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/callform.js
 var import_parsimmon8 = __toESM(require_parsimmon_umd_min());
 var CallForm = class _CallForm extends Statement {
   static PARSER(exclude) {
@@ -4466,7 +4475,7 @@ var CallForm = class _CallForm extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/callformf.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/callformf.js
 var CallFormF = class extends Statement {
   arg;
   constructor(raw) {
@@ -4481,7 +4490,7 @@ var CallFormF = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/calltrain.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/calltrain.js
 var PARSER17 = arg1R1(expr);
 var CallTrain = class extends Statement {
   arg;
@@ -4496,10 +4505,10 @@ var CallTrain = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/case.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/case.js
 var import_parsimmon9 = __toESM(require_parsimmon_umd_min());
 
-// compact-function-ir.mjs
+// tools/web-engine-probe/compact-function-ir.mjs
 function encodePrintFlags(flags) {
   let mask = 0;
   for (const flag of flags) {
@@ -4524,7 +4533,7 @@ function statementVectorAt(statements, index) {
   return Array.isArray(statements) ? statements[index] : index === 0 ? statements : void 0;
 }
 
-// compact-label-map.mjs
+// tools/web-engine-probe/compact-label-map.mjs
 var CompactLabelMap = class {
   key;
   value;
@@ -4562,7 +4571,7 @@ var CompactLabelMap = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/dowhile.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/dowhile.js
 var LOOP = /^LOOP\s+/i;
 var PARSER_ARG = arg0R0();
 var PARSER_COND = arg1R1(expr);
@@ -4616,7 +4625,7 @@ var DoWhile = class _DoWhile extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/for.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/for.js
 var NEXT = /^NEXT$/i;
 var PARSER18 = arg4R3(variable, expr, expr, expr);
 var For = class _For extends Statement {
@@ -4673,7 +4682,7 @@ var For = class _For extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/if.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/if.js
 var IF = /^IF\s+/i;
 var ELSEIF = /^ELSEIF\s+/i;
 var ELSE = /^ELSE$/i;
@@ -4742,7 +4751,7 @@ var If = class _If extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/repeat.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/repeat.js
 var REND = /^REND$/i;
 var PARSER20 = arg1R1(expr);
 var Repeat = class _Repeat extends Statement {
@@ -4793,7 +4802,7 @@ var Repeat = class _Repeat extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/while.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/while.js
 var WEND = /^WEND$/i;
 var PARSER21 = arg1R1(expr);
 var While = class _While extends Statement {
@@ -4848,7 +4857,7 @@ var While = class _While extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/thunk.js
+// .my_agent_remote/undercrow__eraJS/build/thunk.js
 var Thunk = class {
   statement;
   labelMap;
@@ -4924,7 +4933,7 @@ var Thunk = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/case.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/case.js
 var CASE = /^CASE\s+/i;
 var CASEELSE = /^CASEELSE$/i;
 var ENDSELECT = /^ENDSELECT$/i;
@@ -5011,7 +5020,7 @@ var Case = class _Case extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/cbgclear.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/cbgclear.js
 var PARSER22 = arg0R0();
 var CbgClear = class extends Statement {
   constructor(raw) {
@@ -5025,7 +5034,7 @@ var CbgClear = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/cbgclearbutton.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/cbgclearbutton.js
 var PARSER23 = arg0R0();
 var CbgClearButton = class extends Statement {
   constructor(raw) {
@@ -5039,7 +5048,7 @@ var CbgClearButton = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/cbgremovebmap.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/cbgremovebmap.js
 var PARSER24 = arg0R0();
 var CbgRemoveBmap = class extends Statement {
   constructor(raw) {
@@ -5053,13 +5062,13 @@ var CbgRemoveBmap = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/savedata.js
+// .my_agent_remote/undercrow__eraJS/build/savedata.js
 var savefile = {
   global: "global.sav",
   game: (i) => "save" + i.toString().padStart(2, "0") + ".sav"
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/chkdata.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/chkdata.js
 var PARSER25 = arg1R1(expr);
 var ChkData = class extends Statement {
   arg;
@@ -5106,7 +5115,7 @@ var ChkData = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/chkfont.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/chkfont.js
 var PARSER26 = arg1R1(expr);
 var ChkFont = class extends Statement {
   arg;
@@ -5123,7 +5132,7 @@ var ChkFont = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/clearbit.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/clearbit.js
 var PARSER27 = argNR1(variable, expr);
 var ClearBit = class extends Statement {
   arg;
@@ -5150,7 +5159,7 @@ var ClearBit = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/clearline.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/clearline.js
 var PARSER28 = arg1R1(expr);
 var ClearLine = class extends Statement {
   arg;
@@ -5166,7 +5175,7 @@ var ClearLine = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/cleartextbox.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/cleartextbox.js
 var PARSER29 = arg0R0();
 var ClearTextBox = class extends Statement {
   constructor(raw) {
@@ -5180,7 +5189,7 @@ var ClearTextBox = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/continue.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/continue.js
 var PARSER30 = arg0R0();
 var Continue = class extends Statement {
   constructor(raw) {
@@ -5195,7 +5204,7 @@ var Continue = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/copychara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/copychara.js
 var PARSER31 = arg2R2(expr, expr);
 var CopyChara = class extends Statement {
   arg;
@@ -5210,7 +5219,7 @@ var CopyChara = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/cupcheck.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/cupcheck.js
 var PARSER32 = arg0R0();
 var CUpCheck = class extends Statement {
   constructor(raw) {
@@ -5247,7 +5256,7 @@ var CUpCheck = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/currentalign.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/currentalign.js
 var PARSER33 = arg0R0();
 var CurrentAlign = class extends Statement {
   constructor(raw) {
@@ -5261,7 +5270,7 @@ var CurrentAlign = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/currentredraw.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/currentredraw.js
 var PARSER34 = arg0R0();
 var CurrentRedraw = class extends Statement {
   constructor(raw) {
@@ -5275,7 +5284,7 @@ var CurrentRedraw = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/customdrawline.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/customdrawline.js
 var PARSER35 = arg1R1(charSeq());
 var CustomDrawLine = class extends Statement {
   arg;
@@ -5290,7 +5299,7 @@ var CustomDrawLine = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/cvarset.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/cvarset.js
 var PARSER36 = arg5R1(variable, expr, expr, expr, expr);
 var VarSet = class extends Statement {
   arg;
@@ -5324,7 +5333,7 @@ var VarSet = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/debugclear.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/debugclear.js
 var PARSER37 = arg0R0();
 var DebugClear = class extends Statement {
   constructor(raw) {
@@ -5338,7 +5347,7 @@ var DebugClear = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/delallchara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/delallchara.js
 var PARSER38 = arg0R0();
 var DelAllChara = class extends Statement {
   constructor(raw) {
@@ -5352,7 +5361,7 @@ var DelAllChara = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/delchara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/delchara.js
 var PARSER39 = argNR0(expr);
 var DelChara = class extends Statement {
   arg;
@@ -5377,7 +5386,7 @@ var DelChara = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/deldata.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/deldata.js
 var PARSER40 = arg1R1(expr);
 var DelData = class extends Statement {
   arg;
@@ -5393,7 +5402,7 @@ var DelData = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/drawline.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/drawline.js
 var PARSER41 = arg0R0();
 var DrawLine = class extends Statement {
   constructor(raw) {
@@ -5406,7 +5415,7 @@ var DrawLine = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/drawlineform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/drawlineform.js
 var PARSER42 = arg1R1(form[""]);
 var DrawLineForm = class extends Statement {
   arg;
@@ -5421,7 +5430,7 @@ var DrawLineForm = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/dumprand.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/dumprand.js
 var PARSER43 = arg0R0();
 var DumpRand = class extends Statement {
   constructor(raw) {
@@ -5435,7 +5444,7 @@ var DumpRand = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/encodetouni.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/encodetouni.js
 var PARSER44 = arg1R1(form[""]);
 var EncodeToUni = class extends Statement {
   arg;
@@ -5455,7 +5464,7 @@ var EncodeToUni = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/escape.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/escape.js
 var PARSER45 = arg1R1(expr);
 var Escape = class extends Statement {
   arg;
@@ -5485,7 +5494,7 @@ var Escape = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/fontbold.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/fontbold.js
 var PARSER46 = arg0R0();
 var FontBold = class extends Statement {
   constructor(raw) {
@@ -5499,7 +5508,7 @@ var FontBold = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/fontitalic.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/fontitalic.js
 var PARSER47 = arg0R0();
 var FontItalic = class extends Statement {
   constructor(raw) {
@@ -5513,7 +5522,7 @@ var FontItalic = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/fontregular.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/fontregular.js
 var PARSER48 = arg0R0();
 var FontRegular = class extends Statement {
   constructor(raw) {
@@ -5530,7 +5539,7 @@ var FontRegular = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/fontstyle.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/fontstyle.js
 var PARSER49 = arg1R1(expr);
 var FontStyle = class extends Statement {
   arg;
@@ -5549,7 +5558,7 @@ var FontStyle = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/forcewait.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/forcewait.js
 var PARSER50 = arg0R0();
 var ForceWait = class extends Statement {
   constructor(raw) {
@@ -5557,13 +5566,13 @@ var ForceWait = class extends Statement {
     tryParse(PARSER50, raw);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
-  async *run() {
-    throw notImpl("FORCEWAIT");
+  async *run(vm2) {
+    yield* vm2.printer.wait(true);
     return null;
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/getexplv.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/getexplv.js
 var PARSER51 = arg2R2(expr, expr);
 var GetExpLv = class extends Statement {
   arg;
@@ -5589,7 +5598,7 @@ var GetExpLv = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/getfont.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/getfont.js
 var PARSER52 = arg0R0();
 var GetFont = class extends Statement {
   constructor(raw) {
@@ -5604,7 +5613,7 @@ var GetFont = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/getmillisecond.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/getmillisecond.js
 var import_dayjs = __toESM(require_dayjs_min());
 var UNIX_EPOCH = 719162 * 24 * 60 * 60;
 var PARSER53 = arg0R0();
@@ -5621,7 +5630,7 @@ var GetMillisecond = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/getpalamlv.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/getpalamlv.js
 var PARSER54 = arg2R2(expr, expr);
 var GetPalamLv = class extends Statement {
   arg;
@@ -5647,7 +5656,7 @@ var GetPalamLv = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/getsecond.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/getsecond.js
 var import_dayjs2 = __toESM(require_dayjs_min());
 var UNIX_EPOCH2 = 719162 * 24 * 60 * 60;
 var PARSER55 = arg0R0();
@@ -5664,7 +5673,7 @@ var GetSecond = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/getstyle.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/getstyle.js
 var PARSER56 = arg0R0();
 var GetStyle = class extends Statement {
   constructor(raw) {
@@ -5678,7 +5687,7 @@ var GetStyle = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/gettime.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/gettime.js
 var import_dayjs3 = __toESM(require_dayjs_min());
 var PARSER57 = arg0R0();
 var GetTime = class extends Statement {
@@ -5695,7 +5704,7 @@ var GetTime = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/goto.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/goto.js
 var PARSER58 = arg1R1(Identifier);
 var Goto = class _Goto extends Statement {
   static *exec(vm2, target) {
@@ -5719,7 +5728,7 @@ var Goto = class _Goto extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/gotoform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/gotoform.js
 var PARSER59 = arg1R1(form[""]);
 var GotoForm = class extends Statement {
   arg;
@@ -5741,7 +5750,7 @@ var GotoForm = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/input.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/input.js
 var PARSER60 = arg1R0(Int);
 var Input = class extends Statement {
   arg;
@@ -5764,7 +5773,7 @@ var Input = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/inputs.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/inputs.js
 var PARSER61 = arg1R0(charSeq());
 var InputS = class extends Statement {
   arg;
@@ -5785,7 +5794,7 @@ var InputS = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/initrand.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/initrand.js
 var PARSER62 = arg0R0();
 var InitRand = class extends Statement {
   constructor(raw) {
@@ -5799,7 +5808,7 @@ var InitRand = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/invertbit.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/invertbit.js
 var PARSER63 = argNR1(variable, expr);
 var InvertBit = class extends Statement {
   arg;
@@ -5826,7 +5835,7 @@ var InvertBit = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/isactive.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/isactive.js
 var PARSER64 = arg0R0();
 var IsActive = class extends Statement {
   constructor(raw) {
@@ -5840,7 +5849,7 @@ var IsActive = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/isskip.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/isskip.js
 var PARSER65 = arg0R0();
 var IsSkip = class extends Statement {
   constructor(raw) {
@@ -5854,7 +5863,7 @@ var IsSkip = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/jump.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/jump.js
 var Jump = class _Jump extends Statement {
   static async *exec(vm2, target, argExpr) {
     const realTarget = target.toUpperCase();
@@ -5900,7 +5909,7 @@ var Jump = class _Jump extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/jumpform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/jumpform.js
 var JumpForm = class extends Statement {
   arg;
   constructor(raw) {
@@ -5914,7 +5923,7 @@ var JumpForm = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/int-2d.js
+// .my_agent_remote/undercrow__eraJS/build/value/int-2d.js
 var Int2DValue = class _Int2DValue {
   type = "number";
   name;
@@ -5984,7 +5993,7 @@ var Int2DValue = class _Int2DValue {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/int-3d.js
+// .my_agent_remote/undercrow__eraJS/build/value/int-3d.js
 var Int3DValue = class _Int3DValue {
   type = "number";
   name;
@@ -6064,7 +6073,7 @@ var Int3DValue = class _Int3DValue {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/loaddata.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/loaddata.js
 var PARSER66 = arg1R1(expr);
 var LoadData = class extends Statement {
   arg;
@@ -6157,7 +6166,7 @@ var LoadData = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/loadgame.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/loadgame.js
 var PARSER67 = arg0R0();
 var LoadGame = class extends Statement {
   constructor(raw) {
@@ -6173,7 +6182,7 @@ var LoadGame = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/loadglobal.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/loadglobal.js
 var PARSER68 = arg0R0();
 var LoadGlobal = class extends Statement {
   constructor(raw) {
@@ -6222,7 +6231,7 @@ var LoadGlobal = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/method.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/method.js
 var PARSER69 = argNR0(expr);
 var Method = class extends Statement {
   name;
@@ -6386,7 +6395,7 @@ var Method = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/mouseskip.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/mouseskip.js
 var PARSER70 = arg0R0();
 var MouseSkip = class extends Statement {
   constructor(raw) {
@@ -6400,7 +6409,7 @@ var MouseSkip = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/mousex.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/mousex.js
 var PARSER71 = arg0R0();
 var MouseX = class extends Statement {
   constructor(raw) {
@@ -6414,7 +6423,7 @@ var MouseX = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/mousey.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/mousey.js
 var PARSER72 = arg0R0();
 var MouseY = class extends Statement {
   constructor(raw) {
@@ -6428,7 +6437,7 @@ var MouseY = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/oneinput.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/oneinput.js
 var PARSER73 = arg1R0(Int);
 var OneInput = class extends Statement {
   arg;
@@ -6452,7 +6461,7 @@ var OneInput = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/oneinputs.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/oneinputs.js
 var PARSER74 = arg1R0(charSeq());
 var OneInputS = class extends Statement {
   arg;
@@ -6473,7 +6482,7 @@ var OneInputS = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/outputlog.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/outputlog.js
 var PARSER75 = arg0R0();
 var OutputLog = class extends Statement {
   constructor(raw) {
@@ -6487,7 +6496,7 @@ var OutputLog = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/pickupchara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/pickupchara.js
 var PARSER76 = argNR1(expr, expr);
 var PickupChara = class extends Statement {
   arg;
@@ -6529,7 +6538,7 @@ var PickupChara = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/print.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/print.js
 var PARSER77 = arg1R0(charSeq()).map((str) => str ?? "");
 var Print = class extends Statement {
   flags;
@@ -6548,7 +6557,7 @@ var Print = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/printbutton.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/printbutton.js
 var PARSER78 = arg2R2(expr, expr);
 var PrintButton = class extends Statement {
   align;
@@ -6568,7 +6577,7 @@ var PrintButton = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/printc.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/printc.js
 var PARSER79 = arg1R0(charSeq()).map((str) => str ?? "");
 var PrintC = class extends Statement {
   align;
@@ -6590,7 +6599,7 @@ var PrintC = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/printcperline.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/printcperline.js
 var PARSER80 = arg0R0();
 var PrintCPerLine = class extends Statement {
   constructor(raw) {
@@ -6604,7 +6613,7 @@ var PrintCPerLine = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/printdata.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/printdata.js
 var DATA = /^DATA(\s+|$)/i;
 var DATAFORM = /^DATAFORM\s+/i;
 var DATAFORM_EMPTY = /^DATAFORM$/i;
@@ -6656,7 +6665,7 @@ var PrintData = class _PrintData extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/printform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/printform.js
 var PARSER81 = arg1R0(form[""]).map((form2) => form2 ?? new Form([{ value: "" }]));
 var PrintForm = class extends Statement {
   flags;
@@ -6678,7 +6687,7 @@ var PrintForm = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/printformc.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/printformc.js
 var PARSER82 = arg1R0(form[""]).map((form2) => form2 ?? new Form([{ value: "" }]));
 var PrintFormC = class extends Statement {
   align;
@@ -6700,7 +6709,7 @@ var PrintFormC = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/printforms.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/printforms.js
 var PARSER83 = arg1R1(expr);
 var PrintFormS = class extends Statement {
   flags;
@@ -6723,7 +6732,7 @@ var PrintFormS = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/print_palam.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/print_palam.js
 var PARSER84 = arg1R1(expr);
 var PrintPalam = class extends Statement {
   arg;
@@ -6745,6 +6754,7 @@ var PrintPalam = class extends Statement {
         validName.push(name);
       }
     }
+    const clampCells = (filled) => Math.max(0, Math.min(10, filled));
     for (let i = 0; i < validName.length; ++i) {
       const name = validName[i];
       const value = vm2.getValue("PALAM").get(vm2, [Number(index), i]);
@@ -6759,16 +6769,16 @@ var PrintPalam = class extends Statement {
       if (value >= palamLv[4]) {
         text += "[" + "*".repeat(10) + "]";
       } else if (value >= palamLv[3]) {
-        const filled = Number(10n * value / palamLv[4]);
+        const filled = clampCells(Number(10n * value / palamLv[4]));
         text += "[" + "*".repeat(filled) + ".".repeat(10 - filled) + "]";
       } else if (value >= palamLv[2]) {
-        const filled = Number(10n * value / palamLv[3]);
+        const filled = clampCells(Number(10n * value / palamLv[3]));
         text += "[" + ">".repeat(filled) + ".".repeat(10 - filled) + "]";
       } else if (value >= palamLv[1]) {
-        const filled = Number(10n * value / palamLv[2]);
+        const filled = clampCells(Number(10n * value / palamLv[2]));
         text += "[" + "=".repeat(filled) + ".".repeat(10 - filled) + "]";
       } else {
-        const filled = Number(10n * value / palamLv[1]);
+        const filled = clampCells(Number(10n * value / palamLv[1]));
         text += "[" + "-".repeat(filled) + ".".repeat(10 - filled) + "]";
       }
       text += value.toString();
@@ -6782,7 +6792,7 @@ var PrintPalam = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/printplain.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/printplain.js
 var PARSER_CONST2 = arg1R0(charSeq()).map((str) => new Const(str ?? ""));
 var PARSER_FORM2 = arg1R0(form[""]).map((form2) => form2 ?? new Const(""));
 var PrintPlain = class extends Statement {
@@ -6810,7 +6820,7 @@ var PrintPlain = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/prints.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/prints.js
 var PARSER85 = arg1R1(expr);
 var PrintS = class extends Statement {
   flags;
@@ -6831,7 +6841,7 @@ var PrintS = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/print_shopitem.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/print_shopitem.js
 var PARSER86 = arg0R0();
 var PrintShopItem = class extends Statement {
   constructor(raw) {
@@ -6866,7 +6876,7 @@ var PrintShopItem = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/printv.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/printv.js
 var import_parsimmon10 = __toESM(require_parsimmon_umd_min());
 var PARSER87 = argNR0(import_parsimmon10.default.alt(import_parsimmon10.default.string("'").then(charSeq(",").map((str) => new Const(str))), expr));
 var PrintV = class extends Statement {
@@ -6890,7 +6900,7 @@ var PrintV = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/putform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/putform.js
 var PARSER88 = arg1R1(form[""]);
 var PutForm = class extends Statement {
   arg;
@@ -6907,7 +6917,7 @@ var PutForm = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/quit.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/quit.js
 var PARSER89 = arg0R0();
 var Quit = class extends Statement {
   constructor(raw) {
@@ -6922,7 +6932,7 @@ var Quit = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/randomize.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/randomize.js
 var PARSER90 = arg1R1(expr);
 var Randomize = class extends Statement {
   arg;
@@ -6938,7 +6948,7 @@ var Randomize = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/redraw.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/redraw.js
 var PARSER91 = arg1R1(expr);
 var Redraw = class extends Statement {
   arg;
@@ -6970,7 +6980,7 @@ var Redraw = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/resetbgcolor.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/resetbgcolor.js
 var PARSER92 = arg0R0();
 var ResetBgColor = class extends Statement {
   constructor(raw) {
@@ -6984,7 +6994,7 @@ var ResetBgColor = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/resetcolor.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/resetcolor.js
 var PARSER93 = arg0R0();
 var ResetColor = class extends Statement {
   constructor(raw) {
@@ -6998,7 +7008,7 @@ var ResetColor = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/resetdata.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/resetdata.js
 var PARSER94 = arg0R0();
 var ResetData = class extends Statement {
   constructor(raw) {
@@ -7011,7 +7021,7 @@ var ResetData = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/resetglobal.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/resetglobal.js
 var PARSER95 = arg0R0();
 var ResetGlobal = class extends Statement {
   constructor(raw) {
@@ -7025,7 +7035,7 @@ var ResetGlobal = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/reset_stain.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/reset_stain.js
 var PARSER96 = arg1R1(expr);
 var ResetStain = class extends Statement {
   arg;
@@ -7043,7 +7053,7 @@ var ResetStain = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/restart.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/restart.js
 var PARSER97 = arg0R0();
 var Restart = class extends Statement {
   constructor(raw) {
@@ -7059,7 +7069,7 @@ var Restart = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/return.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/return.js
 var PARSER98 = argNR0(expr);
 var Return = class extends Statement {
   arg;
@@ -7079,7 +7089,7 @@ var Return = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/returnf.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/returnf.js
 var PARSER99 = arg1R1(expr);
 var ReturnF = class extends Statement {
   arg;
@@ -7095,7 +7105,7 @@ var ReturnF = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/reuselastline.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/reuselastline.js
 var PARSER100 = arg1R0(form[""]);
 var ReuseLastLine = class extends Statement {
   arg;
@@ -7112,7 +7122,7 @@ var ReuseLastLine = class extends Statement {
   }
 };
 
-// compact-save.mjs
+// tools/web-engine-probe/compact-save.mjs
 function compactIntegers(value, shape, depth = 0) {
   if (!Array.isArray(shape) || depth >= shape.length) throw new Error("Missing integer save shape");
   const source = (depth === 0 && shape.length === 1 ? pagedDenseBacking(value) : null) ?? value;
@@ -7132,7 +7142,7 @@ function compactIntegers(value, shape, depth = 0) {
   return result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/property/dim.js
+// .my_agent_remote/undercrow__eraJS/build/property/dim.js
 var Dim = class {
   name;
   type;
@@ -7242,7 +7252,7 @@ var Dim = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/savedata.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/savedata.js
 var whitelist = [
   "DAY",
   "MONEY",
@@ -7402,7 +7412,7 @@ var SaveData = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/savegame.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/savegame.js
 var PARSER102 = arg0R0();
 var SaveGame = class extends Statement {
   constructor(raw) {
@@ -7418,7 +7428,7 @@ var SaveGame = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/saveglobal.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/saveglobal.js
 var PARSER103 = arg0R0();
 var SaveGlobal = class extends Statement {
   constructor(raw) {
@@ -7457,7 +7467,7 @@ var SaveGlobal = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/setbgcolor.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/setbgcolor.js
 var import_parsimmon11 = __toESM(require_parsimmon_umd_min());
 var PARSER104 = import_parsimmon11.default.alt(arg3R3(expr, expr, expr), arg1R1(expr));
 var SetBgColor = class extends Statement {
@@ -7487,7 +7497,7 @@ var SetBgColor = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/setbgcolorbyname.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/setbgcolorbyname.js
 var PARSER105 = arg1R1(charSeq());
 var SetBgColorByName = class extends Statement {
   arg;
@@ -7502,7 +7512,7 @@ var SetBgColorByName = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/setbit.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/setbit.js
 var PARSER106 = argNR1(variable, expr);
 var SetBit = class extends Statement {
   arg;
@@ -7530,7 +7540,7 @@ var SetBit = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/setcolor.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/setcolor.js
 var import_parsimmon12 = __toESM(require_parsimmon_umd_min());
 var PARSER107 = import_parsimmon12.default.alt(arg3R3(expr, expr, expr), arg1R1(expr));
 var SetColor = class extends Statement {
@@ -7560,7 +7570,7 @@ var SetColor = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/setcolorbyname.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/setcolorbyname.js
 var PARSER108 = arg1R1(charSeq());
 var SetColorByName = class extends Statement {
   arg;
@@ -7575,7 +7585,7 @@ var SetColorByName = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/setfont.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/setfont.js
 var PARSER109 = arg1R0(expr);
 var SetFont = class extends Statement {
   arg;
@@ -7591,7 +7601,7 @@ var SetFont = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/skipdisp.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/skipdisp.js
 var PARSER110 = arg1R1(expr);
 var SkipDisp = class extends Statement {
   arg;
@@ -7607,7 +7617,7 @@ var SkipDisp = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/sortchara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/sortchara.js
 var PARSER111 = arg2R0(variable, alt("FORWARD", "BACK"));
 var SortChara = class extends Statement {
   arg;
@@ -7679,7 +7689,7 @@ var SortChara = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/split.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/split.js
 var PARSER112 = arg3R3(expr, expr, variable);
 var Split = class extends Statement {
   arg;
@@ -7704,7 +7714,7 @@ var Split = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/stopcalltrain.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/stopcalltrain.js
 var PARSER113 = arg0R0();
 var StopCallTrain = class extends Statement {
   constructor(raw) {
@@ -7718,7 +7728,7 @@ var StopCallTrain = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/strdata.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/strdata.js
 var PARSER114 = arg0R0();
 var StrData = class extends Statement {
   constructor(raw) {
@@ -7732,7 +7742,7 @@ var StrData = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/strfind.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/strfind.js
 var PARSER115 = arg2R2(expr, expr);
 var StrFind = class extends Statement {
   arg;
@@ -7751,7 +7761,7 @@ var StrFind = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/strfindu.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/strfindu.js
 var PARSER116 = arg2R2(expr, expr);
 var StrFindU = class extends Statement {
   arg;
@@ -7770,7 +7780,7 @@ var StrFindU = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/strlen.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/strlen.js
 var PARSER117 = arg1R1(charSeq());
 var StrLen = class extends Statement {
   arg;
@@ -7787,7 +7797,7 @@ var StrLen = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/strlenform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/strlenform.js
 var PARSER118 = arg1R1(form[""]);
 var StrLenForm = class extends Statement {
   arg;
@@ -7803,7 +7813,7 @@ var StrLenForm = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/strlenformu.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/strlenformu.js
 var PARSER119 = arg1R1(form[""]);
 var StrLenFormU = class extends Statement {
   arg;
@@ -7819,7 +7829,7 @@ var StrLenFormU = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/strlenu.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/strlenu.js
 var PARSER120 = arg1R1(charSeq());
 var StrLen2 = class extends Statement {
   arg;
@@ -7836,7 +7846,7 @@ var StrLen2 = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/substring.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/substring.js
 var PARSER121 = arg3R3(expr, expr, expr);
 var Substring = class extends Statement {
   arg;
@@ -7861,7 +7871,7 @@ var Substring = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/substringu.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/substringu.js
 var PARSER122 = arg3R3(expr, expr, expr);
 var SubstringU = class extends Statement {
   arg;
@@ -7886,7 +7896,7 @@ var SubstringU = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/swap.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/swap.js
 var PARSER123 = arg2R2(variable, variable);
 var Swap = class extends Statement {
   arg;
@@ -7908,7 +7918,7 @@ var Swap = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/swapchara.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/swapchara.js
 var PARSER124 = arg2R2(expr, expr);
 var SwapChara = class extends Statement {
   arg;
@@ -7929,7 +7939,7 @@ var SwapChara = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/throw.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/throw.js
 var PARSER125 = arg1R1(form[""]);
 var Throw = class extends Statement {
   arg;
@@ -7947,7 +7957,7 @@ var Throw = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/times.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/times.js
 var PARSER126 = arg2R2(variable, Float);
 var Times = class extends Statement {
   arg;
@@ -7975,7 +7985,7 @@ var Times = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/tinput.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/tinput.js
 var PARSER127 = arg4R2(expr, expr, expr, charSeq());
 var TInput = class extends Statement {
   arg;
@@ -8007,7 +8017,7 @@ var TInput = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/tinputs.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/tinputs.js
 var PARSER128 = arg4R2(expr, expr, expr, charSeq());
 var TInputS = class extends Statement {
   arg;
@@ -8039,7 +8049,7 @@ var TInputS = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/toneinput.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/toneinput.js
 var PARSER129 = arg4R2(expr, expr, expr, charSeq());
 var TOneInput = class extends Statement {
   arg;
@@ -8071,7 +8081,7 @@ var TOneInput = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/toneinputs.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/toneinputs.js
 var PARSER130 = arg4R2(expr, expr, expr, charSeq());
 var TOneInputS = class extends Statement {
   arg;
@@ -8103,7 +8113,7 @@ var TOneInputS = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/trycall.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/trycall.js
 var TryCall = class extends Statement {
   arg;
   constructor(raw) {
@@ -8120,7 +8130,7 @@ var TryCall = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/trycallform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/trycallform.js
 var TryCallForm = class extends Statement {
   arg;
   constructor(raw) {
@@ -8137,7 +8147,7 @@ var TryCallForm = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/tryccall.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/tryccall.js
 var CATCH = /^CATCH$/i;
 var ENDCATCH = /^ENDCATCH$/i;
 var TryCCall = class _TryCCall extends Statement {
@@ -8176,7 +8186,7 @@ var TryCCall = class _TryCCall extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/tryccallform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/tryccallform.js
 var CATCH2 = /^CATCH$/i;
 var ENDCATCH2 = /^ENDCATCH$/i;
 var TryCCallForm = class _TryCCallForm extends Statement {
@@ -8215,7 +8225,7 @@ var TryCCallForm = class _TryCCallForm extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/trycgoto.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/trycgoto.js
 var CATCH3 = /^CATCH$/i;
 var ENDCATCH3 = /^ENDCATCH$/i;
 var PARSER131 = arg1R1(Identifier);
@@ -8250,7 +8260,7 @@ var TryCGoto = class _TryCGoto extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/trycgotoform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/trycgotoform.js
 var CATCH4 = /^CATCH$/i;
 var ENDCATCH4 = /^ENDCATCH$/i;
 var PARSER132 = arg1R1(form[""]);
@@ -8285,7 +8295,7 @@ var TryCGotoForm = class _TryCGotoForm extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/trycjump.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/trycjump.js
 var CATCH5 = /^CATCH$/i;
 var ENDCATCH5 = /^ENDCATCH$/i;
 var TryCJump = class _TryCJump extends Statement {
@@ -8319,7 +8329,7 @@ var TryCJump = class _TryCJump extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/trycjumpform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/trycjumpform.js
 var CATCH6 = /^CATCH$/i;
 var ENDCATCH6 = /^ENDCATCH$/i;
 var TryCJumpForm = class _TryCJumpForm extends Statement {
@@ -8353,7 +8363,7 @@ var TryCJumpForm = class _TryCJumpForm extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/trygoto.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/trygoto.js
 var PARSER133 = arg1R1(Identifier);
 var TryGoto = class extends Statement {
   arg;
@@ -8372,7 +8382,7 @@ var TryGoto = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/trygotoform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/trygotoform.js
 var PARSER134 = arg1R1(form[""]);
 var TryGotoForm = class _TryGotoForm extends Statement {
   static parse(arg) {
@@ -8393,7 +8403,7 @@ var TryGotoForm = class _TryGotoForm extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/tryjump.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/tryjump.js
 var TryJump = class extends Statement {
   arg;
   constructor(raw) {
@@ -8410,7 +8420,7 @@ var TryJump = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/tryjumpform.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/tryjumpform.js
 var TryJumpForm = class extends Statement {
   arg;
   constructor(raw) {
@@ -8427,7 +8437,7 @@ var TryJumpForm = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/upcheck.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/upcheck.js
 var PARSER135 = arg0R0();
 var UpCheck = class extends Statement {
   constructor(raw) {
@@ -8464,7 +8474,7 @@ var UpCheck = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/varset.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/varset.js
 var PARSER136 = arg4R1(variable, expr, expr, expr);
 var VarSet2 = class extends Statement {
   arg;
@@ -8494,7 +8504,7 @@ var VarSet2 = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/wait.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/wait.js
 var PARSER137 = arg0R0();
 var Wait = class extends Statement {
   constructor(raw) {
@@ -8507,7 +8517,7 @@ var Wait = class extends Statement {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/statement/command/waitanykey.js
+// .my_agent_remote/undercrow__eraJS/build/statement/command/waitanykey.js
 var PARSER138 = arg0R0();
 var WaitAnyKey = class extends Statement {
   constructor(raw) {
@@ -8515,13 +8525,13 @@ var WaitAnyKey = class extends Statement {
     tryParse(PARSER138, raw);
   }
   // eslint-disable-next-line @typescript-eslint/require-await
-  async *run() {
-    throw notImpl("WAITANYKEY");
+  async *run(vm2) {
+    yield* vm2.printer.wait(true);
     return null;
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/parser/preprocess.js
+// .my_agent_remote/undercrow__eraJS/build/parser/preprocess.js
 function normalize(raw) {
   if (raw.startsWith("\uFEFF") || raw.startsWith("\uFFEF")) {
     return raw.slice(1);
@@ -8601,10 +8611,10 @@ function preprocess(lines, macros) {
   return fn.reduce((acc, val) => val(acc), lines);
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/parser/property.js
+// .my_agent_remote/undercrow__eraJS/build/parser/property.js
 var import_parsimmon13 = __toESM(require_parsimmon_umd_min());
 
-// ../../.my_agent_remote/undercrow__eraJS/build/property/define.js
+// .my_agent_remote/undercrow__eraJS/build/property/define.js
 var Define = class {
   name;
   expr;
@@ -8614,7 +8624,7 @@ var Define = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/property/localsize.js
+// .my_agent_remote/undercrow__eraJS/build/property/localsize.js
 var LocalSize = class {
   size;
   constructor(size) {
@@ -8625,7 +8635,7 @@ var LocalSize = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/property/localssize.js
+// .my_agent_remote/undercrow__eraJS/build/property/localssize.js
 var LocalSSize = class {
   size;
   constructor(size) {
@@ -8636,15 +8646,15 @@ var LocalSSize = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/property/method.js
+// .my_agent_remote/undercrow__eraJS/build/property/method.js
 var Method2 = class {
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/property/single.js
+// .my_agent_remote/undercrow__eraJS/build/property/single.js
 var Single = class {
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/parser/property.js
+// .my_agent_remote/undercrow__eraJS/build/parser/property.js
 var parser2 = import_parsimmon13.default.string("#").then(Identifier).chain((property) => {
   switch (property.toUpperCase()) {
     case "DEFINE":
@@ -8673,7 +8683,7 @@ var parser2 = import_parsimmon13.default.string("#").then(Identifier).chain((pro
 });
 var property_default = parser2;
 
-// ../../.my_agent_remote/undercrow__eraJS/build/parser/erb.js
+// .my_agent_remote/undercrow__eraJS/build/parser/erb.js
 function parseERB(files2, macros) {
   const result = [];
   const globals = [];
@@ -9029,7 +9039,7 @@ var commandParser = {
   DO: (arg, lines, from) => DoWhile.parse(arg, lines, from)
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/parser/erh.js
+// .my_agent_remote/undercrow__eraJS/build/parser/erh.js
 function parseERH(files2, macros) {
   const result = [];
   for (const [name, content] of files2) {
@@ -9045,7 +9055,7 @@ function parseERH(files2, macros) {
   return result;
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/printer.js
+// .my_agent_remote/undercrow__eraJS/build/printer.js
 var import_parsimmon15 = __toESM(require_parsimmon_umd_min());
 var nonButton = import_parsimmon15.default.noneOf("[").many().tie();
 var coreButton = import_parsimmon15.default.regex(/\[\s*[0-9]+\s*\]/);
@@ -9244,7 +9254,7 @@ var Printer = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/random.js
+// .my_agent_remote/undercrow__eraJS/build/random.js
 var PRNG = class {
   state;
   constructor() {
@@ -9260,7 +9270,7 @@ var PRNG = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/scene.js
+// .my_agent_remote/undercrow__eraJS/build/scene.js
 var import_dayjs4 = __toESM(require_dayjs_min());
 var FILE = "BUILTIN.ERB";
 async function* runScene(vm2, scene) {
@@ -9553,7 +9563,7 @@ async function* LOADGAME(vm2) {
   });
 }
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/special/charanum.js
+// .my_agent_remote/undercrow__eraJS/build/value/special/charanum.js
 var CharaNumValue = class {
   type = "number";
   name = "CHARANUM";
@@ -9583,7 +9593,7 @@ var CharaNumValue = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/special/linecount.js
+// .my_agent_remote/undercrow__eraJS/build/value/special/linecount.js
 var LineCountValue = class {
   type = "number";
   name = "LINECOUNT";
@@ -9613,7 +9623,7 @@ var LineCountValue = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value/special/rand.js
+// .my_agent_remote/undercrow__eraJS/build/value/special/rand.js
 var RandValue = class {
   type = "number";
   name = "RAND";
@@ -9638,7 +9648,7 @@ var RandValue = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/value-list.js
+// .my_agent_remote/undercrow__eraJS/build/value-list.js
 var valueList = [
   ["DAY", Int1DValue],
   ["MONEY", Int1DValue],
@@ -9784,7 +9794,7 @@ var valueList = [
 ];
 var value_list_default = valueList;
 
-// ../../.my_agent_remote/undercrow__eraJS/build/vm.js
+// .my_agent_remote/undercrow__eraJS/build/vm.js
 var EVENT = [
   "EVENTFIRST",
   "EVENTTRAIN",
@@ -10100,7 +10110,7 @@ var VM = class {
   }
 };
 
-// ../../.my_agent_remote/undercrow__eraJS/build/index.js
+// .my_agent_remote/undercrow__eraJS/build/index.js
 function compile(files2) {
   const csvFiles = /* @__PURE__ */ new Map();
   const erhFiles = /* @__PURE__ */ new Map();
@@ -10128,7 +10138,7 @@ function compile(files2) {
   return new VM({ header: mergedHeader, fnList, csv });
 }
 
-// fixture.mjs
+// tools/web-engine-probe/fixture.mjs
 var files = /* @__PURE__ */ new Map([["PROBE.ERB", `@SYSTEM_TITLE
 PRINTL \uC5D4\uC9C4 \uC2DC\uD5D8
 PRINTL [0] \uC0C8 \uC2DC\uD5D8 [1] \uC800\uC7A5 \uBD88\uB7EC\uC624\uAE30
@@ -10155,7 +10165,7 @@ PRINTFORML RESTORED:{FLAG:0}:%SAVESTR:0%:{GLOBAL:0}
 QUIT
 `]]);
 
-// browser-store.mjs
+// tools/web-engine-probe/browser-store.mjs
 function createStore(name = "era-engine-probe-v1") {
   const dbPromise = new Promise((resolve, reject) => {
     const request = indexedDB.open(name, 1);
@@ -10213,7 +10223,7 @@ function createStore(name = "era-engine-probe-v1") {
   };
 }
 
-// input-gate.mjs
+// tools/web-engine-probe/input-gate.mjs
 function createInputGate(resume, { now = Date.now, schedule = setTimeout, unschedule = clearTimeout } = {}) {
   let sequence = 0, pending = null, timer;
   function cancel() {
@@ -10264,7 +10274,7 @@ function createInputGate(resume, { now = Date.now, schedule = setTimeout, unsche
   };
 }
 
-// batch-channel.mjs
+// tools/web-engine-probe/batch-channel.mjs
 function createBatchChannel(post, { timeout = 8e3, schedule = setTimeout, unschedule = clearTimeout } = {}) {
   let nextId = 0, current = null;
   function ack(id) {
@@ -10296,7 +10306,7 @@ function createBatchChannel(post, { timeout = 8e3, schedule = setTimeout, unsche
   return { send, ack, reset, inFlight: () => Boolean(current), lastId: () => nextId };
 }
 
-// waiting-relay.mjs
+// tools/web-engine-probe/waiting-relay.mjs
 function createWaitingRelay(post, { timeout = 4e3, schedule = setTimeout, unschedule = clearTimeout } = {}) {
   let current = null;
   function cancel() {
@@ -10323,7 +10333,7 @@ function createWaitingRelay(post, { timeout = 4e3, schedule = setTimeout, unsche
   return { announce, ack, cancel, pendingId: () => current?.id ?? null };
 }
 
-// runtime-trace.mjs
+// tools/web-engine-probe/runtime-trace.mjs
 function createProgressBridge(send, timeoutMs = 1500) {
   let sequence = 0;
   const pending = /* @__PURE__ */ new Map();
@@ -10351,7 +10361,7 @@ function createProgressBridge(send, timeoutMs = 1500) {
   };
 }
 
-// engine-worker.mjs
+// tools/web-engine-probe/engine-worker.mjs
 var progress = createProgressBridge((message) => postMessage(message));
 var channel = createBatchChannel((message) => postMessage(message));
 var waitingRelay = createWaitingRelay((message) => postMessage(message));

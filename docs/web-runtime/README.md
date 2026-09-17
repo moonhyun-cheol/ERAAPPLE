@@ -24,6 +24,7 @@ PC를 켜지 않고 iPhone에서 여러 게임을 실행한다. 사용자는 Saf
 - [매니페스트 예시](package.example.json): 실행 가능한 게임 배포물이 아닌 형식 예시
 - [단계별 구현 및 합격 기준](validation-plan.md): 호환성 조사부터 실제 iPhone 오프라인 시험까지
 - [엔진 후보·실행 시험 결과](engine-evaluation.md): 고정 커밋, 재현 절차, 큰 정수 결함, 실제 게임·iPhone 미검증 범위
+- [던전 함정 진입 런타임 전수 점검](dungeon-trap-runtime-audit.md): 실제 A/B/C 함정 설치 재현, WAIT 계열·bar 계열·미구현 명령 교차 점검과 서버/PWA 회귀
 - [M1 현재 게임 재생·메모리·소유권 기준선](m1-baseline.md): 동일 입력 2회 해시 비교, 수명별 Node 메모리, 함수 코드/런타임 값 독립 ablation
 
 ## 사용 흐름

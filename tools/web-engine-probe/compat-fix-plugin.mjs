@@ -65,6 +65,38 @@
 //  11. shopInputDispatch must propagate non-return results from EVENTBUY and
 //      USERSHOP (BEGIN SAVEGAME / TRAIN / etc.); discarding `begin` left Save
 //      looking like a no-op that redraw the shop/menu.
+//  12. WAITANYKEY was a notImpl stub (throw). Emuera blocks until any key,
+//      identical to WAIT with the forced flag. '에라마왕 개조판 1.28' DUNGEON_INFO2
+//      (reached via USERSHOP) issues WAITANYKEY on its trap-setup notice, so the
+//      dungeon info screen threw on entry. We mirror WAIT (wait.js) with
+//      force=true, reusing the same printer wait event the host already handles.
+//  13. BARSTR computed filled = length*value/max without clamping, so a value
+//      above max (e.g. HP over MAXHP after a buff) made length-filled negative and
+//      ".".repeat(Number(negative)) threw the native RangeError
+//      "Invalid count value: -15". Emuera clamps the filled cell count to
+//      0..length (and treats max<=0 as an empty bar). '에라마왕 개조판 1.28'
+//      CHARA_INFO (SHOW_CHARA_INFO_LIST via USERSHOP) draws HP/기력 bars, so the
+//      character list crashed on open.
+//
+//  Systematic sweep (user request: audit every path sharing the two failing
+//  logic classes, not one-off patches). Two classes were checked across the
+//  whole eraJS build tree and cross-referenced against the '에라마왕 개조판 1.28'
+//  ERB (274 files):
+//    A) Unclamped String.repeat bar math. Besides method/barstr.js (#13), the
+//       identical defect lives in command/bar.js (BAR/BARL — 43+7 sites), and
+//       command/barstr.js. PRINT_PALAM is used by TRAIN_MAIN and can receive a
+//       negative PALAM after SYSTEM_SOURCE subtracts DOWN, producing repeat(-n).
+//       Fixes #14-#16 clamp every bar renderer. expr/binary.js string `*` was
+//       also inspected: this game uses it only with the positive constant 18,
+//       so changing its general semantics would be speculative and is omitted.
+//    B) notImpl stubs. Of 25 stubs, lexical command-site intersection finds only
+//       WAITANYKEY (1 site), FORCEWAIT (5 sites, including DUNGEON.ERB:60), and
+//       ADDVOIDCHARA (CHAR_MAKE.ERB:2123). The other 22 are not referenced by
+//       this game and remain untouched. Fix #17 implements FORCEWAIT through the
+//       existing forced printer wait path. Fix #18 appends a template-less blank
+//       Character for ADDVOIDCHARA; Character already allocates every configured
+//       character variable, then skips template initialization for this one case.
+
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -80,6 +112,14 @@ const vmHash = '18fe5bb4ebe0d48a588a410f71472d5d629bfd95c54c200e09b4d36b960779f1
 const redrawHash = '70235a17b2e8fb3224b1d9858bf63e16870d0a9a5814af7c7aa1f21fbca6792e';
 const printShopItemHash = 'ee1437554e5bdbcdb5627e7a825976f16f0902439335adf62f9ed63c7a1f2a0f';
 const jumpHash = '44be9d80708a3eaf772cf1c78ef17ab5e009c6e05f2fdaab0cd50138ba6d72c8';
+const waitAnyKeyHash = 'e13d474af3c246f088602c5ccafbf50934e9bcbdd9581eb8396846cb4ad739dc';
+const barStrHash = '495219343ac8322953b35f2136b90f58c49772270f82df716e8086912a80841f';
+const barCmdHash = 'c42c14d970197806043ae91ff9eb07f067dd223f968cd2584391d63116f3ff0c';
+const barStrCmdHash = 'e35c701eeb472eb85b681748e16ce7bff811a4d1b0f3549e271201d31c377a33';
+const forceWaitHash = 'd229047195a23d38a4b407c1311011ded1d055afeea78928822ffba038868f3f';
+const printPalamHash = '4367780c0d4571c8a6cd33dc91fa8869ccff6f4a57be170027b5dd59a41f8d07';
+const characterHash = '793716d4e5b3970c3944948c79e262a072323202b3e4a2dfe593e25930043b49';
+const addVoidCharaHash = '3e5bf82b5438046b0b93ab3e694782715907281886d997151d866b1f47d4abcc';
 
 // Manual save/load scenes appended to scene.js (see fix #6). Kept as a literal so
 // the generated source stays plain concatenation (no nested template/backticks)
@@ -574,6 +614,154 @@ export function transformIndexSource(source) {
   return r.result();
 }
 
+export function transformWaitAnyKeySource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== waitAnyKeyHash) throw new Error(`Compat fix source fingerprint mismatch: waitanykey.js (${digest})`);
+  const r = makeReplace('Compat waitanykey.js', source);
+  // Fix #12: implement WAITANYKEY as WAIT with force=true (blocks for any key).
+  r.apply(
+    `    async *run() {
+        throw E.notImpl("WAITANYKEY");
+        return null;
+    }`,
+    `    async *run(vm) {
+        yield* vm.printer.wait(true);
+        return null;
+    }`);
+  return r.result();
+}
+
+export function transformBarStrSource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== barStrHash) throw new Error(`Compat fix source fingerprint mismatch: barstr.js (${digest})`);
+  const r = makeReplace('Compat barstr.js', source);
+  // Fix #13: clamp the filled cell count to 0..length (and empty bar for max<=0)
+  // so an out-of-range value no longer produces a negative String.repeat count.
+  r.apply(
+    `    const filled = length * value / max;
+    return "[" + "*".repeat(Number(filled)) + ".".repeat(Number(length - filled)) + "]";`,
+    `    const safeLength = length < 0n ? 0n : length;
+    let filled = max <= 0n ? 0n : safeLength * value / max;
+    if (filled < 0n) filled = 0n;
+    if (filled > safeLength) filled = safeLength;
+    return "[" + "*".repeat(Number(filled)) + ".".repeat(Number(safeLength - filled)) + "]";`);
+  return r.result();
+}
+
+export function transformBarCommandSource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== barCmdHash) throw new Error(`Compat fix source fingerprint mismatch: command/bar.js (${digest})`);
+  const r = makeReplace('Compat command/bar.js', source);
+  // Fix #14: BAR and BARL share this class. Clamp the rendered cell range just
+  // like BARSTR so over-max/negative state cannot reach native String.repeat.
+  r.apply(
+    `        const filled = length * value / max;
+        const text = "[" + "*".repeat(Number(filled)) + ".".repeat(Number(length - filled)) + "]";`,
+    `        const safeLength = length < 0n ? 0n : length;
+        let filled = max <= 0n ? 0n : safeLength * value / max;
+        if (filled < 0n) filled = 0n;
+        if (filled > safeLength) filled = safeLength;
+        const text = "[" + "*".repeat(Number(filled)) + ".".repeat(Number(safeLength - filled)) + "]";`);
+  return r.result();
+}
+
+export function transformBarStrCommandSource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== barStrCmdHash) throw new Error(`Compat fix source fingerprint mismatch: command/barstr.js (${digest})`);
+  const r = makeReplace('Compat command/barstr.js', source);
+  // Fix #15: statement-form BARSTR writes RESULTS but uses the same bar math.
+  r.apply(
+    `        const filled = length * value / max;
+        const result = "[" + "*".repeat(Number(filled)) + ".".repeat(Number(length - filled)) + "]";`,
+    `        const safeLength = length < 0n ? 0n : length;
+        let filled = max <= 0n ? 0n : safeLength * value / max;
+        if (filled < 0n) filled = 0n;
+        if (filled > safeLength) filled = safeLength;
+        const result = "[" + "*".repeat(Number(filled)) + ".".repeat(Number(safeLength - filled)) + "]";`);
+  return r.result();
+}
+
+export function transformPrintPalamSource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== printPalamHash) throw new Error(`Compat fix source fingerprint mismatch: print_palam.js (${digest})`);
+  const r = makeReplace('Compat print_palam.js', source);
+  // Fix #16: SYSTEM_SOURCE can subtract DOWN past zero before TRAIN_MAIN calls
+  // PRINT_PALAM. Keep every ten-cell branch inside 0..10.
+  r.apply(
+    `        for (let i = 0; i < validName.length; ++i) {`,
+    `        const clampCells = (filled) => Math.max(0, Math.min(10, filled));
+        for (let i = 0; i < validName.length; ++i) {`);
+  r.apply('const filled = Number(10n * value / palamLv[4]);', 'const filled = clampCells(Number(10n * value / palamLv[4]));');
+  r.apply('const filled = Number(10n * value / palamLv[3]);', 'const filled = clampCells(Number(10n * value / palamLv[3]));');
+  r.apply('const filled = Number(10n * value / palamLv[2]);', 'const filled = clampCells(Number(10n * value / palamLv[2]));');
+  r.apply('const filled = Number(10n * value / palamLv[1]);', 'const filled = clampCells(Number(10n * value / palamLv[1]));');
+  return r.result();
+}
+
+export function transformForceWaitSource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== forceWaitHash) throw new Error(`Compat fix source fingerprint mismatch: forcewait.js (${digest})`);
+  const r = makeReplace('Compat forcewait.js', source);
+  // Fix #17: FORCEWAIT is the forced form of WAIT (the same path as TWAIT's
+  // non-zero force argument), used at five actual game sites.
+  r.apply(
+    `    async *run() {
+        throw E.notImpl("FORCEWAIT");
+        return null;
+    }`,
+    `    async *run(vm) {
+        yield* vm.printer.wait(true);
+        return null;
+    }`);
+  return r.result();
+}
+
+export function transformCharacterSource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== characterHash) throw new Error(`Compat fix source fingerprint mismatch: character.js (${digest})`);
+  const r = makeReplace('Compat character.js', source);
+  // Fix #18 support: a void character owns all configured character variables,
+  // initialized to their normal zero/empty defaults, but has no CSV template.
+  r.apply(
+    `        }
+        this.getValue("NO").reset(template.no);`,
+    `        }
+        if (template == null) {
+            return;
+        }
+        this.getValue("NO").reset(template.no);`);
+  return r.result();
+}
+
+export function transformAddVoidCharaSource(source) {
+  source = source.replaceAll('\r\n', '\n');
+  const digest = createHash('sha256').update(source).digest('hex');
+  if (digest !== addVoidCharaHash) throw new Error(`Compat fix source fingerprint mismatch: addvoidchara.js (${digest})`);
+  const r = makeReplace('Compat addvoidchara.js', source);
+  r.apply(
+    `import * as E from "../../error";
+import * as U from "../../parser/util";`,
+    `import Character from "../../character";
+import * as U from "../../parser/util";`);
+  r.apply(
+    `    async *run() {
+        throw E.notImpl("ADDVOIDCHARA");
+        return null;
+    }`,
+    `    async *run(vm) {
+        vm.characterList.push(new Character(vm, null));
+        return null;
+    }`);
+  return r.result();
+}
+
 export function compatFixPlugin(engine) {
   return { name: 'era-compat-fix-v1', setup(build) {
     build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]case\.js$/ }, async args => ({
@@ -618,6 +806,38 @@ export function compatFixPlugin(engine) {
     }));
     build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]jump\.js$/ }, async args => ({
       contents: transformJumpSource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]waitanykey\.js$/ }, async args => ({
+      contents: transformWaitAnyKeySource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]method[\\/]barstr\.js$/ }, async args => ({
+      contents: transformBarStrSource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]bar\.js$/ }, async args => ({
+      contents: transformBarCommandSource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]barstr\.js$/ }, async args => ({
+      contents: transformBarStrCommandSource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]print_palam\.js$/ }, async args => ({
+      contents: transformPrintPalamSource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]forcewait\.js$/ }, async args => ({
+      contents: transformForceWaitSource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]character\.js$/ }, async args => ({
+      contents: transformCharacterSource(await readFile(args.path, 'utf8')),
+      loader: 'js', resolveDir: path.dirname(args.path)
+    }));
+    build.onLoad({ filter: /[\\/]build[\\/]statement[\\/]command[\\/]addvoidchara\.js$/ }, async args => ({
+      contents: transformAddVoidCharaSource(await readFile(args.path, 'utf8')),
       loader: 'js', resolveDir: path.dirname(args.path)
     }));
   } };
