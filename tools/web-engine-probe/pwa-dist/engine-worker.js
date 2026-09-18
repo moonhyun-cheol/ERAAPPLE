@@ -9969,9 +9969,11 @@ var VM = class {
       fnList = fnList.concat(events);
     }
     for (const fn of fnList) {
-      this.staticMap.set(fn.name, /* @__PURE__ */ new Map());
-      this.staticMap.get(fn.name).set("LOCAL", new Int1DValue("LOCAL", varSize2.get("LOCAL")));
-      this.staticMap.get(fn.name).set("LOCALS", new Str1DValue("LOCALS", varSize2.get("LOCALS")));
+      if (!this.staticMap.has(fn.name)) {
+        this.staticMap.set(fn.name, /* @__PURE__ */ new Map());
+        this.staticMap.get(fn.name).set("LOCAL", new Int1DValue("LOCAL", varSize2.get("LOCAL")));
+        this.staticMap.get(fn.name).set("LOCALS", new Str1DValue("LOCALS", varSize2.get("LOCALS")));
+      }
       for (const property of fn.property) {
         if (property instanceof Dim && !property.isDynamic()) {
           this.staticMap.get(fn.name).set(property.name, await property.build(this));

@@ -102,6 +102,12 @@
 //       game uses LOSEBASE, so stale HP/stamina costs from either game were charged
 //       again—even after recovery or loading a save. Fix #19 resets every work value
 //       before EVENTCOM and COM execution, matching Emuera command boundaries.
+//    D) Duplicate event-handler static scope. eraJS keyed #DIM storage only by the
+//       event name and recreated that map for every same-name handler, so only the
+//       final handler's declarations survived reset. Once the #PRI EVENTTURNEND no
+//       longer exited early, SYSTEM.ERB's later EVENTTURNEND reached TARGET_POOL
+//       and failed with "Invalid assignment expression". Fix #20 merges #DIM
+//       declarations from all handlers sharing an event name into that event scope.
 
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
@@ -541,6 +547,25 @@ export function transformVmSource(source) {
                     result = yield* scene.LOADGAME(this);
                     break;
                 default: throw E.notFound("Scene", begin);`);
+  // Fix #20: eventMap intentionally contains multiple Fn objects for the same
+  // event name. reset() used to recreate staticMap[name] for every object, so each
+  // handler erased the previous handler's #DIM declarations. All handlers execute
+  // under context.fn.name, therefore collect their declarations in the shared event
+  // scope instead of replacing it. This preserves ordinary one-definition function
+  // behavior while making later EVENTTURNEND handlers parse and run like Emuera.
+  r.apply(
+    `        for (const fn of fnList) {
+            this.staticMap.set(fn.name, new Map());
+            this.staticMap.get(fn.name).set("LOCAL", new Int1DValue("LOCAL", varSize.get("LOCAL")));
+            this.staticMap.get(fn.name).set("LOCALS", new Str1DValue("LOCALS", varSize.get("LOCALS")));
+            for (const property of fn.property) {`,
+    `        for (const fn of fnList) {
+            if (!this.staticMap.has(fn.name)) {
+                this.staticMap.set(fn.name, new Map());
+                this.staticMap.get(fn.name).set("LOCAL", new Int1DValue("LOCAL", varSize.get("LOCAL")));
+                this.staticMap.get(fn.name).set("LOCALS", new Str1DValue("LOCALS", varSize.get("LOCALS")));
+            }
+            for (const property of fn.property) {`);
   return r.result();
 }
 

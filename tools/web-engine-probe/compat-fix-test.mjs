@@ -38,6 +38,27 @@ QUIT
   assert.match(textOf(events), /DREW/);
 });
 
+test('duplicate event handlers retain every handlers local #DIM declarations', async () => {
+  const source = new Map([['PROBE.ERB', `@SYSTEM_TITLE
+BEGIN TURNEND
+
+@EVENTTURNEND
+#PRI
+#DIM PRIMARY_WORK
+PRIMARY_WORK = 11
+PRINTFORML FIRST:{PRIMARY_WORK}
+
+@EVENTTURNEND
+#DIM SECONDARY_WORK
+SECONDARY_WORK = 22
+PRINTFORML SECOND:{SECONDARY_WORK}
+QUIT
+`]]);
+  const { events } = await execute(compile, source);
+  assert.match(textOf(events), /FIRST:11/);
+  assert.match(textOf(events), /SECOND:22/);
+});
+
 test('a runtime string index is resolved through the variable CSV name table', async () => {
   const source = new Map([
     ['FLAG.CSV', '0,알파\n1,베타\n2,감마\n'],

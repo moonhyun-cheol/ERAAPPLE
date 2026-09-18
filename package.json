@@ -7,6 +7,6 @@
     "node": ">=24"
   },
   "scripts": {
-    "test": "node --test --test-timeout=30000 tools/web-engine-probe/input-gate-test.mjs tools/web-engine-probe/batch-channel-test.mjs tools/web-engine-probe/train-command-state-test.mjs"
+    "test": "node --test --test-timeout=30000 tools/web-engine-probe/input-gate-test.mjs tools/web-engine-probe/batch-channel-test.mjs tools/web-engine-probe/train-command-state-test.mjs tools/web-engine-probe/compat-fix-test.mjs"
   }
 }
